@@ -10,6 +10,7 @@
 \usepackage{multicol}
 \usepackage{float}
 \usepackage{subcaption}
+\usepackage{media9}
 \usepackage{color, colortbl}
 \usepackage[export]{adjustbox}
 \graphicspath{{./images/}}
@@ -29,6 +30,8 @@
 \institute{Micron School of Materials Science and Engineering}
 \author{Evan Miller}
 \date{August 3, 2016}
+
+\setbeamertemplate{navigationsymbols}{}
 
 \begin{document}
 
@@ -57,6 +60,8 @@
 }
 
 \newcommand{\icon}[1]{\pgfimage[height=1em]{#1}}
+
+\newcommand{\btVFill}{\vskip0pt plus 1filll} % Use this command to skip to the bottom of the slide (useful for anchoring citations to the bottom)
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
