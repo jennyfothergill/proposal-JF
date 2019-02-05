@@ -1,13 +1,16 @@
-paper.pdf: paper.tex paper.bbl 
-	pdflatex paper.tex
-	pdflatex paper.tex
+open: paper.pdf
 	open paper.pdf
+
+paper.pdf: paper.aux paper.bbl 
+	pdflatex paper.tex
+	pdflatex paper.tex
 
 paper.aux: paper.tex
 	pdflatex paper.tex
 	pdflatex paper.tex
+	bibtex paper
 
-paper.bbl: paper.aux library.bib
+paper.bbl: library.bib
 	bibtex paper 
 
 library.bib: 
