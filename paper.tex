@@ -1,84 +1,20 @@
-% typeset for review
-% \documentclass[journal = jctcce]{achemso}
-% match the journal format as closely as possible
-\documentclass[journal = jacs, manuscript = article, layout=onecolumn]{achemso}
-
-\usepackage{graphicx}
-\usepackage{amssymb}
-\usepackage{amsmath}
-\usepackage{booktabs}
-\usepackage{amsmath}
-%\usepackage{lineno}
-%\biboptions{square, comma, numbers, sort&compress}
-
-% for hyperlinks
-\usepackage[usenames,dvipsnames]{color}
-\definecolor{darkblue}{rgb}{0,0.08,0.45}
-\usepackage[bookmarksopen=true,bookmarksopenlevel=2,colorlinks=true,linkcolor=darkblue,anchorcolor=darkblue,citecolor=darkblue,urlcolor=darkblue,pdfstartview=FitH]{hyperref}
-
-% commands for formatting in algorithms
-%\usepackage{algorithm}
-%\usepackage{algpseudocode}
-%\newcommand{\algorithmname}{Algorithm}
-\newcommand{\var}[1]{\mathtt{#1}}
-\newcommand{\func}[1]{\mathbf{#1}}
-\newcommand{\set}[2]{#1 \leftarrow #2}
-\newcommand{\load}[2]{#1 \Leftarrow #2}
-\newcommand{\store}[2]{#1 \Rightarrow #2}
-
-\newenvironment{DIFnomarkup}{}{}
-\newcommand{\todo}[1]{\textcolor{red}{\textit{#1} -- TODO}}
-
-%% use optional labels to link authors explicitly to addresses:
-%% \author[label1,label2]{<author name>}
-%% \address[label1]{<address>}
-%% \address[label2]{<address>}
-\author{x}
-\email{x}
-\affiliation{x}
-
-%% Title, authors and addresses
-\title{Title}
-
-\keywords{molecular dynamics, organic photovoltaics, coarse-graining}
+\documentclass{article}
+\title{Reading Notes}
 
 \begin{document}
-\begin{abstract}
-abs
-\end{abstract}
+\title{}
 
+today I got this repo set up. Next time, I'll reskim these papers:
 
-\section{Introduction}
-Example citation\cite{Jankowski2009}
+MARTINI\cite{Marrink2007}
 
-\subsection{Morphology Matters}
+VOTCA\cite{Ruhle2009}
 
-\subsection{Simulations of OPV material morphology}
-\begin{align}
-U_{total}&= \sum_{bonds} \frac{K_r}{2}(r-r_0)^2 + \sum_{angles} \frac{K_\theta}{2}(\theta-\theta_0)^2 + \sum_{torsions} \frac{V_n}{2}(1+\cos(n\phi-\gamma)) \nonumber \\
-&+ \sum_{impropers} \frac{K_i}{2}(\chi-\chi_0)^2 + \sum_{pairs:~i<j} 4\epsilon_{ij}\left[ \left(\frac{\sigma_{ij}}{r_{ij}}\right)^{12}- \alpha\left(\frac{\sigma_{ij}}{r_{ij}}\right)^{6}\right] + \frac{q_iq_j}{\kappa r_{ij}},
-\end{align}
+TraPPE\cite{Maerzke2011}
 
-\begin{figure}[tb]
-\centering
-%\includegraphics[width=6cm]{figs/aa}
-\caption{\label{fig:zero} Placeholder}
-\end{figure}
-
-\begin{enumerate}
-\item a
-\item b
-\item c
-\item d
-\end{enumerate}
-
-\section{Results}
-
-\section{Conclusions}
-
-\section{Acknowledgements}
+and read this: \cite{Chakraborty2018a}
 
 \bibliography{library}
-
+\bibliographystyle{ieeetr}
 \end{document}
 
