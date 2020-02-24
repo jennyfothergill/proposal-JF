@@ -40,7 +40,7 @@ Next time read about tie-chains \cite{May2011} and/or charge mobility \cite{Luky
 Lukyanov--sounds a lot like morphct, gaussian density of states? I thought their (votca's) method was like morphct but now I'm not sure... It seems like they're using a simplification and not doing dft.
 
 \cite{Vehoff2010a}
-rubrene record charge carrier 15 cm^2/(V s) single crystal by vapor deposition. typical for thin-film is 1 cm^2/(V s)
+rubrene record charge carrier $15 \frac{cm^{2}}{V s}$ single crystal by vapor deposition. typical for thin-film is $1 \frac{cm^{2}}{V s}$
 good discussion of some of the assumption of marcus theory. 
 Drude model (electrons bounce off stationary nuclei like a pinball machine) works for perfect crystals at low temp.
 At RT it doesn't work. Marcus theory assumes nuclear dynamics much slower (Borne-Oppenheimer) and electronic coupling is weak (what does this mean exactly?). Static disorder is based on the electronic DOS and the hopping rate between localized states. (As opposed to what?)
@@ -48,6 +48,12 @@ They start with single crystal structures from xray data. They calculate reorgan
 How are they able to calculate direction-resolved transfer integrals?? very cool. What exactly do the transfer integral graphs mean? (Figure 2) Had a helpful chat with Chris about this and it helped me to think through the figures. The y-axis on the transfer integral is counts and the x-axis is energies--it makes sense that movement of an electron in different directions would require different energies and/or be more likely. Still not sure how to calculate it though. 
 
 Today I'm digging around in more of the votca stuff to try and figure out how to run kmc there. They use ORCA too! Also their tutorials and documentation REALLY SUCK. [https://github.com/votca/xtp-tutorials](https://github.com/votca/xtp-tutorials) in particular I'm looking at LAMMPS/KMC\_Thiophene.
+OK. either I am dumb or that tutorial sucks. I can tell that they're using orca and the inputs/oputputs the use but there's no explanation of what they're doing. It looks like they calculate the reorganization energy, but they don't define a chromophore--which makes sense for thiophene but what about when your molecule is ginormous?
+\cite{Ruhle2011b} discusses charge transport in amorphous films of [tris-(8-hydroxyquinoline)aluminum](https://en.wikipedia.org/wiki/Tris(8-hydroxyquinolinato)aluminium). Oh Figure 1 is nice--it is a workflow of what can be done in votca.
+11A talks about how to parameterize new contributions to a force-field using first-principles.
+11B choosing a "chromophore"-- rigid fragments vs conjugated segments. they broke apart the chromophore in a polymer like p3ht using the dihedral angle--although they validated this choice with other methods. Interesting-- they replace the chromophores with those which have been geometry optimized using DFT. then they make a neighbor list
+I'll come back to this paper later. I at least was able to answer some of my questions about choosing a chromophore.
+11C talks about calculating the transfer integral for each pair and why ZINDO works and when it breaks down.
 
 \bibliography{library}
 \bibliographystyle{ieeetr}
