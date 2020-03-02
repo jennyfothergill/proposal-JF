@@ -1,3 +1,6 @@
+# Don't add my system link
+library-link.bib
+
 # Don't add the pdf
 *.pdf
 
