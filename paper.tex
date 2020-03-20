@@ -65,6 +65,18 @@ https://doi.org/10.33011/ livecoms.1.1.5957
 74-89 are relevant to coarse-graining
 92-95 start here for opvs
 
+Today I'm thinking about some of the big picture stuff related to my proposal:
+Science-wise I am thinking of my proposal like this: Humans use energy and burning fossil fuels to get that energy really sucks. rising CO2 concentration in the atmosphere contributes to global warming. Sustainable, low-carbon footprint energy generation is vital to protect the precious climate which sustains all life. Energy generation using OPV devices is one form of alternative energy. But there are a lot of potential OPV molecules out there! So how can we develop inexpensive, fast methods for screening this ZOO of compounds? Well we can use modelling techniques and a computer. Computational simulations of organic photovoltaics suffer from a problem of length scales: OPV morphologies can have bulk features on the scale of 10s of nanometers (BHJ, exciton dissociation length, pi-stacking) which affect the morphology, yet still we are interested in the electronic properties of this system--a fundementally quantum mechanical property--taking place on the angstrom scale where with current computers we can only realistically look at up to 100's of atoms. <so we break apart the problem MD to get a morphology, Zindo to calculate energy splitting of neighbors-->transfer integral, KMC to estimate CT, talk about results of evan/matty/votca> What am I going to add? more robust/automated coarse-graining and backmapping, calculation of reorganization energy, chromophore detection.
+Things I care about: The environment--I like working on a project that theoretically could help find the next molecule for OPV technology. Sometimes it seems very far removed, but having sustainable technology as an ultimate goal matters to me. I also care a lot about help make science more accessible to everyone: I find myself really excited about creating tools which help to visualize the unseeable and to communicate complex ideas in a simple understandable way. I'm not sure this has anything to do with anything, but it's definitely a developing passion.
+
+I'm also reading this paper today https://arxiv.org/pdf/2003.02031.pdf which is a bout TRUE simulations.
+notes:
+GUI's hurt reproducibility, MS Excel hides the formula's and order of calculation (p 4)
+poorly documented code and raw data files dont help reproducibility (looking at you votca) (p4)
+*I want to include start to finish notebooks with any paper I publish...* Also docker containers with my exact software stack.
+I love the examples in this paper :) It feels a lot like our perspective paper! I'm skimming them but I love that notebooks are included in the SI.
+They qualify the GUI's are bad statement saying that GUIs are only bad *if they hide the workflow details.* 
+
 Matt Thompson got a job at OpenFF, one of the tools they list as desirable for applicants is knowledge of psi4:
 https://pubs.acs.org/doi/abs/10.1021/acs.jctc.8b00286
 
