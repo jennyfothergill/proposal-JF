@@ -94,6 +94,22 @@ hydrogens, single bond don't need to be specified. designed for organic molecule
 
 \cite{Smith2018} reading about psi4: free and open source with python api that uses blas and c under the hood. has jupyter notebooks tutorials. This paper reads like our perspective paper in tone :hearteyes: 2.2 -2.3 kinda lost me. I should look at their jupyter notebooks.
 
+Today searched "coarse grain backmapping" in the library and got the following papers:
+\cite{Alessandri2017b}
+
+\cite{Haxton2015a}
+\cite{Wassenar2104b}
+\cite{Peng2019a}
+\cite{Rolland2020a}
+
+This is the paper we reviewed in lab meeting! CG -> backmap -> mobility. AA MD can reproduce XRD patterns pi-pi stacking, formation of lamellar structure, change in morphology at high oxidation levels, mobility dependence on chain-length (* looks into ref 26 and compare to evan's tie chain paper)
+CG allows us to look at larger lengthscales and with backmapping we can restore atomistic details, but is there a cost? ref 44 model HOTT molecules as ellipsoids with Gay Berne interactions (I'm thinking of this as anisotropic--i.e., directionally dependent so good for ellipsoids--Lennard Jones. Often used in liquid crystal systems.) 
+They use the same backmapping as us ref 13. Many CG papers verify by XRD buyt they claim same XRD can result in very different mobility. ref 26. They use Wassenar's backward.py script. -- He is from the university which makes GROMACS
+CG overestimates density--backmapping fixes it. XRD of backmapped AA match AA. pipi stacking is corrected and lamellar structure present. Mobility also good. They explain the differences between the AA and CG mobilities saying that the AA one is smaller so it's a size effect due to over estimated percolation threshhold--i.e. the connectivity is overestimated because the periodic volume is small enough that the periodic image has an effect.
+
+\cite{Poblete2018a}
+
+
 
 \bibliography{library}
 \bibliographystyle{ieeetr}
