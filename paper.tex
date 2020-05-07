@@ -99,6 +99,17 @@ Today searched "coarse grain backmapping" in the library and got the following p
 
 \cite{Haxton2015a}
 \cite{Wassenar2104b}
+
+This paper is about backwards.py. The authors are from university of groeningen where GROMACS is made. however this tool is generic and not specific to gromacs. it uses geometric projection and position restrained MD relaxation--same as what Matty did. can map between anything just needs a mapping.
+Good overview of CG methods:
+Rzepiela - randomly place atomistic beads on small spheres around CG beads. Requires many steps, specific to one verison of GROMACS, but can be made specific with correspondence between atoms and beads.
+Brocos - lipid micelles. placing atoms on a trace through the CG bead and adding peripheral atoms at offset. 
+A good CG model should yield correct structures and be simple quick and flexible. Should be generic (ff and system type) and require little information. Then information provided should be the CG coordinates, the atomistic topology and the correspondence mapping between the atomistic and CG particles.
+They go from MARTINI-CG to GROMOS 54a7 UA to CHARMM36 AA.
+Some matrix mapping that I don't totally understand. Confusing between A the matrix and A the atom position. :/
+Fig 5 is neat! c: shows a helical protein at each step of the CG->AA process. their procedure appears to improve upon the simulated anealing of rzepiela. 
+* look at backwards.py with the intent of better understanding the Matrix transformation.
+
 \cite{Peng2019a}
 \cite{Rolland2020a}
 
