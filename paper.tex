@@ -97,6 +97,13 @@ hydrogens, single bond don't need to be specified. designed for organic molecule
 Today searched "coarse grain backmapping" in the library and got the following papers:
 \cite{Alessandri2017b}
 
+Coarse graining in OPV bulk heterojunctions! p3ht and pcbm, solvent evaporation. morphologies need large interfacial area between donor and acceptor and relatively high crystallinity and connection to the electrode.How can we investigate the processing conditions that achieve the highest performance?
+Analysis of OPVs include AFM, SEM, TEM - provide info about interpenetration (how the two phases are dispersed.) Electron tomography can study 3d morphology., but has limited contrast in organic material due to low scattering. GIXD, GISAXS quantifies the degree of crystallinity but averages over the structure. 
+CG allows us to look at these systems but CG models are currently not transferrable meaning that for each new system a new CG model must be developed which is slow. Simulated annealing is often used but a more relevant to experiment method is simulated evaporation.
+This paper used CG model like Lee and Pao (read this paper) but also based on finer model like martini. Martini does backmapping. (backwards.py) 
+They use explicit solvent (CB/benzene) and they remove molecules randomly as the simulation progresses. Longer drying time results in larger crystallites/ fewer D-A contacts. P3ht shows backbone (pi-pi) stacking at a distance of 4.5 A in the CG morphology. They use backwards.py to do their backmapping. They use 3 beads to represent thiophene in p3ht with no explicitly anisotropic interaction. Carillo (ref 26) used anisotropic addition onto very simplified model (thiophene is single bead) of lee (ref 22). (read these) The model used here thiophene is a triangle and they think this helps it stay planar and stack.
+Figure 5 is beautiful.
+
 \cite{Haxton2015a}
 \cite{Wassenar2104b}
 
