@@ -105,7 +105,12 @@ They use explicit solvent (CB/benzene) and they remove molecules randomly as the
 Figure 5 is beautiful.
 
 \cite{Haxton2015a}
-\cite{Wassenar2104b}
+CG beads with orientation. They use the word "stiffest" to describe degrees of freedom--they mean bond stretching, angle bending, and torsion within rings. They suggest there are two separate ways to improve CG: better mapping between AA and CG or better CG interactions. The seconds can be helped with IBI, entropy minimization... First one is what the authors will focus on.
+Point-site method maps groups of atoms onto a bead--bead potential is spherically symmetric, but some models use neighboring sites to introduce some directionality. e.g., Alemani et al created a protein model where the dipole interaction was a function of the alpha-carbon angle. Here they add orientation to the point-site model. This increases the degrees of freedom for each site from 3 to 6, but they model bonds and angles as stiff and dihedral angles (except rings and double bonds) as soft. They also map about 8 atomns to a site. They use backmapping from ref 64--not backwards.py. 
+They simplify the ideal interactions of the CG model (many-body problem) to pai potentials. They show how to calculate to error in an observable calculated on backmapped structure. C code used for backmapping in SI.
+mapping ratio - atomic DOF / CG DOF. PRIMO on average is 3.0, UNRES, MARTINI, MS-CG are 8.2, 7.1, and 6.0. I think this paper aims to improve on PRIMO by adding directionality? they measure accuracy with rmsd and efficiency with mapping ratio.
+
+\cite{Wassenar2014b}
 
 This paper is about backwards.py. The authors are from university of groeningen where GROMACS is made. however this tool is generic and not specific to gromacs. it uses geometric projection and position restrained MD relaxation--same as what Matty did. can map between anything just needs a mapping.
 Good overview of CG methods:
