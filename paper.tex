@@ -123,6 +123,9 @@ Fig 5 is neat! c: shows a helical protein at each step of the CG->AA process. th
 * look at backwards.py with the intent of better understanding the Matrix transformation.
 
 \cite{Peng2019a}
+
+biomolecules. Backmapping based on Bayesian inference and restrained MD. cgmap.py -- they tell us the names of their codes but don't provide them?? They try multiple CG methods: Martini (twice with different initial structure), UNRES, ENM. Martini had the lowest RMSD but it is also the finest grain method. They have an ultra coarse method that only use 5 beads for a small protein; it gets impressive results (RMSD 0.47 angstrom) for how sparse it is! But it is not sufficiently accurate to predict structure-- other RMSD > 10angstrom. their method is more expensive. I don't quite understand how they get some of the probabilities for the Bayesian part, but my takeaway from this paper is that the logrestraints work a lot better for them and Bayesian inference, although expensive, allows them to skip the AA MD simulation at the end?
+
 \cite{Rolland2020a}
 
 This is the paper we reviewed in lab meeting! CG -> backmap -> mobility. AA MD can reproduce XRD patterns pi-pi stacking, formation of lamellar structure, change in morphology at high oxidation levels, mobility dependence on chain-length (* looks into ref 26 and compare to evan's tie chain paper)
