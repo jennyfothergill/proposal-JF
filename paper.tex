@@ -138,6 +138,31 @@ RNA - backmapping steered MDaimed at minimizing a particular RMSD (ERMSD) betwee
 need AA strutures to validate with experiment (x-ray or neutron scattering) backmapping usually involves placing atomistic coordinates relative to the beads and then minimizing the energy of the structure using steepest descent or short MD runs (could use position restraint). Atomistic can even be mapped onto the whole trajectory. 
 This work describes the backmapping of the SPlit and conQueR (SPQR) method. Minimizes the ERMSD distance between solvated AA strand of the CG structure (RNA). ERMSD : origin is set to CoM of C2 C4 and C6 atoms of each base (see ref 23), then for each pair of bases, rij is the center of base i in the coord system of base j. In order to account for anisotropy, the scaling for the z-direction is different (does this mean the strand is oriented to z in some way??) This metric shows the difference between arrangement of nucleobases of two RNA structures. Backbone and sugar interactions are unrestrained. The paper will show results on the backbone conformation. They use steered MD with ERMSD as the steering parameter. (How does steered MD work?) Look like they use and external pulling force which depend on ERMSD.
 
+Of these the Alessandri paper was the best and  most interesting/relevant. I am pulling some refs from here for next time:
+
+\cite{Mikhnenko2012}
+\cite{Alessandri2017b}
+\cite{Scharber2013}
+\cite{Scharber2006a}
+\cite{Yu1995}
+\cite{Halls1995}
+\cite{Kim2006}
+\cite{Lee2011}
+\cite{Huang2010}
+\cite{Jankowski2013}
+\cite{Marsh2014}
+\cite{}
+\cite{}
+\cite{}
+\cite{}
+\cite{}
+\cite{}
+\cite{}
+\cite{}
+\cite{}
+\cite{}
+\cite{}
+\cite{}
 
 \bibliography{library}
 \bibliographystyle{ieeetr}
