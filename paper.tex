@@ -220,6 +220,25 @@ MARTINI - generic model 3-5 heavy atoms are grouped together each bead is assign
 soft potentials can be used for CG beads like DPD -- can have unphysically high compressibility
 !!! Systematic coarse graining approaches refs (87,91,269-273)
 start reading tomorrow at pt III
+
+simulation method (MC or MD) three steps
+1. create/initialize system
+2. equilibrate
+3. sample
+all steps should avoid bias.
+also choose ensemble, thermostat, barostat... choose for what you want to know. e.g. phase behavior - GCMC or GEMC phase coexistence with bead insertion/deletion. don't have to model the interface. Ref 308 is a GEMD method devolped by Arthi's group!
+
+Size: big enough that you can observe the phenomena you looking for. Calculating Flory-Huggins or polymer-polymer second virial coeff require long length scales. phase separations must also be larger than the length scale of the concentration fluctuations. However if interested indilute-soln properties like chain configuration or scaling laws--single chain even can be appropriate.
+finite size effects emerge from self interaction with the periodic image and limited size of box/system. smaller size can lead to pressure and stress fluctuation preventing calculation of mechanical properties.
+good rule of thumb -- box length to radius of gyration should be L/Rg >= 5.
+
+initialization: random initialization might be fine if system is isotropic but not at high density. A procedure to initialize high density CG polymer melts which uses MC with no intrachain moves and soft MD is described.
+an important metric for chain configuration is mean squared internal distance (measure of atoms or beads separated by n bonds along the chain). shows perturbations in internal chain not shown by the radius of gyration or end to end distance.
+We use a shrink-step, but that isn't mentioned here...
+
+Equilibration:
+relaxation in chain configuration is slow compared to relaxation of chain level metrics (like the mean squared interanl distance) or check MSD of CoM of polymer chains -- if they diffuse nultiples of Rg over equilibration, the system is relaxed. annealing processes (change T and P (also V???)) can help equillibrate. also mimic experiment.
+Start again at p.11 Sampling
 \cite{Muller-Plathe2002}
 \cite{Ayton2007a}
 \cite{Peter2009c}
