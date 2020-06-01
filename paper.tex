@@ -239,6 +239,17 @@ We use a shrink-step, but that isn't mentioned here...
 Equilibration:
 relaxation in chain configuration is slow compared to relaxation of chain level metrics (like the mean squared interanl distance) or check MSD of CoM of polymer chains -- if they diffuse nultiples of Rg over equilibration, the system is relaxed. annealing processes (change T and P (also V???)) can help equillibrate. also mimic experiment.
 Start again at p.11 Sampling
+decorrelation is expecially important for polymers as the relax very slowly. Calculate the decorrelation time of a property of interest like Rg (for polymers this might be better than the decorrelation of the potential energy!)
+for systems with high energy barriers to rearrangement, small independent simulations may be better than independent snapshots from one simulation.
+Advanced sampling techniques: umbrella, Wang-Landau, adaptive force biasing, etc. used to explore free energy landscapes with mulitple barrier between minima more efficiently.
+Analysis - focused on structural and thermodynamic properties -- not dynamic properties.
+Looking at simulations is great, but it must be paired with quantitative analysis. Always report error bars. good way to do this is block averaging: simulation (trajectory?) is split into blocks the mean value of a quantity of interest is computed in each block, the average and std dev of the mean from each block which then become the ensemble average and std err for the entire simulation.
+RDF and structure factor characterize system of many length scales as well as allow access to thermodynamic quantities of interest. Sq can be directly compared with experiment and analysis of low q (long length scale) provides insight about phase separation and concentration/density fluctuations. However--range of q that can be accessed in simulations is limited to longest real-space distance that can be reliably sampled in box. Two methods to calculate Sq (fourier transform of g(r) and summation method) the fourier transform can introduce unphysical artifacts because it is only rigorously defined over infinite spatial domain (impossible for a simulation box.)
+other scattering techniques include reflectivity, small-angle/wide-angle scattering, diffraction (jankowski marsh paper cited!). They even mention dynamic S(q,t) can be used to understand chain relaxation.
+Flory Huggin parameter - lattice model of thermodynamics of polymer solutions takes into account different molecular sizes when calculating entropy of mixing. (this paper goes into depth about a specific thing about this parameter but as I have only just heard of it -- the summary above is from wikipedia-- I don't understand what it is talking about yet)
+Phase Transitions - different order parameters (Rg, end-to-end distance, etc) may be necessary to find a phase transition. Simulations that use a temp/pressure ramp may show hysteresis. 
+Using analysis software - make sure to validate using previously published results.
+Made it to section IV! finish paper tomorrow. :)
 \cite{Muller-Plathe2002}
 \cite{Ayton2007a}
 \cite{Peter2009c}
