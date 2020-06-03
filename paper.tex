@@ -256,7 +256,18 @@ Comparison to theory - limitations include finite size effects, inability to cap
 DFT-with MD/MC can be used to calculate the free energies in structure during solvent evaporation.
 PRISM - don't quite understand what this is something like a way of understanding the structure of a polymer morphology?
 Finished! OK paper takeaways -- autocorrelation for polymers shouldn't be based on PE, need to learn how to calculated some of the polymer metrics.
+
 \cite{Muller-Plathe2002}
+
+linking length and time scales. Analogy plant cell metabolism is very fast but tree death due to pollution is very slow; it is unecessary to measure tree dieback every milisecond. this analogy in chemistry ca go from observing bonding with electron wavefunctions, to modelling solvation with explicit water and FF, to modelling the flow of bulk water with a continuum characterized with various parameters. coarse grain models are built rigorously through converting the results of a fine grain system to the parameters of the coarser system. This efficiency gain allows us to indirectly predict large-scale and long-time quantities. 
+Backmapping allows the coarse method to generate *samples* for the fine-grain method.
+mapping atom to coarse grain bead reduces the DOF and the effective potential account for the missing DOF. CG potentials are usually softer which allows larger time-steps. CG models are specific, tuned to a specific chemistry and to reproduce a specific structural or thermodynamic feature. 
+A penalty function can be used to determine how far off the CG model is.
+The degree of coarse-graining and where the beads are placed can affect the success of reproducing the structural/thermo feature. They show an example of a diphenyl carbonate represented by 3,2,1 beads. The 3 bead structure easily replicates the atomistic RDF with just LJ6-12, the 2 and 1 bead structures do not, but the 1 bead structure can be made to fit the atomistic rdf if a piecewise potential is used (overfitting?)
+Cg optimization procedures: two procedure are describe here the first optimizes Gaussian functions--I don't understand what or how they are optimizing. the other uses elliptical potentials to give space filling at experimental density.
+start next time at section 3.3
+
+\cite{Reith2003a}
 \cite{Ayton2007a}
 \cite{Peter2009c}
 \cite{Baschnagel2000}
