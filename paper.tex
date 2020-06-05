@@ -266,7 +266,15 @@ A penalty function can be used to determine how far off the CG model is.
 The degree of coarse-graining and where the beads are placed can affect the success of reproducing the structural/thermo feature. They show an example of a diphenyl carbonate represented by 3,2,1 beads. The 3 bead structure easily replicates the atomistic RDF with just LJ6-12, the 2 and 1 bead structures do not, but the 1 bead structure can be made to fit the atomistic rdf if a piecewise potential is used (overfitting?)
 Cg optimization procedures: two procedure are describe here the first optimizes Gaussian functions--I don't understand what or how they are optimizing. the other uses elliptical potentials to give space filling at experimental density.
 start next time at section 3.3
-
+Using a DOF distribution (pairwise, bond stretch, angle) to get a CG potential. An analitical function. the potential obtained this way really is a free energy not a potential energy. It incorporates effects from finite temperature and neglected degrees of freedom.
+IBI is a way to get a numerical potential (For IBI Reith is cited -- he appears to be Muller-Plathe's PhD student.) The description of IBI is really concise and clear. :) IBI is a tabulated potential. They describe two other methods.
+Potentials can also be optimized to match thermodynamic targets. They discuss how to add a cutoff value to IBI potential. also cite a paper that adds pressure information to numerical potentials.
+skipping lattice models.
+Atomistic -> derived CG potential -> CG sim -> backmap to atomistic -> local relax. 
+Seems roundabout but it's not! Smoothing of the PE surface in CG allows easier access to polymer morphology. CG can provide starting structures to atomistic MD. which can then be inputs to electronic structure calculations. 
+CG is so much more efficient we can calculate chain properties. AUTOMIZATION IS KEY (IBI, simplex). The intellectually challenging part of CGing is where to place the beads!!
+errors in atomistic FF will filter to CG ff.
+CG models are specific to the conditions under which the parameterization is performed.
 \cite{Reith2003a}
 \cite{Ayton2007a}
 \cite{Peter2009c}
