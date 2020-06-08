@@ -275,7 +275,18 @@ Seems roundabout but it's not! Smoothing of the PE surface in CG allows easier a
 CG is so much more efficient we can calculate chain properties. AUTOMIZATION IS KEY (IBI, simplex). The intellectually challenging part of CGing is where to place the beads!!
 errors in atomistic FF will filter to CG ff.
 CG models are specific to the conditions under which the parameterization is performed.
+
 \cite{Reith2003a}
+IBI algorithm is made in this paper! Uses potentials of mean force. IBI potentials are nontransferrable--they work best for the system they are optimized for.
+CG allows chain behavior to be studied. History: bead spring polymer chains in a melt to a soft-core liquid ellipsoidal particles with anisotropic gaussian potential. polymer melt cg-ing. None of these derived an automated optimization scheme to conserve the chemical nature of the underlying atomistic model in a standardized way as we do.
+PRISM theory combined with MC can predict long and short range structures of polymer chains but can't produce CG potentials.
+Reverce MC can reproduce RDF without a need for potential. lack of potential limits usefulness though because RMC uses knowledge of RDF without knowing underlying forces.
+Description of IBI algorithm: potential of mean force IS boltzmann inversion of RDF. (Free energy NOT potential energy.) Bending potentials before nonbonded potentials.
+They used a five point running average to smooth the potentials
+bond stretch -> angle bend -> nonbonded -> dihedral
+They started with monoatomic liquids with LJ and WCA potentials (1) they used the correct potential as V0. (2) then they used the boltzmann inverse of the RDF. 
+Conclusions:
+start with small range (cutoff?) and increase until RDF matches. CG FF for polyisoprene are different between solution and melt.
 \cite{Ayton2007a}
 \cite{Peter2009c}
 \cite{Baschnagel2000}
