@@ -287,7 +287,14 @@ bond stretch -> angle bend -> nonbonded -> dihedral
 They started with monoatomic liquids with LJ and WCA potentials (1) they used the correct potential as V0. (2) then they used the boltzmann inverse of the RDF. 
 Conclusions:
 start with small range (cutoff?) and increase until RDF matches. CG FF for polyisoprene are different between solution and melt.
+
 \cite{Ayton2007a}
+Coarse graining scheme, systematic, for biological systems.
+If CGing is done systematicall it retains important averaged atomistic level interations. Connecting length and time scales.Systematic methods for making CG systems: RMC, this paper will focus on multiscale coarse graining (MS-CG) uses force matching algorithm
+Variational. Some of the math does not make sense but it appears to only be based on positions of atomistic and CG particles. They make the free energies of the atomisitic and CG systems the same. Many atomistic frames are mapped to CG beads and the potentials are based in the gradient of the forces felt by the beads. The algorithm minimizes a residual function.
+Summary: works, RDFs match. Enables calculation of CG force fields without resolving many-dimensional potential of mean force. (but honestly IBI seems so much simpler. Is there something I'm missing? is boltzmann inverse of RDF not PMF?? This paper was published after Reith paper... when is force matching better?)
+
+
 \cite{Peter2009c}
 \cite{Baschnagel2000}
 \cite{Brini2013}
