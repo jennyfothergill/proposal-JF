@@ -296,6 +296,16 @@ Summary: works, RDFs match. Enables calculation of CG force fields without resol
 
 
 \cite{Peter2009c}
+Review paper- coarse grained models linked to atomistic models. 
+They mention the good, marginal, and poor solvent parameter Theta.
+models can be linked sequentially, hybrid - both level present at once and interacting, or adaptive - individual molecules switch on the fly depending on e.g., spatial coordinates.
+CG target can be thermodynamic or structural.
+Structure based: boltzmann inversion of distribution with constant to set minimum to 0. Free energy vs PMF? Boltzmann inversion usually results in a tabulated potential but by fitting to gaussians it can be mapped to an analytical function.
+Bonded potential can be determined on a single polymer chain in vacuo but then the nonbonded interactions have to be considered carefully to avoid double counting. However bonded and nonbonded can be obtained from the same atomistic simulation of polymer melt iteratively. This makes the potentials interdepent.
+IBI can also consider other thermodynamic quantities like pressure and compressibility. IBI not useful for dilute solutions
+start next time at backmapping
+
+
 \cite{Baschnagel2000}
 \cite{Brini2013}
 \cite{Murtola2009a}
