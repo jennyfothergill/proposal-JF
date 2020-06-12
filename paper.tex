@@ -304,6 +304,9 @@ Structure based: boltzmann inversion of distribution with constant to set minimu
 Bonded potential can be determined on a single polymer chain in vacuo but then the nonbonded interactions have to be considered carefully to avoid double counting. However bonded and nonbonded can be obtained from the same atomistic simulation of polymer melt iteratively. This makes the potentials interdepent.
 IBI can also consider other thermodynamic quantities like pressure and compressibility. IBI not useful for dilute solutions
 start next time at backmapping
+backmapping has no one unique soln. every CG structure corresponds to an ensemble of atomistic microstates. reinsert theatomistic structure so that the atoms still satisfy the CG mapping and then relax the atoms with position restraint to the CG position.
+CG backmapped to atomistic allows better comparison with experiment than atomistic alone by giving access to larger length and time scales. e.g., NMR timescales are too long to simulate with atomistic alone, yet atomistic coordinates are necessary.
+Dynamics: the CG model is independent and has it's own timestep. dynamics are accelerated.
 
 
 \cite{Baschnagel2000}
