@@ -315,7 +315,19 @@ Bridging the gap between coarse and atomistic. Specific to polymers. This paper 
 Polymers have properties which can be measured at many different length scales. diffusions constant can be measured by monitoring the center of gravity of the chains.
 It is too big and too slow and also just a bad idea to simulate huge boxes of atomistic polymers. Even if the simulation was to complete, there would be too much information to process accurately. CGing allows scientists to FOCUS their experiments.
 start next time section 2 (p8 of 116)
-
+Frozen nuclei approximation is incorrectly referred to as the Born-Oppenheimer approximation?
+Quantum chemistry is good for predicting bond and angle potentials but not for LJ because you would need huge basis sets and high order electron correlation. DFT has similar issues LDA results in overbinding and GCA no attraction. partial charges are conformation dependent. 
+Quantum chem is very useful for parameterizing dihedrals!
+I skimmed this section v heavily but my takeaway is that if you need to know about a chemical reaction (transfer of electrons) it makes sense to consider QC methods. Also QC methods are not the cure-all for making forcefields.
+section 3 - how do we get dense systems?
+it is hard to change the system once it gets to a dense atomistic representation. so one should start with a good systm! (like from coarse-grain)
+This is tough because polymers are dense, amorphous, and highly-connected. three methods exist:
+1. add new segments according to the metropolis criterion
+2. coarse initials guesses created on a lattice
+3. low density condensed step by step using NPT
+they described a method of initializing using stream lines and vector fields which results in polymers of constant curvature.
+They describe a new rotational move that does a dihedral cis-trans flip.
+next time skim through the rest of this paper. I'm over it
 \cite{Brini2013}
 \cite{Murtola2009a}
 \cite{Peter2009d}
