@@ -369,6 +369,18 @@ Solvent annealing where layer is annealed under vapor. shown that poor solvents 
 interpentrating network has been the ideal, but crystalline regions of acceptor donor with mixed amorphous regions is more realistic.
 
 \cite{Brini2013}
+review of systematic coarse-graining for soft materials
+focuses on representability (how well a system predicts properties at the statepoint it was optimized for) and transferrability ( how well it can be used for other statepoints.)
+effective pair potentials are used for CG instead of the expensive many-body potentials. averaging over fast degrees of freddom removes their entropic contribution. to compensate for this, the pair potentials are softer resulting in a smoothed energy landscape. this affects the thermodynamic properties-- e.g., the heat capacity, which is related to the entropy fluctions at constant t and p is underestimated by a cg model (because the fluctuations arent as large). while compressibility related to volume fluctuation will be over estimated (i think because the potentials are so soft.) The thermal expansion coefficient which is related to both may well be represented accurately.
+parameterized vs derived CG potentials - 1st one atomistic simulations are used to calculate target properties (pair correlations, force distributions) IBI is this. 2nd one atomistic interaction are used directly. not optimized to reproduce selected tragets, therefore all properties are predictions of the model.
+Parameterized methods: IBI method described. 
+Inverse Monte Carlo - also an iteractive scheme that corrects a guessed interaction potential in order to reproduce a target radial distribution function, but the guess is based on statistical mechanics that take into account that a variation of the potential at a given distance r can lead to a variation of the RDF at all other distances. more expensive than IBI requires longer sims to calculate correlations. Can also include target thermo properties like surface tension.
+Both IBI and IMC are cases of relative entropy -- a measure of the amount of information lost upon coarse-graining and is defined in term of propability distributions of atomistic and CG systems. both methods minimize the discrepancy between the atomistic and CG distributions.
+Another method is force matching. effective pair potentials match the mean force on a particle through the atomistic force field.
+Derived methods: These potentials have a clear physical meaning (why?) potential of mean force calculated at LOW concentration. fragment based coarse graining
+skipped ahead to polymers
+
+
 \cite{Murtola2009a}
 \cite{Peter2009d}
 
