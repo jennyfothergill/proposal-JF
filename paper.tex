@@ -384,8 +384,17 @@ polymers are important for cg because the volumes needed to observe their long l
 \cite{Murtola2009a}
 quick letter - to get the full picture we have to consider multiple length scales. abstracting small length scales is necessary for time/resources. probably dont include this in references, it's so short.
 
-\cite{Peter2009d}
+\cite{Berendsen2010}
 ooh this one looks cool. starts with history of membrane models, goes to cging, then moves to cg dynamics. for next time
+many realistic process could not--and would never--be solvable by atomistic simulations. he describes a very simplified model of transport of a single water molecule through a membrane. reduce the system to motion in one reaction coordinate.
+the heart of coarse-graining is the reduction of degrees of freedom. then describing the dynamics of the reduced system so that it reproduces the projection of the complete system. this is only possible when the reduced and the removed degrees of freedom are well-separated (the removed are much faster). If the time scales are not separate the dynamic behavior will not be accurate but the probability distributions and thus the thermodynamic properties may still be.
+The choice of relevant dof is made on an intuitive basis and depends on what properties are wished to study. Note that atomistic md is already concerned reduced--no electronic dof.
+if a CG model does not predict any properties beyond the ones you have used for parameterization--you have achieved nothing! always require your model to predict something unknown.
+the motions in reduced space: the equations of motion are no longer hamiltonian--forces depend not only on the present but also the past configuration. Forces proportional to the velocity are non-conservative (kinetic energy is lost). in order to maintain average KE and T noise must be added.
+I skimmed the sections on dynamic equations and modelling fluids.
+simple methods that are easy to understand and implement--provided they are correct and work--will always prevail over complex methods, even if the latter are more accurate.
+
+\cite{Peter2009d}
 
 \cite{Kim2006}
 \cite{Lee2011}
