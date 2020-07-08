@@ -49,11 +49,15 @@ They start with single crystal structures from xray data. They calculate reorgan
 How are they able to calculate direction-resolved transfer integrals?? very cool. What exactly do the transfer integral graphs mean? (Figure 2) Had a helpful chat with Chris about this and it helped me to think through the figures. The y-axis on the transfer integral is counts and the x-axis is energies--it makes sense that movement of an electron in different directions would require different energies and/or be more likely. Still not sure how to calculate it though. 
 
 \cite{Vehoff2010a}
+
 rubrene record charge carrier $15 \frac{cm^{2}}{V s}$ single crystal by vapor deposition. typical for thin-film is $1 \frac{cm^{2}}{V s}$
 
 Today I'm digging around in more of the votca stuff to try and figure out how to run kmc there. They use ORCA too! Also their tutorials and documentation REALLY SUCK. [https://github.com/votca/xtp-tutorials](https://github.com/votca/xtp-tutorials) in particular I'm looking at LAMMPS/KMC\_Thiophene.
 OK. either I am dumb or that tutorial sucks. I can tell that they're using orca and the inputs/oputputs the use but there's no explanation of what they're doing. It looks like they calculate the reorganization energy, but they don't define a chromophore--which makes sense for thiophene but what about when your molecule is ginormous?
-\cite{Ruhle2011b} discusses charge transport in amorphous films of [tris-(8-hydroxyquinoline)aluminum](https://en.wikipedia.org/wiki/Tris(8-hydroxyquinolinato)aluminium). Oh Figure 1 is nice--it is a workflow of what can be done in votca.
+
+\cite{Ruhle2011b} 
+
+discusses charge transport in amorphous films of [tris-(8-hydroxyquinoline)aluminum](https://en.wikipedia.org/wiki/Tris(8-hydroxyquinolinato)aluminium). Oh Figure 1 is nice--it is a workflow of what can be done in votca.
 11A talks about how to parameterize new contributions to a force-field using first-principles.
 11B choosing a "chromophore"-- rigid fragments vs conjugated segments. they broke apart the chromophore in a polymer like p3ht using the dihedral angle--although they validated this choice with other methods. Interesting-- they replace the chromophores with those which have been geometry optimized using DFT. then they make a neighbor list
 I'll come back to this paper later. I at least was able to answer some of my questions about choosing a chromophore.
@@ -82,19 +86,29 @@ https://pubs.acs.org/doi/abs/10.1021/acs.jctc.8b00286
 
 read official papers for mosdef. check github.
 
-Reading \cite{Hanson2016} also my mendeley overwriting my files because it thinks they are duplicates or something? It keeps losing the pdf even though I've uploaded it. :(
+Reading 
+
+\cite{Hanson2016} 
+
+also my mendeley overwriting my files because it thinks they are duplicates or something? It keeps losing the pdf even though I've uploaded it. :(
 SMILES - simplified molecular-input line-entry system
 SMARTS - smiles arbitrary target specification
 around since 1980s
 alternatives SLN, MQL, CSRML.
 This paper is about specifically Jmol smiles so I'm skipping to a different one.
-\cite{Weininger1988} First paper about smiles- how do we unambiguously represent a chemical structure? historically CAS, graph theory, IUPAC.
+
+\cite{Weininger1988} 
+
+First paper about smiles- how do we unambiguously represent a chemical structure? historically CAS, graph theory, IUPAC.
 human-readable and machine readable
 hydrogens, single bond don't need to be specified. designed for organic molecules.
 
-\cite{Smith2018} reading about psi4: free and open source with python api that uses blas and c under the hood. has jupyter notebooks tutorials. This paper reads like our perspective paper in tone :hearteyes: 2.2 -2.3 kinda lost me. I should look at their jupyter notebooks.
+\cite{Smith2018} 
+
+reading about psi4: free and open source with python api that uses blas and c under the hood. has jupyter notebooks tutorials. This paper reads like our perspective paper in tone :hearteyes: 2.2 -2.3 kinda lost me. I should look at their jupyter notebooks.
 
 Today searched "coarse grain backmapping" in the library and got the following papers:
+
 \cite{Alessandri2017b}
 
 Coarse graining in OPV bulk heterojunctions! p3ht and pcbm, solvent evaporation. morphologies need large interfacial area between donor and acceptor and relatively high crystallinity and connection to the electrode.How can we investigate the processing conditions that achieve the highest performance?
@@ -105,6 +119,7 @@ They use explicit solvent (CB/benzene) and they remove molecules randomly as the
 Figure 5 is beautiful.
 
 \cite{Haxton2015a}
+
 CG beads with orientation. They use the word "stiffest" to describe degrees of freedom--they mean bond stretching, angle bending, and torsion within rings. They suggest there are two separate ways to improve CG: better mapping between AA and CG or better CG interactions. The seconds can be helped with IBI, entropy minimization... First one is what the authors will focus on.
 Point-site method maps groups of atoms onto a bead--bead potential is spherically symmetric, but some models use neighboring sites to introduce some directionality. e.g., Alemani et al created a protein model where the dipole interaction was a function of the alpha-carbon angle. Here they add orientation to the point-site model. This increases the degrees of freedom for each site from 3 to 6, but they model bonds and angles as stiff and dihedral angles (except rings and double bonds) as soft. They also map about 8 atomns to a site. They use backmapping from ref 64--not backwards.py. 
 They simplify the ideal interactions of the CG model (many-body problem) to pai potentials. They show how to calculate to error in an observable calculated on backmapped structure. C code used for backmapping in SI.
@@ -134,6 +149,7 @@ They use the same backmapping as us ref 13. Many CG papers verify by XRD buyt th
 CG overestimates density--backmapping fixes it. XRD of backmapped AA match AA. pipi stacking is corrected and lamellar structure present. Mobility also good. They explain the differences between the AA and CG mobilities saying that the AA one is smaller so it's a size effect due to over estimated percolation threshhold--i.e. the connectivity is overestimated because the periodic volume is small enough that the periodic image has an effect.
 
 \cite{Poblete2018a}
+
 RNA - backmapping steered MDaimed at minimizing a particular RMSD (ERMSD) between atomic and target structure. target structure were found to be recovered by this backmapping except in the case where there were unpaired bases. folding pathway dependent on parameters used in ERMSD.
 need AA strutures to validate with experiment (x-ray or neutron scattering) backmapping usually involves placing atomistic coordinates relative to the beads and then minimizing the energy of the structure using steepest descent or short MD runs (could use position restraint). Atomistic can even be mapped onto the whole trajectory. 
 This work describes the backmapping of the SPlit and conQueR (SPQR) method. Minimizes the ERMSD distance between solvated AA strand of the CG structure (RNA). ERMSD : origin is set to CoM of C2 C4 and C6 atoms of each base (see ref 23), then for each pair of bases, rij is the center of base i in the coord system of base j. In order to account for anisotropy, the scaling for the z-direction is different (does this mean the strand is oriented to z in some way??) This metric shows the difference between arrangement of nucleobases of two RNA structures. Backbone and sugar interactions are unrestrained. The paper will show results on the backbone conformation. They use steered MD with ERMSD as the steering parameter. (How does steered MD work?) Look like they use and external pulling force which depend on ERMSD.
@@ -141,6 +157,7 @@ This work describes the backmapping of the SPlit and conQueR (SPQR) method. Mini
 Of these the Alessandri paper was the best and  most interesting/relevant. I am pulling some refs from here for next time:
 
 \cite{Mikhnenko2012}
+
 Exciton diffusion length (EDL) in narrow bangap polymers. photoluminescense decay time is related and measurable. PCBM and PCDTBTs modeled with Monte Carlo--code available. They used P3HT as reference (5.4+/-0.7nm exciton diffusion length). 
 Exciton diffusion is essential for organic solar cells. excitons are electron hole pairs created by excitation due to light absorption. they are separated into free charges at an interface which creates current. the movement of the excitons through hopping is what is refered to as diffusion. Exciton diffusion length is a factor in device efficiency.
 Other methods to measure EDL are fluorescence quenching - the dependence of the exciton quenching efficiency vs semiconductor thickness is fit to 1D diffusion equation. Pros: direct measuremnt, cons: difficult experimentally and there are many things to consider in the model (FRET, effect of polymer-vaccuum interface, optical interference). 
@@ -149,7 +166,9 @@ This paper uses MC to model PL decay.
 
 
 Ugh. I think I've finally fixed my Mendeley library?
+
 \cite{Scharber2013}
+
 Review of state-of-the-art OPV BHJ solar cells. 
 pros: thin/light, semitransparent, cheap, continuous production process, short payback times, easy to integrate into new and existing products. 
 History of development from 2001 2.5\% PCE to 2011 10\% PCE. Most degrade when exposed to air and sunlight within a few years. Molecular structure including side chains affects stability. Electron affinity of the acceptor determines degradation rate of the semiconductor. Changing the elctrode and using the inverted design(? read waldauf) helps the electrode oxidation. This requires no vacuum
@@ -161,9 +180,13 @@ They discuss costs and efficiencies. Should probably read about Shockley Queisse
 3. radiative recombination as the only recombination.
 Based on this work and the external radiative efficiency (ERE) proposed by Green, and actual max of 15-16\% efficiency is predicted.
 (continue from 5)
+
 \cite{Waldauf2006}
+
 Read this with intention of understanding inverted design
+
 \cite{Hoppe2004}
+
 Overview of organic solar cells. sp2 hybridization of carbon is what allows organics to absorb in the uv-vis range. (conjugated pi orbitals.) In comparison, inorganic semiconductors have low mobilities but very high absorption coefficients. The exciton diffusion length is shorter in OPVs too.
 Most OPV are hole conductors and have band gap around 2 eV, which is higher than silicon. But the ability to modify and tune the chemistry as well as the cheap, mass production makes OPVs enticing.
 history: 
@@ -201,12 +224,14 @@ Pure MEH-PPV Voc 1.6V is consistent with the difference in work function of Ca a
 They predict greater efficiencies if the morphology is optimized.
 
 \cite{Halls1995}
+
 another older paper. Cavendish lab! Photovoltaic effect - production of electrons/holes under illumination. Molecular semiconductors produce excitons instead of free charges. Charge collection requires dissociation, which is efficient at interfaces of different electron affinities and ionization potentials. (electron goes to larger electron affinity and hole to lower ionization potential.) A layered structure then seems ideal, but Exciton diffusion length is much shorter than the absorption depth. so an interpenetrating network is shwon in this paper to be ideal.
 poly-phenylenevinylene derivitive mixture MEH-PPV and CN-PPV. spin coating on glass slide. they claim phase separation on the scale of 10-100nm this measurement relied on ferric chloride doping MEH-PPV but not the CN derivitive.
 The current vs Voltage graph for the mixture was very different under illumination.
 they predict these sort of flexible polymer photodetectors will be useful in medical imaging.
 
 \cite{Gartner2019a}
+
 Somehow didn't add this!
 University of delaware. There is a Jankowski/Marsh image in Fig 1!
 OMG I just realised this is Arthi from the MoSDeF calls. :D No wonder this paper is so approachable!! 
@@ -277,6 +302,7 @@ errors in atomistic FF will filter to CG ff.
 CG models are specific to the conditions under which the parameterization is performed.
 
 \cite{Reith2003a}
+
 IBI algorithm is made in this paper! Uses potentials of mean force. IBI potentials are nontransferrable--they work best for the system they are optimized for.
 CG allows chain behavior to be studied. History: bead spring polymer chains in a melt to a soft-core liquid ellipsoidal particles with anisotropic gaussian potential. polymer melt cg-ing. None of these derived an automated optimization scheme to conserve the chemical nature of the underlying atomistic model in a standardized way as we do.
 PRISM theory combined with MC can predict long and short range structures of polymer chains but can't produce CG potentials.
@@ -289,13 +315,15 @@ Conclusions:
 start with small range (cutoff?) and increase until RDF matches. CG FF for polyisoprene are different between solution and melt.
 
 \cite{Ayton2007a}
+
 Coarse graining scheme, systematic, for biological systems.
 If CGing is done systematicall it retains important averaged atomistic level interations. Connecting length and time scales.Systematic methods for making CG systems: RMC, this paper will focus on multiscale coarse graining (MS-CG) uses force matching algorithm
 Variational. Some of the math does not make sense but it appears to only be based on positions of atomistic and CG particles. They make the free energies of the atomisitic and CG systems the same. Many atomistic frames are mapped to CG beads and the potentials are based in the gradient of the forces felt by the beads. The algorithm minimizes a residual function.
 Summary: works, RDFs match. Enables calculation of CG force fields without resolving many-dimensional potential of mean force. (but honestly IBI seems so much simpler. Is there something I'm missing? is boltzmann inverse of RDF not PMF?? This paper was published after Reith paper... when is force matching better?)
 
 
-\cite{Peter2009c}
+\cite{Peter2009d}
+
 Review paper- coarse grained models linked to atomistic models. 
 They mention the good, marginal, and poor solvent parameter Theta.
 models can be linked sequentially, hybrid - both level present at once and interacting, or adaptive - individual molecules switch on the fly depending on e.g., spatial coordinates.
@@ -369,6 +397,7 @@ Solvent annealing where layer is annealed under vapor. shown that poor solvents 
 interpentrating network has been the ideal, but crystalline regions of acceptor donor with mixed amorphous regions is more realistic.
 
 \cite{Brini2013}
+
 review of systematic coarse-graining for soft materials
 focuses on representability (how well a system predicts properties at the statepoint it was optimized for) and transferrability ( how well it can be used for other statepoints.)
 effective pair potentials are used for CG instead of the expensive many-body potentials. averaging over fast degrees of freddom removes their entropic contribution. to compensate for this, the pair potentials are softer resulting in a smoothed energy landscape. this affects the thermodynamic properties-- e.g., the heat capacity, which is related to the entropy fluctions at constant t and p is underestimated by a cg model (because the fluctuations arent as large). while compressibility related to volume fluctuation will be over estimated (i think because the potentials are so soft.) The thermal expansion coefficient which is related to both may well be represented accurately.
@@ -382,9 +411,11 @@ skipped ahead to polymers
 polymers are important for cg because the volumes needed to observe their long length scale properties in atomistic md are prohibitively expensive. pressure-corrected IBI scheme for polystyrene matched gyration radius and Flory characteristic ratio at 500 K. (flory ratio relates to chain stiffness?) but entanglement length was overestimated.
 
 \cite{Murtola2009a}
+
 quick letter - to get the full picture we have to consider multiple length scales. abstracting small length scales is necessary for time/resources. probably dont include this in references, it's so short.
 
 \cite{Berendsen2010}
+
 ooh this one looks cool. starts with history of membrane models, goes to cging, then moves to cg dynamics. for next time
 many realistic process could not--and would never--be solvable by atomistic simulations. he describes a very simplified model of transport of a single water molecule through a membrane. reduce the system to motion in one reaction coordinate.
 the heart of coarse-graining is the reduction of degrees of freedom. then describing the dynamics of the reduced system so that it reproduces the projection of the complete system. this is only possible when the reduced and the removed degrees of freedom are well-separated (the removed are much faster). If the time scales are not separate the dynamic behavior will not be accurate but the probability distributions and thus the thermodynamic properties may still be.
@@ -394,10 +425,18 @@ the motions in reduced space: the equations of motion are no longer hamiltonian-
 I skimmed the sections on dynamic equations and modelling fluids.
 simple methods that are easy to understand and implement--provided they are correct and work--will always prevail over complex methods, even if the latter are more accurate.
 
-\cite{Peter2009d}
-
 \cite{Kim2006}
+
+experiemental paper about effect of p3ht regioregularity in p3ht/fullerene blends on device performance--PCE.
+really useful schematic of GIXS experiment. (GIXRD)
+interplane pi-pi stacking is parallel to the substrate--enhanced interplane interactions with high RR p3ht benefit vertical (J-V) more than lateral (field-effect) transport. TOF hole mobility in p3ht films show neglible influence of RR. inteplane stacking does not affect vertical transport in pristine crystal. in the blend dark-current densities and TOF mobilities show stronger dependence on regioregularity. highest device efficiency achieved with RR p3ht
+
 \cite{Lee2011}
+
+multiscale simulation of p3ht and pcbm. 1 bead per p3ht and pcbm. They used IBI to get their force field.
+they use a penalty function to minimize their lj parameters-- I think this is different from IBI in that it doesn't use a table potential.
+their reverse mapping method could use a little clarification but it sounds like they replace CG bead (p3ht or pcbm monomer) with equilibrated atomisitc structure and then do only rotation moves until the whole system is relaxed. (thats kind of cool actually!) after MC they do quick MD. smoothing of the energy barriers i the CG sim accelerates the dynamics. CG morphology is in good agreement with TEM and electron tomography. with backmapping even pi-pi stacking was observed.
+they use a spatial discretization scheme to simplify the volume into voxels and quantify the interfacial area to volume ratio. as time goes on in the simulation the p3ht domain sizes grow and the interface to volume ratio decreases--this is a bad thing? is this related to the quick annealing having better results??
 \cite{Huang2010}
 \cite{Jankowski2013}
 \cite{Marsh2014}
