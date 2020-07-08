@@ -1,0 +1,13 @@
+<energy demand and why opvs matter>
+but in order to make the most efficient opvs we need to find the best blend of compounds and the processing conditions that result in the best structure for those compounds. With minor modifcations the number of compounds and the processing conditions can become infinite which makes this an intractable problem for experiment.
+by using a simulation pipeline, we can help to streamline the process of determining which opv materials will help to solve the energy crisis
+a complication of this simulation is that the features which are important to the performance of an opv span multiple length scales. The electronic properties are important for light absorption, charge transfer <morehere>
+while the bulk morphological properties are important: an exciton needs to be able to find an interface at which to dissociate before it decays through one of its non-radiative processes and one the charges are separated they need to reach an electrode in order to generate current and produce electricity. 
+"all models are wrong but some are useful" - George Box 1976 
+it is not only computationally intractable to try and simulate the electron density of a 1 nm^3 bulk of opv polymer melt -- it is the wrong tool for the job. if what we are interested in is the properties of the polymer in the bulk hetero junction then it is wise to abstract away any degrees of freedom which do not directly contribute to the self-assembly of the structure. once a good bulk structure has been achieved these details can be reintegrated much more easily. This is the idea behind a coarse grain model.
+my proposal is to develop a coarse-graining pipeline which will simplify the 
+electronic structure, quantum > MD atomistic, classical forces but each atom is represented > CG multiple atoms can be grouped together to form a super atom and then the effective force can be iteratively approximated using Boltzmann inversion (IBI). 
+this has already been done-- lots of CG force fields already exist. The martini method <more> 
+my idea is to use a systematic language for specifying chemical structure (SMARTS) to automate the bead mapping and backmapping. 
+By creating an automation scheme which is understandable and makes chemical sense, we hope to simplify the process of creating and using a coarse-grain model.
+we can use this do develop new coarse-grain models and test their efficacy in predicting charge transport.
