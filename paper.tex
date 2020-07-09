@@ -437,8 +437,30 @@ multiscale simulation of p3ht and pcbm. 1 bead per p3ht and pcbm. They used IBI 
 they use a penalty function to minimize their lj parameters-- I think this is different from IBI in that it doesn't use a table potential.
 their reverse mapping method could use a little clarification but it sounds like they replace CG bead (p3ht or pcbm monomer) with equilibrated atomisitc structure and then do only rotation moves until the whole system is relaxed. (thats kind of cool actually!) after MC they do quick MD. smoothing of the energy barriers i the CG sim accelerates the dynamics. CG morphology is in good agreement with TEM and electron tomography. with backmapping even pi-pi stacking was observed.
 they use a spatial discretization scheme to simplify the volume into voxels and quantify the interfacial area to volume ratio. as time goes on in the simulation the p3ht domain sizes grow and the interface to volume ratio decreases--this is a bad thing? is this related to the quick annealing having better results??
+
 \cite{Huang2010}
+
+CG polymer fullerene simulation of opvs.
+parameterized at two state points.
+it is still not know how to predict phase behavior based on components and processing. the molecular scale structure often has to be inferred. the relationship between phase behanvior and charge transport has been investigated but there is some disagreement.
+this is where simulation comes in. systems of only a few nm can be studied--but the exciton diffusion length is ~5-10 nm --> CG
+ff for super atoms are parameterized using atomistic ff. OPLS-AA 3-site p3ht and one site fullerene. They use IBI to parameterize their ff. they use a a scaling function to match the pressure. (i don't understand how this works exactly)
+they found that their model could be useful outside of the temps it was parameterized at. 
+they calculated the time scale of the cg model.
+they were able to compute 768 p3ht 48mers and (110592 beads) with 4608 pcbm beads in a 25 nm^3 box in about 24hr.
+
 \cite{Jankowski2013}
+
+opv performance strongly depends on morphology. ideal is to have high interfacial area while maintaining high connectivity. 
+choosing a model: sufficient chemical and physcial detail without too much to prevent sufficient sampling at relevant length and time scales. if the model is too coarse we miss intecalation of the fullerene between the side chains. 
+order-disorder trainsition for neat polymers depend on side chain orientation (regioregularity?) and orientation along th polymer backbone. 
+immiscible acceptor in blends do not change the morphology compared to neat but increase the ODT.
+CG model gives backbone persistence lengths that match experiment. (has to do with bending stiffness of polymer)
+how were LJ params obtained for CG model?
+how to quantify interfacial area--acceptor-backbone correlation rdf first peak, 
+intercalated layer are seen as the acceptor miscibility is increased-- mostly with the most sparse polymer (do the acceptors feel the most attraction to the backbone?
+new lattices predicted--have these been observed?
+
 \cite{Marsh2014}
 
 \bibliography{library}
