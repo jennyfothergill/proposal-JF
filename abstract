@@ -1,5 +1,40 @@
-<energy demand and why opvs matter>
-but in order to make the most efficient opvs we need to find the best blend of compounds and the processing conditions that result in the best structure for those compounds. With minor modifcations the number of compounds and the processing conditions can become infinite which makes this an intractable problem for experiment.
+new idea:
+# what has been done?
+# what remains to be done?
+
+# Why should the work be done?
+# what specific problems will it solve?
+
+# how will the work be done?
+- I will build on existing tools (signac,freud,mbuild,foyer,tim moore's msibi)
+- create signac workflow which takes equilibrated atomistic trajectory (maybe checks if it's equilibrated?) maps the CG beads to it, runs IBI, gets tabulated FF, creates larger CG sim, runs it, does backmapping, then could do: RDF, charge transport, diffraction... if this workflow is streamlined--it can be applied to many different compounds allowing for us to compare the analyses between our zoo of compounds.
+- maybe the workflow could even involve getting the equilibrated trajectory (atomtyping/fill box/run) with the new hoomd 3 api we could even set decorrelation time as a stop trigger...
+
+# what have you accomplished already? what remains?
+- contributed to development of open-source packages: mbuild, foyer, signac, fresnel
+ this has helped me learn best software development practices like writing documentation, using version control, writing unit tests, employing CI, fork/pull model, etc. using these tools will help me to me a more efficient developer. It's also helped me to learn how to work as part of a team.
+ - created MWE of coarse-graining and backmapping with smiles-- these will need furthertesting as we try them on different compounds but the proof of concept is there.
+ - created tutorial examples to help current and future students understand scientific concepts and how to use computational tools
+ - created GIXStapose (presented at SciPy2020) an interactive diffraction/structure viewer. This may seem unrelated but we can use diffraction to verify our opv morphologies and compare them to experiment. GIXStapose helps to beeter connect the physical structure with the diffraction pattern.
+- started development on UFF repo for foyer. This is an example of how to create a version controlled forcefield which can be automatically applied to a compound. (atom typing is a pain)
+
+#what is the timeline?
+#what answers will be immediately forthcoming?
+#what additional major research will result?
+
+#will the work involve an outreach component?
+
+#Intellectual merit and broader impacts?
+
+
+
+
+
+
+
+Garbage first pass at abstract--probably just delete.
+
+In order to make the most efficient opvs we need to find the best blend of compounds and the processing conditions that result in the best structure for those compounds. With minor modifcations the number of compounds and the processing conditions can become infinite which makes this an intractable problem for experiment.
 by using a simulation pipeline, we can help to streamline the process of determining which opv materials will help to solve the energy crisis
 simulation also helps to give us insight into the atomic interaction which drive self assembly.
 a complication of this simulation is that the features which are important to the performance of an opv span multiple length scales. The electronic properties are important for light absorption, charge transfer <morehere>
