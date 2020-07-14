@@ -1,5 +1,25 @@
 new idea:
-# what has been done?
+# what has been done
+<MARTINI, TRAPPE>
+
+
+
+
+
+
+
+
+
+reproducibility crisis.\cite{Cummings2019} \cite{Thompson2020} (TRUE paper) poorly documented code and raw data doesn't help. 
+instead example workflows with docker containers to build software stack. help make science more accessible and reprodicible.
+
+the one part of coarse graining that is not yet automated is choosing a mapping scheme.
+there have been efforts to create mapping schemes for automating the process of deciding which atoms are grouped in a "super-atom" bead. 
+As the number of atoms in the fine grain structure increases, the number of possible mappings increase drastically. The number of allowed mappings can be reduced by only allowing those which do not change the symmetry group, then an algorithm can iterate over a graph of all possible mappings the "best" mapping being the one which minimizes the difference between the mapped RDF and velocity autocorrelation function. \cite{Chakraborty2018a}
+
+smile \cite{Weininger} was designed to represent organic molecules in an unambiguous way (similar to IUPAC) but smiles is also readable by a computer.
+This makes it a good candidate for specifying a coarse-grain mapping scheme.
+
 # what remains to be done?
 
 # Why should the work be done?
