@@ -13,9 +13,15 @@ new idea:
 reproducibility crisis.\cite{Cummings2019} \cite{Thompson2020} (TRUE paper) poorly documented code and raw data doesn't help. 
 instead example workflows with docker containers to build software stack. help make science more accessible and reprodicible.
 
-the one part of coarse graining that is not yet automated is choosing a mapping scheme.
+the one part of coarse graining that is not yet automated is choosing a mapping scheme or a mapping operator. A mapping operator defines which atoms are grouped into a "super atom" represented by one coarse grain site and an effective potential and where in the site is placed relative to the atom group.
+mapping operators are chosen based on desired resolution of the coarse grain system and the information to be extracted. 
+A straightforward way to define a mapping operator is to group a set number of heavy atoms (non hydrogen) together--this is the method used in the MARTINI force field. \cite{Marrink2007} In this scheme, four atoms (except rings, which are treated differently) are grouped and the site is classified as polar, non-polar, apolar, or charged depending on the atoms it is composed of. When parameterizing a new molecule you must pick a mapping and thencompare the resulting beads to existing beads--time consuming and error prone.\cite{http://www.cgmartini.nl/index.php/tutorials-general-introduction-gmx5/parametrzining-new-molecule-gmx5} This force field was designed for lipids and has shown to be effective in predicting vesicle formation, membrane protein dynamics, etc.
+use chemical intuition--e.g. what parts of the molecule shouldn't be allowed to bend?
 there have been efforts to create mapping schemes for automating the process of deciding which atoms are grouped in a "super-atom" bead. 
 As the number of atoms in the fine grain structure increases, the number of possible mappings increase drastically. The number of allowed mappings can be reduced by only allowing those which do not change the symmetry group, then an algorithm can iterate over a graph of all possible mappings the "best" mapping being the one which minimizes the difference between the mapped RDF and velocity autocorrelation function. \cite{Chakraborty2018a}
+Another mapping scheme uses principle component analysis to choose a mapping scheme for biomolecules that best represents th essential dynamics. \cite{Zhang2008}
+In order to probe electrostatic properties, a mapping operator based on the centers of charge is described\cite{Cao2015a}
+
 
 smile \cite{Weininger} was designed to represent organic molecules in an unambiguous way (similar to IUPAC) but smiles is also readable by a computer.
 This makes it a good candidate for specifying a coarse-grain mapping scheme.
