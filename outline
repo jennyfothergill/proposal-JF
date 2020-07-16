@@ -1,11 +1,11 @@
 new idea:
 # what has been done
-<MARTINI, TRAPPE>
+coarse graining
+
+TraPPE fits CG potentials using vapor-liquid equilibria to improve transferrability across Thermodynamic states\cite{Maerzke2011}
 
 
-
-
-
+how cg potentials have been obtained
 
 
 
@@ -20,11 +20,12 @@ use chemical intuition--e.g. what parts of the molecule shouldn't be allowed to 
 there have been efforts to create mapping schemes for automating the process of deciding which atoms are grouped in a "super-atom" bead. 
 As the number of atoms in the fine grain structure increases, the number of possible mappings increase drastically. The number of allowed mappings can be reduced by only allowing those which do not change the symmetry group, then an algorithm can iterate over a graph of all possible mappings the "best" mapping being the one which minimizes the difference between the mapped RDF and velocity autocorrelation function. \cite{Chakraborty2018a}
 Another mapping scheme uses principle component analysis to choose a mapping scheme for biomolecules that best represents th essential dynamics. \cite{Zhang2008}
+\cite{li2020} mapping operators can be automated using a machine learning: clustering methods combined with graph analysis were shown to predict the "expert" mapping chosen using chemical intuition reliably.
 In order to probe electrostatic properties, a mapping operator based on the centers of charge is described\cite{Cao2015a}
-
-
-smile \cite{Weininger} was designed to represent organic molecules in an unambiguous way (similar to IUPAC) but smiles is also readable by a computer.
-This makes it a good candidate for specifying a coarse-grain mapping scheme.
+We do not propose a new automated mapping, but instead a way to make the mapping and backmapping process easier for the user.
+Simplified Molecular Input Line Entry System or SMILES \cite{Weininger} was designed to represent organic molecules in an unambiguous way (similar to IUPAC) but in a line-entry system which is also readable by a computer.
+This makes it a good candidate for specifying a coarse-grain mapping scheme.The open-source package, Openbabel, allows for a SMILES string to be converted to a chemical structure and vice versa. <cite openbabel,SMILES, SMARTS> SMARTS is similar to SMILES but instead of representing a single molecule unambiguously, it has multiple wildcards which can be used for pattern matching. This pattern matching is also implemented in the Openbabel package. If we know the SMARTS string for any given CG mapping we can map the CG site to it's center of mass or geometric center.
+I have developed a minimum working example of how this can be done <cite grits> and then how the atomistic structure can be recovered. It could be fairly straightforward to implement a lookup to check if bead parameters already exist--say for the MARTINI model-- by going through and writing out the SMARTS pattern for each existing bead type. An initial headache that could make parameterizing new compounds for the MARTINI method more foolproof.
 
 # what remains to be done?
 

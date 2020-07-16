@@ -11,6 +11,18 @@ MARTINI\cite{Marrink2007}
 VOTCA\cite{Ruhle2009}
 
 TraPPE\cite{Maerzke2011}
+it is generally assumed that coarse-grain potentials are not transferrable to different systems or state points (T and P). This model tries to fix that. uses IBI for bonded interactions and parameterize nonbonded interaction by fitting to vapor-liquid coexistence curves. parameters yield accurate vapor-liquid equilibria, first RDF peak, and coordination number for the solvation shell.
+PMF represents enemble average free energy of FG model therefore it is limited to the same thermodynamic conditions. But the CG potential can also be viewed as an effective potential that is able to represent the interaction over wider range of condition--like how LJ represents pair and many-body interactions. Transferrable potentials may sacrifice accuracy at a specific potential.
+IBI matches the shape but not the depth of the potential. structure of a liquid is mostly determined by repulsive interactions. Ref 17 was able to recover correct potential (after 1000 iter!) even though rdf appeared converged after 10(!!). adding pressure or energy to the iterative scheme sped up the convergence. Pressure and energy corrections can improve performance. 
+Force matching does not rely on ensemble averaged property and has sounds statistical mechanics basis. variational.
+MARTINI uses shifted LJ and params were fit to free energies of vaporization/hydration/partitioning between water/organics phases at 300K. 
+the params of these ffs may be transferrable to different molecules (eg. alkyl chain can be used in different molecules) but not across different state points.
+TraPPE-CG - minimize number of atom types. parameterized to TraPPE UA based on saturated vapor/liquid densities, internal energy of vaporization, transfer free energies are given greatest weight, rdf also considered. tabulated potential spaced by 0.05 A with linear interpolation. shifted so that U=0 at rcut=14A
+
+Check ref 29 -- popular cg model
+
+\cite{Shelley2001}
+
 
 and read this: \cite{Chakraborty2018a} 
 
@@ -502,6 +514,20 @@ use chemical intuition--e.g. what parts of the molecule shouldn't be allowed to 
 
 \cite{li2020}
 excited to read this! Andrew White was Rainier's advisor.
+automated mapping. treats mapping operators and a graph segmentation problemusing a neural network. the network is trained on a dataset of molecule with expert annotated mapping. 
+how do they rate the results?
+they try to see if their network can predict the human chosen mappings. I wonder how it'll do with new molecules?? CG mappings are usually designed for a specific property.
+chakraborty graph method used to atoselect based on entropy flattening
+what is entropy flattening?
+
+ref 35 sounds interesting--auto encoder that learns CG mapping and FF at once!
+ref 21 suggests low-res CG models are information limited not representation limited--maybe there is a way to enhance CG model without increasing complexity. supported by ref 5 saying alkane model performance was not correlated to resolution (skeptic??)
+mappings currently are intuition based with some rules
+using clustering (like k-means) to choose mapping
+this method uses clustering and graph
+they use scikit learn!
+they try out new mapping of sars-cov-2! (training dataset did not contain peptides...) prediction is similar to spectral clustering
+compared to martini and used again on peptides, mixed results.
 
 
 \bibliography{library}
