@@ -529,6 +529,14 @@ they use scikit learn!
 they try out new mapping of sars-cov-2! (training dataset did not contain peptides...) prediction is similar to spectral clustering
 compared to martini and used again on peptides, mixed results.
 
+\cite{Moore2014}
+IBI that includes data from multiple targets to yield a less state dependent potential.
+i feel pretty confident in my understanding of ibi after making my own MWE
+how are the state points combined?
+separate potentials are required to capture solid and fluid structures of a pure simple lipid ref 46
+IBI potentials are sometimes transferrable and it is not clear why sometimes they are and sometimes they aren't.
+the potentials are an average, basically of the potentials at the different states with a weighting function to put emphasis on the desired state
+Don't pick states that are too similar because then the overlap region is too large and there are too many possible solutions. for some systems there may not be a potential that represents all states-- this is not unique to coarse potentials, atomistic potentials also have this limitation.
 
 \bibliography{library}
 \bibliographystyle{ieeetr}

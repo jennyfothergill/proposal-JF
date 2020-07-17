@@ -2,12 +2,19 @@ new idea:
 # what has been done
 coarse graining
 
+<how cg potentials have been obtained>
+<IBI>
+<why are IBI potentials not transferrable? the RDF is a property of the ensemble average at a given statepoint so the potential derived from this property is also limited.>
+separate potentials are required to capture solid and fluid structures of a pure simple lipid <Moore2014 ref 46>
+<IBI potentials are sometimes transferrable and it is not clear why sometimes they are and sometimes they aren't.> \cite{Moore2014}
+
+Multistate iterative Boltzmann inversion (MS IBI) includes data from multiple targets to yield a less state dependent potential. \cite{Moore2014}
+The MS IBI potential is an average of the single state potentials with a weighting function to prioritize a state of interest.
+This method has been shown to accurately reproduce the true potential in monoatomic LJ fluid. 
+When using the MS IBI method, it is important to choose dissimilar states to minimize the potential overlap region. If this overlap region is large, there are many potentials which will provide matching RDFs. For some systems there may not be a potential that represents all states-- this is not unique to coarse potentials, atomistic potentials also have this limitation.
+
+
 TraPPE fits CG potentials using vapor-liquid equilibria to improve transferrability across Thermodynamic states\cite{Maerzke2011}
-
-
-how cg potentials have been obtained
-
-
 
 
 reproducibility crisis.\cite{Cummings2019} \cite{Thompson2020} (TRUE paper) poorly documented code and raw data doesn't help. 
