@@ -1,7 +1,7 @@
 new idea:
 # what has been done
 coarse graining
-
+A coarse-grain model for phospholipids has allowed for bilayer formation from an initial random configuration to be observed even though the model was parameterized to the vapor-liquid phase transition. \cite{Shelley2001}
 <how cg potentials have been obtained>
 <IBI>
 <why are IBI potentials not transferrable? the RDF is a property of the ensemble average at a given statepoint so the potential derived from this property is also limited.>
