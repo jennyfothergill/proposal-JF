@@ -11,7 +11,9 @@ MARTINI\cite{Marrink2007}
 VOTCA\cite{Ruhle2009}
 
 TraPPE\cite{Maerzke2011}
-it is generally assumed that coarse-grain potentials are not transferrable to different systems or state points (T and P). This model tries to fix that. uses IBI for bonded interactions and parameterize nonbonded interaction by fitting to vapor-liquid coexistence curves. parameters yield accurate vapor-liquid equilibria, first RDF peak, and coordination number for the solvation shell.
+
+It is generally assumed that coarse-grain potentials are not transferrable to different systems or state points (T and P). This model tries to fix that. uses IBI for bonded interactions and parameterize nonbonded interaction by fitting to vapor-liquid coexistence curves. parameters yield accurate vapor-liquid equilibria, first RDF peak, and coordination number for the solvation shell.
+
 PMF represents enemble average free energy of FG model therefore it is limited to the same thermodynamic conditions. But the CG potential can also be viewed as an effective potential that is able to represent the interaction over wider range of condition--like how LJ represents pair and many-body interactions. Transferrable potentials may sacrifice accuracy at a specific potential.
 IBI matches the shape but not the depth of the potential. structure of a liquid is mostly determined by repulsive interactions. Ref 17 was able to recover correct potential (after 1000 iter!) even though rdf appeared converged after 10(!!). adding pressure or energy to the iterative scheme sped up the convergence. Pressure and energy corrections can improve performance. 
 Force matching does not rely on ensemble averaged property and has sounds statistical mechanics basis. variational.
@@ -21,13 +23,13 @@ TraPPE-CG - minimize number of atom types. parameterized to TraPPE UA based on s
 
 Check ref 29 -- popular cg model
 
-\cite{Shelley2001}
+\cite{Shelley2001}√
 CG model for phospholipids. parameterized to mimic structural properties--which ones? they were fit to bond distributions (algorithm sounds like IBI but they don't say IBI... anyway it's iterative based on Boltzmann inverse of RDF)
 reproduces structure of bilayer--property that was not directly fit. The initial configuration was random. 
 how do they verify that it reproduces the bilayer? rdfs, density maps, also snapshots.
 
 
-and read this: \cite{Chakraborty2018a} 
+and read this: \cite{Chakraborty2018a} √
 
 got busy with fancy-ing up the GIXStapose repo, helping rachel, office hours, and atom-typing with gaff-foyer with ryan and chris. Briefly skimmed the chakraborty paper-- they consider all possible mappings that a cg compound can have in order to systematically pick a cging scheme.
 OK Chakraborty notes:
@@ -541,6 +543,10 @@ IBI potentials are sometimes transferrable and it is not clear why sometimes the
 the potentials are an average, basically of the potentials at the different states with a weighting function to put emphasis on the desired state
 Don't pick states that are too similar because then the overlap region is too large and there are too many possible solutions. for some systems there may not be a potential that represents all states-- this is not unique to coarse potentials, atomistic potentials also have this limitation.
 
+\cite{Paton2009a}
+\cite{Paul1995a}
+\cite{Yang2006a}
+\cite{McCoy1998a}
 \bibliography{library}
 \bibliographystyle{ieeetr}
 \end{document}

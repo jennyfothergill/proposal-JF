@@ -1,6 +1,9 @@
-new idea:
 # what has been done
-coarse graining
+<should I start with simulation in general?>
+<start with what simplifying assumptions MD already makes>
+##coarse graining
+Coarse-grain models allow for simulators to access length and time scales that would be otherwise impossible using atomistic models. Coarse-graining refers to grouping atom in a structure into a "super-atom" and using an effective potential to represent the resulting coarse grain site. The resolution of coarse-grain systems is broad: simply grouping hydrogens with the heavy atom they are bonded to (united-atom model) <what to say about united atom?>\cite{Paul1995a, Yang2006a,}, grouping functional groups together <cite>, or as far a representing an entire amino acid with a single site <cite>. Which model is right depends on the length and time scale on which the property of interest can be observed. 
+General coarse grain models of opv thiophene polymers where only the spacing, regioregularity of the side chains were varied were able to predict different order disorder transitions and calculated scattering patterns of these simple simples were comparable to those obtained from experiment \cite{Jankowski2013, Marsh2014} 
 A coarse-grain model for phospholipids has allowed for bilayer formation from an initial random configuration to be observed even though the model was parameterized to the vapor-liquid phase transition. \cite{Shelley2001}
 <how cg potentials have been obtained>
 <IBI>
@@ -14,8 +17,9 @@ This method has been shown to accurately reproduce the true potential in monoato
 When using the MS IBI method, it is important to choose dissimilar states to minimize the potential overlap region. If this overlap region is large, there are many potentials which will provide matching RDFs. For some systems there may not be a potential that represents all states-- this is not unique to coarse potentials, atomistic potentials also have this limitation.
 
 
-TraPPE fits CG potentials using vapor-liquid equilibria to improve transferrability across Thermodynamic states\cite{Maerzke2011}
-
+TraPPE fits CG potentials using vapor-liquid equilibria to improve transferrability across thermodynamic states\cite{Maerzke2011}
+<Talk about what exists and why it is not enough>
+<votca, Peng2019a>
 
 reproducibility crisis.\cite{Cummings2019} \cite{Thompson2020} (TRUE paper) poorly documented code and raw data doesn't help. 
 instead example workflows with docker containers to build software stack. help make science more accessible and reprodicible.
@@ -34,7 +38,12 @@ Simplified Molecular Input Line Entry System or SMILES \cite{Weininger} was desi
 This makes it a good candidate for specifying a coarse-grain mapping scheme.The open-source package, Openbabel, allows for a SMILES string to be converted to a chemical structure and vice versa. <cite openbabel,SMILES, SMARTS> SMARTS is similar to SMILES but instead of representing a single molecule unambiguously, it has multiple wildcards which can be used for pattern matching. This pattern matching is also implemented in the Openbabel package. If we know the SMARTS string for any given CG mapping we can map the CG site to it's center of mass or geometric center.
 I have developed a minimum working example of how this can be done <cite grits> and then how the atomistic structure can be recovered. It could be fairly straightforward to implement a lookup to check if bead parameters already exist--say for the MARTINI model-- by going through and writing out the SMARTS pattern for each existing bead type. An initial headache that could make parameterizing new compounds for the MARTINI method more foolproof.
 
-# what remains to be done?
+A similar package already exists. Versatile Object-oriented Toolkit for Coarse-graining Applications (VOTCA) \cite{Ruhle2011b}
+this package includes a coarse-graining, forecefield creation with reverse MC or IBI, and back-mapping module. It also allows for charge transport calculations using KMC similar to MorphCT <cite>
+
+<coarse-graining, backmapping, charge transport>
+
+# what remains to be done
 
 # Why should the work be done?
 # what specific problems will it solve?
@@ -73,7 +82,6 @@ by using a simulation pipeline, we can help to streamline the process of determi
 simulation also helps to give us insight into the atomic interaction which drive self assembly.
 a complication of this simulation is that the features which are important to the performance of an opv span multiple length scales. The electronic properties are important for light absorption, charge transfer <morehere>
 while the bulk morphological properties are important: an exciton needs to be able to find an interface at which to dissociate before it decays through one of its non-radiative processes and one the charges are separated they need to reach an electrode in order to generate current and produce electricity. <interfacial area and connectivity>
-"all models are wrong but some are useful" - George Box 1976 
 it is not only computationally intractable to try and simulate the electron density of an opv polymer melt on length scales proportional to the exciton dissociation length (~5-10 nm) -- it is the wrong tool for the job. if what we are interested in is the properties of the polymer in the bulk heterojunction then it is wise to abstract away any degrees of freedom which do not directly contribute to the self-assembly of the structure. once a good bulk structure has been achieved these details can be reintegrated much more easily. This is the idea behind a coarse grain model.
 my proposal is to develop a coarse-graining pipeline which will simplify the process mapping the coarse grain model onto the structure, parameterizing the forces and backmapping to retrieve atomistic details. 
 <electronic structure, quantum > MD atomistic, classical forces> but each atom is represented > CG multiple atoms can be grouped together to form a super atom and then the effective force can be iteratively approximated using Boltzmann inversion (IBI). 
