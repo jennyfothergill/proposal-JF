@@ -38,6 +38,8 @@ It may be easy to think that because what we are doing--mapping two carbons and 
 hexane_sites = [("_A", "CC[H3]"), ("_B", "CC")]
 \end{lstlisting}
 The result of using this code in the `coarse` function <link to grits> is a three-site hexane model A-B-A. The mapping here is specified as a list of bead name / smarts string pairs. Although they do add some element of cognitive load, SMARTS strings are designed to be human and machine readable and can match atoms based on their chemical environment. No need to look up the name or number of each residue simply say I want two alkyl carbons (CC) specifying that it is an alkyl chain tail by requiring one carbon to have three attached hydrogens (C[H3]). The bonding of the coarse grain beads is then inferred based on the bonding of the mapped atoms.
+even just having the mapping be inline with the code is better -- remember how many times everything barfed because you had windows line endings or mismatched columns!?!?!
+built in visualizations so you can SEE that the mapping is correct.
 
 
 the one part of coarse graining that is not yet automated is choosing a mapping scheme or a mapping operator. A mapping operator defines which atoms are grouped into a "super atom" represented by one coarse grain site and where in the site is placed relative to the atom group.
