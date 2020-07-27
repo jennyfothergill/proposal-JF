@@ -2,59 +2,116 @@
 <should I start with simulation in general?>
 <start with what simplifying assumptions MD already makes>
 ##coarse graining
-Coarse-grain models allow for simulators to access length and time scales that would be otherwise impossible using atomistic models. Coarse-graining refers to grouping atom in a structure into a "super-atom" and using an effective potential to represent the resulting coarse grain site. The resolution of coarse-grain systems is broad: simply grouping hydrogens with the heavy atom they are bonded to (united-atom model) <what to say about united atom?>\cite{Paul1995a, Yang2006a,}, grouping functional groups together <cite>, or as far a representing an entire amino acid with a single site <cite>. Which model is right depends on the length and time scale on which the property of interest can be observed. 
+Coarse-grain models allow for simulators to access length and time scales that would be otherwise impossible using atomistic models.
+Coarse-graining refers to grouping atoms in a structure into a "super-atom" and using an effective potential to represent the resulting coarse grain site.
+The resolution of coarse grain systems is broad:
+Simply grouping hydrogens with the heavy atom they are bonded to, called the united-atom model, has been shown to speed up dynamics and make polymer length scales more easily accesible \cite{Paul1995a, Yang2006a,}.
+Other goarse-graining schemes may group functional groups together <cite> or even represent an entire amino acid with a single site <cite>.
+General coarse grain models of opv thiophene polymers where only the spacing, regioregularity of the side chains were varied were able to predict different order disorder transitions and calculated scattering patterns of these simple systems were comparable to those obtained from experiment \cite{Jankowski2013, Marsh2014} 
+A coarse-grain model for phospholipids has allowed for bilayer formation from an initial random configuration to be observed even though the model was parameterized to the vapor-liquid phase transition.\cite{Shelley2001}
+Which model is right depends on the length and time scale on which the property of interest can be observed.
 
-For many systems however, we are interested in properties which span length scales. For instance in a system like a opv polymer melt, it is not only computationally intractable to try and simulate the electron density on length scales proportional to the exciton dissociation length (~5-10 nm) -- it is the wrong tool for the job. If what we are interested in is the properties of the polymer in the bulk heterojunction, then it is wise to abstract away any degrees of freedom which do not directly contribute to the self-assembly of the structure. Once a good bulk structure has been achieved the atomistic details can be reintegrated much more easily--a process called backmapping. In the same way that a coarse grain model can be mapped onto an atomistic one, we can get a reasonable starting structure for an atomistic simualtion from a coarse grain structure. The large length scale, polymer level properties can be equilibrated during the coarse grain simulation and then the atomic interactions can be equilibrated during the backmapped atomistic simulation. This can allow us the calculate properties such as charge transport, which depends upon the electronic structure of individual chromophores and the connectivity of these chromophores over distances proportional to the exciton dissociation length.
-General coarse grain models of opv thiophene polymers where only the spacing, regioregularity of the side chains were varied were able to predict different order disorder transitions and calculated scattering patterns of these simple simples were comparable to those obtained from experiment \cite{Jankowski2013, Marsh2014} 
-A coarse-grain model for phospholipids has allowed for bilayer formation from an initial random configuration to be observed even though the model was parameterized to the vapor-liquid phase transition. \cite{Shelley2001}
+For many systems, however, we are interested in properties which span length scales.
+For instance, in a system like a opv polymer melt, it is not only computationally intractable to try and simulate the electron density on length scales proportional to the exciton dissociation length (~5-10 nm)<cite> -- it is the wrong tool for the job.
+If what we are interested in is the properties of the polymer in the bulk heterojunction, then it is wise to abstract away any degrees of freedom which do not directly contribute to the self-assembly of the structure.
+Once a good bulk structure has been achieved, the atomistic details can be reintegrated much more easily--a process called backmapping.
+In the same way that a coarse grain model can be mapped onto an atomistic one, we can get a reasonable starting structure for an atomistic simulation from a coarse grain structure.
+The large length scale, polymer level properties can be equilibrated during the coarse grain simulation, and then the atomic interactions can be equilibrated during the backmapped atomistic simulation.
+This can allow us the calculate properties such as charge transport, which depends upon the electronic structure of individual chromophores and the connectivity of these chromophores over distances proportional to the exciton dissociation length.
+<what stands in our way?>
+
+<coarse-grain models are specific>
+
+<segue from automated creation of forcefields to...>
+<mapping operator has to be decided by hand> <is this section too big?>
+Part of coarse graining that is not yet automated is choosing a mapping scheme or a mapping operator.
+A mapping operator defines which atoms are grouped into a "super atom" represented by one coarse grain site and where in the site is placed relative to the atom group.
+Mapping operators are chosen based on desired resolution of the coarse grain system and the information to be extracted.
+A straightforward way to define a mapping operator is to group a set number of heavy atoms (non hydrogen) together--this is the method used in the MARTINI force field\cite{Marrink2007}.
+In this scheme, four atoms (except rings, which are treated differently) are grouped and the site is classified as polar, non-polar, apolar, or charged depending on the atoms it is composed of.
+When parameterizing a new molecule you must pick a mapping and then compare the resulting beads to existing beads--a process which is time consuming and error prone\cite{http://www.cgmartini.nl/index.php/tutorials-general-introduction-gmx5/parametrzining-new-molecule-gmx5}.
+The MARTINI force field was first designed for lipids--further parameterization for proteins and nuclei acids have been added<cite--and has shown to be effective in predicting vesicle formation, membrane protein dynamics, etc.
+Many mapping schemes are simply based on the user's chemical intuition (e.g., what parts of the molecule shouldn't be allowed to bend?<cite any model where rings are one bead> What groups have the most dominant interactions in this structure <cite dna cg model>).
+As the number of atoms in the fine grain structure increases, the number of possible mappings increase drastically.
+There have been efforts to create mapping schemes for automating the process of deciding which atoms are grouped in a "super-atom" bead.
+One study reduced the number of allowed mappings by only allowing those which do not change the symmetry group, then iterated over a graph of all possible mappings to find the "best" mapping by comparing the difference between the mapped RDF and velocity autocorrelation function \cite{Chakraborty2018a}.
+Another mapping scheme uses principle component analysis to choose a mapping scheme for biomolecules that best represents th essential dynamics\cite{Zhang2008}.
+Mapping operators can be automated using machine learning: clustering methods combined with graph analysis were shown to predict the "expert" mapping chosen using chemical intuition reliably\cite{li2020}. 
+A mapping operator based on the centers of charge was shown to accurately model electrostatic properties\cite{Cao2015a}.
+
 <how cg potentials have been obtained>
 <IBI>
 <why are IBI potentials not transferrable? the RDF is a property of the ensemble average at a given statepoint so the potential derived from this property is also limited.>
 separate potentials are required to capture solid and fluid structures of a pure simple lipid <Moore2014 ref 46>
 <IBI potentials are sometimes transferrable and it is not clear why sometimes they are and sometimes they aren't.> \cite{Moore2014}
 
-Multistate iterative Boltzmann inversion (MS IBI) includes data from multiple targets to yield a less state dependent potential. \cite{Moore2014}
+Multistate iterative Boltzmann inversion (MS IBI) includes data from multiple targets to yield a less state dependent potential.
+\cite{Moore2014}
 The MS IBI potential is an average of the single state potentials with a weighting function to prioritize a state of interest.
-This method has been shown to accurately reproduce the true potential in monoatomic LJ fluid. 
-When using the MS IBI method, it is important to choose dissimilar states to minimize the potential overlap region. If this overlap region is large, there are many potentials which will provide matching RDFs. For some systems there may not be a potential that represents all states-- this is not unique to coarse potentials, atomistic potentials also have this limitation.
+This method has been shown to accurately reproduce the true potential in monoatomic LJ fluid.
+
+When using the MS IBI method, it is important to choose dissimilar states to minimize the potential overlap region.
+If this overlap region is large, there are many potentials which will provide matching RDFs.
+For some systems there may not be a potential that represents all states-- this is not unique to coarse potentials, atomistic potentials also have this limitation.
 
 TraPPE fits CG potentials using vapor-liquid equilibria to improve transferrability across thermodynamic states\cite{Maerzke2011}
 <Talk about what exists and why it is not enough>
 <votca, Peng2019a> 
 Versatile Object-oriented Toolkit for Coarse-graining Applications (VOTCA) \cite{Ruhle2011b}
-includes a coarse-graining, forcefield creation with reverse MC or IBI, and back-mapping modules. It also allows for charge transport calculations using KMC similar to MorphCT <cite>
+includes a coarse-graining, forcefield creation with reverse MC or IBI, and back-mapping modules.
+It also allows for charge transport calculations using KMC similar to MorphCT <cite>
 
-reproducibility crisis.\cite{Cummings2019} \cite{Thompson2020} (TRUE paper) poorly documented code and raw data doesn't help. 
-instead example workflows with docker containers to build software stack. help make science more accessible and reprodicible.
+reproducibility crisis.\cite{Cummings2019} \cite{Thompson2020} (TRUE paper) poorly documented code and raw data doesn't help.
+
+instead example workflows with docker containers to build software stack.
+help make science more accessible and reprodicible.
 
 <compare VOTCA's backmapping to my proposed scheme>
-VOTCA makes some progress towards a TRUE simulation pipeline: they include a docker container with their pre-built software stack and example input files <see https://github.com/votca/votca -- using this code via docker> (but some of these input files don't work and the codecoverage on their repo as of time of writing is 0\%), and while including example inputs is a good first step, very little walkthrough (aside from code comments buried in the xml) is given. A manual is provided but there is some disconnect between the example files and those given in the manual <https://github.com/votca/csg-manual/releases>. the code is a mix of C++, shell commands, python, and interacts with compiled programs through the command-line and mpi. which makes their working a little tenuous. And judging by the amount of confusion in their mailing list <https://groups.google.com/forum/#!forum/votca> there is room for improvement in the API. Overall though this is program has many features, interfaces with many popular MD engines (lammps, gromacs, hoomd), and is under active, collaborative development.
-A good question might be if I'm so into OSS and collaboration--why don't I just contribute an MSIBI package to VOTCA. This is a reasonable question. The answer is because I find VOTCA to be near-overwhelming in it's scope and the cognitive load of trying to fit this whole project into my brain is not ideal. I also don't like their API. by choosing a pure python API I will be able to make use of jupyter notebooks which can be run on cloud servers using tools like mybinder <link mybinder, link to tutorials I;ve made> which can combine executable code with markdown text and images. In this way a tutorial can provide exact commands needed to reproduce the example intimately connected with the rationale and justification of that example. I would like to think that my code speaks for itself, but after reading other people's code, I have a renewed appreciation for explanations in paragraph form, diagrams, and figures.
+VOTCA makes some progress towards a TRUE simulation pipeline: they include a docker container with their pre-built software stack and example input files <see https://github.com/votca/votca -- using this code via docker> (but some of these input files don't work and the codecoverage on their repo as of time of writing is 0\%), and while including example inputs is a good first step, very little walkthrough (aside from code comments buried in the xml) is given.
+A manual is provided but there is some disconnect between the example files and those given in the manual <https://github.com/votca/csg-manual/releases>.
+the code is a mix of C++, shell commands, python, and interacts with compiled programs through the command-line and mpi.
+which makes their working a little tenuous.
+And judging by the amount of confusion in their mailing list <https://groups.google.com/forum/#!forum/votca> there is room for improvement in the API.
+Overall though this is program has many features, interfaces with many popular MD engines (lammps, gromacs, hoomd), and is under active, collaborative development.
+A good question might be if I'm so into OSS and collaboration--why don't I just contribute an MSIBI package to VOTCA.
+This is a reasonable question.
+The answer is because I find VOTCA to be near-overwhelming in it's scope and the cognitive load of trying to fit this whole project into my brain is not ideal.
+I also don't like their API.
+by choosing a pure python API I will be able to make use of jupyter notebooks which can be run on cloud servers using tools like mybinder <link mybinder, link to tutorials I;ve made> which can combine executable code with markdown text and images.
+In this way a tutorial can provide exact commands needed to reproduce the example intimately connected with the rationale and justification of that example.
+I would like to think that my code speaks for itself, but after reading other people's code, I have a renewed appreciation for explanations in paragraph form, diagrams, and figures.
 
-For an example of what I mean by cognitive load, let's compare an example of my proposed coarse-graining scheme to VOTCAs. In the following example we will take a hexane molecule and map it to three coarse grain sites (two carbon atoms per site). VOTCA uses an xml file to do this:
+For an example of what I mean by cognitive load, let's compare an example of my proposed coarse-graining scheme to VOTCAs.
+In the following example we will take a hexane molecule and map it to three coarse grain sites (two carbon atoms per site).
+VOTCA uses an xml file to do this:
 <insert hexane.xml>
-It may be easy to think that because what we are doing--mapping two carbons and their attached hydrogens to a single bead so that six alkyl carbons becomes A-B-A--that the process will also be simple. In order to specify a bead-mapping, we need to know the residue number, the residue name, and the atom name. For a six atom system this is not too bad, but this could get tedious and error-prone for larger systems. VOTCA's scheme also requires that you specify the bonding and the angles resulting from those bonds--I will discuss this more after discussing my scheme below:
+It may be easy to think that because what we are doing--mapping two carbons and their attached hydrogens to a single bead so that six alkyl carbons becomes A-B-A--that the process will also be simple.
+In order to specify a bead-mapping, we need to know the residue number, the residue name, and the atom name.
+For a six atom system this is not too bad, but this could get tedious and error-prone for larger systems.
+And keep in mind that these xml files need to be created manually for each compound which is backmapped.
+VOTCA's scheme also requires that you specify the bonding and the angles resulting from those bonds, another process which is tedious, error-prone, and probably unecessary--I will discuss this more after discussing my scheme below:
 \begin{lstlisting}
 hexane_sites = [("_A", "CC[H3]"), ("_B", "CC")]
 \end{lstlisting}
-The result of using this code in the `coarse` function <link to grits> is a three-site hexane model A-B-A. The mapping here is specified as a list of bead name / smarts string pairs. Although they do add some element of cognitive load, SMARTS strings are designed to be human and machine readable and can match atoms based on their chemical environment. No need to look up the name or number of each residue simply say I want two alkyl carbons (CC) specifying that it is an alkyl chain tail by requiring one carbon to have three attached hydrogens (C[H3]). The bonding of the coarse grain beads is then inferred based on the bonding of the mapped atoms.
-even just having the mapping be inline with the code is better -- remember how many times everything barfed because you had windows line endings or mismatched columns!?!?!
-built in visualizations so you can SEE that the mapping is correct.
+The result of using this code in the `coarse` function <link to grits> is a three-site hexane model A-B-A.
+The mapping here is specified as a list of bead name / smarts string pairs.
+Although they do add some element of cognitive load, SMARTS strings are designed to be human and machine readable and can match atoms based on their chemical environment.
+With this scheme, there is no need to look up the name or number of each residue, I simply specify that want two alkyl carbons (CC) requiring that one be a termial carbon by including that it has three attached hydrogens (C[H3]).
+The bonding and angles of the resulting coarse grain beads is then inferred based on the bonding of the mapped atoms.
+There are even benefits to the mapping being inline with the code:
+This allows the user to see the mapping as they progress through the workflow without having to search for multiple files and it may prevent common errors caused by manual file IO such as operating system specific line endings or whitespace characters like tab or space being treated differently.
+Having the mapping in-line with the workflow also allows for the user to check that the mapping is correct with built in interactive visualizations, which can display the mapping as an overlay.
 
 
-the one part of coarse graining that is not yet automated is choosing a mapping scheme or a mapping operator. A mapping operator defines which atoms are grouped into a "super atom" represented by one coarse grain site and where in the site is placed relative to the atom group.
-mapping operators are chosen based on desired resolution of the coarse grain system and the information to be extracted. 
-A straightforward way to define a mapping operator is to group a set number of heavy atoms (non hydrogen) together--this is the method used in the MARTINI force field. \cite{Marrink2007} In this scheme, four atoms (except rings, which are treated differently) are grouped and the site is classified as polar, non-polar, apolar, or charged depending on the atoms it is composed of. When parameterizing a new molecule you must pick a mapping and thencompare the resulting beads to existing beads--time consuming and error prone.\cite{http://www.cgmartini.nl/index.php/tutorials-general-introduction-gmx5/parametrzining-new-molecule-gmx5} The MARTINI force field was first designed for lipids--further parameterization for proteins and nuclei acids have been added<cite--and has shown to be effective in predicting vesicle formation, membrane protein dynamics, etc.
-use chemical intuition--e.g. what parts of the molecule shouldn't be allowed to bend?
-there have been efforts to create mapping schemes for automating the process of deciding which atoms are grouped in a "super-atom" bead. 
-As the number of atoms in the fine grain structure increases, the number of possible mappings increase drastically. The number of allowed mappings can be reduced by only allowing those which do not change the symmetry group, then an algorithm can iterate over a graph of all possible mappings the "best" mapping being the one which minimizes the difference between the mapped RDF and velocity autocorrelation function. \cite{Chakraborty2018a}
-Another mapping scheme uses principle component analysis to choose a mapping scheme for biomolecules that best represents th essential dynamics. \cite{Zhang2008}
-\cite{li2020} mapping operators can be automated using a machine learning: clustering methods combined with graph analysis were shown to predict the "expert" mapping chosen using chemical intuition reliably.
-In order to probe electrostatic properties, a mapping operator based on the centers of charge is described\cite{Cao2015a}
 We do not propose a new automated mapping, but instead a way to make the mapping and backmapping process easier for the user.
 Simplified Molecular Input Line Entry System or SMILES \cite{Weininger} was designed to represent organic molecules in an unambiguous way (similar to IUPAC) but in a line-entry system which is also readable by a computer.
-This makes it a good candidate for specifying a coarse-grain mapping scheme.The open-source package, Openbabel, allows for a SMILES string to be converted to a chemical structure and vice versa. <cite openbabel,SMILES, SMARTS> SMARTS is similar to SMILES but instead of representing a single molecule unambiguously, it has multiple wildcards which can be used for pattern matching. This pattern matching is also implemented in the Openbabel package. If we know the SMARTS string for any given CG mapping we can map the CG site to it's center of mass or geometric center.
-I have developed a minimum working example of how this can be done <cite grits> and then how the atomistic structure can be recovered. It could be fairly straightforward to implement a lookup to check if bead parameters already exist--say for the MARTINI model-- by going through and writing out the SMARTS pattern for each existing bead type. An initial headache that could make parameterizing new compounds for the MARTINI method more foolproof.
+This makes it a good candidate for specifying a coarse-grain mapping scheme.The open-source package, Openbabel, allows for a SMILES string to be converted to a chemical structure and vice versa.
+<cite openbabel,SMILES, SMARTS> SMARTS is similar to SMILES but instead of representing a single molecule unambiguously, it has multiple wildcards which can be used for pattern matching.
+This pattern matching is also implemented in the Openbabel package.
+If we know the SMARTS string for any given CG mapping we can map the CG site to it's center of mass or geometric center.
+I have developed a minimum working example of how this can be done <cite grits> and then how the atomistic structure can be recovered.
+It could be fairly straightforward to implement a lookup to check if bead parameters already exist--say for the MARTINI model-- by going through and writing out the SMARTS pattern for each existing bead type.
+An initial headache that could make parameterizing new compounds for the MARTINI method more foolproof.
 
 <coarse-graining, backmapping, charge transport>
 
@@ -62,24 +119,34 @@ I have developed a minimum working example of how this can be done <cite grits> 
 
 # Why should the work be done?
 # what specific problems will it solve?
-In order to make the most efficient opvs we need to find the best blend of compounds and the processing conditions that result in the best structure for those compounds. With minor modifcations the number of compounds and the processing conditions can become infinite which makes this an intractable problem for experiment.
+In order to make the most efficient opvs we need to find the best blend of compounds and the processing conditions that result in the best structure for those compounds.
+With minor modifcations the number of compounds and the processing conditions can become infinite which makes this an intractable problem for experiment.
 By using a simulation pipeline, we can help to streamline the process of determining which opv materials will help to solve the energy crisis
 Simulation also helps to give us insight into the atomic interaction which drive self assembly.
-A complication of this simulation is that the features which are important to the performance of an opv span multiple length scales. The electronic properties are important for light absorption, charge transfer <morehere>
-while the bulk morphological properties are important: an exciton needs to be able to find an interface at which to dissociate before it decays through one of its non-radiative processes and one the charges are separated they need to reach an electrode in order to generate current and produce electricity. <interfacial area and connectivity>
+A complication of this simulation is that the features which are important to the performance of an opv span multiple length scales.
+The electronic properties are important for light absorption, charge transfer <morehere>
+while the bulk morphological properties are important: an exciton needs to be able to find an interface at which to dissociate before it decays through one of its non-radiative processes and one the charges are separated they need to reach an electrode in order to generate current and produce electricity.
+<interfacial area and connectivity>
 
 # how will the work be done?
 - I will build on existing tools (signac,freud,mbuild,foyer,tim moore's msibi)
-- create signac workflow which takes equilibrated atomistic trajectory (maybe checks if it's equilibrated?) maps the CG beads to it, runs IBI, gets tabulated FF, creates larger CG sim, runs it, does backmapping, then could do: RDF, charge transport, diffraction... if this workflow is streamlined--it can be applied to many different compounds allowing for us to compare the analyses between our zoo of compounds.
+- create signac workflow which takes equilibrated atomistic trajectory (maybe checks if it's equilibrated?) maps the CG beads to it, runs IBI, gets tabulated FF, creates larger CG sim, runs it, does backmapping, then could do: RDF, charge transport, diffraction...
+if this workflow is streamlined--it can be applied to many different compounds allowing for us to compare the analyses between our zoo of compounds.
 - maybe the workflow could even involve getting the equilibrated trajectory (atomtyping/fill box/run) with the new hoomd 3 api we could even set decorrelation time as a stop trigger...
 
 # what have you accomplished already? what remains?
 - contributed to development of open-source packages: mbuild, foyer, signac, fresnel
- this has helped me learn best software development practices like writing documentation, using version control, writing unit tests, employing CI, fork/pull model, etc. using these tools will help me to me a more efficient developer. It's also helped me to learn how to work as part of a team.
+ this has helped me learn best software development practices like writing documentation, using version control, writing unit tests, employing CI, fork/pull model, etc.
+using these tools will help me to me a more efficient developer.
+It's also helped me to learn how to work as part of a team.
  - created MWE of coarse-graining and backmapping with smiles-- these will need furthertesting as we try them on different compounds but the proof of concept is there.
  - created tutorial examples to help current and future students understand scientific concepts and how to use computational tools
- - created GIXStapose (presented at SciPy2020) an interactive diffraction/structure viewer. This may seem unrelated but we can use diffraction to verify our opv morphologies and compare them to experiment. GIXStapose helps to beeter connect the physical structure with the diffraction pattern.
-- started development on UFF repo for foyer. This is an example of how to create a version controlled forcefield which can be automatically applied to a compound. (atom typing is a pain)
+ - created GIXStapose (presented at SciPy2020) an interactive diffraction/structure viewer.
+This may seem unrelated but we can use diffraction to verify our opv morphologies and compare them to experiment.
+GIXStapose helps to beeter connect the physical structure with the diffraction pattern.
+- started development on UFF repo for foyer.
+This is an example of how to create a version controlled forcefield which can be automatically applied to a compound.
+(atom typing is a pain)
 
 #what is the timeline?
 #what answers will be immediately forthcoming?
