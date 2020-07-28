@@ -1,20 +1,13 @@
-open: paper.pdf
-	open paper.pdf
+proposal.pdf: 
+	pdflatex 0master.tex
+	pdflatex 0master.tex
+	bibtex 0master
+	pdflatex 0master.tex
+	pdflatex 0master.tex
 
-paper.pdf: paper.aux paper.bbl 
-	pdflatex paper.tex
-	pdflatex paper.tex
-
-paper.aux: paper.tex
-	pdflatex paper.tex
-	pdflatex paper.tex
-	bibtex paper
-
-paper.bbl: library.bib
-	bibtex paper 
-
-library.bib: 
-	echo "\n\n\n\tERRORS BELOW? Don't forget to link to your Mendeley Library: \n\n \t\tln -s ~/Path/To/Mendeley/cmelab.bib library.bib\n\n"
-
-clean:
-	rm paper.{aux,bbl,blg,log,out,pdf} acs-paper.bib
+clean: 
+	rm *.aux
+	rm *.bbl
+	rm *.blg
+	rm *.log
+	rm 0master.pdf
