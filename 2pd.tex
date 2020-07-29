@@ -154,13 +154,28 @@ This is an example of how to create a version controlled forcefield which can be
 - create signac workflow which takes equilibrated atomistic trajectory (maybe checks if it's equilibrated?) maps the CG beads to it, runs IBI, gets tabulated FF, creates larger CG sim, runs it, does backmapping, then could do: RDF, charge transport, diffraction...
 if this workflow is streamlined--it can be applied to many different compounds allowing for us to compare the analyses between our zoo of compounds.
 - maybe the workflow could even involve getting the equilibrated trajectory (atomtyping/fill box/run) with the new hoomd 3 api we could even set decorrelation time as a stop trigger...
-\subsection*{Objective 1}
+\subsection*{Objective 1: Develop a coarse graining workflow}
+build on existing tools (mbuild, openbabel)
+use SMARTS matching to specify mapping operators with relative ease
+use MSIBI to parameterize forcefield parameters
+
+\subsection*{Objective 2: Develop a backmapping workflow}
+Given an equilibrated CG morphology, retrieve the atomistic one by mapping the SMARTS structures onto the position of the CG beads and then relaxing them with some position restraint. 
+
+\subsection*{Objective 3: Run CG simulation sweep of non-fullerene acceptor blends}
+use signac to organize data
+I think there are not great CG models for these compounds (ITIC PTB7) I found this paper \cite{Meng2019} that claims to do CGMD with PTB7 ITIC but the details are hidden in the SI and seem fishy. seems like they use IBI but they dont say how they got their target distributions.
+can easily test out different mappings and other "processing" conditions
+
+\subsection*{Objective 4: Analysis}
+Use charge transfer, diffraction to tell which models are the best
 
 \section*{Predicted Outcomes}
-
+-understanding coarse graining (i'm stealing this from mike because I like it) how coarse is too coarse? for these new systems what is the minimal model which can reproduce the structural features
+-understanding the interactions which guide BHJ self assembly. understanding which functionalizations/processing conditions make best morphology
 
 \section*{Contingency Analysis}
-
+what's going to be hard?
 
 \section*{Timeline for Implementation and Evaluation}
 \begin{table}[h]
