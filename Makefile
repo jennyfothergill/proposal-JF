@@ -6,8 +6,9 @@ proposal.pdf:
 	pdflatex 0master.tex
 
 clean: 
-	rm *.aux
-	rm *.bbl
-	rm *.blg
-	rm *.log
-	rm 0master.pdf
+	rm -f *.aux
+	rm -f *.out
+	rm -f *.bbl
+	rm -f *.blg
+	rm -f *.log
+	rm -f 0master.pdf
