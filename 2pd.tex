@@ -1,7 +1,7 @@
 \section*{Motivation}
 <why do opvs matter>
 <energy demand is increasing and we need a nonpolluting cost-efficient way to provide electricity>
-Global energy consumption 17 TW in 2010 to 27 TW in 2040 \cite{Maziio2015}
+Global energy consumption 17 TW in 2010 to 27 TW in 2040 \cite{Mazzio2015}
 Renewable energy is necessary.
 Organic photovoltaics (OPVs) are a potential solution.
 <image from nrel about solar cells efficiency>\cite{https://www.nrel.gov/pv/cell-efficiency.html}
@@ -18,6 +18,14 @@ A complication of this simulation is that the features which are important to th
 The electronic properties are important for light absorption, charge transfer \cite{Scharber2006,Hoppe2004,Mazzio2015}
 while the bulk morphological properties are important: an exciton needs to be able to find an interface at which to dissociate before it decays through one of its non-radiative processes and one the charges are separated they need to reach an electrode in order to generate current and produce electricity.
 <how do we model this system?>
+
+<justification for what I'm doing>
+the number of opv compounds to test quickly becomes intractable when we consider that the power conversion efficiency is strongly linked to minor chemical modifications or functionalization, device processing, and the interplay between donor and acceptor\cite{Mazzio2015,Swick2019a}.
+There are countless variations of electron donor polymers, fullerene acceptors, and more recently small molecule, non-fullerene acceptors (NFAs) have been recieving attention for their potential to achieve higher efficiencies\cite{dou2013}.
+A P3HT:NFA blend was shown to have 11\% PCE, compared to the state-of-the-art 6.4\% in P3HT:PCBM. \cite{Baran2017}
+Not only are NFAs found to be more efficient, but they also show to be more stabile in air than polymer:fullerene blends (retaining 70-80\% of the PCE after 1,200 h exposed to air while the fullerene device was no longer operational after 800 h) \cite{Baran2017}.
+It is necessary to develop a simple easy to use pipeline to adapt to the constant changing chemistries of current OPV technologies. 
+we need a flexible pipeline for coarse grain model generation for these new chemistries
 
 \section*{Research Objectives}
 <gain insight into the limits of coarse graining>
@@ -40,6 +48,12 @@ TRUE\cite{Thompson2020}
 
 \subsection*{Organic Photovoltaics}
 <history>
+inorganic PV devices came first and are still most efficient, but they are more costly to produce, use rare elements, other environmental issue--they aren't the best solution for solar energy harvesting. 
+first opv was tang1986<cite> used a bilyaer structure
+Saricifti and Heeger 1992 <cite> discovered BHJ
+BHJ with fullerene acceptor reported by Yu in 1995 -still state of the art morphology. <cite>
+non fullerene acceptors, like ITIC, are helping to increase PCE \cite{S.Gurney2019}
+A-D-A \cite{Yi2018} has some mention of the A-D-A moeity and why it is good <read further>
 <how opvs work>
 The compounds which compose an OPV are synthesizable molecules (often polymers) composed of abundant elements (carbon, hydrogen, nitrogen, sulfur, oxygen).
 Due to the conjugated pi-orbitals in these molecules the absorption of sunlight can be used to generate excitons.

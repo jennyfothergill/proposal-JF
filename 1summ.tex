@@ -52,8 +52,33 @@
 %resulting from the proposed activity. Proposals that do not separately
 %address both criteria within the one-page Project Summary will be returned without
 %review. \\
-design a simple coarse-graining backmapping package with a focus on opvs
 
+Already the effects of human-influenced climate change are <hurtng everyone in particular poor and disadvantaged groups>.
+Burning fossil fuels for energy contributes to rising $CO_{2}$ levels.
+And the energy demand is only increasing.
+This makes finding efficient, renewable energy technologies of the utmost importance.
+Harvesting solar energy is one way to help this problem.
+Organic photovoltaic (OPV) devices have recieved attention for their simple, inexpensive manufacture.
+Generally OPV devices are made of a multicompound mixture: usually an electron donor and acceptor which form a mosaic-like structure called a bulk-heterojunction (BHJ).
+The compounds and polymers used in OPVs are made of common elements and can be synthesized with relative ease.
+<opvs work by... sunlight excites an electron, forms an exciton, exciton travels to an interface, is dissociated, then the free charge travels to an electrode and generates current.>
+And the OPV BHJ can often be assembled using simple techniques like roll-to-roll printing in ambient conditions.
+However, in order for OPV devices to be a viable solution, they need to be more efficient.
+The efficiency of an OPV device can be improved by changing the chemistry of the electron acceptor and donor compounds, the polymer properties, and tuning the processing conditions of the BHJ.
+With so many parameters, quickly this becomes an intractable problem for experiments to solve.
+This is where molecular simulation comes in. 
+Molecular dynamics (MD), a simulation technique where atoms are represented by classical forces and their interactions are specified by attractive/repulsive potentials, can be used to probe the thermodynamic processes which determine how OPV compounds will self-assemble into a BHJ morphology.
+Then we can use kinetic monte carlo (KMC) in concert with quantum chemical calculations (QCCs) to determine the charge mobility through these simulated morphologies.
+By understanding how charge move through these systems, one can predict which OPVs will be most efficient.
+However, this simulation workflow suffers from a problem of length scales:
+Probing charge transport properties with QCCs requires the calculation of electron densities around each atom. 
+But equilibrating this morphology at volumes which exceed the exciton dissociation length (~5-10 nm) is prohibitive if every individual atom is considered.
+Coarse grain (CG) models, which group multiple atoms together into "super atoms" and using an effective potential to specify the forces acting upon the site, can be used to access length and time scales more relevant to the bulk polymer morphology.
+After a bulk morphology is obtained, we can use backmapping, a process in which the atomistic detail can be reintegrated into a coarse grain model, can be used to restore atomistic detail for use in simulations like KMC/QCC.
+This multiscale simulation workflow allows for OPV morphologiesto be equilibrated at length scales relevant to the bulk polymerand to regain the atomistic detail necessary later and from a better starting structure.
+Currently software packages exist that do this but they require tedious manual input and are highly susceptible to user error.
+PI Fothergill will design a simple, chemically sensible coarse-graining and backmapping package based on the SMILES chemical input language with a focus on OPVs.
+This will allow for easier setup and execution of multiscale simulation, which can be part of the process to finding the next great OPV technology.
 
 \begin{center}
     \textbf{Intellectual Merit}
@@ -67,8 +92,13 @@ design a simple coarse-graining backmapping package with a focus on opvs
 %To what extent does the proposed activity suggest and explore creative, original,
 %or potentially transformative concepts? How well conceived and organized is the
 %proposed activity? Is there sufficient access to resources?  \\
-a coarse graining pipeline will help make multi-scale simulations more accesible/useable for others. This can be useful for screening of potential OPV compounds
 
+A coarse graining pipeline will help make multi-scale simulations more accesible and useable for others. 
+This can be useful for screening of potential OPV compounds.
+<talk about VOTCA?>
+<talk about TRUE simulations and reproducibility in the field>
+<talk about our supercomputer allocations?>
+<talk about what I've done already?>
 
 %\required{Broader Impacts}
 \begin{center}
@@ -86,4 +116,8 @@ a coarse graining pipeline will help make multi-scale simulations more accesible
 %At this efficiency, OPV devices will surpass inorganic solar cells, and even gas and coal in terms of cost per watt of electricity generation.
 %Thus, regardless of the current administration's reluctance to accept the reality of climate change, OPV devices will be seen superior to 'dirty' power production methods due to their competitive price.
 
-Helping to make research transferrable, reproducible, useable, and extensible. Software carpentry instructor training. software dev best practices. 
+Helping to make research transferrable, reproducible, useable, and extensible. 
+Wriitng tutorials and documentation while keep in mind principles of oftware carpentry instructor training. 
+Using software dev best practices to be efficient and make sure that I'm not making code for someone else to struggle through later. 
+Training/teaching undergrads.
+Working as part of a team.
