@@ -54,15 +54,18 @@
 %review. \\
 
 Already the effects of human-influenced climate change are <hurtng everyone in particular poor and disadvantaged groups>.
-Burning fossil fuels for energy contributes to rising $CO_{2}$ levels.
-And the energy demand is only increasing.
-This makes finding efficient, renewable energy technologies of the utmost importance.
-Harvesting solar energy is one way to help this problem.
-Organic photovoltaic (OPV) devices have recieved attention for their simple, inexpensive manufacture.
+Burning fossil fuels for energy is the main contributor to rising $CO_{2}$ levels, and the energy demand is only increasing.
+This increase in energy demand along with the need to protect our precious climate makes finding efficient, renewable energy technologies of the utmost importance.
+Harvesting the abundant solar energy is a <good solution because it is renewable, non-polluting, sustainable>.
+Devices which convert light to electricity, called photovoltaics, were originally made of silicon and required rare elements and careful, clean-room processing.
+More recently, organic photovoltaic (OPV) devices have recieved attention for their simple, inexpensive manufacture.
 Generally OPV devices are made of a multicompound mixture: usually an electron donor and acceptor which form a mosaic-like structure called a bulk-heterojunction (BHJ).
 The compounds and polymers used in OPVs are made of common elements and can be synthesized with relative ease.
-<opvs work by... sunlight excites an electron, forms an exciton, exciton travels to an interface, is dissociated, then the free charge travels to an electrode and generates current.>
 And the OPV BHJ can often be assembled using simple techniques like roll-to-roll printing in ambient conditions.
+The process for OPV to generate electricity is as follows: 
+Sunlight excites an electron, which forms an exciton.
+This exciton travels to an acceptor/donor interface and is dissociated into free electron and hole
+Then the free charges travel to an electrode which generates current.
 However, in order for OPV devices to be a viable solution, they need to be more efficient.
 The efficiency of an OPV device can be improved by changing the chemistry of the electron acceptor and donor compounds, the polymer properties, and tuning the processing conditions of the BHJ.
 With so many parameters, quickly this becomes an intractable problem for experiments to solve.
@@ -71,7 +74,7 @@ Molecular dynamics (MD), a simulation technique where atoms are represented by c
 Then we can use kinetic monte carlo (KMC) in concert with quantum chemical calculations (QCCs) to determine the charge mobility through these simulated morphologies.
 By understanding how charge move through these systems, one can predict which OPVs will be most efficient.
 However, this simulation workflow suffers from a problem of length scales:
-Probing charge transport properties with QCCs requires the calculation of electron densities around each atom. 
+Probing charge transport properties with QCCs requires the calculation of electron densities around each atom, which requires knowing the positions of each atom.
 But equilibrating this morphology at volumes which exceed the exciton dissociation length (~5-10 nm) is prohibitive if every individual atom is considered.
 Coarse grain (CG) models, which group multiple atoms together into "super atoms" and using an effective potential to specify the forces acting upon the site, can be used to access length and time scales more relevant to the bulk polymer morphology.
 After a bulk morphology is obtained, we can use backmapping, a process in which the atomistic detail can be reintegrated into a coarse grain model, can be used to restore atomistic detail for use in simulations like KMC/QCC.
