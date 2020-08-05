@@ -1,5 +1,6 @@
 \section*{Motivation}
 <why do opvs matter>
+<the climate is in crisis, energy consumption of fossil fuels strongly increases CO2 output which affects our climate>\cite{Solomon2009a}
 <energy demand is increasing and we need a nonpolluting cost-efficient way to provide electricity>
 Global energy consumption 17 TW in 2010 to 27 TW in 2040 \cite{Mazzio2015}
 Renewable energy is necessary.
@@ -49,9 +50,9 @@ TRUE\cite{Thompson2020}
 \subsection*{Organic Photovoltaics}
 <history>
 inorganic PV devices came first and are still most efficient, but they are more costly to produce, use rare elements, other environmental issue--they aren't the best solution for solar energy harvesting. 
-first opv was tang1986<cite> used a bilyaer structure
-Saricifti and Heeger 1992 <cite> discovered BHJ
-BHJ with fullerene acceptor reported by Yu in 1995 -still state of the art morphology. <cite>
+first opv was \cite{Tang1986b} used a bilyaer structure
+Saricifti and Heeger 1992 \cite{Saricifti1992} used polymer:fullerene mixture.
+BHJ with fullerene acceptor reported by Yu in 1995 -still state of the art morphology. \cite{Yu1995}
 non fullerene acceptors, like ITIC, are helping to increase PCE \cite{S.Gurney2019}
 The planar A-D-A structure may have more efficient exciton splitting, as compared to a fullerene accpetor, at the heterojunction due to strong electronic coupling between the conjugated backbones of the NFA and the polymer \cite{Yi2018}.
 
@@ -73,15 +74,18 @@ Depending on the bulk morphology of these compounds, the exciton can travel to a
 
 Coarse-grain models allow for simulators to access length and time scales that would be otherwise impossible using atomistic models.
 Coarse-graining refers to grouping atoms in a structure into a "super-atom" and using an effective potential to represent the resulting coarse grain site.
+It is too big and too slow and also just a bad idea to simulate huge boxes of atomistic polymers. Even if the simulation was to complete, there would be too much information to process accurately. CGing allows scientists to FOCUS their experiments.\cite{Baschnagel2000}
 The resolution of coarse grain systems is broad:
 Simply grouping hydrogens with the heavy atom they are bonded to, called the united-atom model, has been shown to speed up dynamics and make polymer length scales more easily accesible \cite{Paul1995a, Yang2006a,}.
-Other goarse-graining schemes may group functional groups together <cite> or even represent an entire amino acid with a single site <cite>.
+Other coarse-graining schemes may group functional groups together \cite{Berendsen2010, Jankowski2013, Marsh2014}, one bead per repeat unit in a polymer\cite{Lee2011}, or even represent an entire amino acid with a single site\cite{Peng2019a}.
+
+
 General coarse grain models of opv thiophene polymers where only the spacing, regioregularity of the side chains were varied were able to predict different order disorder transitions and calculated scattering patterns of these simple systems were comparable to those obtained from experiment \cite{Jankowski2013, Marsh2014} 
 A coarse-grain model for phospholipids has allowed for bilayer formation from an initial random configuration to be observed even though the model was parameterized to the vapor-liquid phase transition.\cite{Shelley2001}
 Which model is right depends on the length and time scale on which the property of interest can be observed.
 
 For many systems, however, we are interested in properties which span length scales.
-For instance, in a system like a opv polymer melt, it is not only computationally intractable to try and simulate the electron density on length scales proportional to the exciton dissociation length (~5-10 nm)<cite> -- it is the wrong tool for the job.
+For instance, in a system like a opv polymer melt, it is not only computationally intractable to try and simulate the electron density on length scales proportional to the exciton dissociation length (~5-10 nm)\cite{Huang2010} -- it is the wrong tool for the job.
 If what we are interested in is the properties of the polymer in the bulk heterojunction, then it is wise to abstract away any degrees of freedom which do not directly contribute to the self-assembly of the structure.
 Once a good bulk structure has been achieved, the atomistic details can be reintegrated much more easily--a process called backmapping.
 In the same way that a coarse grain model can be mapped onto an atomistic one, we can get a reasonable starting structure for an atomistic simulation from a coarse grain structure.
@@ -149,7 +153,7 @@ This is an example of how to create a version controlled forcefield which can be
 <votca, Peng2019a> 
 Versatile Object-oriented Toolkit for Coarse-graining Applications (VOTCA) \cite{Ruhle2011b}
 includes a coarse-graining, forcefield creation with reverse MC or IBI, and back-mapping modules.
-It also allows for charge transport calculations using KMC similar to MorphCT <cite>
+It also allows for charge transport calculations using KMC similar to MorphCT \cite{Lukyanov2010}
 
 reproducibility crisis.\cite{Cummings2019} \cite{Thompson2020} (TRUE paper) poorly documented code and raw data doesn't help.
 
