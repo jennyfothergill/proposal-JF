@@ -50,20 +50,21 @@ TRUE\cite{Thompson2020}
 \section*{Background}
 
 \subsection*{Organic Photovoltaics}
-<history>
 <what is PCE>
-inorganic PV devices came first and are still most efficient, but they are more costly to produce, use rare elements, other environmental issue--they aren't the best solution for solar energy harvesting. 
-first opv was \cite{Tang1986b} used a bilyaer structure copper phthalocyanine and a perylene derivitive (PCE 0.95\%)
+The power conversion efficiency (PCE or sometimes $\eta_{e}$) is the ratio of electrical power produced by the device over the power of incedent photons. Higher PCE means the device is more effecient.  
+The PCE depends on the number of photons absorbed, excitons dissociated, and free charges that reach the electrode. The absorption efficiency depends on the absorption spectrum, absorption coefficient, and layer thickness. The fraction of excitons which dissociate depends on the exciton dissociation length and the charge separation probability at the interface. Finally, the the number of charges which reach the electrode depends on the driving force or gradient resulting from the potentials of the electrons and holes.\cite{Hoppe2004}
+<history>
+Inorganic PV devices came first and are still most efficient, but they are more costly to produce, use rare elements, other environmental issue--they aren't the best solution for solar energy harvesting. 
+First opv was \cite{Tang1986b} used a bilyaer structure copper phthalocyanine and a perylene derivitive (PCE 0.95\%)
 Saricifti and Heeger 1992 \cite{Saricifti1992} were the first to report using fullerene as an electron acceptor in a fullerene:polymer mixture.
 Yu in 1995 described the first BHJ, an interpenetrating network of donor and acceptor that maximizes the interfacial area, which is still the state of the art morphology. \cite{Yu1995}
 Non-fullerene acceptors, like ITIC, are helping to increase PCE \cite{S.Gurney2019}
 The planar A-D-A structure may have more efficient exciton splitting, as compared to a fullerene accpetor, at the heterojunction due to strong electronic coupling between the conjugated backbones of the NFA and the polymer \cite{Yi2018}.
-
 <how opvs work>
 The compounds which compose an OPV are synthesizable molecules (often polymers) composed of abundant elements (carbon, hydrogen, nitrogen, sulfur, oxygen).
-Due to the conjugated pi-orbitals in these molecules the absorption of sunlight can be used to generate excitons.
+Due to the conjugated pi-orbitals in these molecules the absorption of sunlight can excite an electron into a frontier orbital and generate an exciton.
 OPVs are made as a mixture of electron-donor and electron-acceptor compounds in a structure called a bulk-heterojunction.
-Depending on the bulk morphology of these compounds, the exciton can travel to an accepto-donor interface and dissociate into free electron and hole then these free charges generate current if they can subsequently make their way to an electrode.
+Depending on the bulk morphology of these compounds, the exciton can travel to an acceptor-donor interface and dissociate into free electron and hole then these free charges generate current if they can subsequently make their way to an electrode.
 <why morphology matters>
 <segue into simulation>
 
@@ -75,18 +76,21 @@ Depending on the bulk morphology of these compounds, the exciton can travel to a
 
 \subsection*{Coarse Grain Models}
 
-Coarse-grain models allow for simulators to access length and time scales that would be otherwise impossible using atomistic models.
 Coarse-graining refers to grouping atoms in a structure into a "super-atom" and using an effective potential to represent the resulting coarse grain site.
+Coarse-grain models allow for simulators to access length and time scales that would be otherwise impossible using atomistic models.
+<how do cg models let us access long length/time??>
+Similarly to how we don't need to look at the working of a plant cell to understand the growth of a forest \cite{Muller-Plathe2002}, we don't need to consider atomic level properties when we are interested in the bulk morphology.
+The heart of coarse graining is the removal of degrees of freedom. This effective potential used to represent the reduced system results in a smoothed free energy landscape. Processes which may have taken many time steps in an all atom simulation can take fewer time steps in a coarse simulation.\cite{Berendsen2010}
+Due to their long length and time scales, coarse grain models are ideal for examining polymer properties.\cite{Gartner2019a}
 It is too big and too slow and also just a bad idea to simulate huge boxes of atomistic polymers. Even if the simulation was to complete, there would be too much information to process accurately. CGing allows scientists to FOCUS their experiments.\cite{Baschnagel2000}
 The resolution of coarse grain systems is broad:
 Simply grouping hydrogens with the heavy atom they are bonded to, called the united-atom model, has been shown to speed up dynamics and make polymer length scales more easily accesible \cite{Paul1995a, Yang2006a,}.
 Other coarse-graining schemes may group functional groups together \cite{Berendsen2010, Jankowski2013, Marsh2014}, one bead per repeat unit in a polymer\cite{Lee2011}, or even represent an entire amino acid with a single site\cite{Peng2019a}.
-
-
+<examples of cg models and the cool hings they do>
 General coarse grain models of opv thiophene polymers where only the spacing, regioregularity of the side chains were varied were able to predict different order disorder transitions and calculated scattering patterns of these simple systems were comparable to those obtained from experiment \cite{Jankowski2013, Marsh2014} 
 A coarse-grain model for phospholipids has allowed for bilayer formation from an initial random configuration to be observed even though the model was parameterized to the vapor-liquid phase transition.\cite{Shelley2001}
 Which model is right depends on the length and time scale on which the property of interest can be observed.
-
+<multiscale sims>
 For many systems, however, we are interested in properties which span length scales.
 For instance, in a system like a opv polymer melt, it is not only computationally intractable to try and simulate the electron density on length scales proportional to the exciton dissociation length (~5-10 nm)\cite{Huang2010} -- it is the wrong tool for the job.
 If what we are interested in is the properties of the polymer in the bulk heterojunction, then it is wise to abstract away any degrees of freedom which do not directly contribute to the self-assembly of the structure.
@@ -117,9 +121,26 @@ A mapping operator based on the centers of charge was shown to accurately model 
 
 <how cg potentials have been attained>
 \subsection*{Multi-State Iterative Boltzmann Inversion}
+
+There are numerous methods for deriving coarse grain potentials from atomistic ones (e.g., force-matching, reverse Monte Carlo), but in this proposal we will focus on Iterative Boltzmann Inversion (IBI).
 <IBI>
-<why are IBI potentials not transferrable? the RDF is a property of the ensemble average at a given statepoint so the potential derived from this property is also limited.>
-separate potentials are required to capture solid and fluid structures of a pure simple lipid <Moore2014 ref 46>
+IBI is where a coarse grain potential is iteratively tuned to fit a target distribution. \cite{Reith2003a}
+Here is the algorithm for determining the non-bonded potentials:
+First the coarse grain system is mapped onto an equilibrated atomistic one.
+Then the radial distribution function (RDF) of the mapped systems is calculated over the equilibrated frames of the trajectory--This is the target distribution.
+Given any particle, the RDF gives the probability of finding a neighboring particle at distance r.
+Taking the Boltzmann Inverse of the RDF results in the potential of mean force (PMF). <add equation>
+Then a CG simulation can be run using the PMF as the non-bonded potential to achieve a new distribution.
+Then the difference between the new and target distribution can be accounted for in the next iteration accoring to equation <add equation>.
+This process is repeated until the difference between the result and the target are sufficiently similar.
+
+The coarse grain potential derived from IBI is not transferrable to different thermodynamic statepoints.
+This is because the RDF is a property of the ensemble average at a given statepoint, so the potential derived from this property is also limited.
+For example, separate potentials are required to capture solid and fluid structures of a pure simple lipid \cite{Hadley2010a}.
+There are many attempts to create transferrable CG potentials, for example:
+The TraPPE force-field fits CG potentials using vapor-liquid equilibria to improve transferrability across thermodynamic states\cite{Maerzke2011}
+But optimization to the liquid-vapor equilibriai, although useful for prediction of thermodynamic properties, may not be ideal for prediction of structure which will strongly influence charge transport.
+<so we probably want to create our own potentials>
 <IBI potentials are sometimes transferrable and it is not clear why sometimes they are and sometimes they aren't.> \cite{Moore2014}
 
 Multistate iterative Boltzmann inversion (MS IBI) includes data from multiple targets to yield a less state dependent potential.
@@ -128,12 +149,12 @@ The MS IBI potential is an average of the single state potentials with a weighti
 This method has been shown to accurately reproduce the true potential in monoatomic LJ fluid.
 
 When using the MS IBI method, it is important to choose dissimilar states to minimize the potential overlap region.
-If this overlap region is large, there are many potentials which will provide matching RDFs.
+If this overlap region is large, there are many potentials which will provide matching RDFs. <show fig from moore>
 For some systems there may not be a potential that represents all states-- this is not unique to coarse potentials, atomistic potentials also have this limitation.
 
-TraPPE fits CG potentials using vapor-liquid equilibria to improve transferrability across thermodynamic states\cite{Maerzke2011}
 
 \subsection*{Mesoscale Device Simulation}
+<I DONT WANT TO FOCUS ON THIS TOO MUCH. It's only here as a rationale for why backmapping>
 <how morphct pipeline would work: cg-backmap-ct>
 <how kmc works>
 <cite morphct papers>
