@@ -1,3 +1,5 @@
+\newcommand{\ej}[1]{\textcolor{red}{\textit{#1} -- EJ.}}
+\newcommand{\cj}[1]{\textcolor{orange}{\textit{#1} -- CJ.}}
 \section*{Motivation}
 <why do opvs matter>
 <the climate is in crisis, energy consumption of fossil fuels strongly increases CO2 output which affects our climate>\cite{Solomon2009a}
@@ -10,7 +12,7 @@ OPVs are lightweight, low-cost, and flexible--in order to become the best soluti
 Currently OPV devices are not efficient enough to solve this problem.
 In order to make the most efficient opvs we need to find the best blend of compounds and the processing conditions that result in the best structure for those compounds.
 <opv performance is intimately linked with structure>
-the interfacial area of the acceptor/donor regions \cite{mazzio} the regioregularity of the polymer \cite{Kim2006} and electronic properties (HOMO level) of the compounds \cite{Scharber2006a}
+the interfacial area of the acceptor/donor regions \cite{Mazzio2015} the regioregularity of the polymer \cite{Kim2006} and electronic properties (HOMO level) of the compounds \cite{Scharber2006a}
 With minor modifcations the number of compounds and the processing conditions can become infinite which makes this an intractable problem for experiment.
 Functionalizing a molecule like ITIC can change how it packs in a crystal \cite{Swick2019a}.
 By using a simulation pipeline, we can help to streamline the process of determining which opv materials will help to solve the energy crisis
@@ -22,7 +24,7 @@ while the bulk morphological properties are important: an exciton needs to be ab
 
 <justification for what I'm doing>
 the number of opv compounds to test quickly becomes intractable when we consider that the power conversion efficiency is strongly linked to minor chemical modifications or functionalization, device processing, and the interplay between donor and acceptor\cite{Mazzio2015,Swick2019a}.
-There are countless variations of electron donor polymers, fullerene acceptors, and more recently small molecule, non-fullerene acceptors (NFAs) have been recieving attention for their potential to achieve higher efficiencies\cite{dou2013}.
+There are countless variations of electron donor polymers, fullerene acceptors, and more recently small molecule, non-fullerene acceptors (NFAs) have been recieving attention for their potential to achieve higher efficiencies\cite{Dou2013}.
 A P3HT:NFA blend was shown to have 11\% PCE, compared to the state-of-the-art 6.4\% in P3HT:PCBM. \cite{Baran2017}
 Not only are NFAs found to be more efficient, but they also show to be more stabile in air than polymer:fullerene blends (retaining 70-80\% of the PCE after 1,200 h exposed to air while the fullerene device was no longer operational after 800 h) \cite{Baran2017}.
 It is necessary to develop a simple easy to use pipeline to adapt to the constant changing chemistries of current OPV technologies. 
@@ -49,11 +51,12 @@ TRUE\cite{Thompson2020}
 
 \subsection*{Organic Photovoltaics}
 <history>
+<what is PCE>
 inorganic PV devices came first and are still most efficient, but they are more costly to produce, use rare elements, other environmental issue--they aren't the best solution for solar energy harvesting. 
-first opv was \cite{Tang1986b} used a bilyaer structure
-Saricifti and Heeger 1992 \cite{Saricifti1992} used polymer:fullerene mixture.
-BHJ with fullerene acceptor reported by Yu in 1995 -still state of the art morphology. \cite{Yu1995}
-non fullerene acceptors, like ITIC, are helping to increase PCE \cite{S.Gurney2019}
+first opv was \cite{Tang1986b} used a bilyaer structure copper phthalocyanine and a perylene derivitive (PCE 0.95\%)
+Saricifti and Heeger 1992 \cite{Saricifti1992} were the first to report using fullerene as an electron acceptor in a fullerene:polymer mixture.
+Yu in 1995 described the first BHJ, an interpenetrating network of donor and acceptor that maximizes the interfacial area, which is still the state of the art morphology. \cite{Yu1995}
+Non-fullerene acceptors, like ITIC, are helping to increase PCE \cite{S.Gurney2019}
 The planar A-D-A structure may have more efficient exciton splitting, as compared to a fullerene accpetor, at the heterojunction due to strong electronic coupling between the conjugated backbones of the NFA and the polymer \cite{Yi2018}.
 
 <how opvs work>
@@ -109,7 +112,7 @@ As the number of atoms in the fine grain structure increases, the number of poss
 There have been efforts to create mapping schemes for automating the process of deciding which atoms are grouped in a "super-atom" bead.
 One study reduced the number of allowed mappings by only allowing those which do not change the symmetry group, then iterated over a graph of all possible mappings to find the "best" mapping by comparing the difference between the mapped RDF and velocity autocorrelation function \cite{Chakraborty2018a}.
 Another mapping scheme uses principle component analysis to choose a mapping scheme for biomolecules that best represents th essential dynamics\cite{Zhang2008}.
-Mapping operators can be automated using machine learning: clustering methods combined with graph analysis were shown to predict the "expert" mapping chosen using chemical intuition reliably\cite{li2020}. 
+Mapping operators can be automated using machine learning: clustering methods combined with graph analysis were shown to predict the "expert" mapping chosen using chemical intuition reliably\cite{Li2020}. 
 A mapping operator based on the centers of charge was shown to accurately model electrostatic properties\cite{Cao2015a}.
 
 <how cg potentials have been attained>
