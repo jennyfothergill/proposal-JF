@@ -2,33 +2,36 @@
 \newcommand{\cj}[1]{\textcolor{orange}{\textit{#1} -- CJ.}}
 \section*{Motivation}
 <why do opvs matter>
-<the climate is in crisis, energy consumption of fossil fuels strongly increases CO2 output which affects our climate>\cite{Solomon2009a}
-<energy demand is increasing and we need a nonpolluting cost-efficient way to provide electricity>
-Global energy consumption 17 TW in 2010 to 27 TW in 2040 \cite{Mazzio2015}
-Renewable energy is necessary.
-Organic photovoltaics (OPVs) are a potential solution.
+The global climate crisis is one of the most pressing issue humanity faces today.
+Consumption of fossil fuels for energy and transportation strongly contributes to atmospheric $CO_2$ the affects of which are global, long-term, and devastating\cite{Solomon2009a}.
+In our technology driven society, it is unrealistic to think that energy demand will lessen, in fact global energy consumption is predicted to increase from 17 TW in 2010 to 27 TW in 2040 \cite{Mazzio2015}.
+In order to protect our precious climate, we need a non-polluting, cost-efficient way to provide electricity.
+Harnessing solar energy is an important part of a green energy solution.
+Traditionally, photovoltaic devices, materials which can convert incedent light into electric current, were made of inorganic materials like silicon.
+But in the late 1970's organic photovaltaics (OPVs) were discovered as a potential alternative.
+The advantage of OPVs over inorganic PV devices is that OPVs are lightweight, low cost, easier to produce, and flexible. 
+However, in order to become a viable, cost-effective option they need better efficiency \cite{Mazzio2015}.
 <image from nrel about solar cells efficiency>\cite{https://www.nrel.gov/pv/cell-efficiency.html}
-OPVs are lightweight, low-cost, and flexible--in order to become the best solution they need better efficiency \cite{Mazzioi2015}.
 Currently OPV devices are not efficient enough to solve this problem.
-In order to make the most efficient opvs we need to find the best blend of compounds and the processing conditions that result in the best structure for those compounds.
-<opv performance is intimately linked with structure>
-the interfacial area of the acceptor/donor regions \cite{Mazzio2015} the regioregularity of the polymer \cite{Kim2006} and electronic properties (HOMO level) of the compounds \cite{Scharber2006a}
+In order to make the most efficient OPVs we need to find the best blend of compounds and the processing conditions that result in the best structure for those compounds.
+The performance of an OPV device is intimately linked with the structure of the active layer:
+The interfacial area of the acceptor:donor regions \cite{Mazzio2015}, the regioregularity of the polymer \cite{Kim2006}, and electronic properties of the compounds \cite{Scharber2006a} all play an important role in the power conversion efficiency (PCE) of the device.
 With minor modifcations the number of compounds and the processing conditions can become infinite which makes this an intractable problem for experiment.
-Functionalizing a molecule like ITIC can change how it packs in a crystal \cite{Swick2019a}.
-By using a simulation pipeline, we can help to streamline the process of determining which opv materials will help to solve the energy crisis
-Simulation also helps to give us insight into the atomic interaction which drive self assembly.
-A complication of this simulation is that the features which are important to the performance of an opv span multiple length scales.
-The electronic properties are important for light absorption, charge transfer \cite{Scharber2006,Hoppe2004,Mazzio2015}
-while the bulk morphological properties are important: an exciton needs to be able to find an interface at which to dissociate before it decays through one of its non-radiative processes and one the charges are separated they need to reach an electrode in order to generate current and produce electricity.
-<how do we model this system?>
+For example, simply changing the functional groups on the conjugated backbone of a molecule like ITIC can change how it packs in a crystal and thus its performance in a device\cite{Swick2019a}.
+By using a simulation pipeline, we can help to streamline the process of determining which OPV materials will help to solve the energy crisis.
+Simulation also helps to give us insight into the atomic interactions which drive self assembly.
+A complication of the simulation of OPV polymers is that the properties which predict a device's efficiency, for example charge transport, span multiple length scales.
+The atomic and electronic properties are important for light absorption, in which an exciton is created, and charge transfer, where the exciton is dissociated into a free electron and hole\cite{Scharber2006,Hoppe2004,Mazzio2015}.
+At the same time, the exciton finding an interface at which to dissociates depends on the bulk morphology, as do the charges, once separated, finding a path to an electrode in order to generate current and produce electricity.
+<So how can we model this system?>
 
 <justification for what I'm doing>
-the number of opv compounds to test quickly becomes intractable when we consider that the power conversion efficiency is strongly linked to minor chemical modifications or functionalization, device processing, and the interplay between donor and acceptor\cite{Mazzio2015,Swick2019a}.
+The number of opv compounds to test quickly becomes intractable when we consider that the power conversion efficiency is strongly linked to minor chemical modifications or functionalization, device processing, and the interplay between donor and acceptor\cite{Mazzio2015,Swick2019a}.
 There are countless variations of electron donor polymers, fullerene acceptors, and more recently small molecule, non-fullerene acceptors (NFAs) have been recieving attention for their potential to achieve higher efficiencies\cite{Dou2013}.
-A P3HT:NFA blend was shown to have 11\% PCE, compared to the state-of-the-art 6.4\% in P3HT:PCBM. \cite{Baran2017}
-Not only are NFAs found to be more efficient, but they also show to be more stabile in air than polymer:fullerene blends (retaining 70-80\% of the PCE after 1,200 h exposed to air while the fullerene device was no longer operational after 800 h) \cite{Baran2017}.
-It is necessary to develop a simple easy to use pipeline to adapt to the constant changing chemistries of current OPV technologies. 
-we need a flexible pipeline for coarse grain model generation for these new chemistries
+A P3HT:NFA blend was shown to have 11\% PCE, compared to the state-of-the-art 6.4\% in P3HT:PCBM\cite{Baran2017}.
+Not only are NFAs found to be more efficient, but they also show to be more stabile in air than polymer:fullerene blends (retaining 70-80\% of the PCE after 1,200 h exposed to air while the fullerene device was no longer operational after 800 h)\cite{Baran2017}.
+It is necessary to develop a simple easy to use pipeline to adapt to the constant changing chemistries of current OPV technologies.
+We need a flexible pipeline for coarse grain model generation for these new chemistries.
 
 \section*{Research Objectives}
 <gain insight into the limits of coarse graining>
@@ -51,15 +54,20 @@ TRUE\cite{Thompson2020}
 
 \subsection*{Organic Photovoltaics}
 <what is PCE>
-The power conversion efficiency (PCE or sometimes $\eta_{e}$) is the ratio of electrical power produced by the device over the power of incedent photons. Higher PCE means the device is more effecient.  
-The PCE depends on the number of photons absorbed, excitons dissociated, and free charges that reach the electrode. The absorption efficiency depends on the absorption spectrum, absorption coefficient, and layer thickness. The fraction of excitons which dissociate depends on the exciton dissociation length and the charge separation probability at the interface. Finally, the the number of charges which reach the electrode depends on the driving force or gradient resulting from the potentials of the electrons and holes.\cite{Hoppe2004}
+The power conversion efficiency (PCE or sometimes $\eta_{e}$) is the ratio of electrical power produced by the device over the power of incedent photons.
+Higher PCE means the device is more efficient.  
+The PCE depends on the number of photons absorbed, excitons dissociated, and free charges that reach the electrode.
+The absorption efficiency depends on the absorption spectrum, absorption coefficient, and layer thickness.
+The fraction of excitons which dissociate depends on the exciton dissociation length and the charge separation probability at the interface.
+Finally, the the number of charges which reach the electrode depends on the driving force or gradient resulting from the potentials of the electrons and holes.\cite{Hoppe2004}
 <history>
-Inorganic PV devices came first and are still most efficient, but they are more costly to produce, use rare elements, other environmental issue--they aren't the best solution for solar energy harvesting. 
-First opv was \cite{Tang1986b} used a bilyaer structure copper phthalocyanine and a perylene derivitive (PCE 0.95\%)
-Saricifti and Heeger 1992 \cite{Saricifti1992} were the first to report using fullerene as an electron acceptor in a fullerene:polymer mixture.
-Yu in 1995 described the first BHJ, an interpenetrating network of donor and acceptor that maximizes the interfacial area, which is still the state of the art morphology. \cite{Yu1995}
-Non-fullerene acceptors, like ITIC, are helping to increase PCE \cite{S.Gurney2019}
-The planar A-D-A structure may have more efficient exciton splitting, as compared to a fullerene accpetor, at the heterojunction due to strong electronic coupling between the conjugated backbones of the NFA and the polymer \cite{Yi2018}.
+Inorganic PV devices came first and are still most efficient, but they are more costly to produce, use rare elements, and their production causes other environmental issues, so they aren't the best solution for solar energy harvesting. 
+The first OPV was created by Tang in 1986 and \cite{Tang1986b} used a bilyaer structure containing copper phthalocyanine and a perylene derivitive. 
+This early device had a PCE of 0.95\%.
+In 1992, Saricifti and Heeger\cite{Saricifti1992} were the first to report using fullerene as an electron acceptor in a fullerene:polymer mixture.
+And in 1995, Yu described the first bulk heterojunction (BHJ), as an interpenetrating network of donor and acceptor that maximizes the interfacial area, which is still the state of the art morphology to this day\cite{Yu1995}.
+Most recently, non-fullerene acceptors (NFAs), like ITIC, are contributing to the PCE increase of modern OPVs \cite{S.Gurney2019}.
+The planar acceptor-donor-acceptor moeity seen in many NFA backbones <figure?> may have more efficient exciton splitting, as compared to a fullerene accpetor, at the heterojunction due to strong electronic coupling between the conjugated backbones of the NFA and the polymer \cite{Yi2018}.
 <how opvs work>
 The compounds which compose an OPV are synthesizable molecules (often polymers) composed of abundant elements (carbon, hydrogen, nitrogen, sulfur, oxygen).
 Due to the conjugated pi-orbitals in these molecules the absorption of sunlight can excite an electron into a frontier orbital and generate an exciton.
@@ -80,9 +88,13 @@ Coarse-graining refers to grouping atoms in a structure into a "super-atom" and 
 Coarse-grain models allow for simulators to access length and time scales that would be otherwise impossible using atomistic models.
 <how do cg models let us access long length/time??>
 Similarly to how we don't need to look at the working of a plant cell to understand the growth of a forest \cite{Muller-Plathe2002}, we don't need to consider atomic level properties when we are interested in the bulk morphology.
-The heart of coarse graining is the removal of degrees of freedom. This effective potential used to represent the reduced system results in a smoothed free energy landscape. Processes which may have taken many time steps in an all atom simulation can take fewer time steps in a coarse simulation.\cite{Berendsen2010}
+The heart of coarse graining is the removal of degrees of freedom. 
+This effective potential used to represent the reduced system results in a smoothed free energy landscape. 
+Processes which may have taken many time steps in an all atom simulation can take fewer time steps in a coarse simulation.\cite{Berendsen2010}
 Due to their long length and time scales, coarse grain models are ideal for examining polymer properties.\cite{Gartner2019a}
-It is too big and too slow and also just a bad idea to simulate huge boxes of atomistic polymers. Even if the simulation was to complete, there would be too much information to process accurately. CGing allows scientists to FOCUS their experiments.\cite{Baschnagel2000}
+It is too big and too slow and also just a bad idea to simulate huge boxes of atomistic polymers. 
+Even if the simulation was to complete, there would be too much information to process accurately. 
+CGing allows scientists to FOCUS their experiments.\cite{Baschnagel2000}
 The resolution of coarse grain systems is broad:
 Simply grouping hydrogens with the heavy atom they are bonded to, called the united-atom model, has been shown to speed up dynamics and make polymer length scales more easily accesible \cite{Paul1995a, Yang2006a,}.
 Other coarse-graining schemes may group functional groups together \cite{Berendsen2010, Jankowski2013, Marsh2014}, one bead per repeat unit in a polymer\cite{Lee2011}, or even represent an entire amino acid with a single site\cite{Peng2019a}.
