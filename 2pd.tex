@@ -2,36 +2,40 @@
 <why do opvs matter>
 The global climate crisis is one of the most pressing issue humanity faces today.
 Consumption of fossil fuels for energy and transportation strongly contributes to atmospheric $CO_2$ the affects of which are global, long-term, and devastating\cite{Solomon2009a}.
-In our technology driven society, it is unrealistic to think that energy demand will lessen, in fact global energy consumption is predicted to increase from 17 TW in 2010 to 27 TW in 2040 \cite{Mazzio2015}.
+In our technology-driven society, it is unrealistic to think that energy demand will lessen, in fact global energy consumption is predicted to increase from 17 TW in 2010 to 27 TW in 2040 \cite{Mazzio2015}.
 In order to protect our precious climate, we need a non-polluting, cost-efficient way to provide electricity.
 Harnessing solar energy is an important part of a green energy solution.
 Traditionally, photovoltaic devices, materials which can convert incedent light into electric current, were made of inorganic materials like silicon.
 But in the late 1970's organic photovaltaics (OPVs) were discovered as a potential alternative.
-
 The advantage of OPVs over inorganic PV devices is that OPVs are lightweight, low cost, easier to produce, and flexible. 
 However, in order to become a viable, cost-effective option they need better efficiency \cite{Mazzio2015}.
 <image from nrel about solar cells efficiency>\cite{https://www.nrel.gov/pv/cell-efficiency.html}
-Currently OPV devices are not efficient enough to solve this problem.
 In order to make the most efficient OPVs we need to find the best blend of compounds and the processing conditions that result in the best structure for those compounds.
+The active layer of an OPV is mixture of electron-donor and acceptor compounds: the ideal morphology is a micro phase-separated interpenetrating network called a bulk heterojunction (BHJ).
 The performance of an OPV device is intimately linked with the structure of the active layer:
 The interfacial area of the acceptor:donor regions \cite{Mazzio2015}, the regioregularity of the polymer \cite{Kim2006}, and electronic properties of the compounds \cite{Scharber2006a} all play an important role in the power conversion efficiency (PCE) of the device.
-With minor modifcations the number of compounds and the processing conditions can become infinite which makes this an intractable problem for experiment.
-For example, simply changing the functional groups on the conjugated backbone of a molecule like ITIC can change how it packs in a crystal and thus its performance in a device\cite{Swick2019a}.
-By using a simulation pipeline, we can help to streamline the process of determining which OPV materials will help to solve the energy crisis.
-Simulation also helps to give us insight into the atomic interactions which drive self assembly.
-
+With minor modifcations, the number of compounds and the processing conditions can become infinite which makes this an intractable problem for experiment.
+For example, simply changing the functional groups on the conjugated backbone of a molecule like ITIC can change how it packs in a crystal, its electron affinity, and thus its performance in a device\cite{Swick2019a}.
+By using a simulation pipeline, we can help to streamline the process of determining which OPV materials will form the best morphology with the best charge transport, and in turn, help to solve the energy crisis.
+Molecular simulation also gives us insight into the atomic interactions which drive the self assembly of an OPV morphology.
 A complication of the simulation of OPV polymers is that the properties which predict a device's efficiency, for example charge transport, span multiple length scales.
 The atomic and electronic properties are important for light absorption, in which an exciton is created, and charge transfer, where the exciton is dissociated into a free electron and hole\cite{Scharber2006,Hoppe2004,Mazzio2015}.
 At the same time, the exciton finding an interface at which to dissociates depends on the bulk morphology, as do the charges, once separated, finding a path to an electrode in order to generate current and produce electricity.
-<So how can we model this system?>
-
+So, in order to model this system, a multiscale approach is necessary.
+By breaking our simulation apart into separate steps and equilibrating different lengths scales individually, we can <get equilibrated morphologies on multiple length scales more efficiently>.
+<so what's the gist of what we're going to do?>
+<cg - get some polymer morphologies equilibrated on relevant length scales>
+<backmapping - get back the atomic positions in preparation for techniques which require atomic level resolutiuon e.g., charge transport>
+<kmc calc>
+<if we we're just to start with the atomistic sim, it wouldn't be as efficient and might even be less accurate because polymers are tough to equilibrate> <probably cite arthi's paper here Gartner2019?>
+<This efficiency is important because we got a lot of testing to do!>
 <justification for what I'm doing>
 The number of opv compounds to test quickly becomes intractable when we consider that the power conversion efficiency is strongly linked to minor chemical modifications or functionalization, device processing, and the interplay between donor and acceptor\cite{Mazzio2015,Swick2019a}.
 There are countless variations of electron donor polymers, fullerene acceptors, and more recently small molecule, non-fullerene acceptors (NFAs) have been recieving attention for their potential to achieve higher efficiencies\cite{Dou2013}.
 A P3HT:NFA blend was shown to have 11\% PCE, compared to the state-of-the-art 6.4\% in P3HT:PCBM\cite{Baran2017}.
 Not only are NFAs found to be more efficient, but they also show to be more stabile in air than polymer:fullerene blends (retaining 70-80\% of the PCE after 1,200 h exposed to air while the fullerene device was no longer operational after 800 h)\cite{Baran2017}.
-It is necessary to develop a simple easy to use pipeline to adapt to the constant changing chemistries of current OPV technologies.
-We need a flexible pipeline for coarse grain model generation for these new chemistries.
+<there aren't a lot of cg models that already exist for these new compounds>
+It is necessary to develop a simple, useable, and flexible pipeline to adapt to the constantly changing chemistries of current OPV technologies.
 
 \section*{Research Objectives}
 <gain insight into the limits of coarse graining>
@@ -56,10 +60,11 @@ TRUE\cite{Thompson2020}
 <what is PCE>
 The power conversion efficiency (PCE or sometimes $\eta_{e}$) is the ratio of electrical power produced by the device over the power of incedent photons.
 Higher PCE means the device is more efficient.  
-The PCE depends on the number of photons absorbed, excitons dissociated, and free charges that reach the electrode.
+The material properties which determine the PCE of a device are those which affect the number of photons absorbed, excitons dissociated, and free charges that reach the electrode.
 The absorption efficiency depends on the absorption spectrum, absorption coefficient, and layer thickness.
 The fraction of excitons which dissociate depends on the exciton dissociation length and the charge separation probability at the interface.
 Finally, the the number of charges which reach the electrode depends on the driving force or gradient resulting from the potentials of the electrons and holes.\cite{Hoppe2004}
+<is there a citation for why charge transport is a good proxy for PCE?>
 
 <history>
 Inorganic PV devices came first and are still most efficient, but they are more costly to produce, use rare elements, and their production causes other environmental issues, so they aren't the best solution for solar energy harvesting. 
@@ -75,14 +80,35 @@ The compounds which compose an OPV are synthesizable molecules (often polymers) 
 Due to the conjugated pi-orbitals in these molecules the absorption of sunlight can excite an electron into a frontier orbital and generate an exciton.
 OPVs are made as a mixture of electron-donor and electron-acceptor compounds in a structure called a bulk-heterojunction.
 Depending on the bulk morphology of these compounds, the exciton can travel to an acceptor-donor interface and dissociate into free electron and hole then these free charges generate current if they can subsequently make their way to an electrode.
+
 <why morphology matters>
+The morphology of the device can be affected by the processing conditions: temperature, solvents, and concentrations/ratios of the active compounds. <cite>
+These changes in structure can strongly affect the device performance <cite>.
+Molecular simulation allows us to "see" these atomic interaction and gain a deeper view into the driving forces behind the self assembly of these OPV morphologies and to understand what conditions create the best devices.
 <segue into simulation>
 
 \subsection*{Molecular Dynamics}
 
+<I am borrowing heavily from Mike's MD section, so I need to come back through and rewrite this>
 <md in general>
+classical physics
+interactions between particles
+non bonded/bonded/angles/dihedrals
+integrates Newton's equations of motion to update the particle positions.
+iterated until thermodynamic equilibrium
+sample a thermodynamic ensemble
+First MD simulation \cite{Alder1957} system of 108 particles, 200 collisions in one hour on an IBM-704.
+Now GPUs 100 millions times faster
+<what is MD used for? why is MD the best technique for gettign these OPV morphologies?>
+protein folding \cite{levitt75}, other biological processes, polymers \cite{Gartner2019a}
+
+
 <what assumptions does md make?>
+bonds aren't formed or broken, electrons don't exist
+hydrogen bonding
+dispersion is tricky--electrons don't slosh around unless you use some fancy many-body potential
 <what are the limits of atomistic md?>
+<segue to why we need CG models>
 
 \subsection*{Coarse Grain Models}
 
@@ -94,13 +120,13 @@ The heart of coarse graining is the removal of degrees of freedom.
 This effective potential used to represent the reduced system results in a smoothed free energy landscape. 
 Processes which may have taken many time steps in an all atom simulation can take fewer time steps in a coarse simulation.\cite{Berendsen2010}
 Due to their long length and time scales, coarse grain models are ideal for examining polymer properties.\cite{Gartner2019a}
-It is too big and too slow and also just a bad idea to simulate huge boxes of atomistic polymers. 
+It is too big and too slow and also just a bad idea to simulate huge boxes of atomistic polymers.
 Even if the simulation was to complete, there would be too much information to process accurately. 
 CGing allows scientists to FOCUS their experiments.\cite{Baschnagel2000}
 The resolution of coarse grain systems is broad:
 Simply grouping hydrogens with the heavy atom they are bonded to, called the united-atom model, has been shown to speed up dynamics and make polymer length scales more easily accesible \cite{Paul1995a, Yang2006a,}.
 Other coarse-graining schemes may group functional groups together \cite{Berendsen2010, Jankowski2013, Marsh2014}, one bead per repeat unit in a polymer\cite{Lee2011}, or even represent an entire amino acid with a single site\cite{Peng2019a}.
-<examples of cg models and the cool hings they do>
+<examples of cg models and the cool things they do>
 General coarse grain models of opv thiophene polymers where only the spacing, regioregularity of the side chains were varied were able to predict different order disorder transitions and calculated scattering patterns of these simple systems were comparable to those obtained from experiment \cite{Jankowski2013, Marsh2014} 
 A coarse-grain model for phospholipids has allowed for bilayer formation from an initial random configuration to be observed even though the model was parameterized to the vapor-liquid phase transition.\cite{Shelley2001}
 Which model is right depends on the length and time scale on which the property of interest can be observed.
@@ -134,6 +160,7 @@ Mapping operators can be automated using machine learning: clustering methods co
 A mapping operator based on the centers of charge was shown to accurately model electrostatic properties\cite{Cao2015a}.
 
 <how cg potentials have been attained>
+
 \subsection*{Multi-State Iterative Boltzmann Inversion}
 
 There are numerous methods for deriving coarse grain potentials from atomistic ones (e.g., force-matching, reverse Monte Carlo), but in this proposal we will focus on Iterative Boltzmann Inversion (IBI).
@@ -157,28 +184,32 @@ But optimization to the liquid-vapor equilibriai, although useful for prediction
 <so we probably want to create our own potentials>
 <IBI potentials are sometimes transferrable and it is not clear why sometimes they are and sometimes they aren't.> \cite{Moore2014}
 
-Multistate iterative Boltzmann inversion (MS IBI) includes data from multiple targets to yield a less state dependent potential.
-\cite{Moore2014}
+Multistate iterative Boltzmann inversion (MS IBI) includes data from multiple targets to yield a less state dependent potential.\cite{Moore2014}
 The MS IBI potential is an average of the single state potentials with a weighting function to prioritize a state of interest.
 This method has been shown to accurately reproduce the true potential in monoatomic LJ fluid.
 
 When using the MS IBI method, it is important to choose dissimilar states to minimize the potential overlap region.
 If this overlap region is large, there are many potentials which will provide matching RDFs. <show fig from moore>
 For some systems there may not be a potential that represents all states-- this is not unique to coarse potentials, atomistic potentials also have this limitation.
-
+<need some tie in back to why we would want to go from CG-->atomistic>
 
 \subsection*{Mesoscale Device Simulation}
 <I DONT WANT TO FOCUS ON THIS TOO MUCH. It's only here as a rationale for why backmapping>
 <how morphct pipeline would work: cg-backmap-ct>
-<how kmc works>
-<cite morphct papers>
+MorphCT, a software previously developed by our lab, can simulate charge transport through an OPV morphology using kinetic Monte Carlo\cite{Miller2018a,MorphCT,morphct2.2}.
+The kinetic Monte Carlo algorithm used by MorphCT uses the semi-empirical Zerner's Intermediate Neglect of Differential Overlap (ZINDO/S) quantum chemical calculation to obtain the molecular energy levels of chromophores in the morphology.
+The HOMO levels of each chromophore site and the energy splitting induced in the chromophore pairs is used in the Marcus equation to calculate the charge hopping rate between pairs.
+A Monte Carlo simulation can then be run using these hopping rates.
+Because this is a quantum chemical calculation, the position of each atom is needed--therefore a backmapping process is required to calculate the charge transport in a CG morphology.
+MorphCT has some builtin backmapping tools which use xml file (which i will discuss why these are bad in the next section) and the package is bulky/CLI/hard-to-use...
 
 \section*{Preliminary Work}
+<how do I relate this to what I want to do??>
 - contributed to development of open-source packages: mbuild, foyer, signac, fresnel
  this has helped me learn best software development practices like writing documentation, using version control, writing unit tests, employing CI, fork/pull model, etc.
 using these tools will help me to me a more efficient developer.
 It's also helped me to learn how to work as part of a team.
- - created MWE of coarse-graining and backmapping with smiles-- these will need furthertesting as we try them on different compounds but the proof of concept is there.
+ - created MWE of coarse-graining and backmapping with smiles-- these will need further testing as we try them on different compounds but the proof of concept is there.
  - created tutorial examples to help current and future students understand scientific concepts and how to use computational tools
  - created GIXStapose (presented at SciPy2020) an interactive diffraction/structure viewer.
 This may seem unrelated but we can use diffraction to verify our opv morphologies and compare them to experiment.
