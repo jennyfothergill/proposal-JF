@@ -281,8 +281,9 @@ An initial headache that could make parameterizing new compounds for the MARTINI
 - create signac workflow which takes equilibrated atomistic trajectory (maybe checks if it's equilibrated?) maps the CG beads to it, runs IBI, gets tabulated FF, creates larger CG sim, runs it, does backmapping, then could do: RDF, charge transport, diffraction...
 if this workflow is streamlined--it can be applied to many different compounds allowing for us to compare the analyses between our zoo of compounds.
 - maybe the workflow could even involve getting the equilibrated trajectory (atomtyping/fill box/run) with the new hoomd 3 api we could even set decorrelation time as a stop trigger...
+
 \subsection*{Objective 1: Develop a coarse graining workflow}
-build on existing tools (mbuild, openbabel)
+build on existing tools (mbuild, openbabel, tim moores MSIBI code, hoomd, foyer?)
 use SMARTS matching to specify mapping operators with relative ease
 use MSIBI to parameterize forcefield parameters
 
@@ -292,16 +293,24 @@ Given an equilibrated CG morphology, retrieve the atomistic one by mapping the S
 \subsection*{Objective 3: Run CG simulation sweep of non-fullerene acceptor blends}
 use signac to organize data
 I think there are not great CG models for these compounds (ITIC PTB7) I found this paper \cite{Meng2019} that claims to do CGMD with PTB7 ITIC but the details are hidden in the SI and seem fishy. seems like they use IBI but they dont say how they got their target distributions.
-can easily test out different mappings and other "processing" conditions
+can easily test out different mappings and "processing" conditions
 
 \subsection*{Objective 4: Analysis}
 Use charge transfer, diffraction to tell which models are the best
 <cite a bunch of experimental papers we can compare to>
 <cite our papers that show we can do this comparison already>
+Our morphct paper says the mobilities we predict are 2x higher than experiment? why?
+
+<I need something in here about making morphct more user friendly and less hard-coded for p3ht.>
+<adding in calculation of reorganization energy??> 
+<or just ripping out the KMC bit and making it modular>
 
 \section*{Predicted Outcomes}
--understanding coarse graining (i'm stealing this from mike because I like it) how coarse is too coarse? for these new systems what is the minimal model which can reproduce the structural features
--understanding the interactions which guide BHJ self assembly. understanding which functionalizations/processing conditions make best morphology
+- understanding coarse graining (i'm stealing this from mike because I like it) how coarse is too coarse? for these new systems what is the minimal model which can reproduce the structural features
+- understanding the interactions which guide BHJ self assembly. understanding which functionalizations/processing conditions make best morphology
+- are smarts strings viable for use as mappings? where does using smarts strings break down?
+- does making science easier/more understandable make it better? 
+
 
 \section*{Contingency Analysis}
 <what's going to be hard?> 
