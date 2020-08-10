@@ -1,0 +1,22 @@
+
+IM - Potential to advance knowledge and understanding within own and across different fields
+    - Activities explore creative, original, or potentially transformative concepts?
+    - Plan well-reasoned, well organized, based on sound rationale?
+    - Mechanism to assess success?
+    - How qualified is team?
+    - Adequate resources to carry out activities?
+BI - Potential to benefit society, contribute to achievement of desired societal outcomes
+    - Activities explore creative, original, or potentially transformative concepts/
+    - Plan well-reasoned, well organized, based on sound rationale?
+    - Mechanism to assess success?
+    - How qualified is team?
+    - Adequate resources to carry out activities?
+    
+
+E:  A truly outstanding proposal that has high potential to transform the field or society. 
+    - no reservations, glowing summary
+V:  A very strong proposal with no (major or minor) flaws 
+    - Great, but potential for transforming field not clear
+G:  A strong proposal, with 1-2 minor flaws.
+F:  A worthy idea within the proposal,  major flaws prevent PI from successfully completing 
+P:  A proposal with one or more conceptual errors, and/or idea that has already been completed.
