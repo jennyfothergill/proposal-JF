@@ -1,4 +1,5 @@
 \section*{Motivation}
+
 <why do opvs matter>
 The global climate crisis is one of the most pressing issue humanity faces today.
 Consumption of fossil fuels for energy and transportation strongly contributes to atmospheric $CO_2$ the affects of which are global, long-term, and devastating\cite{Solomon2009a}.
@@ -38,6 +39,7 @@ Not only are NFAs found to be more efficient, but they also show to be more stab
 It is necessary to develop a simple, useable, and flexible pipeline to adapt to the constantly changing chemistries of current OPV technologies.
 
 \section*{Research Objectives}
+
 <gain insight into the limits of coarse graining>
 <create models for new opv compounds>
 <create a workflow that will make creating new models more accessible>
@@ -57,6 +59,7 @@ TRUE\cite{Thompson2020}
 \section*{Background}
 
 \subsection*{Organic Photovoltaics}
+
 <what is PCE>
 The power conversion efficiency (PCE or sometimes $\eta_{e}$) is the ratio of electrical power produced by the device over the power of incedent photons.
 Higher PCE means the device is more efficient.  
@@ -194,6 +197,7 @@ For some systems there may not be a potential that represents all states-- this 
 <need some tie in back to why we would want to go from CG-->atomistic>
 
 \subsection*{Mesoscale Device Simulation}
+
 <I DONT WANT TO FOCUS ON THIS TOO MUCH. It's only here as a rationale for why backmapping>
 <how morphct pipeline would work: cg-backmap-ct>
 MorphCT, a software previously developed by our lab, can simulate charge transport through an OPV morphology using kinetic Monte Carlo\cite{Miller2018a,MorphCT,morphct2.2}.
@@ -202,8 +206,10 @@ The HOMO levels of each chromophore site and the energy splitting induced in the
 A Monte Carlo simulation can then be run using these hopping rates.
 Because this is a quantum chemical calculation, the position of each atom is needed--therefore a backmapping process is required to calculate the charge transport in a CG morphology.
 MorphCT has some builtin backmapping tools which use xml file (which i will discuss why these are bad in the next section) and the package is bulky/CLI/hard-to-use...
+<making morphct more modular to allow it to be used in a workflow not cli>
 
 \section*{Preliminary Work}
+
 <how do I relate this to what I want to do??>
 - contributed to development of open-source packages: mbuild, foyer, signac, fresnel
  this has helped me learn best software development practices like writing documentation, using version control, writing unit tests, employing CI, fork/pull model, etc.
@@ -277,25 +283,30 @@ It could be fairly straightforward to implement a lookup to check if bead parame
 An initial headache that could make parameterizing new compounds for the MARTINI method more foolproof.
 
 \section*{Research Plan}
+
 - I will build on existing tools (signac,freud,mbuild,foyer,tim moore's msibi)
 - create signac workflow which takes equilibrated atomistic trajectory (maybe checks if it's equilibrated?) maps the CG beads to it, runs IBI, gets tabulated FF, creates larger CG sim, runs it, does backmapping, then could do: RDF, charge transport, diffraction...
 if this workflow is streamlined--it can be applied to many different compounds allowing for us to compare the analyses between our zoo of compounds.
 - maybe the workflow could even involve getting the equilibrated trajectory (atomtyping/fill box/run) with the new hoomd 3 api we could even set decorrelation time as a stop trigger...
 
 \subsection*{Objective 1: Develop a coarse graining workflow}
+
 build on existing tools (mbuild, openbabel, tim moores MSIBI code, hoomd, foyer?)
 use SMARTS matching to specify mapping operators with relative ease
 use MSIBI to parameterize forcefield parameters
 
 \subsection*{Objective 2: Develop a backmapping workflow}
+
 Given an equilibrated CG morphology, retrieve the atomistic one by mapping the SMARTS structures onto the position of the CG beads and then relaxing them with some position restraint. 
 
 \subsection*{Objective 3: Run CG simulation sweep of non-fullerene acceptor blends}
+
 use signac to organize data
 I think there are not great CG models for these compounds (ITIC PTB7) I found this paper \cite{Meng2019} that claims to do CGMD with PTB7 ITIC but the details are hidden in the SI and seem fishy. seems like they use IBI but they dont say how they got their target distributions.
 can easily test out different mappings and "processing" conditions
 
 \subsection*{Objective 4: Analysis}
+
 Use charge transfer, diffraction to tell which models are the best
 <cite a bunch of experimental papers we can compare to>
 <cite our papers that show we can do this comparison already>
@@ -306,6 +317,7 @@ Our morphct paper says the mobilities we predict are 2x higher than experiment? 
 <or just ripping out the KMC bit and making it modular>
 
 \section*{Predicted Outcomes}
+
 - understanding coarse graining (i'm stealing this from mike because I like it) how coarse is too coarse? for these new systems what is the minimal model which can reproduce the structural features
 - understanding the interactions which guide BHJ self assembly. understanding which functionalizations/processing conditions make best morphology
 - are smarts strings viable for use as mappings? where does using smarts strings break down?
@@ -313,7 +325,9 @@ Our morphct paper says the mobilities we predict are 2x higher than experiment? 
 
 
 \section*{Contingency Analysis}
+
 <what's going to be hard?> 
+maybe SMARTS SMILES won't work without careful choice of beads. This is a little annoying but still preferrable I think because at least the reasons may be understandable (the order of the beads matters) or chemically sensible (one SMILES string may contain another -- just as one chemical moeity may be composed of more submoeities <this is a word?>)
 
 \section*{Timeline for Implementation and Evaluation}
 \begin{table}[h]
