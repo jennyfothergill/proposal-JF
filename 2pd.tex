@@ -15,7 +15,7 @@ In order to make the most efficient OPVs we need to find the best blend of compo
 The active layer of an OPV is mixture of electron-donor and acceptor compounds: the ideal morphology is a micro phase-separated interpenetrating network called a bulk heterojunction (BHJ).
 The performance of an OPV device is intimately linked with the structure of the active layer:
 The interfacial area of the acceptor:donor regions \cite{Mazzio2015}, the regioregularity of the polymer \cite{Kim2006}, and electronic properties of the compounds \cite{Scharber2006a} all play an important role in the power conversion efficiency (PCE) of the device. %EJ: Getting into some technical details- we may  move this to a background section, but it can also work here.
-With minor modifcations, the number of compounds and the processing conditions can become infinite which makes this an intractable problem for experiment. %EJ: True- but we gotta make people feel this.
+With minor modifcations, the number of compounds and the processing conditions can become infinite which makes this an intractable problem for experiment. %EJ: True- but we gotta make people feel this. Numbers money, time, etc
 For example, simply changing the functional groups on the conjugated backbone of a molecule like ITIC can change how it packs in a crystal, its electron affinity, and thus its performance in a device\cite{Swick2019a}.
 By using a simulation pipeline, we can help to streamline the process of determining which OPV materials will form the best morphology with the best charge transport, and in turn, help to solve the energy crisis.
 Molecular simulation also gives us insight into the atomic interactions which drive the self assembly of an OPV morphology.
@@ -25,6 +25,9 @@ At the same time, the exciton finding an interface at which to dissociates depen
 So, in order to model this system, a multiscale approach is necessary.
 By breaking our simulation apart into separate steps and equilibrating different lengths scales individually, we can <get equilibrated morphologies on multiple length scales more efficiently>. %EJ: cool
 %% One thing that's possibly missing in the motivation right now is a rundown of prior simulation techniques and coarse-graining strategies and where they've fallen short.
+%% think mosdef -- scale of the problem
+%% talk about best practices -- monolithic indecipherable code
+%% general vs specific -- make the thing that works right now
 <so what's the gist of what we're going to do?>
 <cg - get some polymer morphologies equilibrated on relevant length scales>
 <backmapping - get back the atomic positions in preparation for techniques which require atomic level resolutiuon e.g., charge transport>
@@ -41,7 +44,6 @@ It is necessary to develop a simple, useable, and flexible pipeline to adapt to 
 
 \section*{Research Objectives}
 
-<gain insight into the limits of coarse graining>
 %EJ: Nice. Attempting to reorder based on heirarchy
 <use that science to help solve energy crisis???????>
 <create models for new opv compounds>
@@ -96,6 +98,10 @@ Molecular simulation allows us to "see" these atomic interaction and gain a deep
 
 \subsection*{Molecular Dynamics}
 %EJ: Here or above: Why MD the right tool?
+%% morphology matters - thermodynamics that govern self assembly
+%% the kinetics that follow the processing
+%% we can see the dynamics -- kinetic arresting, (if we want to probe the processing, need the dynamics)
+%% monte carlo inefficient for polymers - cluster moves, not parallelizable 
 <I am borrowing heavily from Mike's MD section, so I need to come back through and rewrite this>
 <md in general>
 classical physics
@@ -221,6 +227,7 @@ using these tools will help me to me a more efficient developer.
 It's also helped me to learn how to work as part of a team.
  - created MWE of coarse-graining and backmapping with smiles-- these will need further testing as we try them on different compounds but the proof of concept is there.
  - created tutorial examples to help current and future students understand scientific concepts and how to use computational tools
+ %% frame gixstapose as a tool for reproducible, approachable science
  - created GIXStapose (presented at SciPy2020) an interactive diffraction/structure viewer.
 This may seem unrelated but we can use diffraction to verify our opv morphologies and compare them to experiment.
 GIXStapose helps to beeter connect the physical structure with the diffraction pattern.
@@ -332,6 +339,7 @@ Our morphct paper says the mobilities we predict are 2x higher than experiment? 
 
 <what's going to be hard?> 
 maybe SMARTS SMILES won't work without careful choice of beads. This is a little annoying but still preferrable I think because at least the reasons may be understandable (the order of the beads matters) or chemically sensible (one SMILES string may contain another -- just as one chemical moeity may be composed of more submoeities <this is a word?>)
+coarse-graining NFAs might be hard--planar backbones and floppy side chains
 
 \section*{Timeline for Implementation and Evaluation}
 \begin{table}[h]
