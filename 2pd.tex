@@ -4,18 +4,18 @@
 The global climate crisis is one of the most pressing issue humanity faces today.
 Consumption of fossil fuels for energy and transportation strongly contributes to atmospheric $CO_2$ the affects of which are global, long-term, and devastating\cite{Solomon2009a}.
 In our technology-driven society, it is unrealistic to think that energy demand will lessen, in fact global energy consumption is predicted to increase from 17 TW in 2010 to 27 TW in 2040 \cite{Mazzio2015}.
-In order to protect our precious climate, we need a non-polluting, cost-efficient way to provide electricity.
-Harnessing solar energy is an important part of a green energy solution.
+In order to protect our precious climate, we need a non-polluting, cost-efficient way to provide electricity. %EJ: Nice- we'll mostly avoid adjectives unless they're specifically correct for something, so maybe we'd drop 'precious' here, but motivation good~
+Harnessing solar energy is an important part of a green energy solution. %EJ: Why? Green energy percentage breakdown?
 Traditionally, photovoltaic devices, materials which can convert incedent light into electric current, were made of inorganic materials like silicon.
-But in the late 1970's organic photovaltaics (OPVs) were discovered as a potential alternative.
+But in the late 1970's organic photovaltaics (OPVs) were discovered as a potential alternative. %EJ: Cite.
 The advantage of OPVs over inorganic PV devices is that OPVs are lightweight, low cost, easier to produce, and flexible. 
 However, in order to become a viable, cost-effective option they need better efficiency \cite{Mazzio2015}.
 <image from nrel about solar cells efficiency>\cite{https://www.nrel.gov/pv/cell-efficiency.html}
 In order to make the most efficient OPVs we need to find the best blend of compounds and the processing conditions that result in the best structure for those compounds.
 The active layer of an OPV is mixture of electron-donor and acceptor compounds: the ideal morphology is a micro phase-separated interpenetrating network called a bulk heterojunction (BHJ).
 The performance of an OPV device is intimately linked with the structure of the active layer:
-The interfacial area of the acceptor:donor regions \cite{Mazzio2015}, the regioregularity of the polymer \cite{Kim2006}, and electronic properties of the compounds \cite{Scharber2006a} all play an important role in the power conversion efficiency (PCE) of the device.
-With minor modifcations, the number of compounds and the processing conditions can become infinite which makes this an intractable problem for experiment.
+The interfacial area of the acceptor:donor regions \cite{Mazzio2015}, the regioregularity of the polymer \cite{Kim2006}, and electronic properties of the compounds \cite{Scharber2006a} all play an important role in the power conversion efficiency (PCE) of the device. %EJ: Getting into some technical details- we may  move this to a background section, but it can also work here.
+With minor modifcations, the number of compounds and the processing conditions can become infinite which makes this an intractable problem for experiment. %EJ: True- but we gotta make people feel this.
 For example, simply changing the functional groups on the conjugated backbone of a molecule like ITIC can change how it packs in a crystal, its electron affinity, and thus its performance in a device\cite{Swick2019a}.
 By using a simulation pipeline, we can help to streamline the process of determining which OPV materials will form the best morphology with the best charge transport, and in turn, help to solve the energy crisis.
 Molecular simulation also gives us insight into the atomic interactions which drive the self assembly of an OPV morphology.
@@ -23,7 +23,8 @@ A complication of the simulation of OPV polymers is that the properties which pr
 The atomic and electronic properties are important for light absorption, in which an exciton is created, and charge transfer, where the exciton is dissociated into a free electron and hole\cite{Scharber2006,Hoppe2004,Mazzio2015}.
 At the same time, the exciton finding an interface at which to dissociates depends on the bulk morphology, as do the charges, once separated, finding a path to an electrode in order to generate current and produce electricity.
 So, in order to model this system, a multiscale approach is necessary.
-By breaking our simulation apart into separate steps and equilibrating different lengths scales individually, we can <get equilibrated morphologies on multiple length scales more efficiently>.
+By breaking our simulation apart into separate steps and equilibrating different lengths scales individually, we can <get equilibrated morphologies on multiple length scales more efficiently>. %EJ: cool
+%% One thing that's possibly missing in the motivation right now is a rundown of prior simulation techniques and coarse-graining strategies and where they've fallen short.
 <so what's the gist of what we're going to do?>
 <cg - get some polymer morphologies equilibrated on relevant length scales>
 <backmapping - get back the atomic positions in preparation for techniques which require atomic level resolutiuon e.g., charge transport>
@@ -36,16 +37,19 @@ There are countless variations of electron donor polymers, fullerene acceptors, 
 A P3HT:NFA blend was shown to have 11\% PCE, compared to the state-of-the-art 6.4\% in P3HT:PCBM\cite{Baran2017}.
 Not only are NFAs found to be more efficient, but they also show to be more stabile in air than polymer:fullerene blends (retaining 70-80\% of the PCE after 1,200 h exposed to air while the fullerene device was no longer operational after 800 h)\cite{Baran2017}.
 <there aren't a lot of cg models that already exist for these new compounds>
-It is necessary to develop a simple, useable, and flexible pipeline to adapt to the constantly changing chemistries of current OPV technologies.
+It is necessary to develop a simple, useable, and flexible pipeline to adapt to the constantly changing chemistries of current OPV technologies. %EJ: NIIICE SENTENCE.
 
 \section*{Research Objectives}
 
 <gain insight into the limits of coarse graining>
-<create models for new opv compounds>
-<create a workflow that will make creating new models more accessible>
-<develop new tools that help humans do science>
+%EJ: Nice. Attempting to reorder based on heirarchy
 <use that science to help solve energy crisis???????>
+<create models for new opv compounds>
+<gain insight into the limits of coarse graining>
+<develop new tools that help humans do science>
+<create a workflow that will make creating new models more accessible>
 <I don't know where to put this but I want a section on best practices>
+%EJ: Learning and incorporating best practices might actually be a new facet of your work. Like, we can point to the computational research papers that show how this wasn't done so much in the past, but it's happening better now, and we're going to lean into it- I think it fits.
 By making our code open source and freely availiable, we contribute to the knowledge of a global community. But just because something is availiable doesn't mean it is accessible. 
 lazy refactoring--get something working first then update it when needed, keep code small and modular to make this easier and more understandable\cite{Adorf2018a} 
 Best practices for jupyter notebooks -- like a lab notebook-- can show the process and the story of each assignment and the exact steps and results to get there\cite{Rule2019a}
@@ -91,7 +95,7 @@ Molecular simulation allows us to "see" these atomic interaction and gain a deep
 <segue into simulation>
 
 \subsection*{Molecular Dynamics}
-
+%EJ: Here or above: Why MD the right tool?
 <I am borrowing heavily from Mike's MD section, so I need to come back through and rewrite this>
 <md in general>
 classical physics
