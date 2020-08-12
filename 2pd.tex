@@ -43,8 +43,9 @@ These existing codebases can appear to a new user as monolithic and indecipherab
 These codebases also rely on users piecing together multiple, often incompatible, bits of software, using manually created xml files, or manually deciding how to classify a atom grouping based on the users chemical intuition.
 All of which contribute to a reproducibility crisis in the computational sciences\cite{Baker2016}
 By keeping <best software dev and teaching practices> in mind throughout development, we can strive to make tools which make science more transferrable, reproducibile, usable, and extensible (TRUE) \cite{Thompson2020} %%TRUE
+%% unit tests, version control, continuous integration, 
 Instead aiming to keep code small and modular to make it easier to use and more understandable\cite{Adorf2018a} 
-This not only makes our code easy to use and debug, but reduce the cognitive load for a new user \cite{Jankowski2019}
+This not only makes our code easy to use and debug, but reduces the cognitive load for a new user \cite{Jankowski2019}
 Jupyter Notebooks, which are a combination of interactive code and formatted text and images, can be used like a lab notebook for computational scientists in order to demonstrate the process, rationale, and the story of each experiment and the exact steps to get the results shown\cite{Rule2019a}
 Remember that the data never speaks for itself: although including input and output files of a calculation is a good first step, ideally this can be accompanied by the story of what this data means and how we know \cite{https://v4.software-carpentry.org/softeng/principles.html, Wilson2016}
 
@@ -62,29 +63,34 @@ It is necessary to develop a simple, useable, and flexible pipeline to adapt to 
 \section*{Research Objectives}
 
 %EJ: Nice. Attempting to reorder based on heirarchy
-<use that science to help solve energy crisis???????>
-<create models for new opv compounds>
-<gain insight into the limits of coarse graining>
-<develop new tools that help humans do science>
-<create a workflow that will make creating new models more accessible>
-<I don't know where to put this but I want a section on best practices>
-%EJ: Learning and incorporating best practices might actually be a new facet of your work. Like, we can point to the computational research papers that show how this wasn't done so much in the past, but it's happening better now, and we're going to lean into it- I think it fits.
-By making our code open source and freely availiable, we contribute to the knowledge of a global community. But just because something is availiable doesn't mean it is accessible. 
-lazy refactoring--get something working first then update it when needed, keep code small and modular to make this easier and more understandable\cite{Adorf2018a} 
-Best practices for jupyter notebooks -- like a lab notebook-- can show the process and the story of each assignment and the exact steps and results to get there\cite{Rule2019a}
-Using software carpentry principles to keep in mind how people learn when introducing a new concept\cite{https://v4.software-carpentry.org/softeng/principles.html}
-Software carpentry using version control, building, scripting, testing, debugging,\cite{Wilson2006}
-live coding, interactive \cite{Wilson2016}
-reducing cognitive load \cite{Jankowski2019}
-using the tools, not fighting them--version control, automation \cite{Wilson2014}
-TRUE\cite{Thompson2020}
+%%use that science to help solve energy crisis???????>
+Ultimately the goal is to help solve the global energy crisis. 
+Solar energy is a important part of a green energy solution.
+This research aims to gain insight about new OPV compound morphologies using molecular simulation.
+
+%%create models for new opv compounds>
+In order to model these polymer systems on relevant length scales, we are going to need to develop new coarse grain models.
+We will need a flexible and efficient coarse graining scheme, so that new models are easy and intuitive to create.
+
+%%gain insight into the limits of coarse graining>
+A benefit of this work is that we may gain insight into the features of an OPV which govern its self-assembly and the limits of coarse grain models.
+Currently there is no best scheme for a coarse grain mapping operator.
+By making our coarse graining tool simple and easy-to-use, we will be able to test many mapping operators and probe the limits of a minimal model: what is the minimum structure needed to represent a complex molecule?
+
+%%develop new tools that help humans do science>
+By making this tool simple and easy to use hopefully we will also make reproducibile science more achievable for the next generation. 
+Integrating this tool with existing open source software packages will make it the most useful to the most people and also increase its transferrability and usability.
+Using packages like signac for managing dataspaces, foyer for version control of forcefields, mbuild for building chemical structures, hoomd for running molecular dynamics simulations, freud for simulation trajectory analysis, openbabel for recognizing chemical patterns.
+
+%%create a workflow that will make creating new models more accessible>
+Demonstrating a workflow from start to finish with explanations using easy-to-understand language, diagrams, and figures makes a codebase more usable and approachable but does not interfere with it being modular or efficient.
+Ultimately a goal of this research is that it is used by others: as an example to build upon or as a template for setting up their own experiments.
 
 \section*{Background}
 
 \subsection*{Organic Photovoltaics}
 
-The interfacial area of the acceptor:donor regions \cite{Mazzio2015}, the regioregularity of the polymer \cite{Kim2006}, and electronic properties of the compounds \cite{Scharber2006a} all play an important role in the power conversion efficiency (PCE) of the device. %EJ: Getting into some technical details- we may  move this to a background section, but it can also work here.
-<what is PCE>
+%% <what is PCE>
 The power conversion efficiency (PCE or sometimes $\eta_{e}$) is the ratio of electrical power produced by the device over the power of incedent photons.
 Higher PCE means the device is more efficient.  
 The material properties which determine the PCE of a device are those which affect the number of photons absorbed, excitons dissociated, and free charges that reach the electrode.
@@ -93,7 +99,7 @@ The fraction of excitons which dissociate depends on the exciton dissociation le
 Finally, the the number of charges which reach the electrode depends on the driving force or gradient resulting from the potentials of the electrons and holes.\cite{Hoppe2004}
 <is there a citation for why charge transport is a good proxy for PCE?>
 
-<history>
+%% <history>
 Inorganic PV devices came first and are still most efficient, but they are more costly to produce, use rare elements, and their production causes other environmental issues, so they aren't the best solution for solar energy harvesting. 
 The first OPV was created by Tang in 1986 and \cite{Tang1986b} used a bilyaer structure containing copper phthalocyanine and a perylene derivitive. 
 This early device had a PCE of 0.95\%.
@@ -102,17 +108,18 @@ And in 1995, Yu described the first bulk heterojunction (BHJ), as an interpenetr
 Most recently, non-fullerene acceptors (NFAs), like ITIC, are contributing to the PCE increase of modern OPVs \cite{S.Gurney2019}.
 The planar acceptor-donor-acceptor moeity seen in many NFA backbones <figure?> may have more efficient exciton splitting, as compared to a fullerene accpetor, at the heterojunction due to strong electronic coupling between the conjugated backbones of the NFA and the polymer \cite{Yi2018}.
 
-<how opvs work>
+%%<how opvs work>
 The compounds which compose an OPV are synthesizable molecules (often polymers) composed of abundant elements (carbon, hydrogen, nitrogen, sulfur, oxygen).
 Due to the conjugated pi-orbitals in these molecules the absorption of sunlight can excite an electron into a frontier orbital and generate an exciton.
 OPVs are made as a mixture of electron-donor and electron-acceptor compounds in a structure called a bulk-heterojunction.
 Depending on the bulk morphology of these compounds, the exciton can travel to an acceptor-donor interface and dissociate into free electron and hole then these free charges generate current if they can subsequently make their way to an electrode.
 
-<why morphology matters>
-The morphology of the device can be affected by the processing conditions: temperature, solvents, and concentrations/ratios of the active compounds. <cite>
-These changes in structure can strongly affect the device performance <cite>.
+%%<why morphology matters>
+The morphology of the device can be affected by the processing conditions: temperature, solvents, and concentrations/ratios of the active compounds. \cite{Ma2005,Hoppe2004a,Li2007}
+The interfacial area of the acceptor:donor regions \cite{Mazzio2015}, the regioregularity of the polymer \cite{Kim2006}, and electronic properties of the compounds \cite{Scharber2006a} all play an important role in the power conversion efficiency (PCE) of the device. 
+These changes in structure can strongly affect the device performance.
 Molecular simulation allows us to "see" these atomic interaction and gain a deeper view into the driving forces behind the self assembly of these OPV morphologies and to understand what conditions create the best devices.
-<segue into simulation>
+%%<segue into simulation>
 
 \subsection*{Molecular Dynamics}
 %EJ: Here or above: Why MD the right tool?
