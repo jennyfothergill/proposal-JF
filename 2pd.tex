@@ -4,26 +4,35 @@
 The global climate crisis is one of the most pressing issue humanity faces today.
 Consumption of fossil fuels for energy and transportation strongly contributes to atmospheric $CO_2$ the affects of which are global, long-term, and devastating\cite{Solomon2009a}.
 In our technology-driven society, it is unrealistic to think that energy demand will lessen, in fact global energy consumption is predicted to increase from 17 TW in 2010 to 27 TW in 2040 \cite{Mazzio2015}.
-In order to protect our precious climate, we need a non-polluting, cost-efficient way to provide electricity. %EJ: Nice- we'll mostly avoid adjectives unless they're specifically correct for something, so maybe we'd drop 'precious' here, but motivation good~
-Harnessing solar energy is an important part of a green energy solution. %EJ: Why? Green energy percentage breakdown?
+In order to protect our climate, we need a non-polluting, cost-efficient way to provide electricity.
+Harnessing solar energy is an important part of a green energy solution.
+Renewable energy accounts for 11\% of the U.S. energy consumption in 2019 and of that 11\% 9\% was solar.\cite{https://www.eia.gov/energyexplained/renewable-sources/}
+Our energy infrastructure has room for improvement: consider Germany which in 2019 got 43\% of its energy from renewables and 8.2\% of its total energy from solar. \cite{Wirth2017}
 Traditionally, photovoltaic devices, materials which can convert incedent light into electric current, were made of inorganic materials like silicon.
-But in the late 1970's organic photovaltaics (OPVs) were discovered as a potential alternative. %EJ: Cite.
+But in the late 1970's organic photovaltaics (OPVs) were discovered as a potential alternative.\cite{Tang1986b}
 The advantage of OPVs over inorganic PV devices is that OPVs are lightweight, low cost, easier to produce, and flexible. 
 However, in order to become a viable, cost-effective option they need better efficiency \cite{Mazzio2015}.
 <image from nrel about solar cells efficiency>\cite{https://www.nrel.gov/pv/cell-efficiency.html}
 In order to make the most efficient OPVs we need to find the best blend of compounds and the processing conditions that result in the best structure for those compounds.
 The active layer of an OPV is mixture of electron-donor and acceptor compounds: the ideal morphology is a micro phase-separated interpenetrating network called a bulk heterojunction (BHJ).
 The performance of an OPV device is intimately linked with the structure of the active layer:
-The interfacial area of the acceptor:donor regions \cite{Mazzio2015}, the regioregularity of the polymer \cite{Kim2006}, and electronic properties of the compounds \cite{Scharber2006a} all play an important role in the power conversion efficiency (PCE) of the device. %EJ: Getting into some technical details- we may  move this to a background section, but it can also work here.
-With minor modifcations, the number of compounds and the processing conditions can become infinite which makes this an intractable problem for experiment. %EJ: True- but we gotta make people feel this. Numbers money, time, etc
-For example, simply changing the functional groups on the conjugated backbone of a molecule like ITIC can change how it packs in a crystal, its electron affinity, and thus its performance in a device\cite{Swick2019a}.
+With minor modifcations, the number of compounds and the processing conditions can become infinite which makes this an intractable problem for experiment.
+Imagine, you are a chemist testing new OPVs: you are specifically looking at a mixture of a non-fullerene acceptor (ITIC) and a polymer donor (PTB7). 
+Each cost \$500 for 100 mg. \cite{sigmaaldrich.com}
+The solvent you use and the concentrations of your active compounds changes the device performance.\cite{Hoppe2004a}
+The amount of time the solvent is allowed to evaporate changes the device performance\cite{Li2007}.
+The time and temperature of the thermal annealing changes the device performance\cite{Ma2005}.
+The regioregularity of your polymer affects the device performance. \cite{Kim2006}
+The distribution of polymer lengths affects the device performance. \cite{Zhao2013b}
+Changing the functional groups on ITIC changes how it packs in a crystal, its electron affinity, and thus its performance in a device\cite{Swick2019a}.
+All this would be to determine the performance of just one donor/acceptor combination in one category of potential compounds\cite{Dou2013}
 By using a simulation pipeline, we can help to streamline the process of determining which OPV materials will form the best morphology with the best charge transport, and in turn, help to solve the energy crisis.
 Molecular simulation also gives us insight into the atomic interactions which drive the self assembly of an OPV morphology.
 A complication of the simulation of OPV polymers is that the properties which predict a device's efficiency, for example charge transport, span multiple length scales.
 The atomic and electronic properties are important for light absorption, in which an exciton is created, and charge transfer, where the exciton is dissociated into a free electron and hole\cite{Scharber2006,Hoppe2004,Mazzio2015}.
 At the same time, the exciton finding an interface at which to dissociates depends on the bulk morphology, as do the charges, once separated, finding a path to an electrode in order to generate current and produce electricity.
 So, in order to model this system, a multiscale approach is necessary.
-By breaking our simulation apart into separate steps and equilibrating different lengths scales individually, we can <get equilibrated morphologies on multiple length scales more efficiently>. %EJ: cool
+By breaking our simulation apart into separate steps and equilibrating different lengths scales individually, we can <get equilibrated morphologies on multiple length scales more efficiently>.
 %% One thing that's possibly missing in the motivation right now is a rundown of prior simulation techniques and coarse-graining strategies and where they've fallen short.
 %% think mosdef -- scale of the problem
 %% talk about best practices -- monolithic indecipherable code
@@ -66,6 +75,7 @@ TRUE\cite{Thompson2020}
 
 \subsection*{Organic Photovoltaics}
 
+The interfacial area of the acceptor:donor regions \cite{Mazzio2015}, the regioregularity of the polymer \cite{Kim2006}, and electronic properties of the compounds \cite{Scharber2006a} all play an important role in the power conversion efficiency (PCE) of the device. %EJ: Getting into some technical details- we may  move this to a background section, but it can also work here.
 <what is PCE>
 The power conversion efficiency (PCE or sometimes $\eta_{e}$) is the ratio of electrical power produced by the device over the power of incedent photons.
 Higher PCE means the device is more efficient.  
