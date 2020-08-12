@@ -1,6 +1,6 @@
 \section*{Motivation}
 
-<why do opvs matter>
+%%<why do opvs matter>
 The global climate crisis is one of the most pressing issue humanity faces today.
 Consumption of fossil fuels for energy and transportation strongly contributes to atmospheric $CO_2$ the affects of which are global, long-term, and devastating\cite{Solomon2009a}.
 In our technology-driven society, it is unrealistic to think that energy demand will lessen, in fact global energy consumption is predicted to increase from 17 TW in 2010 to 27 TW in 2040 \cite{Mazzio2015}.
@@ -14,11 +14,12 @@ The advantage of OPVs over inorganic PV devices is that OPVs are lightweight, lo
 However, in order to become a viable, cost-effective option they need better efficiency \cite{Mazzio2015}.
 <image from nrel about solar cells efficiency>\cite{https://www.nrel.gov/pv/cell-efficiency.html}
 In order to make the most efficient OPVs we need to find the best blend of compounds and the processing conditions that result in the best structure for those compounds.
+
 The active layer of an OPV is mixture of electron-donor and acceptor compounds: the ideal morphology is a micro phase-separated interpenetrating network called a bulk heterojunction (BHJ).
 The performance of an OPV device is intimately linked with the structure of the active layer:
 With minor modifcations, the number of compounds and the processing conditions can become infinite which makes this an intractable problem for experiment.
-Imagine, you are a chemist testing new OPVs: you are specifically looking at a mixture of a non-fullerene acceptor (ITIC) and a polymer donor (PTB7). 
-Each cost \$500 for 100 mg. \cite{sigmaaldrich.com}
+Imagine, you are a chemist synthesizing and testing new OPV morphologies: you are specifically looking at a mixture of a non-fullerene acceptor (ITIC) and a polymer donor (PTB7). 
+Each compound costs \$500 for 100 mg. \cite{sigmaaldrich.com}
 The solvent you use and the concentrations of your active compounds changes the device performance.\cite{Hoppe2004a}
 The amount of time the solvent is allowed to evaporate changes the device performance\cite{Li2007}.
 The time and temperature of the thermal annealing changes the device performance\cite{Ma2005}.
@@ -27,23 +28,30 @@ The distribution of polymer lengths affects the device performance. \cite{Zhao20
 Changing the functional groups on ITIC changes how it packs in a crystal, its electron affinity, and thus its performance in a device\cite{Swick2019a}.
 All this would be to determine the performance of just one donor/acceptor combination in one category of potential compounds\cite{Dou2013}
 By using a simulation pipeline, we can help to streamline the process of determining which OPV materials will form the best morphology with the best charge transport, and in turn, help to solve the energy crisis.
+
 Molecular simulation also gives us insight into the atomic interactions which drive the self assembly of an OPV morphology.
 A complication of the simulation of OPV polymers is that the properties which predict a device's efficiency, for example charge transport, span multiple length scales.
 The atomic and electronic properties are important for light absorption, in which an exciton is created, and charge transfer, where the exciton is dissociated into a free electron and hole\cite{Scharber2006,Hoppe2004,Mazzio2015}.
 At the same time, the exciton finding an interface at which to dissociates depends on the bulk morphology, as do the charges, once separated, finding a path to an electrode in order to generate current and produce electricity.
 So, in order to model this system, a multiscale approach is necessary.
-By breaking our simulation apart into separate steps and equilibrating different lengths scales individually, we can <get equilibrated morphologies on multiple length scales more efficiently>.
-%% One thing that's possibly missing in the motivation right now is a rundown of prior simulation techniques and coarse-graining strategies and where they've fallen short.
-%% think mosdef -- scale of the problem
-%% talk about best practices -- monolithic indecipherable code
-%% general vs specific -- make the thing that works right now
-<so what's the gist of what we're going to do?>
-<cg - get some polymer morphologies equilibrated on relevant length scales>
-<backmapping - get back the atomic positions in preparation for techniques which require atomic level resolutiuon e.g., charge transport>
-<kmc calc>
-<if we we're just to start with the atomistic sim, it wouldn't be as efficient and might even be less accurate because polymers are tough to equilibrate> <probably cite arthi's paper here Gartner2019?>
-<This efficiency is important because we got a lot of testing to do!>
-<justification for what I'm doing>
+By breaking our simulation apart into separate steps and equilibrating different lengths scales individually, we can get equilibrated morphologies on multiple length scales more efficiently.
+
+Already good open-source packages exist to address the problem of coarse-graining and/or backmapping \cite{Marrink2007,Ruhle2009,Maerxke2011,MorphCT,Wassenaar2014b} %%these citations are martini, votca, trappe, morphct, backwards.py
+By making code open source and freely availiable, we contribute to the knowledge of a global community. 
+But just because something is availiable doesn't mean it is accessible: often just figuring out how to use an existing package can be very difficult. \cite{Cummings2019}
+These existing codebases can appear to a new user as monolithic and indecipherable because their design has been to solve a problem, which they do, instead of design with a focus on how people learn.
+These codebases also rely on users piecing together multiple, often incompatible, bits of software, using manually created xml files, or manually deciding how to classify a atom grouping based on the users chemical intuition.
+All of which contribute to a reproducibility crisis in the computational sciences\cite{Baker2016}
+By keeping <best software dev and teaching practices> in mind throughout development, we can strive to make tools which make science more transferrable, reproducibile, usable, and extensible (TRUE) \cite{Thompson2020} %%TRUE
+Instead aiming to keep code small and modular to make it easier to use and more understandable\cite{Adorf2018a} 
+This not only makes our code easy to use and debug, but reduce the cognitive load for a new user \cite{Jankowski2019}
+Jupyter Notebooks, which are a combination of interactive code and formatted text and images, can be used like a lab notebook for computational scientists in order to demonstrate the process, rationale, and the story of each experiment and the exact steps to get the results shown\cite{Rule2019a}
+Remember that the data never speaks for itself: although including input and output files of a calculation is a good first step, ideally this can be accompanied by the story of what this data means and how we know \cite{https://v4.software-carpentry.org/softeng/principles.html, Wilson2016}
+
+Use flexible method for specifying coarse grain models to obtain OPV polymer morphologies equilibrated on length scales relevant to charge transport.
+Use a backmapping method, which works on the same simple mapping operator, to restore the atomic positions in preparation for techniques which require atomic level resolutiuon e.g., charge transport calculations.
+This two step process is necessary because starting with the fully atomistic structure would not only be computationally inefficient the result may even be less accurate due to the difficulties of equilibrating polymers. \cite{Gartner2019}
+This efficiency is important because the scope of potential OPV compounds is vast and the energy crisis necessitates expediency.
 The number of opv compounds to test quickly becomes intractable when we consider that the power conversion efficiency is strongly linked to minor chemical modifications or functionalization, device processing, and the interplay between donor and acceptor\cite{Mazzio2015,Swick2019a}.
 There are countless variations of electron donor polymers, fullerene acceptors, and more recently small molecule, non-fullerene acceptors (NFAs) have been recieving attention for their potential to achieve higher efficiencies\cite{Dou2013}.
 A P3HT:NFA blend was shown to have 11\% PCE, compared to the state-of-the-art 6.4\% in P3HT:PCBM\cite{Baran2017}.
