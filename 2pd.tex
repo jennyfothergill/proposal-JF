@@ -106,12 +106,14 @@ This early device had a PCE of 0.95\%.
 In 1992, Saricifti and Heeger\cite{Saricifti1992} were the first to report using fullerene as an electron acceptor in a fullerene:polymer mixture.
 And in 1995, Yu described the first bulk heterojunction (BHJ), as an interpenetrating network of donor and acceptor that maximizes the interfacial area, which is still the state of the art morphology to this day\cite{Yu1995}.
 Most recently, non-fullerene acceptors (NFAs), like 3,9-bis(2-methylene-(3-(1,1-dicyanomethylene)-indanone))-5,5,11,11-tetrakis(4-hexylphenyl)-dithieno[2,3-d:2’,3’-d’]-s-indaceno[1,2-b:5,6-b’]dithiophene (ITIC), are contributing to the PCE increase of modern OPVs \cite{S.Gurney2019}.
-\begin{wrapfigure}{L}{0.5\textwidth}
+
+\begin{wrapfigure}{L}{0.5\linewidth}
     \centering
-    \includegraphics[width=0.4\textwidth]{images/ITIC.pdf}
+    \includegraphics[width=0.6\linewidth]{images/ITIC.pdf}
     \caption{ITIC chemical structure with \textcolor{red}{electron accepting regions in red} and \textcolor{blue}{electron donating regions in blue}}
     \label{fig:itic}
 \end{wrapfigure}
+
 The planar acceptor-donor-acceptor moeity seen in many NFA backbones (see Figure \ref{fig:itic}) may have more efficient exciton splitting, as compared to a fullerene acceptor, at the heterojunction due to strong electronic coupling between the conjugated backbones of the NFA and the polymer \cite{Yi2018}.
 
 %%<how opvs work>
@@ -299,7 +301,16 @@ I would like to think that my code speaks for itself, but after reading other pe
 For an example of what I mean by cognitive load, let's compare an example of my proposed coarse-graining scheme to VOTCAs.
 In the following example we will take a hexane molecule and map it to three coarse grain sites (two carbon atoms per site).
 VOTCA uses an xml file to do this:
-\lstinputlisting[breaklines]{hexane.xml}
+
+%%\lstinputlisting[breaklines]{hexane.xml}
+
+%%\begin{wrapfigure}{L}{0.6\textwidth}
+%%    \centering
+%%    \includegraphics[width=0.5\textwidth]{images/hexanexml.pdf}
+%%    \caption{XML file used by VOTCA to specify a three site coarse grain mapping of n-hexane}
+%%    \label{fig:hexanexml}
+%%\end{wrapfigure}
+
 It may be easy to think that because what we are doing--mapping two carbons and their attached hydrogens to a single bead so that six alkyl carbons becomes A-B-A--that the process will also be simple.
 In order to specify a bead-mapping, we need to know the residue number, the residue name, and the atom name.
 For a six atom system this is not too bad, but this could get tedious and error-prone for larger systems.
