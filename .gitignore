@@ -2,7 +2,7 @@
 library-link.bib
 
 # Don't add the pdf
-*.pdf
+#*.pdf
 
 ## Core latex/pdflatex auxiliary files:
 *.aux
