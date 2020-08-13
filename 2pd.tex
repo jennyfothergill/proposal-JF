@@ -3,30 +3,36 @@
 %%<why do opvs matter>
 The global climate crisis is one of the most pressing issue humanity faces today.
 Consumption of fossil fuels for energy and transportation strongly contributes to atmospheric $CO_2$ the affects of which are global, long-term, and devastating\cite{Solomon2009a}.
-In our technology-driven society, it is unrealistic to think that energy demand will lessen, in fact global energy consumption is predicted to increase from 17 TW in 2010 to 27 TW in 2040 \cite{Mazzio2015}.
+In our technology-driven society, it is unrealistic to think that energy demand will lessen, in fact global energy consumption is predicted to increase from 17 TW in 2010 to 27 TW in 2040\cite{Mazzio2015}.
 In order to protect our climate, we need a non-polluting, cost-efficient way to provide electricity.
 Harnessing solar energy is an important part of a green energy solution.
-Renewable energy accounts for 11\% of the U.S. energy consumption in 2019 and of that 11\% 9\% was solar.\cite{https://www.eia.gov/energyexplained/renewable-sources/}
-Our energy infrastructure has room for improvement: consider Germany which in 2019 got 43\% of its energy from renewables and 8.2\% of its total energy from solar. \cite{Wirth2017}
+Renewable energy accounts for 11\% of the U.S. energy consumption in 2019 and of that 11\% 9\% was solar\cite{https://www.eia.gov/energyexplained/renewable-sources/}.
+Our energy infrastructure has room for improvement: consider Germany which in 2019 got 43\% of its energy from renewables and 8.2\% of its total energy from solar\cite{Wirth2017}.
 Traditionally, photovoltaic devices, materials which can convert incedent light into electric current, were made of inorganic materials like silicon.
-But in the late 1970's organic photovaltaics (OPVs) were discovered as a potential alternative.\cite{Tang1986b}
+But in the late 1970's organic photovaltaics (OPVs) were discovered as a potential alternative\cite{Tang1986b}.
 The advantage of OPVs over inorganic PV devices is that OPVs are lightweight, low cost, easier to produce, and flexible. 
-However, in order to become a viable, cost-effective option they need better efficiency \cite{Mazzio2015}.
-%%<image from nrel about solar cells efficiency>\cite{https://www.nrel.gov/pv/cell-efficiency.html}
+However, in order to become a viable, cost-effective option they need better efficiency\cite{Mazzio2015}.
+
+\begin{figure}[h!]
+    \includegraphics[width=0.9\linewidth]{images/NREL2020.pdf}
+    \caption{Efficiencies of photovoltaic technologies from 1976 to present. OPVS are denoted by red filled circles. The current state-of-the-art research cell achieves 17.4\% efficiency. Image taken from ref \cite{NREL2020}}
+    \label{fig:nrel}
+\end{figure}
+
 In order to make the most efficient OPVs we need to find the best blend of compounds and the processing conditions that result in the best structure for those compounds.
 
 The active layer of an OPV is mixture of electron-donor and acceptor compounds: the ideal morphology is a micro phase-separated interpenetrating network called a bulk heterojunction (BHJ).
 The performance of an OPV device is intimately linked with the structure of the active layer:
 With minor modifcations, the number of compounds and the processing conditions can become infinite which makes this an intractable problem for experiment.
 Imagine, you are a chemist synthesizing and testing new OPV morphologies: you are specifically looking at a mixture of a non-fullerene acceptor (ITIC) and a polymer donor (PTB7). 
-Each compound costs \$500 for 100 mg. \cite{sigmaaldrich.com}
-The solvent you use and the concentrations of your active compounds changes the device performance.\cite{Hoppe2004a}
+Each compound costs \$500 for 100 mg\cite{sigmaaldrich.com}.
+The solvent you use and the concentrations of your active compounds changes the device performance\cite{Hoppe2004a}.
 The amount of time the solvent is allowed to evaporate changes the device performance\cite{Li2007}.
 The time and temperature of the thermal annealing changes the device performance\cite{Ma2005}.
-The regioregularity of your polymer affects the device performance. \cite{Kim2006}
-The distribution of polymer lengths affects the device performance. \cite{Zhao2013b}
+The regioregularity of your polymer affects the device performance\cite{Kim2006}.
+The distribution of polymer lengths affects the device performance\cite{Zhao2013b}.
 Changing the functional groups on ITIC changes how it packs in a crystal, its electron affinity, and thus its performance in a device\cite{Swick2019a}.
-All this would be to determine the performance of just one donor/acceptor combination in one category of potential compounds\cite{Dou2013}
+All this would be to determine the performance of just one donor/acceptor combination in one category of potential compounds\cite{Dou2013}.
 By using a simulation pipeline, we can help to streamline the process of determining which OPV materials will form the best morphology with the best charge transport, and in turn, help to solve the energy crisis.
 
 Molecular simulation also gives us insight into the atomic interactions which drive the self assembly of an OPV morphology.
@@ -36,18 +42,20 @@ At the same time, the exciton finding an interface at which to dissociates depen
 So, in order to model this system, a multiscale approach is necessary.
 By breaking our simulation apart into separate steps and equilibrating different lengths scales individually, we can get equilibrated morphologies on multiple length scales more efficiently.
 
-Already good open-source packages exist to address the problem of coarse-graining and/or backmapping \cite{Marrink2007,Ruhle2009,Maerxke2011,MorphCT,Wassenaar2014b} %%these citations are martini, votca, trappe, morphct, backwards.py
+Already good open-source packages exist to address the problem of coarse-graining and/or backmapping\cite{Marrink2007,Ruhle2009,Maerxke2011,MorphCT,Wassenaar2014b}. %%these citations are martini, votca, trappe, morphct, backwards.py
 By making code open source and freely availiable, we contribute to the knowledge of a global community. 
-But just because something is availiable doesn't mean it is accessible: often just figuring out how to use an existing package can be very difficult. \cite{Cummings2019}
+But just because something is availiable doesn't mean it is accessible: often just figuring out how to use an existing package can be very difficult\cite{Cummings2019}.
 These existing codebases can appear to a new user as monolithic and indecipherable because their design has been to solve a problem, which they do, instead of design with a focus on how people learn.
 These codebases also rely on users piecing together multiple, often incompatible, bits of software, using manually created xml files, or manually deciding how to classify a atom grouping based on the users chemical intuition.
-All of which contribute to a reproducibility crisis in the computational sciences\cite{Baker2016}
-By keeping %%<best software dev and teaching practices> in mind throughout development, we can strive to make tools which make science more transferrable, reproducibile, usable, and extensible (TRUE) \cite{Thompson2020} %%TRUE
-%% unit tests, version control, continuous integration, 
-Instead aiming to keep code small and modular to make it easier to use and more understandable\cite{Adorf2018a} 
-This not only makes our code easy to use and debug, but reduces the cognitive load for a new user \cite{Jankowski2019}
+All of which contribute to a reproducibility crisis in the computational sciences\cite{Baker2016}.
+By keeping best practices for software development and teaching in mind throughout development, we can strive to make tools which make science more transferrable, reproducibile, usable, and extensible (TRUE)\cite{Thompson2020}. %%TRUE
+Best software development practices include using version control software, such as git, to facilitate the process of tracking and merging changes to a code repository, especially important when working collaboratively.
+Also among these best practices are using unit tests and continuous integration to ensure that errors are quickly and automatically caught\cite{Wilson2014}.
+Instead of writing dense, inseparable scripts which rely on the user manually following a command prompt or editing multiple text files, we aim to keep code small and modular to make it easier to use and understand\cite{Adorf2018a}.
+Following these guidelines not only makes our code easier to develop and debug, but reduces the cognitive load for a new user\cite{Jankowski2019}.
+Providing good documentation and tutorials is also imperative for onboarding new users.
 Jupyter Notebooks, which are a combination of interactive code and formatted text and images, can be used like a lab notebook for computational scientists in order to demonstrate the process, rationale, and the story of each experiment and the exact steps to get the results shown\cite{Rule2019a}
-Remember that the data never speaks for itself: although including input and output files of a calculation is a good first step, ideally this can be accompanied by the story of what this data means and how we know \cite{https://v4.software-carpentry.org/softeng/principles.html, Wilson2016}
+When writing these tutorials, it is wise to remember that the data never speaks for itself: although including input and output files of a calculation is a good first step, they must be accompanied by the story of what the data means and how a user can know that meaning for themselves\cite{https://v4.software-carpentry.org/softeng/principles.html, Wilson2016}.
 
 Use flexible method for specifying coarse grain models to obtain OPV polymer morphologies equilibrated on length scales relevant to charge transport.
 Use a backmapping method, which works on the same simple mapping operator, to restore the atomic positions in preparation for techniques which require atomic level resolutiuon e.g., charge transport calculations.
