@@ -6,7 +6,7 @@ Consumption of fossil fuels for energy and transportation strongly contributes t
 In our technology-driven society, it is unrealistic to think that energy demand will lessen, in fact global energy consumption is predicted to increase from 17 TW in 2010 to 27 TW in 2040\cite{Mazzio2015}.
 In order to protect our climate, we need a non-polluting, cost-efficient way to provide electricity.
 Harnessing solar energy is an important part of a green energy solution.
-Renewable energy accounts for 11\% of the U.S. energy consumption in 2019 and of that 11\% 9\% was solar\cite{https://www.eia.gov/energyexplained/renewable-sources/}.
+Renewable energy accounts for 11\% of the U.S. energy consumption in 2019 and of that 11\% 9\% was solar\cite{USEIA2020}.
 Our energy infrastructure has room for improvement: consider Germany which in 2019 got 43\% of its energy from renewables and 8.2\% of its total energy from solar\cite{Wirth2017}.
 Traditionally, photovoltaic devices, materials which can convert incedent light into electric current, were made of inorganic materials like silicon.
 But in the late 1970's organic photovaltaics (OPVs) were discovered as a potential alternative\cite{Tang1986b}.
@@ -55,7 +55,7 @@ Instead of writing dense, inseparable scripts which rely on the user manually fo
 Following these guidelines not only makes our code easier to develop and debug, but reduces the cognitive load for a new user\cite{Jankowski2019}.
 Providing good documentation and tutorials is also imperative for onboarding new users.
 Jupyter Notebooks, which are a combination of interactive code and formatted text and images, can be used like a lab notebook for computational scientists in order to demonstrate the process, rationale, and the story of each experiment and the exact steps to get the results shown\cite{Rule2019a}
-When writing these tutorials, it is wise to remember that the data never speaks for itself: although including input and output files of a calculation is a good first step, they must be accompanied by the story of what the data means and how a user can know that meaning for themselves\cite{https://v4.software-carpentry.org/softeng/principles.html, Wilson2016}.
+When writing these tutorials, it is wise to remember that the data never speaks for itself: although including input and output files of a calculation is a good first step, they must be accompanied by the story of what the data means and how a user can know that meaning for themselves\cite{SWC, Wilson2016}.
 
 Use flexible method for specifying coarse grain models to obtain OPV polymer morphologies equilibrated on length scales relevant to charge transport.
 Use a backmapping method, which works on the same simple mapping operator, to restore the atomic positions in preparation for techniques which require atomic level resolutiuon e.g., charge transport calculations.
@@ -203,9 +203,9 @@ A mapping operator defines which atoms are grouped into a "super atom" represent
 Mapping operators are chosen based on desired resolution of the coarse grain system and the information to be extracted.
 A straightforward way to define a mapping operator is to group a set number of heavy atoms (non hydrogen) together--this is the method used in the MARTINI force field\cite{Marrink2007}.
 In this scheme, four atoms (except rings, which are treated differently) are grouped and the site is classified as polar, non-polar, apolar, or charged depending on the atoms it is composed of.
-When parameterizing a new molecule you must pick a mapping and then compare the resulting beads to existing beads--a process which is time consuming and error prone\cite{http://www.cgmartini.nl/index.php/tutorials-general-introduction-gmx5/parametrzining-new-molecule-gmx5}.
-The MARTINI force field was first designed for lipids--further parameterization for proteins and nuclei acids have been added%%<cite--and has shown to be effective in predicting vesicle formation, membrane protein dynamics, etc.
-Many mapping schemes are simply based on the user's chemical intuition (e.g., what parts of the molecule shouldn't be allowed to bend?%%<cite any model where rings are one bead> What groups have the most dominant interactions in this structure <cite dna cg model>).
+When parameterizing a new molecule you must pick a mapping and then compare the resulting beads to existing beads--a process which is time consuming and error prone\cite{martini-tutorial}.
+The MARTINI force field was first designed for lipids--further parameterization for proteins and nuclei acids have been added--and has shown to be effective in predicting vesicle formation, membrane protein dynamics, etc.%%<cite
+Many mapping schemes are simply based on the user's chemical intuition (e.g., what parts of the molecule shouldn't be allowed to bend? What groups have the most dominant interactions in this structure %%<cite any model where rings are one bead><cite dna cg model>).
 As the number of atoms in the fine grain structure increases, the number of possible mappings increase drastically.
 There have been efforts to create mapping schemes for automating the process of deciding which atoms are grouped in a "super-atom" bead.
 One study reduced the number of allowed mappings by only allowing those which do not change the symmetry group, then iterated over a graph of all possible mappings to find the "best" mapping by comparing the difference between the mapped RDF and velocity autocorrelation function \cite{Chakraborty2018a}.
@@ -292,7 +292,7 @@ instead example workflows with docker containers to build software stack.
 help make science more accessible and reprodicible.
 
 %%<compare VOTCA's backmapping to my proposed scheme>
-VOTCA makes some progress towards a TRUE simulation pipeline: they include a docker container with their pre-built software stack and example input files %%<see https://github.com/votca/votca -- using this code via docker> (but some of these input files don't work and the codecoverage on their repo as of time of writing is 0\%), and while including example inputs is a good first step, very little walkthrough (aside from code comments buried in the xml) is given.
+VOTCA makes some progress towards a TRUE simulation pipeline: they include a docker container with their pre-built software stack and example input files  (but some of these input files don't work and the codecoverage on their repo as of time of writing is 0\%), and while including example inputs is a good first step, very little walkthrough (aside from code comments buried in the xml) is given.\cite{votca-github} %%using this code via docker>
 A manual is provided but there is some disconnect between the example files and those given in the manual %%<https://github.com/votca/csg-manual/releases>.
 the code is a mix of C++, shell commands, python, and interacts with compiled programs through the command-line and mpi.
 which makes their working a little tenuous.
