@@ -12,7 +12,7 @@ Traditionally, photovoltaic devices, materials which can convert incedent light 
 But in the late 1970's organic photovaltaics (OPVs) were discovered as a potential alternative.\cite{Tang1986b}
 The advantage of OPVs over inorganic PV devices is that OPVs are lightweight, low cost, easier to produce, and flexible. 
 However, in order to become a viable, cost-effective option they need better efficiency \cite{Mazzio2015}.
-<image from nrel about solar cells efficiency>\cite{https://www.nrel.gov/pv/cell-efficiency.html}
+%%<image from nrel about solar cells efficiency>\cite{https://www.nrel.gov/pv/cell-efficiency.html}
 In order to make the most efficient OPVs we need to find the best blend of compounds and the processing conditions that result in the best structure for those compounds.
 
 The active layer of an OPV is mixture of electron-donor and acceptor compounds: the ideal morphology is a micro phase-separated interpenetrating network called a bulk heterojunction (BHJ).
@@ -42,7 +42,7 @@ But just because something is availiable doesn't mean it is accessible: often ju
 These existing codebases can appear to a new user as monolithic and indecipherable because their design has been to solve a problem, which they do, instead of design with a focus on how people learn.
 These codebases also rely on users piecing together multiple, often incompatible, bits of software, using manually created xml files, or manually deciding how to classify a atom grouping based on the users chemical intuition.
 All of which contribute to a reproducibility crisis in the computational sciences\cite{Baker2016}
-By keeping <best software dev and teaching practices> in mind throughout development, we can strive to make tools which make science more transferrable, reproducibile, usable, and extensible (TRUE) \cite{Thompson2020} %%TRUE
+By keeping %%<best software dev and teaching practices> in mind throughout development, we can strive to make tools which make science more transferrable, reproducibile, usable, and extensible (TRUE) \cite{Thompson2020} %%TRUE
 %% unit tests, version control, continuous integration, 
 Instead aiming to keep code small and modular to make it easier to use and more understandable\cite{Adorf2018a} 
 This not only makes our code easy to use and debug, but reduces the cognitive load for a new user \cite{Jankowski2019}
@@ -57,7 +57,7 @@ The number of opv compounds to test quickly becomes intractable when we consider
 There are countless variations of electron donor polymers, fullerene acceptors, and more recently small molecule, non-fullerene acceptors (NFAs) have been recieving attention for their potential to achieve higher efficiencies\cite{Dou2013}.
 A P3HT:NFA blend was shown to have 11\% PCE, compared to the state-of-the-art 6.4\% in P3HT:PCBM\cite{Baran2017}.
 Not only are NFAs found to be more efficient, but they also show to be more stabile in air than polymer:fullerene blends (retaining 70-80\% of the PCE after 1,200 h exposed to air while the fullerene device was no longer operational after 800 h)\cite{Baran2017}.
-<there aren't a lot of cg models that already exist for these new compounds>
+%%<there aren't a lot of cg models that already exist for these new compounds>
 It is necessary to develop a simple, useable, and flexible pipeline to adapt to the constantly changing chemistries of current OPV technologies. %EJ: NIIICE SENTENCE.
 
 \section*{Research Objectives}
@@ -97,7 +97,7 @@ The material properties which determine the PCE of a device are those which affe
 The absorption efficiency depends on the absorption spectrum, absorption coefficient, and layer thickness.
 The fraction of excitons which dissociate depends on the exciton dissociation length and the charge separation probability at the interface.
 Finally, the the number of charges which reach the electrode depends on the driving force or gradient resulting from the potentials of the electrons and holes.\cite{Hoppe2004}
-<is there a citation for why charge transport is a good proxy for PCE?>
+%%<is there a citation for why charge transport is a good proxy for PCE?>
 
 %% <history>
 Inorganic PV devices came first and are still most efficient, but they are more costly to produce, use rare elements, and their production causes other environmental issues, so they aren't the best solution for solar energy harvesting. 
@@ -105,8 +105,14 @@ The first OPV was created by Tang in 1986 and \cite{Tang1986b} used a bilyaer st
 This early device had a PCE of 0.95\%.
 In 1992, Saricifti and Heeger\cite{Saricifti1992} were the first to report using fullerene as an electron acceptor in a fullerene:polymer mixture.
 And in 1995, Yu described the first bulk heterojunction (BHJ), as an interpenetrating network of donor and acceptor that maximizes the interfacial area, which is still the state of the art morphology to this day\cite{Yu1995}.
-Most recently, non-fullerene acceptors (NFAs), like ITIC, are contributing to the PCE increase of modern OPVs \cite{S.Gurney2019}.
-The planar acceptor-donor-acceptor moeity seen in many NFA backbones <figure?> may have more efficient exciton splitting, as compared to a fullerene accpetor, at the heterojunction due to strong electronic coupling between the conjugated backbones of the NFA and the polymer \cite{Yi2018}.
+Most recently, non-fullerene acceptors (NFAs), like 3,9-bis(2-methylene-(3-(1,1-dicyanomethylene)-indanone))-5,5,11,11-tetrakis(4-hexylphenyl)-dithieno[2,3-d:2’,3’-d’]-s-indaceno[1,2-b:5,6-b’]dithiophene (ITIC), are contributing to the PCE increase of modern OPVs \cite{S.Gurney2019}.
+\begin{wrapfigure}{L}{0.5\textwidth}
+    \centering
+    \includegraphics[width=0.4\textwidth]{images/ITIC.pdf}
+    \caption{ITIC chemical structure with \textcolor{red}{electron accepting regions in red} and \textcolor{blue}{electron donating regions in blue}}
+    \label{fig:itic}
+\end{wrapfigure}
+The planar acceptor-donor-acceptor moeity seen in many NFA backbones (see Figure \ref{fig:itic}) may have more efficient exciton splitting, as compared to a fullerene acceptor, at the heterojunction due to strong electronic coupling between the conjugated backbones of the NFA and the polymer \cite{Yi2018}.
 
 %%<how opvs work>
 The compounds which compose an OPV are synthesizable molecules (often polymers) composed of abundant elements (carbon, hydrogen, nitrogen, sulfur, oxygen).
@@ -127,8 +133,8 @@ Molecular simulation allows us to "see" these atomic interaction and gain a deep
 %% the kinetics that follow the processing
 %% we can see the dynamics -- kinetic arresting, (if we want to probe the processing, need the dynamics)
 %% monte carlo inefficient for polymers - cluster moves, not parallelizable 
-<I am borrowing heavily from Mike's MD section, so I need to come back through and rewrite this>
-<md in general>
+%%<I am borrowing heavily from Mike's MD section, so I need to come back through and rewrite this>
+%%<md in general>
 classical physics
 interactions between particles
 non bonded/bonded/angles/dihedrals
@@ -137,22 +143,22 @@ iterated until thermodynamic equilibrium
 sample a thermodynamic ensemble
 First MD simulation \cite{Alder1957} system of 108 particles, 200 collisions in one hour on an IBM-704.
 Now GPUs 100 millions times faster
-<what is MD used for? why is MD the best technique for gettign these OPV morphologies?>
+%%<what is MD used for? why is MD the best technique for gettign these OPV morphologies?>
 protein folding \cite{levitt75}, other biological processes, polymers \cite{Gartner2019a}
 
 
-<what assumptions does md make?>
+%%<what assumptions does md make?>
 bonds aren't formed or broken, electrons don't exist
 hydrogen bonding
 dispersion is tricky--electrons don't slosh around unless you use some fancy many-body potential
-<what are the limits of atomistic md?>
-<segue to why we need CG models>
+%%<what are the limits of atomistic md?>
+%%<segue to why we need CG models>
 
 \subsection*{Coarse Grain Models}
 
 Coarse-graining refers to grouping atoms in a structure into a "super-atom" and using an effective potential to represent the resulting coarse grain site.
 Coarse-grain models allow for simulators to access length and time scales that would be otherwise impossible using atomistic models.
-<how do cg models let us access long length/time??>
+%%<how do cg models let us access long length/time??>
 Similarly to how we don't need to look at the working of a plant cell to understand the growth of a forest \cite{Muller-Plathe2002}, we don't need to consider atomic level properties when we are interested in the bulk morphology.
 The heart of coarse graining is the removal of degrees of freedom. 
 This effective potential used to represent the reduced system results in a smoothed free energy landscape. 
@@ -164,11 +170,11 @@ CGing allows scientists to FOCUS their experiments.\cite{Baschnagel2000}
 The resolution of coarse grain systems is broad:
 Simply grouping hydrogens with the heavy atom they are bonded to, called the united-atom model, has been shown to speed up dynamics and make polymer length scales more easily accesible \cite{Paul1995a, Yang2006a,}.
 Other coarse-graining schemes may group functional groups together \cite{Berendsen2010, Jankowski2013, Marsh2014}, one bead per repeat unit in a polymer\cite{Lee2011}, or even represent an entire amino acid with a single site\cite{Peng2019a}.
-<examples of cg models and the cool things they do>
+%%<examples of cg models and the cool things they do>
 General coarse grain models of opv thiophene polymers where only the spacing, regioregularity of the side chains were varied were able to predict different order disorder transitions and calculated scattering patterns of these simple systems were comparable to those obtained from experiment \cite{Jankowski2013, Marsh2014} 
 A coarse-grain model for phospholipids has allowed for bilayer formation from an initial random configuration to be observed even though the model was parameterized to the vapor-liquid phase transition.\cite{Shelley2001}
 Which model is right depends on the length and time scale on which the property of interest can be observed.
-<multiscale sims>
+%%<multiscale sims>
 For many systems, however, we are interested in properties which span length scales.
 For instance, in a system like a opv polymer melt, it is not only computationally intractable to try and simulate the electron density on length scales proportional to the exciton dissociation length (~5-10 nm)\cite{Huang2010} -- it is the wrong tool for the job.
 If what we are interested in is the properties of the polymer in the bulk heterojunction, then it is wise to abstract away any degrees of freedom which do not directly contribute to the self-assembly of the structure.
@@ -176,20 +182,20 @@ Once a good bulk structure has been achieved, the atomistic details can be reint
 In the same way that a coarse grain model can be mapped onto an atomistic one, we can get a reasonable starting structure for an atomistic simulation from a coarse grain structure.
 The large length scale, polymer level properties can be equilibrated during the coarse grain simulation, and then the atomic interactions can be equilibrated during the backmapped atomistic simulation.
 This can allow us the calculate properties such as charge transport, which depends upon the electronic structure of individual chromophores and the connectivity of these chromophores over distances proportional to the exciton dissociation length.
-<what stands in our way?>
+%%<what stands in our way?>
 
-<coarse-grain models are specific>
+%%<coarse-grain models are specific>
 
-<segue from automated creation of forcefields to...>
-<mapping operator has to be decided by hand> <is this section too big?>
+%%<segue from automated creation of forcefields to...>
+%%<mapping operator has to be decided by hand> <is this section too big?>
 Part of coarse graining that is not yet automated is choosing a mapping scheme or a mapping operator.
 A mapping operator defines which atoms are grouped into a "super atom" represented by one coarse grain site and where in the site is placed relative to the atom group.
 Mapping operators are chosen based on desired resolution of the coarse grain system and the information to be extracted.
 A straightforward way to define a mapping operator is to group a set number of heavy atoms (non hydrogen) together--this is the method used in the MARTINI force field\cite{Marrink2007}.
 In this scheme, four atoms (except rings, which are treated differently) are grouped and the site is classified as polar, non-polar, apolar, or charged depending on the atoms it is composed of.
 When parameterizing a new molecule you must pick a mapping and then compare the resulting beads to existing beads--a process which is time consuming and error prone\cite{http://www.cgmartini.nl/index.php/tutorials-general-introduction-gmx5/parametrzining-new-molecule-gmx5}.
-The MARTINI force field was first designed for lipids--further parameterization for proteins and nuclei acids have been added<cite--and has shown to be effective in predicting vesicle formation, membrane protein dynamics, etc.
-Many mapping schemes are simply based on the user's chemical intuition (e.g., what parts of the molecule shouldn't be allowed to bend?<cite any model where rings are one bead> What groups have the most dominant interactions in this structure <cite dna cg model>).
+The MARTINI force field was first designed for lipids--further parameterization for proteins and nuclei acids have been added%%<cite--and has shown to be effective in predicting vesicle formation, membrane protein dynamics, etc.
+Many mapping schemes are simply based on the user's chemical intuition (e.g., what parts of the molecule shouldn't be allowed to bend?%%<cite any model where rings are one bead> What groups have the most dominant interactions in this structure <cite dna cg model>).
 As the number of atoms in the fine grain structure increases, the number of possible mappings increase drastically.
 There have been efforts to create mapping schemes for automating the process of deciding which atoms are grouped in a "super-atom" bead.
 One study reduced the number of allowed mappings by only allowing those which do not change the symmetry group, then iterated over a graph of all possible mappings to find the "best" mapping by comparing the difference between the mapped RDF and velocity autocorrelation function \cite{Chakraborty2018a}.
@@ -197,20 +203,20 @@ Another mapping scheme uses principle component analysis to choose a mapping sch
 Mapping operators can be automated using machine learning: clustering methods combined with graph analysis were shown to predict the "expert" mapping chosen using chemical intuition reliably\cite{Li2020}. 
 A mapping operator based on the centers of charge was shown to accurately model electrostatic properties\cite{Cao2015a}.
 
-<how cg potentials have been attained>
+%%<how cg potentials have been attained>
 
 \subsection*{Multi-State Iterative Boltzmann Inversion}
 
 There are numerous methods for deriving coarse grain potentials from atomistic ones (e.g., force-matching, reverse Monte Carlo), but in this proposal we will focus on Iterative Boltzmann Inversion (IBI).
-<IBI>
+%%<IBI>
 IBI is where a coarse grain potential is iteratively tuned to fit a target distribution. \cite{Reith2003a}
 Here is the algorithm for determining the non-bonded potentials:
 First the coarse grain system is mapped onto an equilibrated atomistic one.
 Then the radial distribution function (RDF) of the mapped systems is calculated over the equilibrated frames of the trajectory--This is the target distribution.
 Given any particle, the RDF gives the probability of finding a neighboring particle at distance r.
-Taking the Boltzmann Inverse of the RDF results in the potential of mean force (PMF). <add equation>
+Taking the Boltzmann Inverse of the RDF results in the potential of mean force (PMF). %%<add equation>
 Then a CG simulation can be run using the PMF as the non-bonded potential to achieve a new distribution.
-Then the difference between the new and target distribution can be accounted for in the next iteration accoring to equation <add equation>.
+Then the difference between the new and target distribution can be accounted for in the next iteration accoring to equation %%<add equation>.
 This process is repeated until the difference between the result and the target are sufficiently similar.
 
 The coarse grain potential derived from IBI is not transferrable to different thermodynamic statepoints.
@@ -219,29 +225,29 @@ For example, separate potentials are required to capture solid and fluid structu
 There are many attempts to create transferrable CG potentials, for example:
 The TraPPE force-field fits CG potentials using vapor-liquid equilibria to improve transferrability across thermodynamic states\cite{Maerzke2011}
 But optimization to the liquid-vapor equilibriai, although useful for prediction of thermodynamic properties, may not be ideal for prediction of structure which will strongly influence charge transport.
-<so we probably want to create our own potentials>
-<IBI potentials are sometimes transferrable and it is not clear why sometimes they are and sometimes they aren't.> \cite{Moore2014}
+%%<so we probably want to create our own potentials>
+%%<IBI potentials are sometimes transferrable and it is not clear why sometimes they are and sometimes they aren't.> \cite{Moore2014}
 
 Multistate iterative Boltzmann inversion (MS IBI) includes data from multiple targets to yield a less state dependent potential.\cite{Moore2014}
 The MS IBI potential is an average of the single state potentials with a weighting function to prioritize a state of interest.
 This method has been shown to accurately reproduce the true potential in monoatomic LJ fluid.
 
 When using the MS IBI method, it is important to choose dissimilar states to minimize the potential overlap region.
-If this overlap region is large, there are many potentials which will provide matching RDFs. <show fig from moore>
+If this overlap region is large, there are many potentials which will provide matching RDFs. %%<show fig from moore>
 For some systems there may not be a potential that represents all states-- this is not unique to coarse potentials, atomistic potentials also have this limitation.
-<need some tie in back to why we would want to go from CG-->atomistic>
+%%<need some tie in back to why we would want to go from CG-->atomistic>
 
 \subsection*{Mesoscale Device Simulation}
 
-<I DONT WANT TO FOCUS ON THIS TOO MUCH. It's only here as a rationale for why backmapping>
-<how morphct pipeline would work: cg-backmap-ct>
+%%<I DONT WANT TO FOCUS ON THIS TOO MUCH. It's only here as a rationale for why backmapping>
+%%<how morphct pipeline would work: cg-backmap-ct>
 MorphCT, a software previously developed by our lab, can simulate charge transport through an OPV morphology using kinetic Monte Carlo\cite{Miller2018a,MorphCT,morphct2.2}.
 The kinetic Monte Carlo algorithm used by MorphCT uses the semi-empirical Zerner's Intermediate Neglect of Differential Overlap (ZINDO/S) quantum chemical calculation to obtain the molecular energy levels of chromophores in the morphology.
 The HOMO levels of each chromophore site and the energy splitting induced in the chromophore pairs is used in the Marcus equation to calculate the charge hopping rate between pairs.
 A Monte Carlo simulation can then be run using these hopping rates.
 Because this is a quantum chemical calculation, the position of each atom is needed--therefore a backmapping process is required to calculate the charge transport in a CG morphology.
 MorphCT has some builtin backmapping tools which use xml file (which i will discuss why these are bad in the next section) and the package is bulky/CLI/hard-to-use...
-<making morphct more modular to allow it to be used in a workflow not cli>
+%%<making morphct more modular to allow it to be used in a workflow not cli>
 
 \section*{Preliminary Work}
 % With lan - About excitonic splitting, using DFT, DNA. 
@@ -249,7 +255,7 @@ MorphCT has some builtin backmapping tools which use xml file (which i will disc
 % With us - Perspective paper about all things
 
 
-<how do I relate this to what I want to do??>
+%%<how do I relate this to what I want to do??>
 - contributed to development of open-source packages: mbuild, foyer, signac, fresnel
  this has helped me learn best software development practices like writing documentation, using version control, writing unit tests, employing CI, fork/pull model, etc.
 using these tools will help me to me a more efficient developer.
@@ -262,10 +268,10 @@ This may seem unrelated but we can use diffraction to verify our opv morphologie
 GIXStapose helps to beeter connect the physical structure with the diffraction pattern.
 - started development on UFF repo for foyer.
 This is an example of how to create a version controlled forcefield which can be automatically applied to a compound.
-<atom typing is a pain and doing it manually is bad cite foyer paper>
+%%<atom typing is a pain and doing it manually is bad cite foyer paper>
 
-<Talk about what exists and why it is not enough>
-<votca, Peng2019a> 
+%%<Talk about what exists and why it is not enough>
+%%<votca, Peng2019a> 
 Versatile Object-oriented Toolkit for Coarse-graining Applications (VOTCA) \cite{Ruhle2011b}
 includes a coarse-graining, forcefield creation with reverse MC or IBI, and back-mapping modules.
 It also allows for charge transport calculations using KMC similar to MorphCT \cite{Lukyanov2010}
@@ -275,18 +281,18 @@ reproducibility crisis.\cite{Cummings2019} \cite{Thompson2020} (TRUE paper) poor
 instead example workflows with docker containers to build software stack.
 help make science more accessible and reprodicible.
 
-<compare VOTCA's backmapping to my proposed scheme>
-VOTCA makes some progress towards a TRUE simulation pipeline: they include a docker container with their pre-built software stack and example input files <see https://github.com/votca/votca -- using this code via docker> (but some of these input files don't work and the codecoverage on their repo as of time of writing is 0\%), and while including example inputs is a good first step, very little walkthrough (aside from code comments buried in the xml) is given.
-A manual is provided but there is some disconnect between the example files and those given in the manual <https://github.com/votca/csg-manual/releases>.
+%%<compare VOTCA's backmapping to my proposed scheme>
+VOTCA makes some progress towards a TRUE simulation pipeline: they include a docker container with their pre-built software stack and example input files %%<see https://github.com/votca/votca -- using this code via docker> (but some of these input files don't work and the codecoverage on their repo as of time of writing is 0\%), and while including example inputs is a good first step, very little walkthrough (aside from code comments buried in the xml) is given.
+A manual is provided but there is some disconnect between the example files and those given in the manual %%<https://github.com/votca/csg-manual/releases>.
 the code is a mix of C++, shell commands, python, and interacts with compiled programs through the command-line and mpi.
 which makes their working a little tenuous.
-And judging by the amount of confusion in their mailing list <https://groups.google.com/forum/\#!forum/votca> there is room for improvement in the API.
+And judging by the amount of confusion in their mailing list %%<https://groups.google.com/forum/\#!forum/votca> there is room for improvement in the API.
 Overall though this is program has many features, interfaces with many popular MD engines (lammps, gromacs, hoomd), and is under active, collaborative development.
 A good question might be if I'm so into OSS and collaboration--why don't I just contribute an MSIBI package to VOTCA.
 This is a reasonable question.
 The answer is because I find VOTCA to be near-overwhelming in it's scope and the cognitive load of trying to fit this whole project into my brain is not ideal.
 I also don't like their API.
-by choosing a pure python API I will be able to make use of jupyter notebooks which can be run on cloud servers using tools like mybinder <link mybinder, link to tutorials I;ve made> which can combine executable code with markdown text and images.
+by choosing a pure python API I will be able to make use of jupyter notebooks which can be run on cloud servers using tools like mybinder %%<link mybinder, link to tutorials I;ve made> which can combine executable code with markdown text and images.
 In this way a tutorial can provide exact commands needed to reproduce the example intimately connected with the rationale and justification of that example.
 I would like to think that my code speaks for itself, but after reading other people's code, I have a renewed appreciation for explanations in paragraph form, diagrams, and figures.
 
@@ -302,7 +308,7 @@ VOTCA's scheme also requires that you specify the bonding and the angles resulti
 \begin{lstlisting}
 hexane_sites = [("_A", "CC[H3]"), ("_B", "CC")]
 \end{lstlisting}
-The result of using this code in the `coarse` function <link to grits> is a three-site hexane model A-B-A, same as VOTCA.
+The result of using this code in the `coarse` function %%<link to grits> is a three-site hexane model A-B-A, same as VOTCA.
 The mapping here is specified as a list of bead name / smarts string pairs.
 Although they do add some element of cognitive load, SMARTS strings are designed to be human and machine readable and can match atoms based on their chemical environment.
 With this scheme, there is no need to look up the name or number of each residue, I simply specify that want two alkyl carbons (CC) requiring that one be a terminal carbon by including that it has three attached hydrogens (C[H3]).
@@ -310,15 +316,15 @@ The bonding and angles of the resulting coarse grain beads is then inferred base
 Basically what VOTCA's xml file does in 51 lines, I can do in 1 which is easier to read and makes chemical sense. 
 There are even benefits to the mapping being inline with the code:
 This allows the user to see the mapping as they progress through the workflow without having to search for multiple files and it may prevent common errors caused by manual file IO such as operating system specific line endings or whitespace characters like tab or space being treated differently.
-Having the mapping in-line with the workflow also allows for the user to check that the mapping is correct with built in interactive visualizations, which can display the mapping as an overlay. <show overlay>
+Having the mapping in-line with the workflow also allows for the user to check that the mapping is correct with built in interactive visualizations, which can display the mapping as an overlay. %%<show overlay>
 
 We do not propose a new automated mapping, but instead a way to make the mapping and backmapping process easier for the user.
 Simplified Molecular Input Line Entry System or SMILES \cite{Weininger} was designed to represent organic molecules in an unambiguous way (similar to IUPAC) but in a line-entry system which is also readable by a computer.
 This makes it a good candidate for specifying a coarse-grain mapping scheme.The open-source package, Openbabel, allows for a SMILES string to be converted to a chemical structure and vice versa.
-<cite openbabel,SMILES, SMARTS> SMARTS is similar to SMILES but instead of representing a single molecule unambiguously, it has multiple wildcards which can be used for pattern matching.
+%%<cite openbabel,SMILES, SMARTS> SMARTS is similar to SMILES but instead of representing a single molecule unambiguously, it has multiple wildcards which can be used for pattern matching.
 This pattern matching is also implemented in the Openbabel package.
 If we know the SMARTS string for any given CG mapping we can map the CG site to it's center of mass or geometric center.
-I have developed a minimum working example of how this can be done <cite grits> and then how the atomistic structure can be recovered.
+I have developed a minimum working example of how this can be done %%<cite grits> and then how the atomistic structure can be recovered.
 It could be fairly straightforward to implement a lookup to check if bead parameters already exist--say for the MARTINI model-- by going through and writing out the SMARTS pattern for each existing bead type.
 An initial headache that could make parameterizing new compounds for the MARTINI method more foolproof.
 
@@ -348,13 +354,13 @@ can easily test out different mappings and "processing" conditions
 \subsection*{Objective 4: Analysis}
 
 Use charge transfer, diffraction to tell which models are the best
-<cite a bunch of experimental papers we can compare to>
-<cite our papers that show we can do this comparison already>
+%%<cite a bunch of experimental papers we can compare to>
+%%<cite our papers that show we can do this comparison already>
 Our morphct paper says the mobilities we predict are 2x higher than experiment? why?
 
-<I need something in here about making morphct more user friendly and less hard-coded for p3ht.>
-<adding in calculation of reorganization energy??> 
-<or just ripping out the KMC bit and making it modular>
+%%<I need something in here about making morphct more user friendly and less hard-coded for p3ht.>
+%%<adding in calculation of reorganization energy??> 
+%%<or just ripping out the KMC bit and making it modular>
 
 \section*{Predicted Outcomes}
 
@@ -366,8 +372,8 @@ Our morphct paper says the mobilities we predict are 2x higher than experiment? 
 
 \section*{Contingency Analysis}
 
-<what's going to be hard?> 
-maybe SMARTS SMILES won't work without careful choice of beads. This is a little annoying but still preferrable I think because at least the reasons may be understandable (the order of the beads matters) or chemically sensible (one SMILES string may contain another -- just as one chemical moeity may be composed of more submoeities <this is a word?>)
+%%<what's going to be hard?> 
+maybe SMARTS SMILES won't work without careful choice of beads. This is a little annoying but still preferrable I think because at least the reasons may be understandable (the order of the beads matters) or chemically sensible (one SMILES string may contain another -- just as one chemical moeity may be composed of more submoeities %%<this is a word?>)
 coarse-graining NFAs might be hard--planar backbones and floppy side chains
 
 \section*{Timeline for Implementation and Evaluation}
