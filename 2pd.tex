@@ -65,30 +65,32 @@ The number of opv compounds to test quickly becomes intractable when we consider
 There are countless variations of electron donor polymers, fullerene acceptors, and more recently small molecule, non-fullerene acceptors (NFAs) have been recieving attention for their potential to achieve higher efficiencies\cite{Dou2013}.
 A P3HT:NFA blend was shown to have 11\% PCE, compared to the state-of-the-art 6.4\% in P3HT:PCBM\cite{Baran2017}.
 Not only are NFAs found to be more efficient, but they also show to be more stabile in air than polymer:fullerene blends (retaining 70-80\% of the PCE after 1,200 h exposed to air while the fullerene device was no longer operational after 800 h)\cite{Baran2017}.
-%%<there aren't a lot of cg models that already exist for these new compounds>
+Coarse grain models do not yet exist for many of these NFAs, and with so many varieties an adaptable pipeline makes more sense than a single model.%%<there aren't a lot of cg models that already exist for these new compounds>
 It is necessary to develop a simple, useable, and flexible pipeline to adapt to the constantly changing chemistries of current OPV technologies. %EJ: NIIICE SENTENCE.
 
 \section*{Research Objectives}
 
 %EJ: Nice. Attempting to reorder based on heirarchy
 %%use that science to help solve energy crisis???????>
-Ultimately the goal is to help solve the global energy crisis. 
+Ultimately the goal this research is to help solve the global energy crisis. 
 Solar energy is a important part of a green energy solution.
 This research aims to gain insight about new OPV compound morphologies using molecular simulation.
 
 %%create models for new opv compounds>
-In order to model these polymer systems on relevant length scales, we are going to need to develop new coarse grain models.
-We will need a flexible and efficient coarse graining scheme, so that new models are easy and intuitive to create.
+In order to model these OPV polymer systems on relevant length scales, it is necessary to develop new coarse grain models.
+A flexible and efficient coarse graining scheme will simplify the process of mapping and parameterizing (these coarse grain elements). %% reword
 
 %%gain insight into the limits of coarse graining>
-A benefit of this work is that we may gain insight into the features of an OPV which govern its self-assembly and the limits of coarse grain models.
-Currently there is no best scheme for a coarse grain mapping operator.
-By making our coarse graining tool simple and easy-to-use, we will be able to test many mapping operators and probe the limits of a minimal model: what is the minimum structure needed to represent a complex molecule?
+The flexibility of specifying a mapping will allow for the comparison of multiple mappings which may provide insight into the features of an OPV which govern its self-assembly and the limits of coarse grain models.
+Currently there is no agreed-upon ``best'' scheme for a coarse grain mapping operator.
+By making a simple and easy-to-use coarse graining tool, many mapping operators can be tested and the limits of a minimal model can be probed.
+%% What is the minimum structure needed to represent a complex molecule? %% reword? omit?
 
 %%develop new tools that help humans do science>
-By making this tool simple and easy to use hopefully we will also make reproducibile science more achievable for the next generation. 
-Integrating this tool with existing open source software packages will make it the most useful to the most people and also increase its transferrability and usability.
-Using packages like signac for managing dataspaces, foyer for version control of forcefields, mbuild for building chemical structures, hoomd for running molecular dynamics simulations, freud for simulation trajectory analysis, openbabel for recognizing chemical patterns.
+Making this tool usable will also hopefully contribute to reproducibile science. 
+Integrating with existing open source software packages will provide the most benefit and also increase transferrability and usability.
+We will use packages like signac for managing dataspaces, foyer for version control of forcefields, mbuild for building chemical structures, hoomd for running molecular dynamics simulations, freud for simulation trajectory analysis, and openbabel for recognizing chemical patterns. %%cite!
+These are established codebases which are actively developed and engine agnostic (except hoomd which is in itself an engine).
 
 %%create a workflow that will make creating new models more accessible>
 Demonstrating a workflow from start to finish with explanations using easy-to-understand language, diagrams, and figures makes a codebase more usable and approachable but does not interfere with it being modular or efficient.
