@@ -2,7 +2,11 @@
 library-link.bib
 
 # Don't add the pdf
-#*.pdf
+0master.pdf
+
+# random other files in images
+*.svg
+*.xcf
 
 ## Core latex/pdflatex auxiliary files:
 *.aux
