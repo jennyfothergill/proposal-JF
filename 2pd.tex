@@ -327,12 +327,13 @@ For a six atom system this is not too bad, but this could get tedious and error-
 And keep in mind that these xml files need to be created manually for each compound which is backmapped.
 VOTCA's scheme also requires that you specify the bonding and the angles resulting from those bonds, another process which is tedious, error-prone, and probably unecessary--I will discuss this more after discussing my scheme below:
 \begin{lstlisting}
-hexane_sites = [("_A", "CC[H3]"), ("_B", "CC")]
+hexane_sites = [("_A", "C[CH3]"), ("_B", "CC")]
 \end{lstlisting}
-The result of using this code in the `coarse` function %%<link to grits> is a three-site hexane model A-B-A, same as VOTCA.
+The result of using this code in the `coarse` function is a three-site hexane model A-B-A, same as VOTCA.%%<link to grits>
 The mapping here is specified as a list of bead name / smarts string pairs.
 Although they do add some element of cognitive load, SMARTS strings are designed to be human and machine readable and can match atoms based on their chemical environment.
-With this scheme, there is no need to look up the name or number of each residue, I simply specify that want two alkyl carbons (CC) requiring that one be a terminal carbon by including that it has three attached hydrogens (C[H3]).
+With this scheme, there is no need to look up the name or number of each residue, I simply specify that want two alkyl carbons (using the SMARTS string "CC") and requiring that one be a terminal carbon by including that it has three attached hydrogens ("[CH3]").
+The order of the beads here matters--because technically all atoms could be mapped with the more general SMARTS string (CC), it is important to list the most specific strings first.
 The bonding and angles of the resulting coarse grain beads is then inferred based on the bonding of the mapped atoms.
 Basically what VOTCA's xml file does in 51 lines, I can do in 1 which is easier to read and makes chemical sense. 
 There are even benefits to the mapping being inline with the code:
