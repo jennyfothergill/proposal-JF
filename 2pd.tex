@@ -113,9 +113,9 @@ Finally, the the number of charges which reach the electrode depends on the driv
 Inorganic PV devices came first and are still most efficient, but they are more costly to produce, use rare elements, and their production causes other environmental issues, so they aren't the best solution for solar energy harvesting. 
 The first OPV was created by Tang in 1986 and used a bilyaer structure containing copper phthalocyanine and a perylene derivitive\cite{Tang1986b}. 
 This early device had a PCE of 0.95\%.
-In 1992, Saricifti and Heeger were the first to report using fullerene as an electron acceptor in a fullerene:polymer mixture\cite{Saricifti1992}.
+In 1992, Saricifti and Heeger were the first to report using fullerene as an electron acceptor in a fullerene:polymer mixture\cite{Sariciftci1992}.
 And in 1995, Yu described the first bulk heterojunction (BHJ), as an interpenetrating network of donor and acceptor that maximizes the interfacial area, which is still the state of the art morphology to this day\cite{Yu1995}.
-Most recently, non-fullerene acceptors (NFAs), like ITIC, are contributing to the PCE increase of modern OPVs\cite{S.Gurney2019}.
+Most recently, non-fullerene acceptors (NFAs), like ITIC, are contributing to the PCE increase of modern OPVs\cite{S.Gurney2019b}.
 
 \begin{wrapfigure}{L}{0.5\linewidth}
     \centering
@@ -124,7 +124,7 @@ Most recently, non-fullerene acceptors (NFAs), like ITIC, are contributing to th
     \label{fig:itic}
 \end{wrapfigure}
 
-The planar acceptor-donor-acceptor moeity seen in many NFA backbones (see Figure \ref{fig:itic}) may have more efficient exciton splitting, as compared to a fullerene acceptor, at the heterojunction due to strong electronic coupling between the conjugated backbones of the NFA and the polymer\cite{Yi2018}.
+The planar acceptor-donor-acceptor moeity seen in many NFA backbones (see Figure \ref{fig:itic}) may have more efficient exciton splitting, as compared to a fullerene acceptor, at the heterojunction due to strong electronic coupling between the conjugated backbones of the NFA and the polymer\cite{Yi2018a}.
 
 %%<how opvs work>
 The compounds which compose an OPV are synthesizable molecules (often polymers) composed of abundant elements (carbon, hydrogen, nitrogen, sulfur, oxygen).
@@ -181,7 +181,7 @@ Even if the simulation was to complete, there would be too much information to p
 CGing allows scientists to FOCUS their experiments\cite{Baschnagel2000}.
 The resolution of coarse grain systems is broad:
 Simply grouping hydrogens with the heavy atom they are bonded to, called the united-atom model, has been shown to speed up dynamics and make polymer length scales more easily accesible\cite{Paul1995a, Yang2006a}.
-Other coarse-graining schemes may group functional groups together\cite{Berendsen2010, Jankowski2013, Marsh2014}, one bead per repeat unit in a polymer\cite{Lee2011}, or even represent an entire amino acid with a single site\cite{Peng2019a}.
+Other coarse-graining schemes may group functional groups together\cite{Berendsen2010, Jankowski2013, Marsh2014}, one bead per repeat unit in a polymer\cite{Lee2011}, or even represent an entire amino acid with a single site\cite{Peng2019}.
 %%<examples of cg models and the cool things they do>
 General coarse grain models of opv thiophene polymers where only the spacing, regioregularity of the side chains were varied were able to predict different order disorder transitions and calculated scattering patterns of these simple systems were comparable to those obtained from experiment\cite{Jankowski2013, Marsh2014}.
 A coarse-grain model for phospholipids has allowed for bilayer formation from an initial random configuration to be observed even though the model was parameterized to the vapor-liquid phase transition\cite{Shelley2001}.
@@ -210,7 +210,7 @@ The MARTINI force field was first designed for lipids--further parameterization 
 Many mapping schemes are simply based on the user's chemical intuition (e.g., what parts of the molecule shouldn't be allowed to bend? What groups have the most dominant interactions in this structure %%<cite any model where rings are one bead><cite dna cg model>).
 As the number of atoms in the fine grain structure increases, the number of possible mappings increase drastically.
 There have been efforts to create mapping schemes for automating the process of deciding which atoms are grouped in a "super-atom" bead.
-One study reduced the number of allowed mappings by only allowing those which do not change the symmetry group, then iterated over a graph of all possible mappings to find the "best" mapping by comparing the difference between the mapped RDF and velocity autocorrelation function\cite{Chakraborty2018a}.
+One study reduced the number of allowed mappings by only allowing those which do not change the symmetry group, then iterated over a graph of all possible mappings to find the "best" mapping by comparing the difference between the mapped RDF and velocity autocorrelation function\cite{Chakraborty2018b}.
 Another mapping scheme uses principle component analysis to choose a mapping scheme for biomolecules that best represents th essential dynamics\cite{Zhang2008}.
 Mapping operators can be automated using machine learning: clustering methods combined with graph analysis were shown to predict the "expert" mapping chosen using chemical intuition reliably\cite{Li2020}. 
 A mapping operator based on the centers of charge was shown to accurately model electrostatic properties\cite{Cao2015a}.
@@ -221,7 +221,7 @@ A mapping operator based on the centers of charge was shown to accurately model 
 
 There are numerous methods for deriving coarse grain potentials from atomistic ones (e.g., force-matching, reverse Monte Carlo), but in this proposal we will focus on Iterative Boltzmann Inversion (IBI).
 %%<IBI>
-IBI is where a coarse grain potential is iteratively tuned to fit a target distribution\cite{Reith2003a}.
+IBI is where a coarse grain potential is iteratively tuned to fit a target distribution\cite{Reith2003}.
 Here is the algorithm for determining the non-bonded potentials:
 First the coarse grain system is mapped onto an equilibrated atomistic one.
 Then the radial distribution function (RDF) of the mapped systems is calculated over the equilibrated frames of the trajectory--This is the target distribution.
@@ -310,6 +310,15 @@ I would like to think that my code speaks for itself, but after reading other pe
 
 For an example of what I mean by cognitive load, let's compare an example of my proposed coarse-graining scheme to VOTCAs.
 In the following example we will take a hexane molecule and map it to three coarse grain sites (two carbon atoms per site).
+
+
+\begin{wrapfigure}{L}{0.5\linewidth}
+    \centering
+    \includegraphics[width=0.6\linewidth]{images/hexane-compare.pdf}
+    \caption{top: hexane chemical structure, bottom: hexane overlaid with coarse grain mapping \textcolor{blue}{A}-\textcolor{orange}{B}-}\textcolor{blue}{A}
+    \label{fig:hexane}
+\end{wrapfigure}
+
 VOTCA uses an xml file to do this:
 
 %%\lstinputlisting[breaklines]{hexane.xml}
