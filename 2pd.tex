@@ -262,25 +262,38 @@ MorphCT has some builtin backmapping tools which use xml file (which i will disc
 %%<making morphct more modular to allow it to be used in a workflow not cli>
 
 \section*{Preliminary Work}
+My prior work has involved probing the intermolecular interactions which govern dimer and crystal formation.
 % With lan - About excitonic splitting, using DFT, DNA. 
-% With Matt - What intermolecular interactions guide diphenylurea crystal formation
-% With us - Perspective paper about all things
+Using density functional theory (DFT) to probe the excitonic splitting observed in cyanine dye dimers\cite{Fothergill2018}.
 
+% With Matt - What intermolecular interactions guide diphenylurea crystal formation
+An investigation of the supramolecular interactions which guide crystal self-assembly in diphenylurea transition metal complexes using density functional theory\cite{Millard2019a}. 
+% With us - Perspective paper about all things
+My contributions to our perspective paper were mostly about my experience joining the lab and trying to reproduce and existing model--something which should be very straightforward in a computational field, but which any computational scientist can attest is not simple\cite{Jankowski2019}. 
+ %% frame gixstapose as a tool for reproducible, approachable science
+I also presented a tool I've developed, called GIXStapose, at the Scientific Python conference (SciPy2020). %%cite scipy and gixstapose
+GIXStapose is an interactive structure viewer alongside its simulated diffraction pattern.
+This work had two goals: helping users to see the connections between a structure and it's diffraction pattern and making reproducible figure generation easier.
+The first goal is achieved through a graphical user interface (GUI) which allows users to interact with the structure using the mouse and the diffraction pattern is updated automatically.
+The second goal is accomplished by allowing all steps of the figure generation process (e.g., positioning the camera, setting the colors and lighting, etc) to be scripted and never \testit{requiring} use of the GUI.
+
+These prior works, although not directly related to OPVS or coarse grain models, have helped me think about how atomic interactions can shape a structure, the struggles that face a new computational scientist, and how I can help.
 
 %%<how do I relate this to what I want to do??>
-- contributed to development of open-source packages: mbuild, foyer, signac, fresnel
- this has helped me learn best software development practices like writing documentation, using version control, writing unit tests, employing CI, fork/pull model, etc.
-using these tools will help me to me a more efficient developer.
-It's also helped me to learn how to work as part of a team.
- - created MWE of coarse-graining and backmapping with smiles-- these will need further testing as we try them on different compounds but the proof of concept is there.
- - created tutorial examples to help current and future students understand scientific concepts and how to use computational tools
- %% frame gixstapose as a tool for reproducible, approachable science
- - created GIXStapose (presented at SciPy2020) an interactive diffraction/structure viewer.
-This may seem unrelated but we can use diffraction to verify our opv morphologies and compare them to experiment.
-GIXStapose helps to beeter connect the physical structure with the diffraction pattern.
-- started development on UFF repo for foyer.
-This is an example of how to create a version controlled forcefield which can be automatically applied to a compound.
+I have contributed to development of open-source packages: mbuild, foyer, signac, fresnel
+These contributions have given me ample opportunity to excercise best software development practices like writing good documentation, using version control, writing unit tests, employing CI, using a fork \& pull workflow, etc.
+This experience will help me to be more efficient in my future work.
+I've also gained valuable experience as working as part of a team.
+As I plan to integrate my future work with existing projects, good collaborate skills will be necessary.
+
+%% experience teaching and creating material for people to learn
+I have completed Software Carpentry training which has taught me how to break down complex ideas and give learners a chance to use their knowledge.
+With these principles in mind, I have created tutorial examples to help current and future students understand scientific concepts and how to use computational tools. %% cite notebook examples
+%%- started development on UFF repo for foyer.
+%%This is an example of how to create a version controlled forcefield which can be automatically applied to a compound.
 %%<atom typing is a pain and doing it manually is bad cite foyer paper>
+As for work towards my proposed plan, I have created a minimum working example of a coarse-graining and backmapping package which uses SMARTS strings to specify the bead chemistries. %%cite grits
+This package will need further testing as it is tested on different compounds, but the proof of concept exists.
 
 %%<Talk about what exists and why it is not enough>
 %%<votca, Peng2019a> 
