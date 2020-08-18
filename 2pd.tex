@@ -167,8 +167,8 @@ Particles connected by bonds are also modelled by classical forces, for example 
 
 \begin{wrapfigure}{L}{0.5\linewidth}
     \centering
-    \includegraphics[width=0.6\linewidth]{images/bondangledihedral.pdf}
-    \caption{Bonded interactions: bond (top left), angle (top right), and dihedral (bottom). Image taken from \cite{punma}.}
+    \includegraphics[width=0.4\linewidth]{images/bondangledihedral.pdf}
+    \caption{Bonded interactions: bond (top left), angle (top right), and dihedral (bottom). Image adapted from \cite{punma}.}
     \label{fig:bad}
 \end{wrapfigure}
 
@@ -180,18 +180,21 @@ Where $\theta$ is the angle formed between three bonded particles, $\theta_{0}$ 
 The dihedral potential can be defined by the follow Fourier series:
 $$V_{dihedral}(\phi)=\frac{1}{2}k_{1}(1-cos(\phi))+\frac{1}{2}k_{2}(1-cos(2\phi))+\frac{1}{2}k_{3}(1-cos(3\phi))\frac{1}{2}k_{4}(1-cos(4\phi))$$
 Where $\phi$ is the angle between planes formed by particles in the dihedral (see Figure \ref{fig:bad}) and $k_{n}$ are the force coeffients.
-
+%% transition???
 The first MD simulation modelled a system of 108 particles, and completed 200 collisions in one hour on an IBM-704\cite{Alder1957}.
-Now GPUs are 100 millions times faster
+Now GPUs are 100 millions times faster.
 %%<what is MD used for? why is MD the best technique for gettign these OPV morphologies?>
-protein folding \cite{levitt75}, other biological processes, polymers \cite{Gartner2019a}
-
+Due to its efficient scaling, MD is now commonly used for modelling of protein folding \cite{levitt75} and other biological processes, and investigating the bulk properties of polymers \cite{Gartner2019a}.
 
 %%<what assumptions does md make?>
-bonds aren't formed or broken, electrons don't exist
-hydrogen bonding
-dispersion is tricky--electrons don't slosh around unless you use some fancy many-body potential
+Even all-atom MD is not without assumptions:
+In general, during an MD simulation bonds aren't formed or broken, so without careful consideration this prevents the study of chemical reactions.
+MD does not consider electrons, instead atoms are treated as point particles. 
+This makes modelling systems which depend on hydrogen bonding or dispersion more difficult.
+
 %%<what are the limits of atomistic md?>
+Even with these simplifications, we are still not able to simulate many systems efficiently on relevant length scales.
+Therefore we can use a technique called coarse graining to increase the length and time scale we can examine.
 %%<segue to why we need CG models>
 
 \subsection*{Coarse Grain Models}
