@@ -141,15 +141,25 @@ Molecular simulation allows us to "see" these atomic interaction and gain a deep
 
 \subsection*{Molecular Dynamics}
 %EJ: Here or above: Why MD the right tool?
-%% morphology matters - thermodynamics that govern self assembly
-%% the kinetics that follow the processing
-%% we can see the dynamics -- kinetic arresting, (if we want to probe the processing, need the dynamics)
-%% monte carlo inefficient for polymers - cluster moves, not parallelizable 
-%%<I am borrowing heavily from Mike's MD section, so I need to come back through and rewrite this>
+Molecular dynamics (MD) is a simulation tool which uses classical physics and statistical thermodynamics to sample the equilibrium states of a thermodynamic ensemble.
+It is the right tool for looking at the bulk structure of an OPV because we can simultaneously probe the thermodynamics which govern OPV self assembly and the kinetics that follow the device processing.
+Other tools, like Monte Carlo (MC), may allow us to sample equilibrium states of an ensemble, but we would lose information about the dynamics.
+MC is also inefficient for polymers because perturbing a long chain of particles requires a "cluster move", which is not parallelizable.
+
 %%<md in general>
-classical physics
-interactions between particles
-non bonded/bonded/angles/dihedrals
+MD separates the interactions between particles into non-bonded interactions and bond, angle, dihedral interactions.
+Non-bonded interactions are commonly modelled with a Lennard-Jones potential.
+$$ U_{LJ}(r_{i,j}) = 4\epsilon\big[\big(\frac{\sigma}{r_{i,j}}\big)^{12}-\big(\frac{\sigma}{r_{i,j}}\big)^{6}\big]$$
+Where $i$ and $j$ are the particles separated by distance $r_{i,j}$.
+The equilibrium distance between particles is controlled by $\sigma$ and the depth of the potential well is controlled by $\epsilon$ (see Figure \ref{fig:lj}).
+
+\begin{wrapfigure}{L}{0.5\linewidth}
+    \centering
+    \includegraphics[width=0.6\linewidth]{images/lj.pdf}
+    \caption{The Lennard-Jones potential with relevant distances labelled}
+    \label{fig:lj}
+\end{wrapfigure}
+
 integrates Newton's equations of motion to update the particle positions.
 iterated until thermodynamic equilibrium
 sample a thermodynamic ensemble
