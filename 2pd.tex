@@ -142,7 +142,9 @@ Molecular simulation allows us to "see" these atomic interaction and gain a deep
 \subsection*{Molecular Dynamics}
 %EJ: Here or above: Why MD the right tool?
 Molecular dynamics (MD) is a simulation tool which uses classical physics and statistical thermodynamics to sample the equilibrium states of a thermodynamic ensemble.
-It is the right tool for looking at the bulk structure of an OPV because we can simultaneously probe the thermodynamics which govern OPV self assembly and the kinetics that follow the device processing.
+The MD algorithm integrates Newton's equations of motion to update the particle positions.
+This process can be iterated until the system reaches equilibrium.
+MD is the right tool for looking at the bulk structure of an OPV because we can simultaneously probe the thermodynamics which govern OPV self assembly and the kinetics that follow the device processing.
 Other tools, like Monte Carlo (MC), may allow us to sample equilibrium states of an ensemble, but we would lose information about the dynamics.
 MC is also inefficient for polymers because perturbing a long chain of particles requires a "cluster move", which is not parallelizable.
 
@@ -152,6 +154,7 @@ Non-bonded interactions are commonly modelled with a Lennard-Jones potential.
 $$ U_{LJ}(r_{i,j}) = 4\epsilon\big[\big(\frac{\sigma}{r_{i,j}}\big)^{12}-\big(\frac{\sigma}{r_{i,j}}\big)^{6}\big]$$
 Where $i$ and $j$ are the particles separated by distance $r_{i,j}$.
 The equilibrium distance between particles is controlled by $\sigma$ and the depth of the potential well is controlled by $\epsilon$ (see Figure \ref{fig:lj}).
+A distance cutoff, $r_{cut}$, is often used to reduce the number of pairwise interactions and improve performance.
 
 \begin{wrapfigure}{L}{0.5\linewidth}
     \centering
@@ -160,11 +163,26 @@ The equilibrium distance between particles is controlled by $\sigma$ and the dep
     \label{fig:lj}
 \end{wrapfigure}
 
-integrates Newton's equations of motion to update the particle positions.
-iterated until thermodynamic equilibrium
-sample a thermodynamic ensemble
-First MD simulation system of 108 particles, 200 collisions in one hour on an IBM-704\cite{Alder1957}.
-Now GPUs 100 millions times faster
+Particles connected by bonds are also modelled by classical forces, for example the bond potential may be treated as a harmonic oscillator:
+
+\begin{wrapfigure}{L}{0.5\linewidth}
+    \centering
+    \includegraphics[width=0.6\linewidth]{images/bondangledihedral.pdf}
+    \caption{Bonded interactions: bond (top left), angle (top right), and dihedral (bottom). Image taken from \cite{punma}.
+    \label{fig:bad}
+\end{wrapfigure}
+
+$$V_{bond}(r) = \frac{1}{2}k(r-r_{0})^{2}$$
+Where $r$ is the bond length, $r_{0}$ is the equilibrium bond length, and $k$ is the spring constant for the bond.
+The angle potential is also treated as a harmonic oscillator:
+$$V_{angle}(\theta)=\frac{1}{2}k(\theta-\theta_{0})^{2}$$
+Where $\theta$ is the angle formed between three bonded particles, $\theta_{0}$ is the equilibrium angle, and $k$ is the spring contant for the angle.
+The dihedral potential can be defined by the follow Fourier series:
+$$V_{dihedral}(\phi)=\frac{1}{2}k_{1}(1-cos(\phi))+\frac{1}{2}k_{2}(1-cos(2\phi))+\frac{1}{2}k_{3}(1-cos(3\phi))\frac{1}{2}k_{4}(1-cos(4\phi))$$
+Where $\phi$ is the angle between planes formed by particles in the dihedral (see Figure \ref{fig:bad}) and $k_{n}$ are the force coeffients.
+
+The first MD simulation modelled a system of 108 particles, and completed 200 collisions in one hour on an IBM-704\cite{Alder1957}.
+Now GPUs are 100 millions times faster
 %%<what is MD used for? why is MD the best technique for gettign these OPV morphologies?>
 protein folding \cite{levitt75}, other biological processes, polymers \cite{Gartner2019a}
 
