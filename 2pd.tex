@@ -311,11 +311,11 @@ The second goal is accomplished by allowing all steps of the figure generation p
 These prior works, although not directly related to OPVS or coarse grain models, have helped me think about how atomic interactions can shape a structure, the struggles that face a new computational scientist, and how I can help.
 
 %%<how do I relate this to what I want to do??>
-I have contributed to development of open-source packages: mbuild, foyer, signac, fresnel
+I have contributed to development of open-source packages including mbuild, foyer, signac, and fresnel. %%cite
 These contributions have given me ample opportunity to excercise best software development practices like writing good documentation, using version control, writing unit tests, employing CI, using a fork \& pull workflow, etc.
 This experience will help me to be more efficient in my future work.
 I've also gained valuable experience as working as part of a team.
-As I plan to integrate my future work with existing projects, good collaborate skills will be necessary.
+As I plan to integrate my future work with existing projects, good collaborative skills will be necessary.
 
 %% experience teaching and creating material for people to learn
 I have completed Software Carpentry training which has taught me how to break down complex ideas and give learners a chance to use their knowledge.
@@ -323,38 +323,27 @@ With these principles in mind, I have created tutorial examples to help current 
 %%- started development on UFF repo for foyer.
 %%This is an example of how to create a version controlled forcefield which can be automatically applied to a compound.
 %%<atom typing is a pain and doing it manually is bad cite foyer paper>
+
 As for work towards my proposed plan, I have created a minimum working example of a coarse-graining and backmapping package which uses SMARTS strings to specify the bead chemistries. %%cite grits
 This package will need further testing as it is tested on different compounds, but the proof of concept exists.
-
 %%<Talk about what exists and why it is not enough>
 %%<votca, Peng2019a> 
-Versatile Object-oriented Toolkit for Coarse-graining Applications (VOTCA) \cite{Ruhle2011b}
-includes a coarse-graining, forcefield creation with reverse MC or IBI, and back-mapping modules.
-It also allows for charge transport calculations using KMC similar to MorphCT \cite{Lukyanov2010}
-
-reproducibility crisis.\cite{Cummings2019} \cite{Thompson2020} (TRUE paper) poorly documented code and raw data doesn't help.
-
-instead example workflows with docker containers to build software stack.
-help make science more accessible and reprodicible.
-
+Packages which do coarse-graining and backmapping already exist, so why is another one necessary?
+One such package, Versatile Object-oriented Toolkit for Coarse-graining Applications (VOTCA)\cite{Ruhle2011b}, includes a coarse-graining, forcefield creation with reverse MC or IBI, and back-mapping modules.
+It also allows for charge transport calculations using KMC similar to MorphCT\cite{Lukyanov2010}.
 %%<compare VOTCA's backmapping to my proposed scheme>
-VOTCA makes some progress towards a TRUE simulation pipeline: they include a docker container with their pre-built software stack and example input files  (but some of these input files don't work and the codecoverage on their repo as of time of writing is 0\%), and while including example inputs is a good first step, very little walkthrough (aside from code comments buried in the xml) is given\cite{votca-github}. %%using this code via docker>
-A manual is provided but there is some disconnect between the example files and those given in the manual %%<https://github.com/votca/csg-manual/releases>.
-the code is a mix of C++, shell commands, python, and interacts with compiled programs through the command-line and mpi.
-which makes their working a little tenuous.
-And judging by the amount of confusion in their mailing list %%<https://groups.google.com/forum/\#!forum/votca> there is room for improvement in the API.
-Overall though this is program has many features, interfaces with many popular MD engines (lammps, gromacs, hoomd), and is under active, collaborative development.
-A good question might be if I'm so into OSS and collaboration--why don't I just contribute an MSIBI package to VOTCA.
-This is a reasonable question.
-The answer is because I find VOTCA to be near-overwhelming in it's scope and the cognitive load of trying to fit this whole project into my brain is not ideal.
-I also don't like their API.
-by choosing a pure python API I will be able to make use of jupyter notebooks which can be run on cloud servers using tools like mybinder %%<link mybinder, link to tutorials I;ve made> which can combine executable code with markdown text and images.
+VOTCA makes some progress towards a TRUE simulation pipeline: they include a docker container with their pre-built software stack and example input files.
+However, some of these input files don't work and the unit test coverage on their examples repo at the of time of this writing is 0\%.
+While including example inputs and a prebuilt software stack via docker is a great first step, these tutorials give very little walkthrough aside from code comments buried in the xml\cite{votca-github}.
+A manual is provided but the example files and the explanation given in the manual is disconnected. %%cite <https://github.com/votca/csg-manual/releases>.
+The code is a mix of C++, shell commands, and python, and the user is required to interact with compiled programs through the command-line which makes adding this code into an existing workflow a little more difficult.
+And judging by the amount of confusion in their mailing list, there is room for improvement in the API.%% cite <https://groups.google.com/forum/\#!forum/votca>
+Overall though this project has many features, interfaces with many popular MD engines (LAMMPS, GROMACS, HOOMD), and is under active, collaborative development, it is near-overwhelming in its scope and is not designed for the new user.
+By choosing a pure python API I will be able to make use of Jupyter Notebooks which can be run on cloud servers using tools like MyBinder which can combine executable code with markdown text and images.%%<cite link mybinder, link to tutorials I;ve made>
 In this way a tutorial can provide exact commands needed to reproduce the example intimately connected with the rationale and justification of that example.
-I would like to think that my code speaks for itself, but after reading other people's code, I have a renewed appreciation for explanations in paragraph form, diagrams, and figures.
 
 For an example of what I mean by cognitive load, let's compare an example of my proposed coarse-graining scheme to VOTCAs.
 In the following example we will take a hexane molecule and map it to three coarse grain sites (two carbon atoms per site).
-
 
 \begin{wrapfigure}{L}{0.5\linewidth}
     \centering
@@ -374,34 +363,39 @@ VOTCA uses an xml file to do this:
     \label{fig:hexanexml}
 \end{wrapfigure}
 
-It may be easy to think that because what we are doing--mapping two carbons and their attached hydrogens to a single bead so that six alkyl carbons becomes A-B-A--that the process will also be simple.
-In order to specify a bead-mapping, we need to know the residue number, the residue name, and the atom name.
-For a six atom system this is not too bad, but this could get tedious and error-prone for larger systems.
-And keep in mind that these xml files need to be created manually for each compound which is backmapped.
-VOTCA's scheme also requires that you specify the bonding and the angles resulting from those bonds, another process which is tedious, error-prone, and probably unecessary--I will discuss this more after discussing my scheme below:
+It may be easy to think that because the goal is simple, mapping two carbons and their attached hydrogens to a single bead so that six alkyl carbons becomes three coarse grain sites (A-B-A), that the process will also be simple.
+In order to specify a bead-mapping using VOTCA, we need to know the residue number, the residue name, and the atom name.
+For a six atom system this is not too bad, but it could get tedious and error-prone for larger systems.
+And keep in mind that these xml files need to be created manually for each compound which is coarse grained or  backmapped.
+VOTCA's scheme also requires that the bonding and the angles resulting from those bonds are specified, another process which is tedious, error-prone, and probably unecessary. 
+To explain, let's discuss my proposed alternative:
 \begin{lstlisting}
 hexane_sites = [("_A", "C[CH3]"), ("_B", "CC")]
 \end{lstlisting}
 The result of using this code in the `coarse` function is a three-site hexane model A-B-A, same as VOTCA.%%<link to grits>
-The mapping here is specified as a list of bead name / smarts string pairs.
+The mapping here is specified as a list of bead name SMARTS string pairs.
 Although they do add some element of cognitive load, SMARTS strings are designed to be human and machine readable and can match atoms based on their chemical environment.
-With this scheme, there is no need to look up the name or number of each residue, I simply specify that want two alkyl carbons (using the SMARTS string "CC") and requiring that one be a terminal carbon by including that it has three attached hydrogens ("[CH3]").
-The order of the beads here matters--because technically all atoms could be mapped with the more general SMARTS string (CC), it is important to list the most specific strings first.
-The bonding and angles of the resulting coarse grain beads is then inferred based on the bonding of the mapped atoms.
+With this scheme, there is no need to look up the name or number of each residue, I simply specify that want two alkyl carbons (in SMARTS notation a capital "C" denotes an alkyl carbon) and requiring that one be a terminal carbon by including that it has three attached hydrogens ("[CH3]").
+The order of the beads here matters because technically all the carbon atoms in hexane could be mapped with the more general SMARTS string (CC), so it is important to list the most specific strings first.
+The bonding and angles of the resulting coarse grain beads can then inferred based on the bonding of the mapped atoms.
 Basically what VOTCA's xml file does in 51 lines, I can do in 1 which is easier to read and makes chemical sense. 
 There are even benefits to the mapping being inline with the code:
-This allows the user to see the mapping as they progress through the workflow without having to search for multiple files and it may prevent common errors caused by manual file IO such as operating system specific line endings or whitespace characters like tab or space being treated differently.
-Having the mapping in-line with the workflow also allows for the user to check that the mapping is correct with built in interactive visualizations, which can display the mapping as an overlay. %%<show overlay>
+It allows the user to see the mapping as they progress through the workflow without having to search for multiple files.
+Not using an external file may prevent common errors caused by manual file IO such as operating system specific line endings or whitespace characters like tab or space being read differently by a program.
+Having the mapping in-line with the workflow also allows for the user to check that the mapping is correct with built in interactive visualizations, which can display the mapping as an overlay. 
+(Figure \ref{hexane-compare} is the output of one such visualization using py3Dmol.) %%cite py3Dmol
 
-We do not propose a new automated mapping, but instead a way to make the mapping and backmapping process easier for the user.
+We propose a way to make the mapping and backmapping process easier for the user.
 Simplified Molecular Input Line Entry System or SMILES was designed to represent organic molecules in an unambiguous way (similar to IUPAC) but in a line-entry system which is also readable by a computer\cite{Weininger1988}.
 This makes it a good candidate for specifying a coarse-grain mapping scheme.The open-source package, Openbabel, allows for a SMILES string to be converted to a chemical structure and vice versa.
 SMARTS is similar to SMILES but instead of representing a single molecule unambiguously, it has multiple wildcards which can be used for pattern matching.%%<cite openbabel,SMILES, SMARTS>
 This pattern matching is also implemented in the Openbabel package.
 If we know the SMARTS string for any given CG mapping, we can map the CG site to its center of mass or geometric center.
 I have developed a minimum working example of how this can be done and then how the atomistic structure can be recovered.%%<cite grits>
-It could be fairly straightforward to implement a lookup to check if bead parameters already exist--say for the MARTINI model-- by going through and writing out the SMARTS pattern for each existing bead type.
-An initial headache that could make parameterizing new compounds for the MARTINI method more foolproof.
+%% another application?
+This mapping scheme could even be used to make the mapping process easier for established coarse grain models.
+It could be fairly straightforward to implement a lookup to check if bead parameters already exist (e.g., for the MARTINI model) by going through and writing out the SMARTS pattern for each existing bead type.
+This could make parameterizing new compounds for an existing method more foolproof.
 
 \section*{Research Plan}
 
