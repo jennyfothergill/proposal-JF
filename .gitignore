@@ -1,5 +1,6 @@
 # Don't add my system link
 library-link.bib
+.ipynb_checkpoints/
 
 # Don't add the pdf
 0master.pdf
