@@ -277,7 +277,15 @@ The MS IBI potential is an average of the single state potentials with a weighti
 This method has been shown to accurately reproduce the true potential in monoatomic LJ fluid.
 
 When using the MS IBI method, it is important to choose dissimilar states to minimize the potential overlap region.
-If this overlap region is large, there are many potentials which will provide matching RDFs. %%<show fig from moore>
+If this overlap region is large, there are many potentials which will provide matching RDFs.
+
+\begin{wrapfigure}{L}{0.5\linewidth}
+    \centering
+    \includegraphics[width=0.6\linewidth]{images/moorefig.pdf}
+    \caption{Visualization of the state space coverage of different potentials: if the thermodynamic states are too similar (b), then the overlap region is large enough that there are many potentials which will fit the target. Choosing states which are different (a) will better define the potential. Image taken from ref \cite{Moore2014}.}
+    \label{fig:lj}
+\end{wrapfigure}
+
 For some systems there may not be a potential that represents all states-- this is not unique to coarse potentials, atomistic potentials also have this limitation.
 %%<need some tie in back to why we would want to go from CG-->atomistic>
 
