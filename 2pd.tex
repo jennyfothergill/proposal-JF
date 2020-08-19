@@ -246,7 +246,8 @@ Another mapping scheme uses principle component analysis to choose a mapping sch
 Mapping operators can be automated using machine learning: clustering methods combined with graph analysis were shown to predict the "expert" mapping chosen using chemical intuition reliably\cite{Li2020}. 
 A mapping operator based on the centers of charge was shown to accurately model electrostatic properties\cite{Cao2015a}.
 
-%%<how cg potentials have been attained>
+%%<how cg potentials have been attained> 
+Deciding on a mapping operator is one part of creating a coarse grain model, the second step is to create an effective potential for the site.
 
 \subsection*{Multi-State Iterative Boltzmann Inversion}
 
@@ -295,12 +296,12 @@ MorphCT has some builtin backmapping tools which use xml file (which i will disc
 \section*{Preliminary Work}
 My prior work has involved probing the intermolecular interactions which govern dimer and crystal formation.
 % With lan - About excitonic splitting, using DFT, DNA. 
-Using density functional theory (DFT) to probe the excitonic splitting observed in cyanine dye dimers\cite{Fothergill2018}.
-
+An investigation of the excitonic splitting observed in cyanine dye dimers was done using density functional theory (DFT)\cite{Fothergill2018}.
+By comparing calculated with experimental absorption spectra it was found that the solvent may play a large role in the dimer formation and peak shifting.
 % With Matt - What intermolecular interactions guide diphenylurea crystal formation
-An investigation of the supramolecular interactions which guide crystal self-assembly in diphenylurea transition metal complexes using density functional theory\cite{Millard2019a}. 
+An investigation of the supramolecular interactions which guide crystal self-assembly in diphenylurea transition metal complexes was done using density functional theory\cite{Millard2019a}. 
 % With us - Perspective paper about all things
-My contributions to our perspective paper were mostly about my experience joining the lab and trying to reproduce and existing model--something which should be very straightforward in a computational field, but which any computational scientist can attest is not simple\cite{Jankowski2019}. 
+My contributions to our perspective paper were mostly about my experience joining the lab and trying to reproduce an existing model; a task which should be very straightforward in a computational field but which any computational scientist can attest is far from simple\cite{Jankowski2019}. 
  %% frame gixstapose as a tool for reproducible, approachable science
 I also presented a tool I've developed, called GIXStapose, at the Scientific Python conference (SciPy2020). %%cite scipy and gixstapose
 GIXStapose is an interactive structure viewer alongside its simulated diffraction pattern.
@@ -399,34 +400,47 @@ This could make parameterizing new compounds for an existing method more foolpro
 
 \section*{Research Plan}
 
-- I will build on existing tools (signac,freud,mbuild,foyer,tim moore's msibi)
-- create signac workflow which takes equilibrated atomistic trajectory (maybe checks if it's equilibrated?) maps the CG beads to it, runs IBI, gets tabulated FF, creates larger CG sim, runs it, does backmapping, then could do: RDF, charge transport, diffraction...
-if this workflow is streamlined--it can be applied to many different compounds allowing for us to compare the analyses between our zoo of compounds.
-- maybe the workflow could even involve getting the equilibrated trajectory (atomtyping/fill box/run) with the new hoomd 3 api we could even set decorrelation time as a stop trigger...
+My plan is to create a workflow which builds on existing tools: signac, freud, mbuild, openbabel, and a previously developed msibi package.
+This workflow could start with equilibrated atomistic trajectories from multiple statepoints, then use SMARTS strings to map the CG sites to each trajectory and calculate the effective potentials using MSIBI.
+Once we have a tabulated coarse grain force field, we can create a larger simulation using our coarse grain model.
+Finally, once we have an equilibrated coarse grain trajectory, we can using backmapping to regain the atomic positions and do analysese such as radial distribution function (RDF), charge transport, and diffraction.
+If this workflow is streamlined, it can be applied to many different compounds allowing for a high-throughput analysis of many potential OPV compounds.
 
 \subsection*{Objective 1: Develop a coarse graining workflow}
 
-build on existing tools (mbuild, openbabel, tim moores MSIBI code, hoomd, foyer?)
-use SMARTS matching to specify mapping operators with relative ease
-use MSIBI to parameterize forcefield parameters
+A minimum working example of this coarse graining workflow has been completed. %% cite grits
+However, it will still need to be tested with many more compounds and mapping operators.
+This package uses the chemical file format parsing and scriptable structure building capabilities of mbuild coupled with the SMARTS/SMILES string matching of the openbabel package to generate coarse grain structures mapped onto their atomistic counterparts with only a SMARTS string from the user.
+These coarse grain structures mapped to an atomistic target can then be used in an MSIBI workflow to obtain an effective potential.
+I have made a minimum working example of an MSIBI workflow; %https://bitbucket.org/cmelab/msibi_tests/src/master/ do i even mention this?
+although this was useful to me in getting a better understanding for the MSIBI process, I think for future, I will build off an existing MSIBI code. %%https://github.com/mosdef-hub/msibi
+The force field obtained using MSIBI will be used to run a large CG simulation.
+The end product of this first objective will be to obtain equilibrated CG trajectories.
 
 \subsection*{Objective 2: Develop a backmapping workflow}
 
-Given an equilibrated CG morphology, retrieve the atomistic one by mapping the SMARTS structures onto the position of the CG beads and then relaxing them with some position restraint. 
+Given an equilibrated CG trajectory, we can reintroduce the atomistic degrees of freedom by using the same SMARTS mappings used for coarse graining.
+The chemistries specified by the SMARTS strings will be mapped onto the centers of the CG sites and then equilibrated in a short MD run using the atomistic force field with addition position restraint. 
+I have developed a minimum working example of this backmapping process, %% cite grits
+however, the specification of how the backmapped atomistic structures are bonded is still not intuitive for the user to specify and I am not sure yet how to make it better.
 
 \subsection*{Objective 3: Run CG simulation sweep of non-fullerene acceptor blends}
 
-use signac to organize data
-I think there are not great CG models for these compounds (ITIC PTB7) I found this paper \cite{Meng2019} that claims to do CGMD with PTB7 ITIC but the details are hidden in the SI and seem fishy. seems like they use IBI but they dont say how they got their target distributions.
-can easily test out different mappings and "processing" conditions
+Once Objectives 1 and 2 are complete, the next step will be putting them to use to investigate new OPV compounds.
+Currently, I have not found CG models for many NFA compounds (e.g, ITIC). %% I found this paper \cite{Meng2019} that claims to do CGMD with PTB7 ITIC but the details are hidden in the SI and seem fishy. seems like they use IBI but they dont say how they got their target distributions.
+A simple, useable coarse graining tool will be helpful for determining the best mapping operator to use for these OPV compounds.
+To help organize the dataspace of the large parameter sweep, I plan to use the signac package to manage an ever-changing workspace.
+This will help easily and efficiently test out different mappings and "processing" conditions.
 
 \subsection*{Objective 4: Analysis}
 
-Use charge transfer, diffraction to tell which models are the best
-%%<cite a bunch of experimental papers we can compare to>
-%%<cite our papers that show we can do this comparison already>
-Our morphct paper says the mobilities we predict are 2x higher than experiment? why?
-
+Our lab has shown that we have the capability to compare our simulation results to experiment using hole mobilities from charge transport calculations\cite{Jones2017,Miller2018a} and grazing incedent X-ray scattering (GIXS) patterns\cite{Miller2018}.
+GIXS calculations on our backmapped trajectories can be used to validate that our simulations result in the same morphology as experiment.
+While charge transport calculations can be used to rate the efficacy of the active layer morphology.
+Using our lab's charge transport package (MorphCT) on new chemistries, however, will require some work.
+Many of the parameters and the definition of the chromophore are hard-coded for poly-3-hexylthiophene (P3HT).
+Moving this package away from a command line interface will also be a goal of this work.
+%%Our morphct paper says the mobilities we predict are 2x higher than experiment? why?
 %%<I need something in here about making morphct more user friendly and less hard-coded for p3ht.>
 %%<adding in calculation of reorganization energy??> 
 %%<or just ripping out the KMC bit and making it modular>
