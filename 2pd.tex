@@ -6,24 +6,31 @@ Consumption of fossil fuels for energy and transportation strongly contributes t
 In our technology-driven society, it is unrealistic to think that energy demand will lessen, in fact global energy consumption is predicted to increase from 17 TW in 2010 to 27 TW in 2040\cite{Mazzio2015}.
 In order to protect our climate, we need a non-polluting, cost-efficient way to provide electricity.
 Harnessing solar energy is an important part of a green energy solution.
-Renewable energy accounts for 11\% of the U.S. energy consumption in 2019 and of that 11\% 9\% was solar\cite{USEIA2020}.
+Renewable energy accounted for 11\% of the U.S. energy consumption in 2019 and of that 9\% was from solar (solar accounted for approximately 1\% of the total energy)\cite{USEIA2020}.
 Our energy infrastructure has room for improvement: consider Germany which in 2019 got 43\% of its energy from renewables and 8.2\% of its total energy from solar\cite{Wirth2017}.
-Traditionally, photovoltaic devices, materials which can convert incedent light into electric current, were made of inorganic materials like silicon.
+Traditionally, photovoltaic devices, which can convert incedent light into electric current, were made of inorganic materials like silicon.
 But in the late 1970's organic photovaltaics (OPVs) were discovered as a potential alternative\cite{Tang1986b}.
 The advantage of OPVs over inorganic PV devices is that OPVs are lightweight, low cost, easier to produce, and flexible. 
-However, in order to become a viable, cost-effective option they need better efficiency\cite{Mazzio2015}.
+OPVs can be manufactured large scale in a roll to roll printing process, similar to newspaper as shown in Figure \ref{fig:doufig}\cite{Dou2013}.
+\begin{wrapfigure}{L}{0.5\linewidth}
+    \centering
+    \includegraphics[width=0.6\linewidth]{images/doufig.pdf}
+    \caption{Schematic showing roll to roll printing process for OPVs (left) and example OPV device (right). Image adapted from ref \cite{Dou2013}.}
+    \label{fig:doufig}
+\end{wrapfigure}
+However, other devices still outperform OPVs (see Figure \ref{fig:nrel}) and in order to become a viable, cost-effective option OPVs need to be more efficient\cite{Mazzio2015}.
 
 \begin{figure}[h!]
     \includegraphics[width=0.9\linewidth]{images/NREL2020.pdf}
-    \caption{Efficiencies of photovoltaic technologies from 1976 to present. OPVS are denoted by red filled circles. The current state-of-the-art research cell achieves 17.4\% efficiency. Image taken from ref \cite{NREL2020}}
+    \caption{Efficiencies of all photovoltaic technologies from 1976 to present. OPVs are denoted by red filled circles. The current state-of-the-art research cell achieves 17.4\% efficiency. Image taken from ref \cite{NREL2020}.}
     \label{fig:nrel}
 \end{figure}
 
 In order to make the most efficient OPVs we need to find the best blend of compounds and the processing conditions that result in the best structure for those compounds.
-
 The active layer of an OPV is mixture of electron-donor and acceptor compounds: the ideal morphology is a micro phase-separated interpenetrating network called a bulk heterojunction (BHJ).
 The performance of an OPV device is intimately linked with the structure of the active layer:
-With minor modifcations, the number of compounds and the processing conditions can become infinite which makes this an intractable problem for experiment.
+With minor modifications, the number of compounds and the processing conditions can become infinite which makes this an intractable problem for experiment.
+
 Imagine, you are a chemist synthesizing and testing new OPV morphologies: you are specifically looking at a mixture of a non-fullerene acceptor, \textit{3,9-bis(2-ethylene-(3-(1,1-dicyanomethylene)-indanone))-5,5,11,11-tetrakis(4-hexylphenyl)-dithieno(2,3-d:2',3'-d')-s-indaceno(1,2-b:5,6-b')dithiophene} (\textbf{ITIC}), and a polymer donor, \textit{poly((4,8-bis((2ethylhexyl)oxy)benzo(1,2-b:4,5-b')dithiophene-2,6-diyl)(3-fluoro-2-((2-ethylhexyl)carbonyl)thieno(3,4-b)thiophenediyl))} (\textbf{PTB7}). 
 Each compound costs \$500 for 100 mg\cite{sigmaaldrich}.
 The solvent you use and the concentrations of your active compounds changes the device performance\cite{Hoppe2004a}.
@@ -33,6 +40,7 @@ The regioregularity of your polymer affects the device performance\cite{Kim2006}
 The distribution of polymer lengths affects the device performance\cite{Zhao2013b}.
 Changing the functional groups on ITIC changes how it packs in a crystal, its electron affinity, and thus its performance in a device\cite{Swick2019a}.
 All this would be to determine the performance of just one donor/acceptor combination in one category of potential compounds\cite{Dou2013}.
+This is where molecular simulation can help.
 By using a simulation pipeline, we can help to streamline the process of determining which OPV materials will form the best morphology with the best charge transport, and in turn, help to solve the energy crisis.
 
 Molecular simulation also gives us insight into the atomic interactions which drive the self assembly of an OPV morphology.
@@ -46,24 +54,24 @@ Already good open-source packages exist to address the problem of coarse-grainin
 By making code open source and freely availiable, we contribute to the knowledge of a global community. 
 But just because something is availiable doesn't mean it is accessible: often just figuring out how to use an existing package can be very difficult\cite{Cummings2019}.
 These existing codebases can appear to a new user as monolithic and indecipherable because their design has been to solve a problem, which they do, instead of design with a focus on how people learn.
-These codebases also rely on users piecing together multiple, often incompatible, bits of software, using manually created xml files, or manually deciding how to classify a atom grouping based on the users chemical intuition.
-All of which contribute to a reproducibility crisis in the computational sciences\cite{Baker2016}.
+These codebases also rely on users piecing together multiple, often incompatible, bits of software, using manually created xml files, or deciding how to classify an atom grouping based on the user's chemical intuition.
+All of these factors contribute to a reproducibility crisis in the computational sciences\cite{Baker2016}.
 By keeping best practices for software development and teaching in mind throughout development, we can strive to make tools which make science more transferrable, reproducibile, usable, and extensible (TRUE)\cite{Thompson2020}. %%TRUE
 Best software development practices include using version control software, such as git, to facilitate the process of tracking and merging changes to a code repository, especially important when working collaboratively.
 Also among these best practices are using unit tests and continuous integration to ensure that errors are quickly and automatically caught\cite{Wilson2014}.
 Instead of writing dense, inseparable scripts which rely on the user manually following a command prompt or editing multiple text files, we aim to keep code small and modular to make it easier to use and understand\cite{Adorf2018a}.
-Following these guidelines not only makes our code easier to develop and debug, but reduces the cognitive load for a new user\cite{Jankowski2019}.
+Following these guidelines not only makes our code easier to develop and debug but also reduces the cognitive load for a new user\cite{Jankowski2019}.
 Providing good documentation and tutorials is also imperative for onboarding new users.
 Jupyter Notebooks, which are a combination of interactive code and formatted text and images, can be used like a lab notebook for computational scientists in order to demonstrate the process, rationale, and the story of each experiment and the exact steps to get the results shown\cite{Rule2019a}.
 When writing these tutorials, it is wise to remember that the data never speaks for itself: although including input and output files of a calculation is a good first step, they must be accompanied by the story of what the data means and how a user can know that meaning for themselves\cite{SWC, Wilson2016}.
 
-Use flexible method for specifying coarse grain models to obtain OPV polymer morphologies equilibrated on length scales relevant to charge transport.
-Use a backmapping method, which works on the same simple mapping operator, to restore the atomic positions in preparation for techniques which require atomic level resolutiuon e.g., charge transport calculations.
-This two step process is necessary because starting with the fully atomistic structure would not only be computationally inefficient the result may even be less accurate due to the difficulties of equilibrating polymers\cite{Gartner2019a}.
+For this research we propose to develop a flexible method for specifying coarse grain models to obtain OPV polymer morphologies equilibrated on length scales relevant to charge transport.
+We also propose to develop a backmapping method, which works on the same simple mapping operator, to restore the atomic positions in preparation for techniques which require atomic level resolutiuon e.g., charge transport calculations.
+This two step process is necessary because starting with the fully atomistic structure would not only be computationally inefficient but also the result may even be less accurate due to the difficulties of equilibrating polymers\cite{Gartner2019a}.
 This efficiency is important because the scope of potential OPV compounds is vast and the energy crisis necessitates expediency.
-The number of opv compounds to test quickly becomes intractable when we consider that the power conversion efficiency is strongly linked to minor chemical modifications or functionalization, device processing, and the interplay between donor and acceptor\cite{Mazzio2015,Swick2019a}.
-There are countless variations of electron donor polymers, fullerene acceptors, and more recently small molecule, non-fullerene acceptors (NFAs) have been recieving attention for their potential to achieve higher efficiencies\cite{Dou2013}.
-A P3HT:NFA blend was shown to have 11\% PCE, compared to the state-of-the-art 6.4\% in P3HT:PCBM\cite{Baran2017}.
+The number of OPV compounds to test quickly becomes intractable when we consider that the power conversion efficiency is strongly linked to minor chemical modifications or functionalization, device processing, and the interplay between donor and acceptor\cite{Mazzio2015,Swick2019a}.
+There are countless variations of electron donor polymers, fullerene acceptors, and more recently small molecule, non-fullerene acceptors (NFAs) have been recieving attention for their potential to achieve higher efficiencies than their fullerene counterparts\cite{Dou2013}.
+A poly-3-hexylthiophene (P3HT):NFA blend was shown to have 11\% PCE, compared to the state-of-the-art 6.4\% in P3HT:PCBM\cite{Baran2017}.
 Not only are NFAs found to be more efficient, but they also show to be more stabile in air than polymer:fullerene blends (retaining 70-80\% of the PCE after 1,200 h exposed to air while the fullerene device was no longer operational after 800 h)\cite{Baran2017}.
 Coarse grain models do not yet exist for many of these NFAs, and with so many varieties an adaptable pipeline makes more sense than a single model.%%<there aren't a lot of cg models that already exist for these new compounds>
 It is necessary to develop a simple, useable, and flexible pipeline to adapt to the constantly changing chemistries of current OPV technologies. %EJ: NIIICE SENTENCE.
@@ -73,12 +81,12 @@ It is necessary to develop a simple, useable, and flexible pipeline to adapt to 
 %EJ: Nice. Attempting to reorder based on heirarchy
 %%use that science to help solve energy crisis???????>
 Ultimately the goal this research is to help solve the global energy crisis. 
-Solar energy is a important part of a green energy solution.
+Solar energy is an important part of a green energy solution.
 This research aims to gain insight about new OPV compound morphologies using molecular simulation.
 
 %%create models for new opv compounds>
 In order to model these OPV polymer systems on relevant length scales, it is necessary to develop new coarse grain models.
-A flexible and efficient coarse graining scheme will simplify the process of mapping and parameterizing (these coarse grain elements). %% reword
+A flexible and efficient coarse graining scheme will simplify the process of mapping and parameterizing these coarse grain elements. %% reword?
 
 %%gain insight into the limits of coarse graining>
 The flexibility of specifying a mapping will allow for the comparison of multiple mappings which may provide insight into the features of an OPV which govern its self-assembly and the limits of coarse grain models.
@@ -100,6 +108,7 @@ Ultimately a goal of this research is that it is used by others: as an example t
 
 \subsection*{Organic Photovoltaics}
 
+The performance of an OPV device can be quantified by many metrics.
 %% <what is PCE>
 The power conversion efficiency (PCE or sometimes $\eta_{e}$) is the ratio of electrical power produced by the device over the power of incedent photons.
 Higher PCE means the device is more efficient.  
@@ -110,10 +119,10 @@ Finally, the the number of charges which reach the electrode depends on the driv
 %%<is there a citation for why charge transport is a good proxy for PCE?>
 
 %% <history>
-Inorganic PV devices came first and are still most efficient, but they are more costly to produce, use rare elements, and their production causes other environmental issues, so they aren't the best solution for solar energy harvesting. 
+Inorganic PV devices came first and are still the most efficient, but they are more costly to produce, use rare elements, and their production causes other environmental issues, so they aren't the best solution for solar energy harvesting. 
 The first OPV was created by Tang in 1986 and used a bilyaer structure containing copper phthalocyanine and a perylene derivitive\cite{Tang1986b}. 
 This early device had a PCE of 0.95\%.
-In 1992, Saricifti and Heeger were the first to report using fullerene as an electron acceptor in a fullerene:polymer mixture\cite{Sariciftci1992}.
+In 1992, Sariciftci and Heeger were the first to report using a fullerene as an electron acceptor in a fullerene:polymer mixture\cite{Sariciftci1992}.
 And in 1995, Yu described the first bulk heterojunction (BHJ), as an interpenetrating network of donor and acceptor that maximizes the interfacial area, which is still the state of the art morphology to this day\cite{Yu1995}.
 Most recently, non-fullerene acceptors (NFAs), like ITIC, are contributing to the PCE increase of modern OPVs\cite{S.Gurney2019b}.
 
@@ -136,7 +145,7 @@ Depending on the bulk morphology of these compounds, the exciton can travel to a
 The morphology of the device can be affected by the processing conditions: temperature, solvents, and concentrations/ratios of the active compounds\cite{Ma2005,Hoppe2004a,Li2007}.
 The interfacial area of the acceptor:donor regions\cite{Mazzio2015}, the regioregularity of the polymer\cite{Kim2006}, and electronic properties of the compounds\cite{Scharber2006a} all play an important role in the power conversion efficiency (PCE) of the device. 
 These changes in structure can strongly affect the device performance.
-Molecular simulation allows us to "see" these atomic interaction and gain a deeper view into the driving forces behind the self assembly of these OPV morphologies and to understand what conditions create the best devices.
+Molecular simulation allows us to "see" these atomic interactions and gain a deeper view into the driving forces behind the self assembly of these OPV morphologies and to understand what conditions create the best devices.
 %%<segue into simulation>
 
 \subsection*{Molecular Dynamics}
@@ -149,8 +158,8 @@ Other tools, like Monte Carlo (MC), may allow us to sample equilibrium states of
 MC is also inefficient for polymers because perturbing a long chain of particles requires a "cluster move", which is not parallelizable.
 
 %%<md in general>
-MD separates the interactions between particles into non-bonded interactions and bond, angle, dihedral interactions.
-Non-bonded interactions are commonly modelled with a Lennard-Jones potential.
+MD separates the interactions between particles into non-bonded interactions and bond, angle, and dihedral interactions.
+Non-bonded interactions are commonly modelled with a Lennard-Jones potential:
 $$ U_{LJ}(r_{i,j}) = 4\epsilon\big[\big(\frac{\sigma}{r_{i,j}}\big)^{12}-\big(\frac{\sigma}{r_{i,j}}\big)^{6}\big]$$
 Where $i$ and $j$ are the particles separated by distance $r_{i,j}$.
 The equilibrium distance between particles is controlled by $\sigma$ and the depth of the potential well is controlled by $\epsilon$ (see Figure \ref{fig:lj}).
@@ -180,11 +189,13 @@ Where $\theta$ is the angle formed between three bonded particles, $\theta_{0}$ 
 The dihedral potential can be defined by the follow Fourier series:
 $$V_{dihedral}(\phi)=\frac{1}{2}k_{1}(1-cos(\phi))+\frac{1}{2}k_{2}(1-cos(2\phi))+\frac{1}{2}k_{3}(1-cos(3\phi))\frac{1}{2}k_{4}(1-cos(4\phi))$$
 Where $\phi$ is the angle between planes formed by particles in the dihedral (see Figure \ref{fig:bad}) and $k_{n}$ are the force coeffients.
+
 %% transition???
-The first MD simulation modelled a system of 108 particles, and completed 200 collisions in one hour on an IBM-704\cite{Alder1957}.
-Now GPUs are 100 millions times faster.
+The first MD simulation modelled a system of 108 particles and completed 200 collisions in one hour on an IBM-704\cite{Alder1957}.
+Now GPUs are a 100 millions times faster.
 %%<what is MD used for? why is MD the best technique for gettign these OPV morphologies?>
-Due to its efficient scaling, MD is now commonly used for modelling of protein folding \cite{levitt75} and other biological processes, and investigating the bulk properties of polymers \cite{Gartner2019a}.
+Due to its efficient scaling, MD is now commonly used for the modelling of protein folding \cite{levitt75} and other biological processes, and investigating the bulk properties of polymers\cite{Gartner2019a}.
+By abstracting away some of the atomic degrees of freedom, MD can be used to look at even larger systems. %%transition attempt
 
 %%<what assumptions does md make?>
 Even all-atom MD is not without assumptions:
@@ -193,14 +204,14 @@ MD does not consider electrons, instead atoms are treated as point particles.
 This makes modelling systems which depend on hydrogen bonding or dispersion more difficult.
 
 %%<what are the limits of atomistic md?>
-Even with these simplifications, we are still not able to simulate many systems efficiently on relevant length scales.
-Therefore we can use a technique called coarse graining to increase the length and time scale we can examine.
+Even with the simplifications of MD, we are still not able to simulate many systems efficiently on relevant length scales.
+Therefore we can use a technique called coarse graining to increase the length and time scales we can examine.
 %%<segue to why we need CG models>
 
 \subsection*{Coarse Grain Models}
 
-Coarse-graining refers to grouping atoms in a structure into a "super-atom" and using an effective potential to represent the resulting coarse grain site.
-Coarse-grain models allow for simulators to access length and time scales that would be otherwise impossible using atomistic models.
+Coarse graining refers to grouping atoms in a structure into a "super-atom" and using an effective potential to represent the resulting coarse grain site.
+Coarse grain models allow for simulators to access length and time scales that would be otherwise impossible using atomistic models by abstracting away irrelevant degrees of freedom.
 %%<how do cg models let us access long length/time??>
 Similarly to how we don't need to look at the working of a plant cell to understand the growth of a forest, we don't need to consider atomic level properties when we are interested in the bulk morphology\cite{Muller-Plathe2002}.
 The heart of coarse graining is the removal of degrees of freedom. 
@@ -209,22 +220,25 @@ Processes which may have taken many time steps in an all atom simulation can tak
 Due to their long length and time scales, coarse grain models are ideal for examining polymer properties\cite{Gartner2019a}.
 It is too big and too slow and also just a bad idea to simulate huge boxes of atomistic polymers.
 Even if the simulation was to complete, there would be too much information to process accurately. 
-CGing allows scientists to FOCUS their experiments\cite{Baschnagel2000}.
+Coarse graining allows scientists to \textit{focus} their experiments\cite{Baschnagel2000}.
+
 The resolution of coarse grain systems is broad:
 Simply grouping hydrogens with the heavy atom they are bonded to, called the united-atom model, has been shown to speed up dynamics and make polymer length scales more easily accesible\cite{Paul1995a, Yang2006a}.
 Other coarse-graining schemes may group functional groups together\cite{Berendsen2010, Jankowski2013, Marsh2014}, one bead per repeat unit in a polymer\cite{Lee2011}, or even represent an entire amino acid with a single site\cite{Peng2019}.
 %%<examples of cg models and the cool things they do>
-General coarse grain models of opv thiophene polymers where only the spacing, regioregularity of the side chains were varied were able to predict different order disorder transitions and calculated scattering patterns of these simple systems were comparable to those obtained from experiment\cite{Jankowski2013, Marsh2014}.
-A coarse-grain model for phospholipids has allowed for bilayer formation from an initial random configuration to be observed even though the model was parameterized to the vapor-liquid phase transition\cite{Shelley2001}.
+General coarse grain models of OPV thiophene polymers where only the spacing and regioregularity of the side chains were varied were able to predict order disorder transitions and scattering patterns comparable to those obtained from experiment\cite{Jankowski2013, Marsh2014}.
+A coarse grain model for phospholipids has allowed for bilayer formation from an initial random configuration to be simulated even though the model was parameterized to the vapor-liquid phase transition\cite{Shelley2001}.
+%% transition?
 Which model is right depends on the length and time scale on which the property of interest can be observed.
+
 %%<multiscale sims>
 For many systems, however, we are interested in properties which span length scales.
-For instance, in a system like a opv polymer melt, it is not only computationally intractable to try and simulate the electron density on length scales proportional to the exciton dissociation length (~5-10 nm)\cite{Huang2010} -- it is the wrong tool for the job.
+For instance, in a system like a OPV polymer melt, it is not only computationally intractable to try and simulate the electron density on length scales proportional to the exciton dissociation length (~5-10 nm)\cite{Huang2010}; it is the wrong tool for the job.
 If what we are interested in is the properties of the polymer in the bulk heterojunction, then it is wise to abstract away any degrees of freedom which do not directly contribute to the self-assembly of the structure.
-Once a good bulk structure has been achieved, the atomistic details can be reintegrated much more easily--a process called backmapping.
+Once a good bulk structure has been achieved, the atomistic details can be reintegrated much more easily: a process called backmapping.
 In the same way that a coarse grain model can be mapped onto an atomistic one, we can get a reasonable starting structure for an atomistic simulation from a coarse grain structure.
 The large length scale, polymer level properties can be equilibrated during the coarse grain simulation, and then the atomic interactions can be equilibrated during the backmapped atomistic simulation.
-This can allow us the calculate properties such as charge transport, which depends upon the electronic structure of individual chromophores and the connectivity of these chromophores over distances proportional to the exciton dissociation length.
+This can allow us the calculate properties such as charge transport, which depends upon the electronic structure of individual chromophores \textit{and} the connectivity of these chromophores over distances proportional to the exciton dissociation length.
 %%<what stands in our way?>
 
 %%<coarse-grain models are specific>
@@ -232,20 +246,19 @@ This can allow us the calculate properties such as charge transport, which depen
 %%<segue from automated creation of forcefields to...>
 %%<mapping operator has to be decided by hand> <is this section too big?>
 Part of coarse graining that is not yet automated is choosing a mapping scheme or a mapping operator.
-A mapping operator defines which atoms are grouped into a "super atom" represented by one coarse grain site and where in the site is placed relative to the atom group.
-Mapping operators are chosen based on desired resolution of the coarse grain system and the information to be extracted.
-A straightforward way to define a mapping operator is to group a set number of heavy atoms (non hydrogen) together--this is the method used in the MARTINI force field\cite{Marrink2007}.
+A mapping operator defines which atoms are grouped into a "super atom" represented by one coarse grain site and where the site is placed relative to the atom group.
+Mapping operators are chosen based on the desired resolution of the coarse grain system and the information to be extracted.
+A straightforward way to define a mapping operator is to group a set number of heavy atoms (non hydrogen) together; this is the method used in the MARTINI force field\cite{Marrink2007}.
 In this scheme, four atoms (except rings, which are treated differently) are grouped and the site is classified as polar, non-polar, apolar, or charged depending on the atoms it is composed of.
-When parameterizing a new molecule you must pick a mapping and then compare the resulting beads to existing beads--a process which is time consuming and error prone\cite{martini-tutorial}.
-The MARTINI force field was first designed for lipids--further parameterization for proteins and nuclei acids have been added--and has shown to be effective in predicting vesicle formation, membrane protein dynamics, etc.%%<cite
-Many mapping schemes are simply based on the user's chemical intuition (e.g., what parts of the molecule shouldn't be allowed to bend? What groups have the most dominant interactions in this structure %%<cite any model where rings are one bead><cite dna cg model>).
+When parameterizing a new molecule, you must pick a mapping and then compare the resulting beads to existing beads; a process which is time consuming and error prone\cite{martini-tutorial}.
+%%The MARTINI force field was first designed for lipids, further parameterization for proteins and nuclei acids has since been added, and it has been shown to be effective in predicting vesicle formation, membrane protein dynamics, etc.%%<cite
+Many other mapping schemes are simply based on the user's chemical intuition (e.g., what parts of the molecule shouldn't be allowed to bend? What groups have the most dominant interactions in this structure). %%<cite any model where rings are one bead><cite dna cg model>).
 As the number of atoms in the fine grain structure increases, the number of possible mappings increase drastically.
-There have been efforts to create mapping schemes for automating the process of deciding which atoms are grouped in a "super-atom" bead.
+There have been efforts to create algorithms for automating the process of deciding which atoms are grouped in a "super-atom" bead.
 One study reduced the number of allowed mappings by only allowing those which do not change the symmetry group, then iterated over a graph of all possible mappings to find the "best" mapping by comparing the difference between the mapped RDF and velocity autocorrelation function\cite{Chakraborty2018b}.
-Another mapping scheme uses principle component analysis to choose a mapping scheme for biomolecules that best represents th essential dynamics\cite{Zhang2008}.
+Another uses principle component analysis to choose a mapping scheme for biomolecules that best represents th essential dynamics\cite{Zhang2008}.
 Mapping operators can be automated using machine learning: clustering methods combined with graph analysis were shown to predict the "expert" mapping chosen using chemical intuition reliably\cite{Li2020}. 
 A mapping operator based on the centers of charge was shown to accurately model electrostatic properties\cite{Cao2015a}.
-
 %%<how cg potentials have been attained> 
 Deciding on a mapping operator is one part of creating a coarse grain model, the second step is to create an effective potential for the site.
 
@@ -259,6 +272,7 @@ First the coarse grain system is mapped onto an equilibrated atomistic one.
 Then the radial distribution function (RDF) of the mapped systems is calculated over the equilibrated frames of the trajectory--This is the target distribution.
 Given any particle, the RDF gives the probability of finding a neighboring particle at distance r.
 Taking the Boltzmann Inverse of the RDF results in the potential of mean force (PMF). %%<add equation>
+%% equation
 Then a CG simulation can be run using the PMF as the non-bonded potential to achieve a new distribution.
 Then the difference between the new and target distribution can be accounted for in the next iteration accoring to equation %%<add equation>.
 This process is repeated until the difference between the result and the target are sufficiently similar.
@@ -268,7 +282,7 @@ This is because the RDF is a property of the ensemble average at a given statepo
 For example, separate potentials are required to capture solid and fluid structures of a pure simple lipid \cite{Hadley2010a}.
 There are many attempts to create transferrable CG potentials, for example:
 The TraPPE force-field fits CG potentials using vapor-liquid equilibria to improve transferrability across thermodynamic states\cite{Maerzke2011}.
-But optimization to the liquid-vapor equilibriai, although useful for prediction of thermodynamic properties, may not be ideal for prediction of structure which will strongly influence charge transport.
+But optimization to the liquid-vapor equilibrium, although useful for prediction of thermodynamic properties, may not be ideal for prediction of structure which will strongly influence charge transport.
 %%<so we probably want to create our own potentials>
 %%<IBI potentials are sometimes transferrable and it is not clear why sometimes they are and sometimes they aren't.> \cite{Moore2014}
 
@@ -286,7 +300,7 @@ If this overlap region is large, there are many potentials which will provide ma
     \label{fig:lj}
 \end{wrapfigure}
 
-For some systems there may not be a potential that represents all states-- this is not unique to coarse potentials, atomistic potentials also have this limitation.
+For some systems there may not be a potential that represents all states; this is not unique to coarse potentials, atomistic potentials also have this limitation.
 %%<need some tie in back to why we would want to go from CG-->atomistic>
 
 \subsection*{Mesoscale Device Simulation}
