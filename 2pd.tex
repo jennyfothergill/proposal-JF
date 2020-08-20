@@ -310,12 +310,13 @@ For some systems there may not be a potential that represents all states; this i
 MorphCT, a software previously developed by our lab, can simulate charge transport through an OPV morphology using kinetic Monte Carlo\cite{Miller2018a,MorphCT,morphct2.2}.
 The kinetic Monte Carlo algorithm used by MorphCT uses the semi-empirical Zerner's Intermediate Neglect of Differential Overlap (ZINDO/S) quantum chemical calculation to obtain the molecular energy levels of chromophores in the morphology.
 The HOMO levels of each chromophore site and the energy splitting induced in the chromophore pairs is used in the Marcus equation to calculate the charge hopping rate between pairs.
-A Monte Carlo simulation can then be run using these hopping rates.
-Because this is a quantum chemical calculation, the position of each atom is needed--therefore a backmapping process is required to calculate the charge transport in a CG morphology.
-MorphCT has some builtin backmapping tools which use xml file (which i will discuss why these are bad in the next section) and the package is bulky/CLI/hard-to-use...
+A Monte Carlo simulation can then be run using these hopping rates to calculate the movement of charges through the system.
+Because this is a quantum chemical calculation, the position of each atom is needed; therefore, a backmapping process is required to calculate the charge transport in a coarse grain morphology.
+%% MorphCT has some built in backmapping tools which use an xml file, but  (which i will discuss why these are bad in the next section) and the package is bulky/CLI/hard-to-use...
 %%<making morphct more modular to allow it to be used in a workflow not cli>
 
 \section*{Preliminary Work}
+
 My prior work has involved probing the intermolecular interactions which govern dimer and crystal formation.
 % With lan - About excitonic splitting, using DFT, DNA. 
 An investigation of the excitonic splitting observed in cyanine dye dimers was done using density functional theory (DFT)\cite{Fothergill2018}.
@@ -330,7 +331,6 @@ GIXStapose is an interactive structure viewer alongside its simulated diffractio
 This work had two goals: helping users to see the connections between a structure and it's diffraction pattern and making reproducible figure generation easier.
 The first goal is achieved through a graphical user interface (GUI) which allows users to interact with the structure using the mouse and the diffraction pattern is updated automatically.
 The second goal is accomplished by allowing all steps of the figure generation process (e.g., positioning the camera, setting the colors and lighting, etc) to be scripted and never \textit{requiring} use of the GUI.
-
 These prior works, although not directly related to OPVS or coarse grain models, have helped me think about how atomic interactions can shape a structure, the struggles that face a new computational scientist, and how I can help.
 
 %%<how do I relate this to what I want to do??>
