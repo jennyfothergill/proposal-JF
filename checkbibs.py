@@ -11,6 +11,12 @@ def main():
     """I'm always worried that Mendeley is losing my papers.
     This script is to give me some peace of mind that
     my bibs aren't disappearing before I commit the new bib file.
+
+    usage:
+        first do
+            $cp library-link.bib library.bib
+        then
+            $python checkbibs.py
     """
     command = ["git", "diff", "library.bib"]
     p = sp.run(command, capture_output=True)
