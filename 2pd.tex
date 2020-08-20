@@ -455,17 +455,36 @@ Moving this package away from a command line interface will also be a goal of th
 
 \section*{Predicted Outcomes}
 
-- understanding coarse graining (i'm stealing this from mike because I like it) how coarse is too coarse? for these new systems what is the minimal model which can reproduce the structural features
-- understanding the interactions which guide BHJ self assembly. understanding which functionalizations/processing conditions make best morphology
-- are smarts strings viable for use as mappings? where does using smarts strings break down?
-- does making science easier/more understandable make it better? 
+As a result of this work, we expect the following outcomes:
 
+\begin{enumerate}
+    \item {\textbf{Gain insight into the limits of coarse-graining}}
+        This work will probe the limits of coarse graining to understand the minimal model necessary to represent different OPV chemistries.
+    \item {\textbf{Understand the interactions which guide BHJ self assembly}} 
+        This work will test a variety of different OPV compounds. 
+        Comparing the results may provide understanding into which moeities, intermolecular interactions, or processing conditions result in the morphology with the highest charge transport.
+    \item {\textbf{Understand the mapping operator}}
+        This work will test whether using a chemical string format (SMARTS/SMILES) to specify the atomistic to coarse grain site mapping is a viable alternative to other methods. 
+        Using SMARTS/SMILES strings allows a user to more easily and intuitively specify a mapping.
+        If specifying a mapping is easier, a user may be more willing to try out a greater number of different mappings.
+        This would allow for the comparison of a system parameterized with different mapping operators.
+    \item {\textbf{Benefits of Transferrable, Reproducible, Usable, Extensible research}} %%what am i trying to say here?
+        Does making science easier/more understandable make it better? %more reproducible? curb cuts
+        If parameterizing a coarse grain force field is easier and more approachable, it would open up more possibilities for trying different mapping schemes or different structural or thermodynamic targets rather than sticking to an existing force field.
+        Better coarse grain models could result in more accurate and efficient simulation of large length scale systems.
+\end{enumerate}
 
 \section*{Contingency Analysis}
 
 %%<what's going to be hard?> 
-maybe SMARTS SMILES won't work without careful choice of beads. This is a little annoying but still preferrable I think because at least the reasons may be understandable (the order of the beads matters) or chemically sensible (one SMILES string may contain another -- just as one chemical moeity may be composed of more submoeities %%<this is a word?>)
-coarse-graining NFAs might be hard--planar backbones and floppy side chains
+Although minimum working examples have been developed for botht the coarse graining and backmapping packages, I still expect to struggle when mapping new compounds.
+Sometimes the SMARTS/SMILES mapping won't work without careful choice of beads.
+This can be a little frustrating but is still preferrable to having to manually specify the mapping of each atom.
+At least the reasons that a SMARTS mapping fails are usually understandable (e.g., the order of the beads matters) or chemically sensible (e.g., one SMILES string may contain another -- just as one chemical moeity may be composed of more submoeities). %%<this is a word?>)
+
+It may also be difficult to find a good coarse graining scheme for the NFA compounds. 
+These compounds are often composed of large planar backbones with floppy side chains.
+Finding a suitable mapping to represent both aspects may be difficult.
 
 \section*{Timeline for Implementation and Evaluation}
 \begin{table}[h]
