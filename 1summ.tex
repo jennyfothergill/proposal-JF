@@ -52,15 +52,15 @@
 %address both criteria within the one-page Project Summary will be returned without
 %review. \\
 
-Already the effects of human-influenced climate change are %%<hurtng everyone in particular poor and disadvantaged groups>.
+Already the effects of human-influenced climate change are readily apparent and devastating. %%<hurtng everyone in particular poor and disadvantaged groups>.
 Burning fossil fuels for energy is the main contributor to rising $CO_{2}$ levels, and the energy demand is only increasing.
-This increase in energy demand along with the need to protect our precious climate makes finding efficient, renewable energy technologies of the utmost importance.
-Harvesting the abundant solar energy is a %%<good solution because it is renewable, non-polluting, sustainable>.
+This increase in energy demand along with the need to protect our climate makes finding efficient, renewable energy technologies of the utmost importance.
+Harvesting the abundant solar energy is a good solution because it is renewable, non-polluting, sustainable.
 Devices which convert light to electricity, called photovoltaics, were originally made of silicon and required rare elements and careful, clean-room processing.
 More recently, organic photovoltaic (OPV) devices have recieved attention for their simple, inexpensive manufacture.
 Generally OPV devices are made of a multicompound mixture: usually an electron donor and acceptor which form a mosaic-like structure called a bulk-heterojunction (BHJ).
 The compounds and polymers used in OPVs are made of common elements and can be synthesized with relative ease.
-And the OPV BHJ can often be assembled using simple techniques like roll-to-roll printing in ambient conditions.
+And the OPV BHJ can often be assembled using simple techniques like roll to roll printing in ambient conditions.
 The process for OPV to generate electricity is as follows: 
 Sunlight excites an electron, which forms an exciton.
 This exciton travels to an acceptor/donor interface and is dissociated into free electron and hole.
@@ -72,14 +72,14 @@ This is where molecular simulation comes in.
 
 Molecular dynamics (MD), a simulation technique where atoms are represented by classical forces and their interactions are specified by attractive/repulsive potentials, can be used to probe the thermodynamic processes which determine how OPV compounds will self-assemble into a BHJ morphology.
 Then we can use kinetic monte carlo (KMC) in concert with quantum chemical calculations (QCCs) to determine the charge mobility through these simulated morphologies.
-By understanding how charge move through these systems, one can predict which OPVs will be most efficient.
+By understanding how charges move through these systems, one can predict which OPVs will be most efficient.
 However, this simulation workflow suffers from a problem of length scales:
 Probing charge transport properties with QCCs requires the calculation of electron densities around each atom, which requires knowing the positions of each atom.
 But equilibrating this morphology at volumes which exceed the exciton dissociation length (~5-10 nm) is prohibitive if every individual atom is considered.
 
 Coarse grain (CG) models, which group multiple atoms together into "super atoms" and using an effective potential to specify the forces acting upon the site, can be used to access length and time scales more relevant to the bulk polymer morphology.
-After a bulk morphology is obtained, we can use backmapping, a process in which the atomistic detail can be reintegrated into a coarse grain model, can be used to restore atomistic detail for use in simulations like KMC/QCC.
-This multiscale simulation workflow allows for OPV morphologies to be equilibrated at length scales relevant to the bulk polymer and to regain the atomistic detail necessary later and from a better starting structure.
+After a bulk morphology is obtained, we can use backmapping, a process in which the atomistic detail can be reintegrated into a coarse grain model, to restore atomistic detail for use in simulations like KMC/QCC.
+This multiscale simulation workflow allows for OPV morphologies to be equilibrated at length scales relevant to the bulk polymer and to regain the atomistic detail more efficiently using a better starting structure.
 Currently software packages exist that do this but they require tedious manual input and are highly susceptible to user error.
 PI Fothergill will design a simple, chemically sensible coarse graining and backmapping package based on the SMILES chemical input language with a focus on OPVs.
 This will allow for easier setup and execution of multiscale simulation, which can be part of the process to finding the next great OPV technology.
