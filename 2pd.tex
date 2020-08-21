@@ -2,6 +2,12 @@
 
 %%<why do opvs matter>
 The global climate crisis is one of the most pressing issue humanity faces today.
+\begin{wrapfigure}{l}{0.5\linewidth}
+    \centering
+    \includegraphics[width=\linewidth]{images/dou-miller2018c-fig.pdf}
+    \caption{Schematic showing (a) roll to roll printing process for OPVs, (b) example OPV device, (c) bulk heterojunction structure, and (d) OPV energy generation process. Part (a) adapted from ref \cite{Dou2013}. Parts (b)-(d) adapted from ref \cite{Miller2018c}.}
+    \label{fig:opv}
+\end{wrapfigure}
 Consumption of fossil fuels for energy and transportation strongly contributes to atmospheric $CO_2$ the affects of which are global, long-term, and devastating\cite{Solomon2009a}.
 %% should I put examples? fires https://science2017.globalchange.gov/chapter/8/
 In our technology-driven society, it is unrealistic to think that energy demand will lessen, in fact global energy consumption is predicted to increase from 17 TW in 2010 to 27 TW in 2040\cite{Mazzio2015}.
@@ -12,13 +18,7 @@ Our energy infrastructure has room for improvement: consider Germany which in 20
 Traditionally, photovoltaic devices, which can convert incedent light into electric current, were made of inorganic materials like silicon.
 But in the late 1970's organic photovaltaics (OPVs) were discovered as a potential alternative\cite{Tang1986b}.
 The advantage of OPVs over inorganic PV devices is that OPVs are lightweight, low cost, easier to produce, and flexible. 
-OPVs can be manufactured large scale in a roll to roll printing process, similar to newspaper as shown in Figure \ref{fig:opv} a\cite{Dou2013}.
-\begin{wrapfigure}{L}{0.5\linewidth}
-    \centering
-    \includegraphics[width=0.6\linewidth]{images/dou-miller2018c-fig.pdf}
-    \caption{Schematic showing (a) roll to roll printing process for OPVs, (b) example OPV device, (c) bulk heterojunction structure, and (d) OPV energy generation process. Part (a) adapted from ref \cite{Dou2013}. Parts (b)-(d) adapted from ref \cite{Miller2018c}.}
-    \label{fig:opv}
-\end{wrapfigure}
+OPVs can be manufactured large scale in a roll to roll printing process, similar to newspaper as shown in \autoref{fig:opv} a\cite{Dou2013}.
 However, other materials still outperform OPVs (see Figure \ref{fig:nrel}) and in order to become a viable, cost-effective option OPVs need to be more efficient\cite{Mazzio2015}.
 
 \begin{figure}[h!]
@@ -26,13 +26,23 @@ However, other materials still outperform OPVs (see Figure \ref{fig:nrel}) and i
     \caption{Efficiencies of all photovoltaic technologies from 1976 to present. OPVs are denoted by red filled circles. The current state-of-the-art OPV research cell achieves 17.4\% efficiency. Image taken from ref \cite{NREL2020}.}
     \label{fig:nrel}
 \end{figure}
-
+%% TODO
+%% opvs are vast
+%% crystalline silicon levels off -- shottkey quessar (sp?) limit 34% efficient not much room for growth (blue)
+%% what you can buy vs champion devices
+%% opvs show room to grow
+%% paying for themselves
+%%underdog
 In order to make the most efficient OPVs we need to find the blend of compounds and processing conditions that result in the best structure for those compounds.
 The active layer of an OPV is mixture of electron-donor and acceptor compounds: the ideal morphology is a micro phase-separated interpenetrating network called a bulk heterojunction (BHJ) (see Figure \ref{fig:opv} c).
 The performance of an OPV device is intimately linked with the structure of the active layer:
 With minor modifications, the number of compounds and the processing conditions can become infinite which makes this an intractable problem for experiment.
 
-Imagine, you are a chemist synthesizing and testing new OPV morphologies: you are specifically looking at a mixture of a non-fullerene acceptor, \textit{3,9-bis(2-ethylene-(3-(1,1-dicyanomethylene)-indanone))-5,5,11,11-tetrakis(4-hexylphenyl)-dithieno(2,3-d:2',3'-d')-s-indaceno(1,2-b:5,6-b')dithiophene} (\textbf{ITIC}), and a polymer donor, \textit{poly((4,8-bis((2ethylhexyl)oxy)benzo(1,2-b:4,5-b')dithiophene-2,6-diyl)(3-fluoro-2-((2-ethylhexyl)carbonyl)thieno(3,4-b)thiophenediyl))} (\textbf{PTB7}). 
+% TODO
+%% include fig of ITIC PTB7? p3ht, fullerene recent uptick with NFAs
+%% look up the 17% solar cell--whats in it?
+%% freedom in choosing our ingredients - can we get better than trial and error
+Imagine, you are a chemist synthesizing and testing new OPV morphologies: you are specifically looking at a mixture of a non-fullerene acceptor, ITIC, and a polymer donor, PTB7. 
 Each compound costs \$500 for 100 mg\cite{sigmaaldrich}.
 The solvent you use and the concentrations of your active compounds changes the device performance\cite{Hoppe2004a}.
 The amount of time the solvent is allowed to evaporate changes the device performance\cite{Li2007}.
@@ -423,31 +433,57 @@ This could make parameterizing new compounds for an existing method more foolpro
 
 \section*{Research Plan}
 
+%% make better opvs
+%% need to get a morphology on relevant lengthscale
+%% many different chemistries
+%% need a model that get a cg model from a chemistry
+
 My plan is to create a workflow which builds on existing tools: signac, freud, mbuild, openbabel, and a previously developed msibi package.
 This workflow could start with equilibrated atomistic trajectories from multiple statepoints, then use SMARTS strings to map the CG sites to each trajectory and calculate the effective potentials using MSIBI.
 Once we have a tabulated coarse grain force field, we can create a larger simulation using our coarse grain model.
 Finally, once we have an equilibrated coarse grain trajectory, we can using backmapping to regain the atomic positions and do analysese such as radial distribution function (RDF), charge transport, and diffraction.
 If this workflow is streamlined, it can be applied to many different compounds allowing for a high-throughput analysis of many potential OPV compounds.
 
-\subsection*{Objective 1: Develop a coarse graining workflow}
-
-A minimum working example of this coarse graining workflow has been completed. %% cite grits
+%% Objectives are like steps along the way
+%% objectives should be
+% 1. goal of the step
+% 2. how to do the step
+% how doing this achieves the goal
+%% how to coarse grain reproducibly
+\subsection*{Objective 1: Develop a generalized toolset for coarse graining and performing simulations of novel molecules for organic photovoltaics}
+% mapping
+% ff creation
+% infrastructure: porting ff to engine
+In order to model the morphologies of new OPV chemistries, we need a simple way to generate novel coarse grain models.
+This objective consists of three steps:
+\begin{enumerate}
+    \item {Create a tool that uses a mapping operator to go from atomistic to coarse grain structure}
+    \item {Use the mapped coarse grain structure to parameterize a force field using MSIBI}
+    \item {Develop the infrastructure to port this force field to a simulation engine}
+\end{enumerate}
+A minimum working example of this coarse grain mapping tool has been completed. %% cite grits, cg-tutorial
 However, it will still need to be tested with many more compounds and mapping operators.
 This package uses the chemical file format parsing and scriptable structure building capabilities of mbuild coupled with the SMARTS/SMILES string matching of the openbabel package to generate coarse grain structures mapped onto their atomistic counterparts with only a SMARTS string from the user.
 These coarse grain structures mapped to an atomistic target can then be used in an MSIBI workflow to obtain an effective potential.
-I have made a minimum working example of an MSIBI workflow; %https://bitbucket.org/cmelab/msibi_tests/src/master/ do i even mention this?
-although this was useful to me in getting a better understanding for the MSIBI process, I think for future, I will build off an existing MSIBI code. %%https://github.com/mosdef-hub/msibi
-The force field obtained using MSIBI will be used to run a large CG simulation.
-The end product of this first objective will be to obtain equilibrated CG trajectories.
+A minimum working example of an MSIBI tool has also been started; %https://bitbucket.org/cmelab/msibi_tests/src/master/ do i even mention this?
+although the hands-on experience with MSIBI was useful to me in getting a better understanding for the process, I think for future, I will build off an existing MSIBI code. %%https://github.com/mosdef-hub/msibi
+The force field obtained using MSIBI will then be used to run a simulation of a novel coarse grain model.
+Therefore decisions about how to carry the forcefield information into a simulation engine will need to be made.
+Here we will focus on HOOMD, but transferrability among simulation engines will be a goal.
+The coarse graining workflow will be considered complete when it can be used to coarse grain a test set of 25 common OPV chemistried. % 25 is just in there as a random number
+% workflow is complete when we can cg these chemistries
+% use ff in different sim engines
 
-\subsection*{Objective 2: Develop a backmapping workflow}
+\subsection*{Objective 2: Develop a general tool to retrieve atomistic information from a coarse grain morphology}
 
-Given an equilibrated CG trajectory, we can reintroduce the atomistic degrees of freedom by using the same SMARTS mappings used for coarse graining.
-The chemistries specified by the SMARTS strings will be mapped onto the centers of the CG sites and then equilibrated in a short MD run using the atomistic force field with addition position restraint. 
+In order to calculate the charge transport of a coarse grain OPV system, we need to be able to regain the atomic positions.
+Given an equilibrated coarse grain trajectory, we can reintroduce the atomistic degrees of freedom by using the same SMARTS mappings used for coarse graining.
+The chemistries specified by the SMARTS strings will be mapped onto the centers of the CG sites and then equilibrated in a short MD run using the atomistic force field with an additional position restraint to maintain the structure. 
 I have developed a minimum working example of this backmapping process, %% cite grits
 however, the specification of how the backmapped atomistic structures are bonded is still not intuitive for the user to specify and I am not sure yet how to make it better.
+The backmapping workflow will be considered complete when it can backmap a test set of 25 common OPV chemistries from all possible mappings.
 
-\subsection*{Objective 3: Run CG simulation sweep of non-fullerene acceptor blends}
+\subsection*{Objective 3: Predict nanostructure of novel OPV chemistries}
 
 Once Objectives 1 and 2 are complete, the next step will be putting them to use to investigate new OPV compounds.
 Currently, I have not found CG models for many NFA compounds (e.g, ITIC). %% I found this paper \cite{Meng2019} that claims to do CGMD with PTB7 ITIC but the details are hidden in the SI and seem fishy. seems like they use IBI but they dont say how they got their target distributions.
@@ -455,7 +491,11 @@ A simple, useable coarse graining tool will be helpful for determining the best 
 To help organize the dataspace of the large parameter sweep, I plan to use the signac package to manage an ever-changing workspace.
 This will help easily and efficiently test out different mappings and "processing" conditions.
 
-\subsection*{Objective 4: Analysis}
+% predict nanostructure of new opv blends TODO new objective?
+% do math -- how long will it take me to graduate? how many sims can i do?
+
+\subsection*{Objective 4: Analysis} % calulcate mobilities compare structural properties to experiment
+% identify chemical features correlated to robust mobilities
 
 Our lab has shown that we have the capability to compare our simulation results to experiment using hole mobilities from charge transport calculations\cite{Jones2017,Miller2018a} and grazing incedent X-ray scattering (GIXS) patterns\cite{Miller2018}.
 GIXS calculations on our backmapped trajectories can be used to validate that our simulations result in the same morphology as experiment.
