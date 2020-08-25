@@ -300,26 +300,34 @@ The radial distribution function (RDF) describes the probability of finding a pa
 The RDF can be used to investigate properties such as the density or the phase of a system and the RDF is used in IBI as the target distribution for the non-bonded potentials. %%reword
 The process for determining the non-bonded potentials using IBI is as follows:
 \begin{enumerate}
-    \item {The coarse grain system is mapped onto an equilibrated atomistic one.}
-    \item {The average RDF of the mapped system is calculated over the equilibrated frames of the trajectory --- this is the target distribution.}
-    \item{Taking the Boltzmann Inverse (see \autoref{pmf}) of the RDF results in the potential of mean force (PMF).
-        \begin{equation}
-            \label{pmf}
+    \item 
+        The coarse grain system is mapped onto an equilibrated atomistic one.
+
+    \item 
+        The average RDF of the mapped system is calculated over the equilibrated frames of the trajectory --- this is the target distribution.
+
+    \item 
+        Taking the Boltzmann Inverse of the RDF results in the potential of mean force (PMF):
+        
+        \[
             F(r) = -k_{B}T \ln g(r)
-            \tag{\ref{pmf}}
-        \end{equation}
+        \]
+        
         Where $F(r)$ is the PMF, $k_{B}T$ is the thermal energy, and $g(r)$ is the target distribution.
         Although $F(r)$ is a free-energy and not a potential energy, it is sufficient to be used as the initial potential ($V_{0}$) in the iterative scheme\cite{Reith2003}.
-        }
-    \item{A simulation can be run using \autoref{pmf} as the non-bonded potential to achieve a new distribution.}
-    \item{The difference between the new and target distribution can be accounted for in the next iteration accoring to \autoref{ibi}.
-        \begin{equation}
-            \label{ibi}
-            V_{i+1}(r) = V_{i}(r) - k_{B}T \ln\big(\frac{g_{i}(r)}{g(r)}\big)
-            \tag{\ref{ibi}}
-        \end{equation}
+
+    \item
+        A simulation can be run using the PMF as the non-bonded potential to achieve a new distribution.
+
+    \item
+        The difference between the new and target distribution can be accounted for in the next iteration accoring to the following equation:
+        
+        \[
+            V_{i+1}(r) = V_{i}(r) - k_{B}T \ln\bigg(\frac{g_{i}(r)}{g(r)}\bigg)
+        \]
+
         Where $g_{i}(r)$ is the distribution obtained using the potential $V_{i}(r)$.
-        }
+
 \end{enumerate}
 This process is repeated until the difference between the result and the target is sufficiently small.
 
