@@ -1,13 +1,14 @@
 \section*{Motivation}
 
 %%<why do opvs matter>
-The global climate crisis is one of the most pressing issue humanity faces today.
 \begin{wrapfigure}{l}{0.5\linewidth}
     \centering
     \includegraphics[width=\linewidth]{images/dou-miller2018c-fig.pdf}
     \caption{Schematic showing (a) roll to roll printing process for OPVs, (b) example OPV device, (c) bulk heterojunction structure, and (d) OPV energy generation process. Part (a) adapted from ref \cite{Dou2013}. Parts (b)-(d) adapted from ref \cite{Miller2018c}.}
-    \label{fig:opv}
+    \label{opv}
 \end{wrapfigure}
+
+The global climate crisis is one of the most pressing issue humanity faces today.
 Consumption of fossil fuels for energy and transportation strongly contributes to atmospheric $CO_2$ the affects of which are global, long-term, and devastating\cite{Solomon2009a}.
 %% should I put examples? fires https://science2017.globalchange.gov/chapter/8/
 In our technology-driven society, it is unrealistic to think that energy demand will lessen, in fact global energy consumption is predicted to increase from 17 TW in 2010 to 27 TW in 2040\cite{Mazzio2015}.
@@ -18,14 +19,15 @@ Our energy infrastructure has room for improvement: consider Germany which in 20
 Traditionally, photovoltaic devices, which can convert incedent light into electric current, were made of inorganic materials like silicon.
 But in the late 1970's organic photovaltaics (OPVs) were discovered as a potential alternative\cite{Tang1986b}.
 The advantage of OPVs over inorganic PV devices is that OPVs are lightweight, low cost, easier to produce, and flexible. 
-OPVs can be manufactured large scale in a roll to roll printing process, similar to newspaper as shown in \autoref{fig:opv} a\cite{Dou2013}.
-However, other materials still outperform OPVs (see Figure \ref{fig:nrel}) and in order to become a viable, cost-effective option OPVs need to be more efficient\cite{Mazzio2015}.
+OPVs can be manufactured large scale in a roll to roll printing process, similar to newspaper as shown in \autoref{opv} a\cite{Dou2013}.
+However, other materials still outperform OPVs (see \autoref{nrel}) and in order to become a viable, cost-effective option OPVs need to be more efficient\cite{Mazzio2015}.
 
 \begin{figure}[h!]
-    \includegraphics[width=0.9\linewidth]{images/NREL2020.pdf}
-    \caption{Efficiencies of all photovoltaic technologies from 1976 to present. OPVs are denoted by red filled circles. The current state-of-the-art OPV research cell achieves 17.4\% efficiency. Data taken from \cite{NREL2020}.}
-    \label{fig:nrel}
+    \includegraphics[width=\linewidth]{images/NREL2020.pdf}
+    \caption{Comparision of efficiencies organic and silicon photovoltaic technologies from 1990 to present. The current state-of-the-art OPV research cell achieves 17.4\% efficiency. Data taken from \cite{NREL2020}.}
+    \label{nrel}
 \end{figure}
+
 \cite{Lin2019} 17.4 \% efficiency mixing polymer fullerene device with transition metal disulfide.
 \cite{Cui2019} champion solar cell chlorinated NFA 16.5\% efiiciency
 %% new figure
@@ -37,7 +39,7 @@ However, other materials still outperform OPVs (see Figure \ref{fig:nrel}) and i
 %% paying for themselves
 %%underdog
 In order to make the most efficient OPVs we need to find the blend of compounds and processing conditions that result in the best structure for those compounds.
-The active layer of an OPV is mixture of electron-donor and acceptor compounds: the ideal morphology is a micro phase-separated interpenetrating network called a bulk heterojunction (BHJ) (see Figure \ref{fig:opv} c).
+The active layer of an OPV is mixture of electron-donor and acceptor compounds: the ideal morphology is a micro phase-separated interpenetrating network called a bulk heterojunction (BHJ) (see \autoref{opv} c).
 The performance of an OPV device is intimately linked with the structure of the active layer:
 With minor modifications, the number of compounds and the processing conditions can become infinite which makes this an intractable problem for experiment.
 
@@ -129,7 +131,7 @@ Ultimately a goal of this research is that it is used by others: as an example t
 
 The performance of an OPV device can be quantified by many metrics.
 %% <what is PCE>
-The power conversion efficiency (PCE or sometimes $\eta_{e}$) is the ratio of electrical power produced by the device over the power of incedent photons.
+The power conversion efficiency (PCE or sometimes $\eta_{e}$) is the ratio of electrical power produced by the device to the power of incedent photons.
 Higher PCE means the device is more efficient.  
 The material properties which determine the PCE of a device are those which affect the number of photons absorbed, excitons dissociated, and free charges that reach the electrode.
 The absorption efficiency depends on the absorption spectrum, absorption coefficient, and layer thickness.
@@ -145,14 +147,14 @@ In 1992, Sariciftci and Heeger were the first to report using a fullerene as an 
 And in 1995, Yu described the first bulk heterojunction (BHJ), as an interpenetrating network of donor and acceptor that maximizes the interfacial area, which is still the state of the art morphology to this day\cite{Yu1995}.
 Most recently, non-fullerene acceptors (NFAs), like ITIC, are contributing to the PCE increase of modern OPVs\cite{S.Gurney2019b}.
 
-\begin{wrapfigure}{L}{0.5\linewidth}
+\begin{wrapfigure}{l}{0.5\linewidth}
     \centering
-    \includegraphics[width=0.6\linewidth]{images/ITIC.pdf}
+    \includegraphics[width=\linewidth]{images/ITIC.pdf}
     \caption{ITIC chemical structure with \textcolor{red}{electron accepting regions in red} and \textcolor{blue}{electron donating regions in blue}}
-    \label{fig:itic}
+    \label{itic}
 \end{wrapfigure}
 
-The planar acceptor-donor-acceptor moeity seen in many NFA backbones (see Figure \ref{fig:itic}) may have more efficient exciton splitting, as compared to a fullerene acceptor, at the heterojunction due to strong electronic coupling between the conjugated backbones of the NFA and the polymer\cite{Yi2018a}.
+The planar acceptor-donor-acceptor moeity seen in many NFA backbones (see \autoref{itic}) may have more efficient exciton splitting, as compared to a fullerene acceptor, at the heterojunction due to strong electronic coupling between the conjugated backbones of the NFA and the polymer\cite{Yi2018a}.
 
 %%<how opvs work>
 The compounds which compose an OPV are synthesizable molecules (often polymers) composed of abundant elements (carbon, hydrogen, nitrogen, sulfur, oxygen).
@@ -177,29 +179,29 @@ Other tools, like Monte Carlo (MC), may allow us to sample equilibrium states of
 MC is also inefficient for polymers because perturbing a long chain of particles requires a "cluster move", which is not parallelizable.
 
 %%<md in general>
-MD separates the interactions between particles into non-bonded interactions and bond, angle, and dihedral interactions.
+MD separates the interactions between particles into non-bonded interactions and bond, angle, and dihedral interactions (see \autoref{bad}).
+
+\begin{wrapfigure}{L}{0.5\linewidth}
+    \centering
+    \includegraphics[width=\linewidth]{images/bondangledihedral.pdf}
+    \caption{Bonded interactions: bond (top left), angle (top right), and dihedral (bottom). Image adapted from \cite{punma}.}
+    \label{bad}
+\end{wrapfigure}
+
 Non-bonded interactions are commonly modelled with a Lennard-Jones potential:
 $$ U_{LJ}(r_{i,j}) = 4\epsilon\big[\big(\frac{\sigma}{r_{i,j}}\big)^{12}-\big(\frac{\sigma}{r_{i,j}}\big)^{6}\big]$$
 Where $i$ and $j$ are the particles separated by distance $r_{i,j}$.
-The equilibrium distance between particles is controlled by $\sigma$ and the depth of the potential well is controlled by $\epsilon$ (see Figure \ref{fig:lj}).
+The equilibrium distance between particles is controlled by $\sigma$ and the depth of the potential well is controlled by $\epsilon$ (see \autoref{lj}).
 A distance cutoff, $r_{cut}$, is often used to reduce the number of pairwise interactions and improve performance.
 
-\begin{wrapfigure}{L}{0.5\linewidth}
+\begin{wrapfigure}{l}{0.5\linewidth}
     \centering
-    \includegraphics[width=0.6\linewidth]{images/lj.pdf}
+    \includegraphics[width=\linewidth]{images/lj.pdf}
     \caption{The Lennard-Jones potential with relevant distances labelled}
-    \label{fig:lj}
+    \label{lj}
 \end{wrapfigure}
 
 Particles connected by bonds are also modelled by classical forces, for example the bond potential may be treated as a harmonic oscillator:
-
-\begin{wrapfigure}{L}{0.5\linewidth}
-    \centering
-    \includegraphics[width=0.4\linewidth]{images/bondangledihedral.pdf}
-    \caption{Bonded interactions: bond (top left), angle (top right), and dihedral (bottom). Image adapted from \cite{punma}.}
-    \label{fig:bad}
-\end{wrapfigure}
-
 $$V_{bond}(r) = \frac{1}{2}k(r-r_{0})^{2}$$
 Where $r$ is the bond length, $r_{0}$ is the equilibrium bond length, and $k$ is the spring constant for the bond.
 The angle potential is also treated as a harmonic oscillator:
@@ -207,7 +209,7 @@ $$V_{angle}(\theta)=\frac{1}{2}k(\theta-\theta_{0})^{2}$$
 Where $\theta$ is the angle formed between three bonded particles, $\theta_{0}$ is the equilibrium angle, and $k$ is the spring contant for the angle.
 The dihedral potential can be defined by the follow Fourier series:
 $$V_{dihedral}(\phi)=\frac{1}{2}k_{1}(1-cos(\phi))+\frac{1}{2}k_{2}(1-cos(2\phi))+\frac{1}{2}k_{3}(1-cos(3\phi))\frac{1}{2}k_{4}(1-cos(4\phi))$$
-Where $\phi$ is the angle between planes formed by particles in the dihedral (see Figure \ref{fig:bad}) and $k_{n}$ are the force coeffients.
+Where $\phi$ is the angle between planes formed by particles in the dihedral (see \autoref{bad}) and $k_{n}$ are the force coeffients.
 
 %% transition???
 The first MD simulation modelled a system of 108 particles and completed 200 collisions in one hour on an IBM-704\cite{Alder1957}.
@@ -310,13 +312,13 @@ The MS IBI potential is an average of the single state potentials with a weighti
 This method has been shown to accurately reproduce the true potential in monoatomic LJ fluid.
 
 When using the MS IBI method, it is important to choose dissimilar states to minimize the potential overlap region.
-If this overlap region is large, there are many potentials which will provide matching RDFs.
+If this overlap region is large, there are many potentials which will provide matching RDFs (see \autoref{moore}).
 
-\begin{wrapfigure}{L}{0.5\linewidth}
+\begin{wrapfigure}{l}{0.5\linewidth}
     \centering
-    \includegraphics[width=0.6\linewidth]{images/moorefig.pdf}
+    \includegraphics[width=\linewidth]{images/moorefig.pdf}
     \caption{Visualization of the state space coverage of different potentials: if the thermodynamic states are too similar (b), then the overlap region is large enough that there are many potentials which will fit the target. Choosing states which are different (a) will better define the potential. Image taken from ref \cite{Moore2014}.}
-    \label{fig:lj}
+    \label{moore}
 \end{wrapfigure}
 
 For some systems there may not be a potential that represents all states; this is not unique to coarse potentials, atomistic potentials also have this limitation.
@@ -349,7 +351,7 @@ I also presented a tool I've developed, called GIXStapose, at the Scientific Pyt
 GIXStapose is an interactive structure viewer alongside its simulated diffraction pattern.
 This work had two goals: helping users to see the connections between a structure and it's diffraction pattern and making reproducible figure generation easier.
 The first goal is achieved through a graphical user interface (GUI) which allows users to interact with the structure using the mouse and the diffraction pattern is updated automatically.
-The second goal is accomplished by allowing all steps of the figure generation process (e.g., positioning the camera, setting the colors and lighting, etc) to be scripted and never \textit{requiring} use of the GUI.
+The second goal is accomplished by allowing all steps of the figure generation process (e.g., positioning the camera, setting the colors and lighting, etc) to be scripted and never \textit{requiring} use of the GUI\@.
 These prior works, although not directly related to OPVS or coarse grain models, have helped me think about how atomic interactions can shape a structure, the struggles that face a new computational scientist, and how I can help.
 
 %%<how do I relate this to what I want to do??>
@@ -387,22 +389,22 @@ In this way a tutorial can provide exact commands needed to reproduce the exampl
 For an example of what I mean by cognitive load, let's compare an example of my proposed coarse-graining scheme to VOTCAs.
 In the following example we will take a hexane molecule and map it to three coarse grain sites (two carbon atoms per site).
 
-\begin{wrapfigure}{L}{0.5\linewidth}
+\begin{wrapfigure}{l}{0.5\linewidth}
     \centering
-    \includegraphics[width=0.6\linewidth]{images/hexane-compare.pdf}
+    \includegraphics[width=\linewidth]{images/hexane-compare.pdf}
     \caption{top: hexane chemical structure, bottom: hexane overlaid with coarse grain mapping \textcolor{blue}{A}-\textcolor{orange}{B}-}\textcolor{blue}{A}
-    \label{fig:hexane}
+    \label{hexane}
 \end{wrapfigure}
 
 VOTCA uses an xml file to do this:
 
 %%\lstinputlisting[breaklines]{hexane.xml}
 
-\begin{wrapfigure}{L}{0.5\linewidth}
+\begin{wrapfigure}{l}{0.5\linewidth}
     \centering
-    \includegraphics[width=0.6\linewidth]{images/hexanexml.pdf}
+    \includegraphics[width=\linewidth]{images/hexanexml.pdf}
     \caption{XML file used by VOTCA to specify a three site coarse grain mapping of n-hexane}
-    \label{fig:hexanexml}
+    \label{hexanexml}
 \end{wrapfigure}
 
 It may be easy to think that because the goal is simple, mapping two carbons and their attached hydrogens to a single bead so that six alkyl carbons becomes three coarse grain sites (A-B-A), that the process will also be simple.
@@ -414,18 +416,18 @@ To explain, let's discuss my proposed alternative:
 \begin{lstlisting}
 hexane_sites = [("_A", "C[CH3]"), ("_B", "CC")]
 \end{lstlisting}
-The result of using this code in the `coarse` function is a three-site hexane model A-B-A, same as VOTCA.%%<link to grits>
+The result of using this code in the \lstinline{coarse} function is a three-site hexane model A-B-A, same as VOTCA.%%<link to grits>
 The mapping here is specified as a list of bead name SMARTS string pairs.
 Although they do add some element of cognitive load, SMARTS strings are designed to be human and machine readable and can match atoms based on their chemical environment.
-With this scheme, there is no need to look up the name or number of each residue, I simply specify that want two alkyl carbons (in SMARTS notation a capital "C" denotes an alkyl carbon) and requiring that one be a terminal carbon by including that it has three attached hydrogens ("[CH3]").
-The order of the beads here matters because technically all the carbon atoms in hexane could be mapped with the more general SMARTS string (CC), so it is important to list the most specific strings first.
+With this scheme, there is no need to look up the name or number of each residue, I simply specify that want two alkyl carbons (in SMARTS notation a capital \lstinline{"C"} denotes an alkyl carbon) and requiring that one be a terminal carbon by including that it has three attached hydrogens (\lstinline{"[CH3]"}).
+The order of the beads here matters because technically all the carbon atoms in hexane could be mapped with the more general SMARTS string (\lstinline{"CC"}), so it is important to list the most specific strings first.
 The bonding and angles of the resulting coarse grain beads can then inferred based on the bonding of the mapped atoms.
 Basically what VOTCA's xml file does in 51 lines, I can do in 1 which is easier to read and makes chemical sense. 
 There are even benefits to the mapping being inline with the code:
 It allows the user to see the mapping as they progress through the workflow without having to search for multiple files.
 Not using an external file may prevent common errors caused by manual file IO such as operating system specific line endings or whitespace characters like tab or space being read differently by a program.
 Having the mapping in-line with the workflow also allows for the user to check that the mapping is correct with built in interactive visualizations, which can display the mapping as an overlay. 
-(Figure \ref{hexane-compare} is the output of one such visualization using py3Dmol.) %%cite py3Dmol
+(\autoref{hexane-compare} is the output of one such visualization using py3Dmol.) %%cite py3Dmol
 
 We propose a way to make the mapping and backmapping process easier for the user.
 Simplified Molecular Input Line Entry System or SMILES was designed to represent organic molecules in an unambiguous way (similar to IUPAC) but in a line-entry system which is also readable by a computer\cite{Weininger1988}.
@@ -447,7 +449,7 @@ This could make parameterizing new compounds for an existing method more foolpro
 %% need a model that get a cg model from a chemistry
 
 My plan is to create a workflow which builds on existing tools: signac, freud, mbuild, openbabel, and a previously developed msibi package.
-This workflow could start with equilibrated atomistic trajectories from multiple statepoints, then use SMARTS strings to map the CG sites to each trajectory and calculate the effective potentials using MSIBI.
+This workflow could start with equilibrated atomistic trajectories from multiple statepoints, then use SMARTS strings to map the CG sites to each trajectory and calculate the effective potentials using MSIBI\@.
 Once we have a tabulated coarse grain force field, we can create a larger simulation using our coarse grain model.
 Finally, once we have an equilibrated coarse grain trajectory, we can using backmapping to regain the atomic positions and do analysese such as radial distribution function (RDF), charge transport, and diffraction.
 If this workflow is streamlined, it can be applied to many different compounds allowing for a high-throughput analysis of many potential OPV compounds.
@@ -552,41 +554,57 @@ Finding a suitable mapping to represent both aspects may be difficult.
 \section*{Timeline for Implementation and Evaluation}
 \begin{table}[h]
     \resizebox{\columnwidth}{!}{
-%\resizebox{\textwidth}{!}
-    %\centering
-    \renewcommand{\arraystretch}{1.1}
-    \begin{tabular}{| c | c | c | c | c | c | c | c | c | c | c | c | c | c | c | c | c | c | c | c | c |}
-        \hline
-        \multirow{2}{*}{PROJECT TASK}& \multicolumn{4}{c}{YEAR 1} &  \multicolumn{4}{|c}{YEAR 2} & \multicolumn{4}{|c}{YEAR 3} & \multicolumn{4}{|c|}{YEAR 4} & \multicolumn{4}{c|}{YEAR 5} \\ 
-        \hhline{~--------------------}
-             & 1  & 2  & 3  & 4  & 1  & 2  & 3  & 4  & 1  & 2  & 3  & 4  & 1  & 2  & 3  & 4 & 1  & 2  & 3  & 4\\
-        \hline
-           Complete Coursework & \multicolumn{10}{|c|}{ {\cellcolor{lgray}} } &  &  &  &  &  &  &  &  &  &\\
-        \hline
-           Present at a Conference  &  &  &  &  &  &  &  &  &  &  & x &  &  &  &  &  &  &  &  &\\
-        \hline
-           Publish a First Author Paper  &  &  &  &  &  & x  &  &  &  &  &  &  &  &  &  &  &  &  &  &\\
-        \hline
-           Proposal and Comprehensive Exam  &  &  &  &  &  &  &  &  &  &  &  & * &  &  &  &  &  &  &  &\\
-        \hline
-           Expand Functionality of Open Source Packages & & & & & & \multicolumn{11}{|c|}{{\cellcolor{lgray}}} & & & &\\
-        \hline
-           Develop Coarse Graining Package              & & & & & & & & & \multicolumn{8}{|c|}{{\cellcolor{lgray}}} & & & &\\
-        \hline
-           Develop Automated MS-IBI Code                & & & & & & & & & \multicolumn{8}{|c|}{{\cellcolor{lgray}}} & & & &\\
-        \hline
-           Develop Backmapping Package                  & & & & & & & & & & & & \multicolumn{5}{|c|}{{\cellcolor{lgray}}}& & & &\\
-        \hline
-           Generate Coarse-Grain Morphologies           & & & & & & & & & & & & & & \multicolumn{4}{|c|}{{\cellcolor{lgray}}}& & &\\
-        \hline
-           Evaluate OPV Device Performance & & & & & & & & & & & & & & \multicolumn{4}{|c|}{{\cellcolor{lgray}}} & & &\\
-        \hline
-           Write Dissertation & & & & & & & & & & & & & & & &{\cellcolor{lgray}}& {\cellcolor{lgray}}& {\cellcolor{lgray}} &  &\\
-        \hline
-           Present Dissertation Defense  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &&  & {\cellcolor{lgray}} &  &\\
-        \hline
+        \renewcommand{\arraystretch}{1.1}
+        \begin{tabular}{|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|}
+            \hline
+            \multirow{2}{*}{PROJECT TASK}
+                &\multicolumn{4}{c}{YEAR 1}
+                &\multicolumn{4}{|c}{YEAR 2} 
+                &\multicolumn{4}{|c}{YEAR 3} 
+                &\multicolumn{4}{|c|}{YEAR 4} 
+                &\multicolumn{4}{c|}{YEAR 5} \\ 
+            \hhline{~--------------------}
+            & 1 & 2 & 3 & 4 & 1 & 2 & 3 & 4 & 1 & 2 & 3 & 4 & 1 & 2 & 3 & 4 & 1 & 2 & 3 & 4\\
+            \hline
+            Complete Coursework 
+                &\multicolumn{10}{|c|}{{\cellcolor{lgray}}} &  &  &  &  &  &  &  &  &  &\\
+            \hline
+            Present at a Conference  
+                & & & & & & & & & & & x & & & & & & & & &\\
+            \hline
+            Publish a First Author Paper
+                & & & & & & x & & & & & & & & & & & & & &\\
+            \hline
+            Proposal and Comprehensive Exam
+                & & & & & & & & & & & & * & & & & & & & &\\
+            \hline
+            Expand Functionality of Open Source Packages 
+                & & & & & & \multicolumn{11}{|c|}{{\cellcolor{lgray}}} & & & &\\
+            \hline
+            Develop Coarse Graining Package              
+                & & & & & & & & & \multicolumn{8}{|c|}{{\cellcolor{lgray}}} & & & &\\
+            \hline
+            Develop Automated MS-IBI Code                
+                & & & & & & & & & \multicolumn{8}{|c|}{{\cellcolor{lgray}}} & & & &\\
+            \hline
+            Develop Backmapping Package                  
+                & & & & & & & & & & & & \multicolumn{5}{|c|}{{\cellcolor{lgray}}}& & & &\\
+            \hline
+            Generate Coarse-Grain Morphologies           
+                & & & & & & & & & & & & & & \multicolumn{4}{|c|}{{\cellcolor{lgray}}}& & &\\
+            \hline
+            Evaluate OPV Device Performance 
+                & & & & & & & & & & & & & & \multicolumn{4}{|c|}{{\cellcolor{lgray}}} & & &\\
+            \hline
+            Write Dissertation 
+                & & & & & & & & & & & & & & & &\multicolumn{3}{|c|}{{\cellcolor{lgray}}} & &\\
+            \hline
+            Present Dissertation Defense  
+                & & & & & & & & & & & & & & & & & & {\cellcolor{lgray}} &  &\\
+            \hline
              %Saved row template
              %&  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  \\
-    \end{tabular}}
-    \caption{Anticipated timeline. * indicates right now, X indicates already accomplished.}
+        \end{tabular}
+    }
+    \caption{Anticipated timeline. * indicates right now, x indicates already accomplished.}
 \end{table}
