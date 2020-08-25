@@ -194,7 +194,7 @@ Where $i$ and $j$ are the particles separated by distance $r_{i,j}$.
 The equilibrium distance between particles is controlled by $\sigma$ and the depth of the potential well is controlled by $\epsilon$ (see \autoref{lj}).
 A distance cutoff, $r_{cut}$, is often used to reduce the number of pairwise interactions and improve performance.
 
-\begin{wrapfigure}{l}{0.5\linewidth}
+\begin{wrapfigure}{L}{0.5\linewidth}
     \centering
     \includegraphics[width=\linewidth]{images/lj.pdf}
     \caption{The Lennard-Jones potential with relevant distances labelled}
@@ -307,20 +307,18 @@ But optimization to the liquid-vapor equilibrium, although useful for prediction
 %%<so we probably want to create our own potentials>
 %%<IBI potentials are sometimes transferrable and it is not clear why sometimes they are and sometimes they aren't.> \cite{Moore2014}
 
-Multistate iterative Boltzmann inversion (MS IBI) includes data from multiple targets to yield a less state dependent potential\cite{Moore2014}.
-The MS IBI potential is an average of the single state potentials with a weighting function to prioritize a state of interest.
-This method has been shown to accurately reproduce the true potential in monoatomic LJ fluid.
-
-When using the MS IBI method, it is important to choose dissimilar states to minimize the potential overlap region.
-If this overlap region is large, there are many potentials which will provide matching RDFs (see \autoref{moore}).
-
 \begin{wrapfigure}{l}{0.5\linewidth}
     \centering
     \includegraphics[width=\linewidth]{images/moorefig.pdf}
-    \caption{Visualization of the state space coverage of different potentials: if the thermodynamic states are too similar (b), then the overlap region is large enough that there are many potentials which will fit the target. Choosing states which are different (a) will better define the potential. Image taken from ref \cite{Moore2014}.}
+    \caption{Visualization of the state space coverage of different potentials: if the thermodynamic states are too similar (b), then the overlap region is large enough that there are many potentials which will fit the target. Choosing states which are different (a) will better define the potential. Image adapted from ref \cite{Moore2014}.}
     \label{moore}
 \end{wrapfigure}
 
+Multistate iterative Boltzmann inversion (MS IBI) includes data from multiple targets to yield a less state dependent potential\cite{Moore2014}.
+The MS IBI potential is an average of the single state potentials with a weighting function to prioritize a state of interest.
+This method has been shown to accurately reproduce the true potential in monoatomic LJ fluid.
+When using the MS IBI method, it is important to choose dissimilar states to minimize the potential overlap region.
+If this overlap region is large, there are many potentials which will provide matching RDFs (see \autoref{moore}).
 For some systems there may not be a potential that represents all states; this is not unique to coarse potentials, atomistic potentials also have this limitation.
 %%<need some tie in back to why we would want to go from CG-->atomistic>
 
@@ -370,6 +368,14 @@ With these principles in mind, I have created tutorial examples to help current 
 
 As for work towards my proposed plan, I have created a minimum working example of a coarse-graining and backmapping package which uses SMARTS strings to specify the bead chemistries. %%cite grits
 This package will need further testing as it is tested on different compounds, but the proof of concept exists.
+
+\begin{wrapfigure}{l}{0.5\linewidth}
+    \centering
+    \includegraphics[width=\linewidth]{images/hexane-compare.pdf}
+    \caption{Hexane chemical structure (top) overlaid with coarse grain mapping \textcolor{blue}{A}-\textcolor{orange}{B}-\textcolor{blue}{A} (bottom)}
+    \label{hexane}
+\end{wrapfigure}
+
 %%<Talk about what exists and why it is not enough>
 %%<votca, Peng2019a> 
 Packages which do coarse-graining and backmapping already exist, so why is another one necessary?
@@ -389,23 +395,16 @@ In this way a tutorial can provide exact commands needed to reproduce the exampl
 For an example of what I mean by cognitive load, let's compare an example of my proposed coarse-graining scheme to VOTCAs.
 In the following example we will take a hexane molecule and map it to three coarse grain sites (two carbon atoms per site).
 
-\begin{wrapfigure}{l}{0.5\linewidth}
-    \centering
-    \includegraphics[width=\linewidth]{images/hexane-compare.pdf}
-    \caption{top: hexane chemical structure, bottom: hexane overlaid with coarse grain mapping \textcolor{blue}{A}-\textcolor{orange}{B}-}\textcolor{blue}{A}
-    \label{hexane}
-\end{wrapfigure}
-
 VOTCA uses an xml file to do this:
 
-%%\lstinputlisting[breaklines]{hexane.xml}
+\lstinputlisting[breaklines, basicstyle=\scriptsize\ttfamily]{hexane.xml}
 
-\begin{wrapfigure}{l}{0.5\linewidth}
-    \centering
-    \includegraphics[width=\linewidth]{images/hexanexml.pdf}
-    \caption{XML file used by VOTCA to specify a three site coarse grain mapping of n-hexane}
-    \label{hexanexml}
-\end{wrapfigure}
+%%\begin{wrapfigure}{L}{0.5\linewidth}
+%%    \centering
+%%    \includegraphics[width=\linewidth]{images/hexanexml.pdf}
+%%    \caption{XML file used by VOTCA to specify a three site coarse grain mapping of n-hexane}
+%%    \label{hexanexml}
+%%\end{wrapfigure}
 
 It may be easy to think that because the goal is simple, mapping two carbons and their attached hydrogens to a single bead so that six alkyl carbons becomes three coarse grain sites (A-B-A), that the process will also be simple.
 In order to specify a bead-mapping using VOTCA, we need to know the residue number, the residue name, and the atom name.
