@@ -510,6 +510,7 @@ although the hands-on experience with MSIBI was useful to me in getting a better
 The force field obtained using MSIBI will then be used to run a simulation of a novel coarse-grained model.
 Therefore decisions about how to carry the forcefield information into a simulation engine will need to be made.
 Here we will focus on HOOMD, but transferrability among simulation engines will be a goal.
+
 \textbf{Completion Critera:} Force fields and initial configurations usable with HOOMD-Blue that enable the equilibration of: 5 polymers, 5 fullerene derivatives, and 5 ITIC derivatives. 
 % workflow is complete when we can cg these chemistries
 % use ff in different sim engines
@@ -523,6 +524,8 @@ I have developed a minimum working example of this backmapping process, %% cite 
 however, the specification of how the backmapped atomistic structures are bonded is still not intuitive for the user to specify and I am not sure yet how to make it better.
 The backmapping workflow will be considered complete when it can backmap a test set of 25 common OPV chemistries from all possible mappings.
 
+\textbf{Completion Critera:}
+
 \subsection*{Objective 3: Predict nanostructure of novel OPV chemistries}
 
 Once Objectives 1 and 2 are complete, the next step will be putting them to use to investigate new OPV compounds.
@@ -530,6 +533,8 @@ Currently, I have not found CG models for many NFA compounds (e.g, ITIC). %% I f
 A simple, useable coarse-graining tool will be helpful for determining the best mapping operator to use for these OPV compounds.
 To help organize the dataspace of the large parameter sweep, I plan to use the signac package to manage an ever-changing workspace.
 This will help easily and efficiently test out different mappings and ``processing'' conditions.
+
+\textbf{Completion Critera:}
 
 % predict nanostructure of new opv blends TODO new objective?
 % do math --- how long will it take me to graduate? how many sims can i do?
@@ -547,6 +552,8 @@ Moving this package away from a command line interface will also be a goal of th
 %%<I need something in here about making morphct more user friendly and less hard-coded for p3ht.>
 %%<adding in calculation of reorganization energy??> 
 %%<or just ripping out the KMC bit and making it modular>
+
+\textbf{Completion Critera:}
 
 \section*{Predicted Outcomes}
 
