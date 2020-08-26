@@ -13,7 +13,7 @@ In order to protect our climate, we need a non-polluting, cost-efficient way to 
 Harnessing solar energy is an important part of a green energy solution.
 Renewable energy accounted for 11\% of the U.S. energy consumption in 2019 and of that 9\% was from solar (solar accounted for approximately 1\% of the total energy)\cite{USEIA2020}.
 Our energy infrastructure has room for improvement: consider Germany which in 2019 got 43\% of its energy from renewables and 8.2\% of its total energy from solar\cite{Wirth2017}.
-Traditionally, photovoltaic devices, which can convert incedent light into electric current, were made of inorganic materials like silicon.
+Traditionally, photovoltaic (PV) devices, which can convert incedent light into electric current, were made of inorganic materials like silicon.
 But in the late 1970's organic photovaltaics (OPVs) were discovered as a potential alternative\cite{Tang1986b}.
 The advantage of OPVs over inorganic PV devices is that OPVs are lightweight, low cost, easier to produce, and flexible. 
 OPVs can be manufactured large scale in a roll to roll printing process, similar to newspaper as shown in \autoref{opv} a\cite{Dou2013}.
@@ -21,18 +21,20 @@ However, other materials still outperform OPVs (see \autoref{nrel}) and in order
 
 \begin{figure}[h!]
     \includegraphics[width=\linewidth]{images/NREL2020.pdf}\label{nrel}
-    \caption{Comparision of efficiencies organic and silicon photovoltaic technologies from 1990 to present. The current state-of-the-art OPV research cell achieves 17.4\% efficiency. Data taken from~\cite{NREL2020}.}
+    \caption{Comparision of efficiencies organic and silicon photovoltaic technologies from 1990 to present. The current state-of-the-art OPV, polymer-fullerene device coupled with transition metal disulfide, achieves 17.4\% efficiency\cite{Lin2019}. Data taken from~\cite{NREL2020}.}
 \end{figure}
 
-17.4 \% efficiency mixing polymer fullerene device with transition metal disulfide\cite{Lin2019}.
-champion solar cell chlorinated NFA 16.5\% efiiciency\cite{Cui2019}. 
-%% TODO
-%% opvs are vast
-%% crystalline silicon levels off --- shottkey quessar (sp?) limit 34% efficient not much room for growth (blue)
-%% what you can buy vs champion devices
-%% opvs show room to grow
-%% paying for themselves
-%% underdog
+The theoretical efficiency limit (Shockley-Queisser limit) for a p-n single junction solar cell is about 30\%\cite{Shockley1961}.
+Multijuction cells may achieve efficiencies that surpass this limit, but they often do not have lower energy payback times as their production is more costly.
+\autoref{nrel} shows the efficiency gains made by single junction silicon and organic photovoltaic devices over the last 30 years.
+These are merely a selection among the many categories of PV devices.
+The trend of the silicon cells shows that the efficiency gain is levelling off as the devices approach the Shockley-Queisser limit.
+However, efficiency gains can still be made with OPV devices, and recent progress shows this.
+Many of the recent advancements in OPV technology have been through specialized processing or combinations of new chemistries.
+One new chemical moiety which has recieved attention is the ladder backbone structure seen in many non-fullerene acceptors (NFAs).
+A solar cell using a NFA functionalized with chlorine groups was found to achieve 16.5\% efficiency\cite{Cui2019}. 
+Prior to this a single junction cell using an NFA achieved a record-breaking 13.25\% efficiency\cite{raynergy}.
+
 In order to make the most efficient OPVs we need to find the blend of compounds and processing conditions that result in the best structure for those compounds.
 The active layer of an OPV is mixture of electron-donor and acceptor compounds: the ideal morphology is a micro phase-separated interpenetrating network called a bulk heterojunction (BHJ) (see \autoref{opv} c).
 The performance of an OPV device is intimately linked with the structure of the active layer:
@@ -40,10 +42,7 @@ With minor modifications, the number of compounds and the processing conditions 
 
 % TODO
 %% include fig of ITIC PTB7? p3ht, fullerene recent uptick with NFAs
-%% look up the 17% solar cell---whats in it?
 %% freedom in choosing our ingredients - can we get better than trial and error
-%% https://www.printedelectronicsworld.com/articles/15405/raynergy-new-world-record-on-certified-pce-13-28-single-junction-opv
-single junction with NFA
 
 Imagine, you are a chemist synthesizing and testing new OPV morphologies: you are specifically looking at a mixture of a non-fullerene acceptor, ITIC, and a polymer donor, PTB7. 
 Each compound costs \$500 for 100 mg\cite{sigmaaldrich}.
