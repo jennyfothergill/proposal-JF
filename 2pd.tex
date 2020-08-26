@@ -103,12 +103,12 @@ This research aims to gain insight about new OPV compound morphologies using mol
 
 %%create models for new opv compounds>
 In order to model these OPV polymer systems on relevant length scales, it is necessary to develop new coarse-grained models.
-A flexible and efficient coarse graining scheme will simplify the process of mapping and parameterizing these coarse-grained elements. %% reword?
+A flexible and efficient coarse-graining scheme will simplify the process of mapping and parameterizing these coarse-grained elements. %% reword?
 
-%%gain insight into the limits of coarse graining>
+%%gain insight into the limits of coarse-graining>
 The flexibility of specifying a mapping will allow for the comparison of multiple mappings which may provide insight into the features of an OPV which govern its self-assembly and the limits of coarse-grained models.
 Currently there is no agreed-upon ``best'' scheme for a coarse-grained mapping operator.
-By making a simple and easy-to-use coarse graining tool, many mapping operators can be tested and the limits of a minimal model can be probed.
+By making a simple and easy-to-use coarse-graining tool, many mapping operators can be tested and the limits of a minimal model can be probed.
 %% What is the minimum structure needed to represent a complex molecule? %% reword? omit?
 
 %%develop new tools that help humans do science>
@@ -230,7 +230,7 @@ This makes modelling systems which depend on hydrogen bonding or dispersion more
 
 %%<what are the limits of atomistic md?>
 Even with the simplifications of MD, we are still not able to simulate many systems efficiently on relevant length scales.
-Therefore we can use a technique called coarse graining to increase the length and time scales we can examine.
+Therefore we can use a technique called coarse-graining to increase the length and time scales we can examine.
 %%<segue to why we need CG models>
 
 \subsection*{Coarse Grain Models}
@@ -239,7 +239,7 @@ Coarse graining refers to grouping atoms in a structure into a ``super atom'' an
 Coarse grain models allow for simulators to access length and time scales that would be otherwise impossible using atomistic models by abstracting away irrelevant degrees of freedom.
 %%<how do cg models let us access long length/time??>
 Similarly to how we don't need to look at the working of a plant cell to understand the growth of a forest, we don't need to consider atomic level properties when we are interested in the bulk morphology\cite{Muller-Plathe2002}.
-The heart of coarse graining is the removal of degrees of freedom. 
+The heart of coarse-graining is the removal of degrees of freedom. 
 This effective potential used to represent the reduced system results in a smoothed free energy landscape. 
 Processes which may have taken many time steps in an all atom simulation can take fewer time steps in a coarse simulation\cite{Berendsen2010}.
 Due to their long length and time scales, coarse-grained models are ideal for examining polymer properties\cite{Gartner2019a}.
@@ -270,7 +270,7 @@ This can allow us the calculate properties such as charge transport, which depen
 
 %%<segue from automated creation of forcefields to...>
 %%<mapping operator has to be decided by hand> <is this section too big?>
-Part of coarse graining that is not yet automated is choosing a mapping scheme or a mapping operator.
+Part of coarse-graining that is not yet automated is choosing a mapping scheme or a mapping operator.
 A mapping operator defines which atoms are grouped into a ``super atom'' represented by one coarse-grained site and where the site is placed relative to the atom group.
 Mapping operators are chosen based on the desired resolution of the coarse-grained system and the information to be extracted.
 A straightforward way to define a mapping operator is to group a set number of heavy atoms (non hydrogen) together; this is the method used in the notable MARTINI force field\cite{Marrink2007}.
@@ -490,7 +490,7 @@ If this workflow is streamlined, it can be applied to many different compounds a
 % 2. how to do the step
 % how doing this achieves the goal
 %% how to coarse-grained reproducibly
-\subsection*{Objective 1: Develop a generalized toolset for coarse graining and performing simulations of novel molecules for organic photovoltaics}
+\subsection*{Objective 1: Develop a generalized toolset for coarse-graining and performing simulations of novel molecules for organic photovoltaics}
 % mapping
 % ff creation
 % infrastructure: porting ff to engine
@@ -517,7 +517,7 @@ Here we will focus on HOOMD, but transferrability among simulation engines will 
 \subsection*{Objective 2: Develop a general tool to retrieve atomistic information from a coarse-grained morphology}
 
 In order to calculate the charge transport of a coarse-grained representation of a morphology, we need to be able to regain the atomic positions.
-Given an equilibrated coarse-grained trajectory, we can reintroduce the atomistic degrees of freedom by using the same SMARTS mappings used for coarse graining.
+Given an equilibrated coarse-grained trajectory, we can reintroduce the atomistic degrees of freedom by using the same SMARTS mappings used for coarse-graining.
 The chemistries specified by the SMARTS strings will be mapped onto the centers of the CG sites and then equilibrated in a short MD run using the atomistic force field with an additional position restraint to maintain the structure. 
 I have developed a minimum working example of this backmapping process, %% cite grits
 however, the specification of how the backmapped atomistic structures are bonded is still not intuitive for the user to specify and I am not sure yet how to make it better.
@@ -527,7 +527,7 @@ The backmapping workflow will be considered complete when it can backmap a test 
 
 Once Objectives 1 and 2 are complete, the next step will be putting them to use to investigate new OPV compounds.
 Currently, I have not found CG models for many NFA compounds (e.g, ITIC). %% I found this paper~\cite{Meng2019} that claims to do CGMD with PTB7 ITIC but the details are hidden in the SI and seem fishy. seems like they use IBI but they dont say how they got their target distributions.
-A simple, useable coarse graining tool will be helpful for determining the best mapping operator to use for these OPV compounds.
+A simple, useable coarse-graining tool will be helpful for determining the best mapping operator to use for these OPV compounds.
 To help organize the dataspace of the large parameter sweep, I plan to use the signac package to manage an ever-changing workspace.
 This will help easily and efficiently test out different mappings and ``processing'' conditions.
 
@@ -554,7 +554,7 @@ As a result of this work, we expect the following outcomes:
 
 \begin{enumerate}
     \item {\textbf{Gain insight into the limits of coarse-graining}}
-        This work will probe the limits of coarse graining to understand the minimal model necessary to represent different OPV chemistries.
+        This work will probe the limits of coarse-graining to understand the minimal model necessary to represent different OPV chemistries.
     \item {\textbf{Understand the interactions which guide BHJ self assembly}} 
         This work will test a variety of different OPV compounds. 
         Comparing the results may provide understanding into which moeities, intermolecular interactions, or processing conditions result in the morphology with the highest charge transport.
@@ -572,12 +572,12 @@ As a result of this work, we expect the following outcomes:
 \section*{Contingency Analysis}
 
 %%<what's going to be hard?> 
-Although minimum working examples have been developed for botht the coarse graining and backmapping packages, I still expect to struggle when mapping new compounds.
+Although minimum working examples have been developed for both the coarse-graining and backmapping packages, I still expect to struggle when mapping new compounds.
 Sometimes the SMARTS/SMILES mapping won't work without careful choice of sites.
 This can be a little frustrating but is still preferrable to having to manually specify the mapping of each atom.
 At least the reasons that a SMARTS mapping fails are usually understandable (e.g., the order of the sites matters) or chemically sensible (e.g., one SMILES string may contain another --- just as one chemical moeity may be composed of more submoeities). %%<this is a word?>)
 
-It may also be difficult to find a good coarse graining scheme for the NFA compounds. 
+It may also be difficult to find a good coarse-graining scheme for the NFA compounds. 
 These compounds are often composed of large planar backbones with floppy side chains.
 Finding a suitable mapping to represent both aspects may be difficult.
 
