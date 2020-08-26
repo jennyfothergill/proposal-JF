@@ -510,37 +510,38 @@ although the hands-on experience with MSIBI was useful to me in getting a better
 The force field obtained using MSIBI will then be used to run a simulation of a novel coarse-grained model.
 Therefore decisions about how to carry the forcefield information into a simulation engine will need to be made.
 Here we will focus on HOOMD, but transferrability among simulation engines will be a goal.
+\ej{If we're going to mention engine transferability we should say how we'll do it. If it's not germane to our completion criteria we can omit it. }
 
 \textbf{Completion Critera:} Force fields and initial configurations usable with HOOMD-Blue that enable the equilibration of: 5 polymers, 5 fullerene derivatives, and 5 ITIC derivatives. 
 % workflow is complete when we can cg these chemistries
 % use ff in different sim engines
 
 \subsection*{Objective 2: Develop a general tool to retrieve atomistic information from a coarse-grained morphology}
+\ej{Nitpick: Are we retreiving atomistic info from morphology, or calculating where the atoms should be based on the coarse-grained sites we have? In what ways is this going to be fundamentally similar or different to past back-mapping techniques?}
 
 In order to calculate the charge transport of a coarse-grained representation of a morphology, we need to be able to regain the atomic positions.
 Given an equilibrated coarse-grained trajectory, we can reintroduce the atomistic degrees of freedom by using the same SMARTS mappings used for coarse-graining.
 The chemistries specified by the SMARTS strings will be mapped onto the centers of the CG sites and then equilibrated in a short MD run using the atomistic force field with an additional position restraint to maintain the structure. 
 I have developed a minimum working example of this backmapping process, %% cite grits
 however, the specification of how the backmapped atomistic structures are bonded is still not intuitive for the user to specify and I am not sure yet how to make it better.
-The backmapping workflow will be considered complete when it can backmap a test set of 25 common OPV chemistries from all possible mappings.
 
-\textbf{Completion Critera:}
+\textbf{Completion Critera:} The ability to perform charge-transport calculations of 5 polymer, 5 fullerene-derivative, and 5 ITIC-derived OPV morphologies that have been back-mapped from coarse-grained representations. \ej{Here's candidate text with being able to USE the back-mapped morphologies, but maybe we want something easier here?}
 
-\subsection*{Objective 3: Predict nanostructure of novel OPV chemistries}
+\subsection*{Objective 3: Predict nanostructures of novel OPV chemistries}
 
-Once Objectives 1 and 2 are complete, the next step will be putting them to use to investigate new OPV compounds.
+Once Objectives 1 and 2 are complete, the next step will be putting them to use to investigate new OPV compounds. \ej{In principle we could also start this without new models: That's what Gwen and Emily are doing!}
 Currently, I have not found CG models for many NFA compounds (e.g, ITIC). %% I found this paper~\cite{Meng2019} that claims to do CGMD with PTB7 ITIC but the details are hidden in the SI and seem fishy. seems like they use IBI but they dont say how they got their target distributions.
 A simple, useable coarse-graining tool will be helpful for determining the best mapping operator to use for these OPV compounds.
 To help organize the dataspace of the large parameter sweep, I plan to use the signac package to manage an ever-changing workspace.
 This will help easily and efficiently test out different mappings and ``processing'' conditions.
 
-\textbf{Completion Critera:}
-
+\textbf{Completion Critera:} \ej{Some number of predicted morphologies and/or some number of morphologies validated against experiments. }
 % predict nanostructure of new opv blends TODO new objective?
 % do math --- how long will it take me to graduate? how many sims can i do?
 
 \subsection*{Objective 4: Analysis} % calulcate mobilities compare structural properties to experiment
 % identify chemical features correlated to robust mobilities
+\ej{Need to update Objective 4's title. I think a variant your second one is pretty good: ``Identify chemical features correlated with robust self-assembly and good charge transport''}
 
 Our lab has shown that we have the capability to compare our simulation results to experiment using hole mobilities from charge transport calculations\cite{Jones2017,Miller2018a} and grazing incedent X-ray scattering (GIXS) patterns\cite{Miller2018}.
 GIXS calculations on our backmapped trajectories can be used to validate that our simulations result in the same morphology as experiment.
@@ -553,10 +554,11 @@ Moving this package away from a command line interface will also be a goal of th
 %%<adding in calculation of reorganization energy??> 
 %%<or just ripping out the KMC bit and making it modular>
 
-\textbf{Completion Critera:}
+\textbf{Completion Critera:} \ej{todo}
 
 \section*{Predicted Outcomes}
 
+\ej{One thing this section is missing right now are tangible things that we specified in our Research Objectives. These include: XX new models of OPV chemistries; XX new tutorial notebooks for doing YY; XX predictions of OPV morphologies; Implementations of best practices others can copy or extend; }
 As a result of this work, we expect the following outcomes:
 
 \begin{enumerate}
