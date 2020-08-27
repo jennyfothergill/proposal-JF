@@ -2,8 +2,8 @@
 
 \begin{wrapfigure}{l}{0.5\linewidth}
     \centering
-    \includegraphics[width=\linewidth]{images/dou-miller2018c-fig.pdf}\label{opv}
-    \caption{Schematic showing (a) roll to roll printing process for OPVs, (b) example OPV device, (c) bulk heterojunction structure, and (d) OPV energy generation process. Part (a) adapted from ref~\cite{Dou2013}. Parts (b -- d) adapted from ref~\cite{Miller2018c}.} % chktex 8
+    \includegraphics[width=\linewidth]{images/dou-miller2018c-fig.pdf}
+    \caption{Schematic showing (a) roll to roll printing process for OPVs, (b) example OPV device, (c) bulk heterojunction structure, and (d) OPV energy generation process. Part (a) adapted from ref~\cite{Dou2013}. Parts (b,c,d) adapted from ref~\cite{Miller2018c}.}\label{opv}
 \end{wrapfigure}
 
 The global climate crisis is one of the most pressing issues humanity faces today.
@@ -16,12 +16,12 @@ However, our energy infrastructure has room for improvement: consider Germany wh
 Traditionally, photovoltaic (PV) devices, which can convert incedent light into electric current, were made of inorganic materials like silicon.
 But in the late 1970's organic photovaltaics (OPVs) were discovered as a potential alternative\cite{Tang1986b}.
 The advantage of OPVs over inorganic PV devices is that OPVs are lightweight, low cost, easier to produce, and flexible. 
-OPVs can be manufactured large scale in a roll to roll printing process, similar to newspaper, as shown in \autoref{opv} a\cite{Dou2013}.
+OPVs can be manufactured large scale in a roll to roll printing process, similar to newspaper, as shown in~\autoref{opv} a\cite{Dou2013}.
 However, other materials still outperform OPVs (see \autoref{nrel}), and in order to become a viable, cost-effective option OPVs need to be more efficient\cite{Mazzio2015}.
 
 \begin{figure}[h!]
-    \includegraphics[width=\linewidth]{images/NREL2020.pdf}\label{nrel}
-    \caption{Comparision of efficiencies organic and silicon photovoltaic technologies from 1990 to present. The current state-of-the-art OPV, polymer-fullerene device coupled with transition metal disulfide, achieves 17.4\% efficiency\cite{Lin2019}. Data taken from~\cite{NREL2020}.}
+    \includegraphics[width=\linewidth]{images/NREL2020.pdf}
+    \caption{Comparision of efficiencies organic and silicon photovoltaic technologies from 1990 to present. The current state-of-the-art OPV, polymer-fullerene device coupled with transition metal disulfide, achieves 17.4\% efficiency\cite{Lin2019}. Data taken from~\cite{NREL2020}.}\label{nrel}
 \end{figure}
 
 The theoretical efficiency limit (Shockley-Queisser limit) for a p-n single junction solar cell is about 30\%\cite{Shockley1961}.
@@ -44,8 +44,8 @@ This wide range of compounds provides the freedom to tune our OPVs, but it also 
 
 \begin{wrapfigure}{l}{0.5\linewidth}
     \centering
-    \includegraphics[width=\linewidth]{images/chem_structures.pdf}\label{chemistries}
-    \caption{Chemical structures of polymer donors (P3HT and PTB7) and acceptors --- fullerene (PC$_{61}$BM) and non-fullerene (ITIC).}
+    \includegraphics[width=\linewidth]{images/chem_structures.pdf}
+    \caption{Chemical structures of polymer donors (P3HT and PTB7) and acceptors --- fullerene (PC$_{61}$BM) and non-fullerene (ITIC).}\label{chemistries}
 \end{wrapfigure}
 
 Imagine, you are a chemist synthesizing and testing new OPV morphologies: you are specifically looking at a mixture of a non-fullerene acceptor, ITIC, and a polymer donor, PTB7. 
@@ -136,8 +136,8 @@ Most recently, non-fullerene acceptors (NFAs), like ITIC, are contributing to th
 
 \begin{wrapfigure}{l}{0.5\linewidth}
     \centering
-    \includegraphics[width=\linewidth]{images/ITIC.pdf}\label{itic}
-    \caption{ITIC chemical structure with \textcolor{red}{electron accepting regions in red} and \textcolor{blue}{electron donating regions in blue}}
+    \includegraphics[width=\linewidth]{images/ITIC.pdf}
+    \caption{ITIC chemical structure with \textcolor{red}{electron accepting regions in red} and \textcolor{blue}{electron donating regions in blue}}\label{itic}
 \end{wrapfigure}
 
 The planar acceptor-donor-acceptor moeity seen in many NFA backbones (see \autoref{itic}) may have more efficient exciton splitting, as compared to a fullerene acceptor, at the heterojunction due to strong electronic coupling between the conjugated backbones of the NFA and the polymer\cite{Yi2018a}.
@@ -164,8 +164,8 @@ MC is also inefficient for polymers because perturbing a long chain of particles
 MD separates the interactions between particles into non-bonded interactions and bond, angle, and dihedral interactions (see \autoref{bad}).
 \begin{wrapfigure}{L}{0.5\linewidth}
     \centering
-    \includegraphics[width=\linewidth]{images/bondangledihedral.pdf}\label{bad}
-    \caption{Bonded interactions: bond (top left), angle (top right), and dihedral (bottom). Image adapted from~\cite{punma}.}
+    \includegraphics[width=\linewidth]{images/bondangledihedral.pdf}
+    \caption{Bonded interactions: bond (top left), angle (top right), and dihedral (bottom). Image adapted from~\cite{punma}.}\label{bad}
 \end{wrapfigure}
 Non-bonded interactions are commonly modelled with a Lennard-Jones potential:
 \[
@@ -180,8 +180,8 @@ A distance cutoff, $r_{cut}$, is often used to reduce the number of pairwise int
 
 \begin{wrapfigure}{L}{0.5\linewidth}
     \centering
-    \includegraphics[width=\linewidth]{images/lj.pdf}\label{lj}
-    \caption{The Lennard-Jones potential with relevant distances labelled}
+    \includegraphics[width=\linewidth]{images/lj.pdf}
+    \caption{The Lennard-Jones potential with relevant distances labelled}\label{lj}
 \end{wrapfigure}
 
 Particles connected by bonds are also modelled by classical forces, for example the bond potential may be treated as a harmonic oscillator:
@@ -316,8 +316,8 @@ But optimization to the liquid-vapor equilibrium, although useful for prediction
 
 \begin{wrapfigure}{l}{0.5\linewidth}
     \centering
-    \includegraphics[width=\linewidth]{images/moorefig.pdf}\label{moore}
-    \caption{Visualization of the state space coverage of different potentials: if the thermodynamic states are too similar (b), then the overlap region is large enough that there are many potentials which will fit the target. Choosing states which are different (a) will better define the potential. Image adapted from ref~\cite{Moore2014}.}
+    \includegraphics[width=\linewidth]{images/moorefig.pdf}
+    \caption{Visualization of the state space coverage of different potentials: if the thermodynamic states are too similar (b), then the overlap region is large enough that there are many potentials which will fit the target. Choosing states which are different (a) will better define the potential. Image adapted from ref~\cite{Moore2014}.}\label{moore}
 \end{wrapfigure}
 
 Multistate iterative Boltzmann inversion (MS IBI) includes data from multiple targets to yield a less state dependent potential\cite{Moore2014}.
@@ -369,8 +369,8 @@ This package will need further testing as it is tested on different compounds, b
 
 \begin{wrapfigure}{l}{0.5\linewidth}
     \centering
-    \includegraphics[width=\linewidth]{images/hexane-compare.pdf}\label{hexane}
-    \caption{Hexane chemical structure (top) overlaid with coarse-grained mapping \textcolor{blue}{A}-\textcolor{orange}{B}-\textcolor{blue}{A} (bottom)}
+    \includegraphics[width=\linewidth]{images/hexane-compare.pdf}
+    \caption{Hexane chemical structure (top) overlaid with coarse-grained mapping \textcolor{blue}{A}-\textcolor{orange}{B}-\textcolor{blue}{A} (bottom)}\label{hexane}
 \end{wrapfigure}
 
 Packages which do coarse-graining and backmapping already exist, so why is another one necessary?
@@ -410,8 +410,8 @@ hexane_sites = [("_A", "C[CH3]"), ("_B", "CC")]
 The result of using this code in the \lstinline{coarse} function is a three-site hexane model A-B-A, same as VOTCA\cite{grits}.
 The mapping here is specified as a list of site name SMARTS string pairs.
 Although they do add some element of cognitive load, SMARTS strings are designed to be human and machine readable and can match atoms based on their chemical environment.
-With this scheme, there is no need to look up the name or number of each residue, I simply specify that want two alkyl carbons (in SMARTS notation a capital \lstinline{"C"} denotes an alkyl carbon) and requiring that one be a terminal carbon by including that it has three attached hydrogens (\lstinline{"[CH3]"}). % chktex 18
-The order of the sites here matters because technically all the carbon atoms in hexane could be mapped with the more general SMARTS string (\lstinline{"CC"}), so it is important to list the most specific strings first. % chktex 18
+With this scheme, there is no need to look up the name or number of each residue, I simply specify that want two alkyl carbons (in SMARTS notation a capital \lstinline{"C"} denotes an alkyl carbon) and requiring that one be a terminal carbon by including that it has three attached hydrogens (\lstinline{"[CH3]"}).
+The order of the sites here matters because technically all the carbon atoms in hexane could be mapped with the more general SMARTS string (\lstinline{"CC"}), so it is important to list the most specific strings first.
 The bonding and angles of the resulting coarse-grained sites can then inferred based on the bonding of the mapped atoms.
 Basically what VOTCA's xml file does in 51 lines, I can do in 1 which is easier to read and makes chemical sense. 
 There are even benefits to the mapping being inline with the code:
@@ -464,7 +464,7 @@ For this, we will make use of and build upon the simulation setup capabilities o
 In order to calculate the charge transport of a coarse-grained representation of a morphology, we need to be able to estimate the atomic positions.
 Given an equilibrated coarse-grained trajectory, we can reintroduce the atomistic degrees of freedom by using the same SMARTS mappings used for coarse-graining.
 The chemistries specified by the SMARTS strings will be mapped onto the centers of the CG sites and then equilibrated in a short MD run using the atomistic force field with an additional position restraint to maintain the structure. 
-This method is not fundamentally different from many existing backmapping routines in that the atomistic structure is naively positioned over the coarse site and then relaxed --- the main difference lies in the amount of additional work required from the user\cite{Wassenar2014b, MorphCT, Ruhle2009}.
+This method is not fundamentally different from many existing backmapping routines in that the atomistic structure is naively positioned over the coarse site and then relaxed --- the main difference lies in the amount of additional work required from the user\cite{Wassenaar2014b, MorphCT, Ruhle2009}.
 Since the user has already specified the mapping to go from atomistic to coarse, it can be reused for backmapping.
 The bonding between the atomistic structures of the sites is lost, so this information will need to be provided: either specified by the user or recorded during the coarse graining step.
 I have developed a minimum working example of this backmapping process\cite{grits},
@@ -536,8 +536,8 @@ Finding a suitable mapping to represent both aspects may be difficult.
 \section*{Timeline for Implementation and Evaluation}
 \begin{table}[h]
     \resizebox{\columnwidth}{!}{\renewcommand{\arraystretch}{1.1}
-    \begin{tabular}{|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|} % chktex 44
-        \hline % chktex 44
+    \begin{tabular}{|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|}
+        \hline
         \multirow{2}{*}{PROJECT TASK}
             &\multicolumn{4}{c}{YEAR 1}
             &\multicolumn{4}{|c}{YEAR 2} 
@@ -546,43 +546,43 @@ Finding a suitable mapping to represent both aspects may be difficult.
             &\multicolumn{4}{c|}{YEAR 5} \\ 
         \hhline{~--------------------}
         & 1 & 2 & 3 & 4 & 1 & 2 & 3 & 4 & 1 & 2 & 3 & 4 & 1 & 2 & 3 & 4 & 1 & 2 & 3 & 4\\
-        \hline % chktex 44
+        \hline
         Complete Coursework 
             &\multicolumn{10}{|c|}{{\cellcolor{lgray}}} &  &  &  &  &  &  &  &  &  &\\
-        \hline % chktex 44
+        \hline
         Present at a Conference  
             & & & & & & & & & & & x & & & & & & & & &\\
-        \hline % chktex 44
+        \hline
         Publish a First Author Paper
             & & & & & & x & & & & & & & & & & & & & &\\
-        \hline % chktex 44
+        \hline
         Proposal and Comprehensive Exam
             & & & & & & & & & & & & * & & & & & & & &\\
-        \hline % chktex 44
+        \hline
         Expand Functionality of Open Source Packages 
             & & & & & & \multicolumn{11}{|c|}{{\cellcolor{lgray}}} & & & &\\
-        \hline % chktex 44
+        \hline
         Develop Coarse Graining Package              
             & & & & & & & & & \multicolumn{8}{|c|}{{\cellcolor{lgray}}} & & & &\\
-        \hline % chktex 44
+        \hline
         Develop Automated MS-IBI Code                
             & & & & & & & & & \multicolumn{8}{|c|}{{\cellcolor{lgray}}} & & & &\\
-        \hline % chktex 44
+        \hline
         Develop Backmapping Package                  
             & & & & & & & & & & & & \multicolumn{5}{|c|}{{\cellcolor{lgray}}}& & & &\\
-        \hline % chktex 44
+        \hline
         Generate Coarse-Grain Morphologies           
             & & & & & & & & & & & & & & \multicolumn{4}{|c|}{{\cellcolor{lgray}}}& & &\\
-        \hline % chktex 44
+        \hline
         Evaluate OPV Device Performance 
             & & & & & & & & & & & & & & \multicolumn{4}{|c|}{{\cellcolor{lgray}}} & & &\\
-        \hline % chktex 44
+        \hline
         Write Dissertation 
             & & & & & & & & & & & & & & & &\multicolumn{3}{|c|}{{\cellcolor{lgray}}} & &\\
-        \hline % chktex 44
+        \hline
         Present Dissertation Defense  
             & & & & & & & & & & & & & & & & & & {\cellcolor{lgray}} &  &\\
-        \hline % chktex 44
+        \hline
          %Saved row template
          %&  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  \\
         \end{tabular}
