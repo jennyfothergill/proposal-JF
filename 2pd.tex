@@ -339,8 +339,6 @@ The kinetic Monte Carlo algorithm used by MorphCT uses the semi-empirical Zerner
 The HOMO levels of each chromophore site and the energy splitting induced in the chromophore pairs is used in the Marcus equation to calculate the charge hopping rate between pairs.
 A Monte Carlo simulation can then be run using these hopping rates to calculate the movement of charges through the system.
 Because this is a quantum chemical calculation, the position of each atom is needed; therefore, a backmapping process is required to calculate the charge transport in a coarse-grained morphology.
-%% MorphCT has some built in backmapping tools which use an xml file, but  (which i will discuss why these are bad in the next section) and the package is bulky/CLI/hard-to-use...
-%%<making morphct more modular to allow it to be used in a workflow not cli>
 
 \section*{Preliminary Work}
 
@@ -357,19 +355,14 @@ The first goal is achieved through a graphical user interface (GUI) which allows
 The second goal is accomplished by allowing all steps of the figure generation process (e.g., positioning the camera, setting the colors and lighting, etc) to be scripted and never \textit{requiring} use of the GUI\@.
 These prior works, although not directly related to OPVS or coarse-grained models, have helped me think about how atomic interactions can shape a structure, the struggles that face a new computational scientist, and how I can help.
 
-%%<how do I relate this to what I want to do??>
 I have contributed to development of open-source packages including mbuild, foyer, signac, and fresnel\cite{mbuild, foyer, signac, fresnel}.
 These contributions have given me ample opportunity to excercise best software development practices like writing good documentation, using version control, writing unit tests, employing CI, using a fork \& pull workflow, etc.
 This experience will help me to be more efficient in my future work.
 I've also gained valuable experience as working as part of a team.
 As I plan to integrate my future work with existing projects, good collaborative skills will be necessary.
 
-%% experience teaching and creating material for people to learn
 I have completed Software Carpentry training which has taught me how to break down complex ideas and give learners a chance to use their knowledge.
 With these principles in mind, I have created tutorial examples to help current and future students understand scientific concepts and how to use computational tools\cite{notebooktutorials}
-%%- started development on UFF repo for foyer.
-%%This is an example of how to create a version controlled forcefield which can be automatically applied to a compound.
-%%<atom typing is a pain and doing it manually is bad cite foyer paper>
 
 As for work towards my proposed plan, I have created a minimum working example of a coarse-graining and backmapping package which uses SMARTS strings to specify the site chemistries\cite{grits}.
 This package will need further testing as it is tested on different compounds, but the proof of concept exists.
@@ -435,17 +428,11 @@ SMARTS is similar to SMILES but instead of representing a single molecule unambi
 This pattern matching is also implemented in the Open Babel package.
 If we know the SMARTS string for any given CG mapping, we can map the CG site to its center of mass or geometric center.
 I have developed a minimum working example of how this can be done and then how the atomistic structure can be recovered\cite{grits}.
-%% another application?
 This mapping scheme could even be used to make the mapping process easier for established coarse-grained models.
 It could be fairly straightforward to implement a lookup to check if site parameters already exist (e.g., for the MARTINI model) by going through and writing out the SMARTS pattern for each existing site type.
 This could make parameterizing new compounds for an existing method more foolproof.
 
 \section*{Research Plan}
-
-%% make better opvs
-%% need to get a morphology on relevant lengthscale
-%% many different chemistries
-%% need a model that get a cg model from a chemistry
 
 My plan is to create a workflow which builds on existing tools: signac, freud, mbuild, Open Babel, and a previously developed msibi package.
 This workflow could start with equilibrated atomistic trajectories from multiple statepoints, then use SMARTS strings to map the CG sites to each trajectory and calculate the effective potentials using MSIBI\@.
@@ -453,16 +440,7 @@ Once we have a tabulated coarse-grained force field, we can create a larger simu
 Finally, once we have an equilibrated coarse-grained trajectory, we can using backmapping to regain the atomic positions and do analyses, e.g., radial distribution function (RDF), charge transport, and diffraction.
 If this workflow is streamlined, it can be applied to many different compounds allowing for a high-throughput analysis of many potential OPV compounds.
 
-%% Objectives are like steps along the way
-%% objectives should be
-% 1. goal of the step
-% 2. how to do the step
-% how doing this achieves the goal
-%% how to coarse-grained reproducibly
 \subsection*{Objective 1: Develop a generalized toolset for coarse-graining and performing simulations of novel molecules for organic photovoltaics}
-% mapping
-% ff creation
-% infrastructure: porting ff to engine
 In order to model the morphologies of new OPV chemistries, we need a simple way to generate novel coarse-grained models.
 This objective consists of three steps:
 \begin{enumerate}
@@ -507,8 +485,6 @@ This will help easily and efficiently test out different mappings and ``processi
 \textbf{Completion Critera:} 
 Validation using diffraction or RDF of simulated morphologies composed of 5 polymers, 5 fullerene derivatives, and 5 ITIC derivatives. 
 %%\ej{Some number of predicted morphologies and/or some number of morphologies validated against experiments. }
-% predict nanostructure of new opv blends TODO new objective?
-% do math --- how long will it take me to graduate? how many sims can i do?
 
 \subsection*{Objective 4: Identify chemical features correlated with robust self-assembly and good charge transport}
 
@@ -519,7 +495,6 @@ Using our lab's charge transport package (MorphCT) on new chemistries, however, 
 Many of the parameters and the definition of the chromophore are hard-coded for poly-3-hexylthiophene (P3HT).
 Moving this package away from a command line interface will also be a goal of this work.
 %%Our morphct paper says the mobilities we predict are 2x higher than experiment? why?
-%%<I need something in here about making morphct more user friendly and less hard-coded for p3ht.>
 %%<adding in calculation of reorganization energy??> 
 %%<or just ripping out the KMC bit and making it modular>
 
@@ -549,7 +524,6 @@ As a result of this work, we expect the following outcomes:
 
 \section*{Contingency Analysis}
 
-%%<what's going to be hard?> 
 Although minimum working examples have been developed for both the coarse-graining and backmapping packages, I still expect to struggle when mapping new compounds.
 Sometimes the SMARTS/SMILES mapping won't work without careful choice of sites.
 This can be a little frustrating but is still preferrable to having to manually specify the mapping of each atom.
