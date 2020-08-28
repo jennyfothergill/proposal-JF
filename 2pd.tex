@@ -20,7 +20,8 @@ OPVs can be manufactured large scale in a roll to roll printing process, similar
 However, other materials still outperform OPVs (see \autoref{nrel}), and in order to become a viable, cost-effective option OPVs need to be more efficient\cite{Mazzio2015}.
 
 \begin{figure}[h!]
-    \includegraphics[width=\linewidth]{images/NREL2020.pdf}
+    \centering
+    \includegraphics[width=0.8\linewidth]{images/NREL2020.pdf}
     \caption{Comparision of efficiencies organic and silicon photovoltaic technologies from 1990 to present. The current state-of-the-art OPV, polymer-fullerene device coupled with transition metal disulfide, achieves 17.4\% efficiency\cite{Lin2019}. Data taken from~\cite{NREL2020}.}\label{nrel}
 \end{figure}
 
@@ -36,17 +37,18 @@ In 2018, a single junction cell using an NFA achieved a record-breaking 13.25\% 
 And in 2019, a cell using an NFA functionalized with chlorine groups was found to achieve 16.5\% efficiency\cite{Cui2019}. 
 
 In order to make the most efficient OPVs we need to find the blend of compounds and processing conditions that result in the best structure for those compounds.
-The active layer of an OPV is mixture of electron-donor and acceptor compounds: The ideal morphology is a micro phase-separated interpenetrating network called a bulk heterojunction (BHJ) (see \autoref{opv} c).
-The performance of an OPV device is intimately linked with the structure of the active layer:
-With minor modifications, the number of compounds and the processing conditions can become infinite which makes this an intractable problem for experiment.
-\autoref{chemistries} shows a selection of possible OPV donor and acceptor chemistries.
-This wide range of compounds provides the freedom to tune our OPVs, but it also increases the scope of the problem.
-
 \begin{wrapfigure}{l}{0.5\linewidth}
     \centering
     \includegraphics[width=\linewidth]{images/chem_structures.pdf}
     \caption{Chemical structures of polymer donors (P3HT and PTB7) and acceptors --- fullerene (PC$_{61}$BM) and non-fullerene (ITIC).}\label{chemistries}
 \end{wrapfigure}
+\leavevmode
+The active layer of an OPV is mixture of electron-donor and acceptor compounds: 
+The ideal morphology is a micro phase-separated interpenetrating network called a bulk heterojunction (BHJ) (see \autoref{opv} c).
+The performance of an OPV device is intimately linked with the structure of the active layer:
+With minor modifications, the number of compounds and the processing conditions can become infinite which makes this an intractable problem for experiment.
+\autoref{chemistries} shows a selection of possible OPV donor and acceptor chemistries.
+This wide range of compounds provides the freedom to tune our OPVs, but it also increases the scope of the problem.
 
 Imagine, you are a chemist synthesizing and testing new OPV morphologies: you are specifically looking at a mixture of a non-fullerene acceptor, ITIC, and a polymer donor, PTB7. 
 Each compound costs \$500 for 100 mg\cite{sigmaaldrich}.
@@ -154,6 +156,11 @@ Molecular simulation allows us to ``see'' these atomic interactions and gain a d
 
 \subsection*{Molecular Dynamics}
 
+\begin{wrapfigure}{l}{0.5\linewidth}
+    \centering
+    \includegraphics[width=\linewidth]{images/bondangledihedral.pdf}
+    \caption{Bonded interactions: bond (top left), angle (top right), and dihedral (bottom). Image adapted from~\cite{punma}.}\label{bad}
+\end{wrapfigure}
 Molecular dynamics (MD) is a simulation tool which uses classical physics and statistical thermodynamics to sample the equilibrium states of a thermodynamic ensemble.
 The MD algorithm integrates Newton's equations of motion to update the particle positions.
 This process can be iterated until the system reaches equilibrium.
@@ -161,12 +168,13 @@ MD is the right tool for looking at the bulk structure of an OPV because we can 
 Other tools, like Monte Carlo (MC), may allow us to sample equilibrium states of an ensemble, but we would lose information about the dynamics.
 MC is also inefficient for polymers because perturbing a long chain of particles requires a ``cluster move'', which is not parallelizable.
 
-MD separates the interactions between particles into non-bonded interactions and bond, angle, and dihedral interactions (see \autoref{bad}).
-\begin{wrapfigure}{L}{0.5\linewidth}
-    \centering
-    \includegraphics[width=\linewidth]{images/bondangledihedral.pdf}
-    \caption{Bonded interactions: bond (top left), angle (top right), and dihedral (bottom). Image adapted from~\cite{punma}.}\label{bad}
+\begin{wrapfigure}{l}{0.5\linewidth}
+    \begin{center}
+        \includegraphics[width=\linewidth]{images/lj.pdf}
+        \end{center}
+    \caption{The Lennard-Jones potential with relevant distances labelled}\label{lj}
 \end{wrapfigure}
+MD separates the interactions between particles into non-bonded interactions and bond, angle, and dihedral interactions (see \autoref{bad}).
 Non-bonded interactions are commonly modelled with a Lennard-Jones potential:
 \[
     U_{LJ}(r_{i,j}) = 4\epsilon\big[
@@ -177,13 +185,6 @@ Non-bonded interactions are commonly modelled with a Lennard-Jones potential:
 Where $i$ and $j$ are the particles separated by distance $r_{i,j}$.
 The equilibrium distance between particles is controlled by $\sigma$ and the depth of the potential well is controlled by $\epsilon$ (see \autoref{lj}).
 A distance cutoff, $r_{cut}$, is often used to reduce the number of pairwise interactions and improve performance.
-
-\begin{wrapfigure}{L}{0.5\linewidth}
-    \centering
-    \includegraphics[width=\linewidth]{images/lj.pdf}
-    \caption{The Lennard-Jones potential with relevant distances labelled}\label{lj}
-\end{wrapfigure}
-
 Particles connected by bonds are also modelled by classical forces, for example the bond potential may be treated as a harmonic oscillator:
 \[
     V_{bond}{(r)} = \frac{1}{2}k{(r-r_{0})}^{2}
@@ -367,25 +368,24 @@ With these principles in mind, I have created tutorial examples to help current 
 As for work towards my proposed plan, I have created a minimum working example of a coarse-graining and backmapping package which uses SMARTS strings to specify the site chemistries\cite{grits}.
 This package will need further testing as it is tested on different compounds, but the proof of concept exists.
 
-\begin{wrapfigure}{l}{0.5\linewidth}
-    \centering
-    \includegraphics[width=\linewidth]{images/hexane-compare.pdf}
-    \caption{Hexane chemical structure (top) overlaid with coarse-grained mapping \textcolor{blue}{A}-\textcolor{orange}{B}-\textcolor{blue}{A} (bottom)}\label{hexane}
-\end{wrapfigure}
-
 Packages which do coarse-graining and backmapping already exist, so why is another one necessary?
 One such package, Versatile Object-oriented Toolkit for Coarse-graining Applications (VOTCA)\cite{Ruhle2011b}, includes a coarse-graining, forcefield creation with reverse MC or IBI, and back-mapping modules.
 It also allows for charge transport calculations using KMC similar to MorphCT\cite{Lukyanov2010}.
 VOTCA makes some progress towards a TRUE simulation pipeline: they include a docker container with their pre-built software stack and example input files.
 However, some of these input files don't work and the unit test coverage on their examples repo at the of time of this writing is 0\%.
 While including example inputs and a prebuilt software stack via docker is a great first step, these tutorials give very little walkthrough aside from code comments buried in the xml\cite{votca-github}.
+\begin{wrapfigure}{l}{0.5\linewidth}
+    \centering
+    \includegraphics[width=\linewidth]{images/hexane-compare.pdf}
+    \caption{Hexane chemical structure (top) overlaid with coarse-grained mapping \textcolor{blue}{A}-\textcolor{orange}{B}-\textcolor{blue}{A} (bottom)}\label{hexane}
+\end{wrapfigure}
 The code is a mix of C++, shell commands, and python, and the user is required to interact with compiled programs through the command-line which makes adding this code into an existing workflow a little more difficult.
 Overall though this project has many features, interfaces with many popular MD engines (LAMMPS, GROMACS, HOOMD), and is under active, collaborative development, it is near-overwhelming in its scope and is not designed for the new user.
 By choosing a pure python API I will be able to make use of Jupyter Notebooks which can be run on cloud servers using tools like MyBinder which can combine executable code with markdown text and images\cite{mybinder, jupyter, notebooktutorials}.
 In this way a tutorial can provide exact commands needed to reproduce the example intimately connected with the rationale and justification of that example.
 
 For an example of what I mean by cognitive load, let's compare an example of my proposed coarse-graining scheme to VOTCAs.
-In the following example we will take a hexane molecule and map it to three coarse-grained sites (two carbon atoms per site).
+In the following example we will take a hexane molecule and map it to three coarse-grained sites (two carbon atoms per site, see~\autoref{hexane}).
 
 VOTCA uses an xml file to do this:
 
