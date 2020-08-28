@@ -206,6 +206,7 @@ The first MD simulation modelled a system of 108 particles and completed 200 col
 Now GPUs are a 100 million times faster.
 Due to its the simplicity and efficient scaling, MD is now commonly used for the modelling of protein folding\cite{levitt75} and other biological processes, and investigating the bulk properties of polymers\cite{Gartner2019a}.
 
+%% remove?
 %Even all-atom MD is not without assumptions:
 %In general, during an MD simulation bonds aren't formed or broken, so without careful consideration this prevents the study of chemical reactions.
 %MD does not consider electrons, instead atoms are treated as point particles. 
@@ -267,11 +268,10 @@ Deciding on a mapping operator is one part of creating a coarse-grained model, t
 
 \subsection*{Multi-State Iterative Boltzmann Inversion}
 
-%% feedback from chris: Also, in the MSIBI section you could take a paragraph or 2 to define what an RDF is, what a Boltzman inverse is, what a potential mean force is, then go into the algorithm steps. I feel like defining those terms in a more general sense would be a good preface to describing the actual approach/steps used in the process. Also, one other question that popped up is how bonds and angles between coarse beads are handled in the MSIBI step.
 There are numerous methods for deriving coarse-grained potentials from atomistic ones (e.g., force-matching, reverse Monte Carlo), but in this proposal we will focus on Iterative Boltzmann Inversion (IBI).
 IBI is where a coarse-grained potential is iteratively tuned to fit a target distribution usually from an atomistic simulation\cite{Reith2003}.
 The radial distribution function (RDF) describes the probability of finding a particle at a given distance from another particle.
-The RDF can be used to investigate properties such as the density or the phase of a system and the RDF is used in IBI as the target distribution for the non-bonded potentials. %%reword
+The RDF can be used to investigate properties such as the density or the phase of a system and the RDF is used in IBI as the target distribution for the non-bonded potentials. %%reword?
 The process for determining the non-bonded potentials using IBI is as follows:
 \begin{enumerate}
     \item 
