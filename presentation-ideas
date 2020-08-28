@@ -1,0 +1,23 @@
+problem statement - climate change, energy statistics
+more problem - explain nrel graph (maybe show original graph, and say wow lot of PV tech, then switch to simplified graph--tell the story of the simplified graph)
+set up why we care about OPVS 
+talk about the history of opvs
+talk about how an opv works
+and why they are a zoo show figure with LOTS of opvs combinatoric EXPLOSION of possibilities
+maybe go through the scientist example -- explain why it is hard for a wet lab to test ALL these combinations
+then segue to simulation why is simulation a good thing here? what are the struggles of simulating this system? length/time scales, electronic properties
+talk about the plan -- coarse graining, backmapping, charge transport
+coarse graining
+    - what it is
+    - mapping operator
+    - msibi
+backmapping
+    - why it is necessary
+    - how it would work
+charge transport
+    - brief
+Somewhere in here talk about best practices/why doing something that has already been done _better_ is still worth doing.
+why computational sciences are hard
+why do i care about this?
+plan specifics
+timeline
