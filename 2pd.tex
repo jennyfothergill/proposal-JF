@@ -1,17 +1,24 @@
 \section*{Motivation}
 
 The global climate crisis is one of the most pressing issues humanity faces today.
-Consumption of fossil fuels for energy and transportation strongly contributes to rising atmospheric $CO_{2}$ levels the effects of which are global, long-term, and devastating\cite{Solomon2009a}.
-In our technology-driven society, it is unrealistic to think that energy demand will lessen, in fact global energy consumption is predicted to increase from 17 TW in 2010 to 27 TW in 2040\cite{Mazzio2015}.
+Consumption of fossil fuels for energy and transportation is the primary contributor to rising atmospheric $CO_{2}$ levels\cite{Solomon2009a}.
+%% The effects of rising CO2 inequitable long-lasting global devasting
+Global energy consumption is predicted to increase from 17 TW in 2010 to 27 TW in 2040\cite{Mazzio2015}.
+%% get 2020/2019 number
+%% replace next four sentences
 In order to protect our climate, we need a non-polluting, cost-efficient way to provide electricity.
 Harnessing solar energy is an important part of a green energy solution.
 Renewable energy accounted for 11\% of the U.S. energy consumption in 2019 and of that 9\% was from solar (approximately 1\% of the total energy)\cite{USEIA2020}.
 However, our energy infrastructure has room for improvement: consider Germany which in 2019 got 43\% of its energy from renewables and 8.2\% of its total energy from solar\cite{Wirth2017}.
+%% solar power represents one way to sustainably meet our energy demands yet. generating electricity with solar panels is a sustainable way to meet growing energy demands. and there is opportunity to increase the contribution of solar energy generation to the green energy 
+%% we need to make the economic case for OPVs 
+%% despite improvements in solar power generation over the last 40 years, the cost photovoltaics has prevented solar power from being a large part of the energy generation portfolio
 Traditionally, photovoltaic (PV) devices, which can convert incedent light into electric current, were made of inorganic materials like silicon.
 But in the late 1970's organic photovaltaics (OPVs) were discovered as a potential alternative\cite{Tang1986b}.
 The advantage of OPVs over inorganic PV devices is that OPVs are lightweight, low cost, easier to produce, and flexible. 
 OPVs can be manufactured large scale in a roll to roll printing process, similar to newspaper, as shown in~\autoref{opv} a\cite{Dou2013}.
 However, other materials still outperform OPVs (see \autoref{nrel}), and in order to become a viable, cost-effective option OPVs need to be more efficient\cite{Mazzio2015}.
+%% make this sentence better
 
 \begin{wrapfigure}{l}{0.5\linewidth}
     \centering
@@ -19,6 +26,10 @@ However, other materials still outperform OPVs (see \autoref{nrel}), and in orde
     \caption{Schematic showing (a) roll to roll printing process for OPVs, (b) example OPV device, (c) bulk heterojunction structure, and (d) OPV energy generation process. Part (a) adapted from ref~\cite{Dou2013}. Parts (b,c,d) adapted from ref~\cite{Miller2018c}.}\label{opv}
 \end{wrapfigure}
 
+% how can OPVs be more efficient?
+%% organic photovoltaics are a focus of this research because they represent the best opportunity
+%% this paragraph focus on cost/efficiency
+%% espinosa 2013
 The theoretical efficiency limit (Shockley-Queisser limit) for a p-n single junction solar cell is about 30\%\cite{Shockley1961}.
 Multijuction cells may achieve efficiencies that surpass this limit, but they often do not have lower energy payback times as their production is more costly.
 \autoref{nrel} shows the efficiency gains made by single junction silicon and organic photovoltaic devices over the last 30 years.
@@ -29,29 +40,25 @@ Many of the recent advancements in OPV technology have been through specialized 
 One new chemical moiety which has recieved attention is the ladder backbone structure seen in many non-fullerene acceptors (NFAs), see \autoref{chemistries}.
 In 2018, a single junction cell using an NFA achieved a record-breaking 13.25\% efficiency\cite{raynergy}.
 And in 2019, a cell using an NFA functionalized with chlorine groups was found to achieve 16.5\% efficiency\cite{Cui2019}. 
-
+%% cost and efficiency all depend on self assembly of the active layer
+%% last sentence
+%% include shockley-q limit - maybe also delta
 \begin{figure}[h!]
     \centering
     \includegraphics[width=0.8\linewidth]{images/NREL2020.pdf}
-    \caption{Comparision of efficiencies organic and silicon photovoltaic technologies from 1990 to present. The current state-of-the-art OPV, polymer-fullerene device coupled with transition metal disulfide, achieves 17.4\% efficiency\cite{Lin2019}. Data taken from~\cite{NREL2020}.}\label{nrel}
+    \caption{Comparision of efficiencies organic and silicon photovoltaic technologies from 1990 to present. The current state-of-the-art OPV, polymer-fullerene device coupled with a transition metal disulfide, achieves 17.4\% efficiency\cite{Lin2019}. Data taken from~\cite{NREL2020}.}\label{nrel}
 \end{figure}
 
 In order to make the most efficient OPVs we need to find the blend of compounds and processing conditions that result in the best structure for those compounds.
-
 \begin{wrapfigure}{l}{0.5\linewidth}
     \centering
     \includegraphics[width=\linewidth]{images/chem_structures.pdf}
     \caption{Chemical structures of polymer donors (P3HT and PTB7) and acceptors --- fullerene (PC$_{61}$BM) and non-fullerene (ITIC).}\label{chemistries}
 \end{wrapfigure}
-
 The active layer of an OPV is mixture of electron-donor and acceptor compounds: 
-The ideal morphology is a micro phase-separated interpenetrating network called a bulk heterojunction (BHJ) (see \autoref{opv} c).
-The performance of an OPV device is intimately linked with the structure of the active layer:
-With minor modifications, the number of compounds and the processing conditions can become infinite which makes this an intractable problem for experiment.
-\autoref{chemistries} shows a selection of possible OPV donor and acceptor chemistries.
+With minor modifications, the number of compounds and the processing conditions can become infinite which makes this an intractable problem for experiment (see~\autoref{chemistries}).
 This wide range of compounds provides the freedom to tune our OPVs, but it also increases the scope of the problem.
-
-Imagine, you are a chemist synthesizing and testing new OPV morphologies: you are specifically looking at a mixture of a non-fullerene acceptor, ITIC, and a polymer donor, PTB7. 
+Imagine, you are a chemist preparing and testing new OPV morphologies: you are specifically looking at a mixture of a non-fullerene acceptor, ITIC, and a polymer donor, PTB7. 
 Each compound costs \$500 for 100 mg\cite{sigmaaldrich}.
 The solvent you use and the concentrations of your active compounds changes the device performance\cite{Hoppe2004a}.
 The amount of time the solvent is allowed to evaporate changes the device performance\cite{Li2007}.
@@ -63,27 +70,17 @@ All this would be to determine the performance of just one donor/acceptor combin
 This is where molecular simulation can help.
 By using a simulation pipeline, we can help to streamline the process of determining which OPV materials will form the morphology with the best charge transport, and in turn, help to solve the energy crisis.
 
+%% length-scale problem
 Molecular simulation also gives us insight into the atomic interactions which drive the self assembly of an OPV morphology.
 A complication of the simulation of OPV polymers is that the properties which predict a device's efficiency, for example charge transport, span multiple length scales.
 The atomic and electronic properties are important for light absorption, in which an exciton is created, and charge transfer, where the exciton is dissociated into a free electron and hole\cite{Scharber2006a,Hoppe2004,Mazzio2015}.
 At the same time, the exciton finding an interface at which to dissociate and the separated charges finding a path to an electrode both depend on the morphology of the active layer.
 So, in order to model this system, a multiscale approach is necessary.
 By breaking our simulation apart into separate steps and equilibrating different lengths scales individually, we can get equilibrated morphologies on multiple length scales more efficiently.
-
-Already good, open-source packages exist to address the problem of coarse-graining and/or backmapping\cite{Marrink2007,Ruhle2009,Maerzke2011,MorphCT,Wassenaar2014b}. %% these citations are martini, votca, trappe, morphct, backwards.py
-By making code open source and freely availiable, developers contribute to the knowledge of a global community. 
-But just because something is availiable doesn't mean it is accessible: often just figuring out how to use an existing package can be very difficult\cite{Cummings2019}.
-These existing codebases can appear to a new user as monolithic and indecipherable because their design has been to solve a problem, which they do, instead of design with a focus on how people learn.
-These codebases also rely on users piecing together multiple, often incompatible, bits of software, using manually created xml files, or deciding how to classify an atom grouping based on the user's chemical intuition.
-All of these factors contribute to a reproducibility crisis in the computational sciences\cite{Baker2016}.
+If this project is going to have the impact we desire using molsim to identify opvs, we need every step of the way and the resulting data is can be verified we need workflows that enable us working infrastructure using our models/ morphologies
+the key to doing this is ensuring that our sims are
 By keeping best practices for software development and teaching in mind, we can strive to make tools which make science more transferrable, reproducibile, usable, and extensible (TRUE)\cite{Thompson2020}.
-Best software development practices include using version control software, such as git, to facilitate the process of tracking and merging changes to a code repository, especially important when working collaboratively.
-Also among these best practices are using unit tests and continuous integration to ensure that errors are quickly and automatically caught\cite{Wilson2014}.
-Instead of writing dense, inseparable scripts which rely on the user manually following a command prompt or editing multiple text files, we aim to keep code small and modular to make it easier to use and understand\cite{Adorf2018a}.
-Following these guidelines not only makes our code easier to develop and debug but also reduces the cognitive load for a new user\cite{Jankowski2019}.
-Providing good documentation and tutorials is also imperative for onboarding new users.
-Jupyter Notebooks, which are a combination of interactive code and formatted text and images, can be used like a lab notebook for computational scientists in order to demonstrate the process, rationale, and the story of each experiment and the exact steps to get the results shown\cite{jupyter, Rule2019a}.
-When writing these tutorials, it is wise to remember that the data never speaks for itself: although including input and output files of a calculation is a good first step, they must be accompanied by the story of what the data means and how a user can know that meaning for themselves\cite{SWC, Wilson2016}.
+
 
 For this research we propose to develop a flexible method for specifying coarse-grained models to obtain OPV polymer morphologies equilibrated on length scales relevant to charge transport.
 We also propose to develop a backmapping method, which works on the same simple mapping operator, to restore the atomic positions in preparation for techniques which require atomic level resolution, e.g., charge transport calculations.
@@ -97,7 +94,8 @@ Coarse grain models do not yet exist for many of these NFAs, and with so many va
 It is necessary to develop a simple, useable, and flexible pipeline to adapt to the constantly changing chemistries of current OPV technologies.
 
 \section*{Research Objectives}
-
+%% reflective numbered objectives
+% were breaking this project into four steps
 Ultimately the goal this research is to help solve the global energy crisis. 
 Solar energy is an important part of a green energy solution.
 This research aims to gain insight about new OPV compound morphologies using molecular simulation.
@@ -345,6 +343,22 @@ The HOMO levels of each chromophore site and the energy splitting induced in the
 A Monte Carlo simulation can then be run using these hopping rates to calculate the movement of charges through the system.
 Because this is a quantum chemical calculation, the position of each atom is needed; therefore, a backmapping process is required to calculate the charge transport in a coarse-grained morphology.
 
+\subsection*{Molecular Simulation Infrastructure}
+
+Already good, open-source packages exist to address the problem of coarse-graining and/or backmapping\cite{Marrink2007,Ruhle2009,Maerzke2011,MorphCT,Wassenaar2014b}. %% these citations are martini, votca, trappe, morphct, backwards.py
+By making code open source and freely availiable, developers contribute to the knowledge of a global community. 
+But just because something is availiable doesn't mean it is accessible: often just figuring out how to use an existing package can be very difficult\cite{Cummings2019}.
+These existing codebases can appear to a new user as monolithic and indecipherable because their design has been to solve a problem, which they do, instead of design with a focus on how people learn.
+These codebases also rely on users piecing together multiple, often incompatible, bits of software, using manually created xml files, or deciding how to classify an atom grouping based on the user's chemical intuition.
+All of these factors contribute to a reproducibility crisis in the computational sciences\cite{Baker2016}.
+By keeping best practices for software development and teaching in mind, we can strive to make tools which make science more transferrable, reproducibile, usable, and extensible (TRUE)\cite{Thompson2020}.
+Best software development practices include using version control software, such as git, to facilitate the process of tracking and merging changes to a code repository, especially important when working collaboratively.
+Also among these best practices are using unit tests and continuous integration to ensure that errors are quickly and automatically caught\cite{Wilson2014}.
+Instead of writing dense, inseparable scripts which rely on the user manually following a command prompt or editing multiple text files, we aim to keep code small and modular to make it easier to use and understand\cite{Adorf2018a}.
+Following these guidelines not only makes our code easier to develop and debug but also reduces the cognitive load for a new user\cite{Jankowski2019}.
+Providing good documentation and tutorials is also imperative for onboarding new users.
+Jupyter Notebooks, which are a combination of interactive code and formatted text and images, can be used like a lab notebook for computational scientists in order to demonstrate the process, rationale, and the story of each experiment and the exact steps to get the results shown\cite{jupyter, Rule2019a}.
+When writing these tutorials, it is wise to remember that the data never speaks for itself: although including input and output files of a calculation is a good first step, they must be accompanied by the story of what the data means and how a user can know that meaning for themselves\cite{SWC, Wilson2016}.
 \section*{Preliminary Work}
 
 %% HELP this section is rough... not sure what to do.
