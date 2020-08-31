@@ -2,23 +2,11 @@
 
 The global climate crisis is one of the most pressing issues humanity faces today.
 Consumption of fossil fuels for energy and transportation is the primary contributor to rising atmospheric $CO_{2}$ levels\cite{Solomon2009a}.
-%% The effects of rising CO2 inequitable long-lasting global devasting
-Global energy consumption is predicted to increase from 17 TW in 2010 to 27 TW in 2040\cite{Mazzio2015}.
-%% get 2020/2019 number
-%% replace next four sentences
-In order to protect our climate, we need a non-polluting, cost-efficient way to provide electricity.
-Harnessing solar energy is an important part of a green energy solution.
-Renewable energy accounted for 11\% of the U.S. energy consumption in 2019 and of that 9\% was from solar (approximately 1\% of the total energy)\cite{USEIA2020}.
-However, our energy infrastructure has room for improvement: consider Germany which in 2019 got 43\% of its energy from renewables and 8.2\% of its total energy from solar\cite{Wirth2017}.
-%% solar power represents one way to sustainably meet our energy demands yet. generating electricity with solar panels is a sustainable way to meet growing energy demands. and there is opportunity to increase the contribution of solar energy generation to the green energy 
-%% we need to make the economic case for OPVs 
-%% despite improvements in solar power generation over the last 40 years, the cost photovoltaics has prevented solar power from being a large part of the energy generation portfolio
-Traditionally, photovoltaic (PV) devices, which can convert incedent light into electric current, were made of inorganic materials like silicon.
-But in the late 1970's organic photovaltaics (OPVs) were discovered as a potential alternative\cite{Tang1986b}.
-The advantage of OPVs over inorganic PV devices is that OPVs are lightweight, low cost, easier to produce, and flexible. 
-OPVs can be manufactured large scale in a roll to roll printing process, similar to newspaper, as shown in~\autoref{opv} a\cite{Dou2013}.
-However, other materials still outperform OPVs (see \autoref{nrel}), and in order to become a viable, cost-effective option OPVs need to be more efficient\cite{Mazzio2015}.
-%% make this sentence better
+Changes in the climate influenced by atmospheric $CO_{2}$ are long-lasting, devasting, and inequitable, often impacting the poorest nations the hardest.
+Global energy consumption is predicted to increase from 19 TW in 2020 to 27 TW in 2040\cite{Mazzio2015, ieo2020}.
+Solar power represents one way to sustainably meet our energy demands and there is opportunity to increase the contribution of solar energy generation to green energy.
+Despite improvements in solar power generation over the last 40 years, the cost of photovoltaics (PVs) has prevented solar power from being a large part of the energy generation portfolio.
+In order for solar power to be a viable option, large scale PV technology needs to be more economical and efficient\cite{Mazzio2015,Espinosa2012}.
 
 \begin{wrapfigure}{l}{0.5\linewidth}
     \centering
@@ -26,23 +14,20 @@ However, other materials still outperform OPVs (see \autoref{nrel}), and in orde
     \caption{Schematic showing (a) roll to roll printing process for OPVs, (b) example OPV device, (c) bulk heterojunction structure, and (d) OPV energy generation process. Part (a) adapted from ref~\cite{Dou2013}. Parts (b,c,d) adapted from ref~\cite{Miller2018c}.}\label{opv}
 \end{wrapfigure}
 
-% how can OPVs be more efficient?
-%% organic photovoltaics are a focus of this research because they represent the best opportunity
-%% this paragraph focus on cost/efficiency
+Organic photovoltaics (OPVs) are a focus of this research because they represent the best opportunity for cost effective solar power.
 %% espinosa 2013
 The theoretical efficiency limit (Shockley-Queisser limit) for a p-n single junction solar cell is about 30\%\cite{Shockley1961}.
 Multijuction cells may achieve efficiencies that surpass this limit, but they often do not have lower energy payback times as their production is more costly.
 \autoref{nrel} shows the efficiency gains made by single junction silicon and organic photovoltaic devices over the last 30 years.
 These are merely a selection among the many categories of PV devices.
 The trend of the silicon cells shows that the efficiency gain is levelling off as the devices approach the Shockley-Queisser limit.
-OPV devices, however, still have a lot of room for improvement, and recent increases in OPV device efficiency reflects this.
-Many of the recent advancements in OPV technology have been through specialized processing or combinations of new chemistries.
+OPV devices, however, still have a lot of room for improvement, and recent increases in efficiency reflect this.
+Many of the latest advancements in OPV technology have been through specialized processing or combinations of new chemistries.
 One new chemical moiety which has recieved attention is the ladder backbone structure seen in many non-fullerene acceptors (NFAs), see \autoref{chemistries}.
 In 2018, a single junction cell using an NFA achieved a record-breaking 13.25\% efficiency\cite{raynergy}.
 And in 2019, a cell using an NFA functionalized with chlorine groups was found to achieve 16.5\% efficiency\cite{Cui2019}. 
-%% cost and efficiency all depend on self assembly of the active layer
-%% last sentence
-%% include shockley-q limit - maybe also delta
+Ultimately, the efficiency of a solar cell depends on the self-assembly of its active layer.
+
 \begin{figure}[h!]
     \centering
     \includegraphics[width=0.8\linewidth]{images/NREL2020.pdf}
@@ -70,17 +55,15 @@ All this would be to determine the performance of just one donor/acceptor combin
 This is where molecular simulation can help.
 By using a simulation pipeline, we can help to streamline the process of determining which OPV materials will form the morphology with the best charge transport, and in turn, help to solve the energy crisis.
 
-%% length-scale problem
-Molecular simulation also gives us insight into the atomic interactions which drive the self assembly of an OPV morphology.
+Simulating an OPV morphology requires careful consideration. %% reword
 A complication of the simulation of OPV polymers is that the properties which predict a device's efficiency, for example charge transport, span multiple length scales.
-The atomic and electronic properties are important for light absorption, in which an exciton is created, and charge transfer, where the exciton is dissociated into a free electron and hole\cite{Scharber2006a,Hoppe2004,Mazzio2015}.
-At the same time, the exciton finding an interface at which to dissociate and the separated charges finding a path to an electrode both depend on the morphology of the active layer.
 So, in order to model this system, a multiscale approach is necessary.
 By breaking our simulation apart into separate steps and equilibrating different lengths scales individually, we can get equilibrated morphologies on multiple length scales more efficiently.
-If this project is going to have the impact we desire using molsim to identify opvs, we need every step of the way and the resulting data is can be verified we need workflows that enable us working infrastructure using our models/ morphologies
-the key to doing this is ensuring that our sims are
-By keeping best practices for software development and teaching in mind, we can strive to make tools which make science more transferrable, reproducibile, usable, and extensible (TRUE)\cite{Thompson2020}.
-
+Another complication of this research is its computational scope.
+If this project is going to have the desired impact (i.e., using molecular simulation to identify novel OPVs), every step of the process and the resulting data must be reproducible and validated.
+The nature of a multiscale simulation requires translation between formats and units and accurate handling of large data, and thus requires infrastructure to reduce error.
+By adhering to recent guidelines in the computational sciences community, we can strive to make tools which make science more transferrable, reproducibile, usable, and extensible (TRUE)\cite{Thompson2020}.
+Although the molecular and computational scope of this project is broad, by using and building upon existing architectures we can manage the multiscale nature of this project and contribute reproducible science. %% omg help words are hard.
 
 For this research we propose to develop a flexible method for specifying coarse-grained models to obtain OPV polymer morphologies equilibrated on length scales relevant to charge transport.
 We also propose to develop a backmapping method, which works on the same simple mapping operator, to restore the atomic positions in preparation for techniques which require atomic level resolution, e.g., charge transport calculations.
@@ -94,11 +77,17 @@ Coarse grain models do not yet exist for many of these NFAs, and with so many va
 It is necessary to develop a simple, useable, and flexible pipeline to adapt to the constantly changing chemistries of current OPV technologies.
 
 \section*{Research Objectives}
-%% reflective numbered objectives
-% were breaking this project into four steps
+
 Ultimately the goal this research is to help solve the global energy crisis. 
 Solar energy is an important part of a green energy solution.
 This research aims to gain insight about new OPV compound morphologies using molecular simulation.
+In order to achieve this goal, we have defined the following objectives:
+\begin{enumerate}
+    \item {Develop a generalized toolset for coarse-graining and performing simulations of novel molecules for organic photovoltaics}
+    \item {Develop a general tool to calculate atomistic positions from a coarse-grained morphology}
+    \item {Predict nanostructures of novel OPV chemistries}
+    \item {Identify chemical features correlated with robust self-assembly and good charge transport}
+\end{enumerate}
 
 In order to model these OPV polymer systems on relevant length scales, it is necessary to develop new coarse-grained models.
 A flexible and efficient coarse-graining scheme will simplify the process of mapping and parameterizing these coarse-grained elements.
@@ -119,6 +108,9 @@ Ultimately a goal of this research is that it is used by others: as an example t
 
 \subsection*{Organic Photovoltaics}
 
+Renewable energy accounted for 11\% of the U.S. energy consumption in 2019 and of that 9\% was from solar (approximately 1\% of the total energy)\cite{USEIA2020}.
+However, our energy infrastructure has room for improvement: consider Germany which in 2019 got 43\% of its energy from renewables and 8.2\% of its total energy from solar\cite{Wirth2017}.
+
 The performance of an OPV device can be quantified by many metrics.
 The power conversion efficiency (PCE or sometimes $\eta_{e}$) is the ratio of electrical power produced by the device to the power of incedent photons.
 Higher PCE means the device is more efficient.  
@@ -128,6 +120,10 @@ The fraction of excitons which dissociate depends on the exciton dissociation le
 Finally, the the number of charges which reach the electrode depends on the driving force or gradient resulting from the potentials of the electrons and holes\cite{Hoppe2004}.
 %%<is there a citation for why charge transport is a good proxy for PCE?>
 
+Traditionally, photovoltaic (PV) devices, which can convert incedent light into electric current, were made of inorganic materials like silicon.
+But in the late 1970's organic photovaltaics (OPVs) were discovered as a potential alternative\cite{Tang1986b}.
+The advantage of OPVs over inorganic PV devices is that OPVs are lightweight, low cost, easier to produce, and flexible. 
+OPVs can be manufactured large scale in a roll to roll printing process, similar to newspaper, as shown in~\autoref{opv} a\cite{Dou2013}.
 Inorganic PV devices came first and are still the most efficient, but they are more costly to produce, use rare elements, and their production causes other environmental issues, so they aren't the best solution for solar energy harvesting. 
 The first OPV was created by Tang in 1986 and used a bilyaer structure containing copper phthalocyanine and a perylene derivitive\cite{Tang1986b}. 
 This early device had a PCE of 0.95\%.
@@ -153,6 +149,8 @@ The interfacial area of the acceptor:donor regions\cite{Mazzio2015}, the regiore
 These changes in structure can strongly affect the device performance.
 Molecular simulation allows us to ``see'' these atomic interactions and gain a deeper view into the driving forces behind the self assembly of these OPV morphologies and to understand what conditions create the best devices.
 
+The atomic and electronic properties are important for light absorption, in which an exciton is created, and charge transfer, where the exciton is dissociated into a free electron and hole\cite{Scharber2006a,Hoppe2004,Mazzio2015}.
+At the same time, the exciton finding an interface at which to dissociate and the separated charges finding a path to an electrode both depend on the morphology of the active layer.
 \subsection*{Molecular Dynamics}
 
 \begin{wrapfigure}{l}{0.5\linewidth}
