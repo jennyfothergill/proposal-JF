@@ -1,2 +1,28 @@
-i10min readthrough, starting with PD
-:
+August 31 readthrough:
+Looking for alignment between motivation, gaps, work to be performed.
+
+Starting with Motivation-
+Missing figure to make case for dire situation? 
+Maybe move fig 1 to bottom of page so numbers paragraph stands on its own.
+
+
+Inferred outline:
+    Climate crisis bad
+    Theoretical efficiency (paragraph 2, needs flipping)
+        We're focused on OPVs because there's room for improvement
+    Find blend of compounds and processing resulting in best structure
+    Imagine chemist (do they synthesize morphologies?)
+    Molecular simulation will help (getting into details too much maybe?)
+    Open-source packages exist. This paragraph has strong ideas in it.
+    For this research we propose... CG models to obtain OPV polymer morphologies (we want blends, too?) (Missing a summary statement here that wraps all the bits into one?)
+
+    Research objectives 
+        (Mention of no best scheme for CG should go up in motivation?)
+        (Put 1-sentence summaries of objectives up here)
+
+    Background:
+        OPVS
+
+        (figure 5 clipping MD heading?)
+
+Length perfect right now.
