@@ -8,13 +8,7 @@ Solar power represents one way to sustainably meet our energy demands and there 
 Despite improvements in solar power generation over the last 40 years, the cost of photovoltaics (PVs) has prevented solar power from being a large part of the energy generation portfolio.
 In order for solar power to be a viable option, large scale PV technology needs to be more economical and efficient\cite{Mazzio2015,Espinosa2012}.
 
-\begin{wrapfigure}{l}{0.5\linewidth}
-    \centering
-    \includegraphics[width=\linewidth]{images/dou-miller2018c-fig.pdf}
-    \caption{Schematic showing (a) roll to roll printing process for OPVs, (b) example OPV device, (c) bulk heterojunction structure, and (d) OPV energy generation process. Part (a) adapted from ref~\cite{Dou2013}. Parts (b,c,d) adapted from ref~\cite{Miller2018c}.}\label{opv}
-\end{wrapfigure}
-
-Organic photovoltaics (OPVs) are a focus of this research because they represent the best opportunity for cost effective solar power.
+Organic photovoltaics (OPVs, see~\autoref{opv}) are a focus of this research because they represent the best opportunity for cost effective solar power.
 %% espinosa 2013
 The theoretical efficiency limit (Shockley-Queisser limit) for a p-n single junction solar cell is about 30\%\cite{Shockley1961}.
 Multijuction cells may achieve efficiencies that surpass this limit, but they often do not have lower energy payback times as their production is more costly.
@@ -22,6 +16,11 @@ Multijuction cells may achieve efficiencies that surpass this limit, but they of
 These are merely a selection among the many categories of PV devices.
 The trend of the silicon cells shows that the efficiency gain is levelling off as the devices approach the Shockley-Queisser limit.
 OPV devices, however, still have a lot of room for improvement, and recent increases in efficiency reflect this.
+\begin{wrapfigure}{l}{0.5\linewidth}
+    \centering
+    \includegraphics[width=\linewidth]{images/dou-miller2018c-fig.pdf}
+    \caption{(a) roll to roll printing process for OPVs, (b) example OPV device, (c) bulk heterojunction structure, and (d) OPV energy generation process. Part (a) adapted from ref~\cite{Dou2013}. Parts (b,c,d) adapted from ref~\cite{Miller2018c}.}\label{opv}
+\end{wrapfigure}
 Many of the latest advancements in OPV technology have been through specialized processing or combinations of new chemistries.
 One new chemical moiety which has recieved attention is the ladder backbone structure seen in many non-fullerene acceptors (NFAs), see \autoref{chemistries}.
 In 2018, a single junction cell using an NFA achieved a record-breaking 13.25\% efficiency\cite{raynergy}.
@@ -35,16 +34,17 @@ Ultimately, the efficiency of a solar cell depends on the self-assembly of its a
 \end{figure}
 
 In order to make the most efficient OPVs we need to find the blend of compounds and processing conditions that result in the best structure for those compounds.
+The active layer of an OPV is mixture of electron-donor and acceptor compounds: 
+With minor modifications, the number of compounds and the processing conditions can become infinite which makes this an intractable problem for experiment (see~\autoref{chemistries}).
+This wide range of compounds provides the freedom to tune our OPVs, but it also increases the scope of the problem.
+Imagine, you are a chemist preparing and testing new OPV morphologies: you are specifically looking at a mixture of a non-fullerene acceptor, ITIC, and a polymer donor, PTB7. 
+
 \begin{wrapfigure}{l}{0.5\linewidth}
     \centering
     \includegraphics[width=\linewidth]{images/chem_structures.pdf}
     \caption{Chemical structures of polymer donors (P3HT and PTB7) and acceptors --- fullerene (PC$_{61}$BM) and non-fullerene (ITIC).}\label{chemistries}
 \end{wrapfigure}
-The active layer of an OPV is mixture of electron-donor and acceptor compounds: 
-With minor modifications, the number of compounds and the processing conditions can become infinite which makes this an intractable problem for experiment (see~\autoref{chemistries}).
-This wide range of compounds provides the freedom to tune our OPVs, but it also increases the scope of the problem.
-Imagine, you are a chemist preparing and testing new OPV morphologies: you are specifically looking at a mixture of a non-fullerene acceptor, ITIC, and a polymer donor, PTB7. 
-Each compound costs \$500 for 100 mg\cite{sigmaaldrich}.
+\noindent Each compound costs \$500 for 100 mg\cite{sigmaaldrich}.
 The solvent you use and the concentrations of your active compounds changes the device performance\cite{Hoppe2004a}.
 The amount of time the solvent is allowed to evaporate changes the device performance\cite{Li2007}.
 The time and temperature of the thermal annealing changes the device performance\cite{Ma2005}.
@@ -71,7 +71,7 @@ This two step process is necessary because starting with the fully atomistic str
 This efficiency is important because the scope of potential OPV compounds is vast and the energy crisis necessitates expediency.
 The number of OPV compounds to test quickly becomes intractable when we consider that the power conversion efficiency is strongly linked to minor chemical modifications or functionalization, device processing, and the interplay between donor and acceptor\cite{Mazzio2015,Swick2019a}.
 There are countless variations of electron donor polymers, fullerene acceptors, and more recently small molecule, non-fullerene acceptors (NFAs) have been recieving attention for their potential to achieve higher efficiencies than their fullerene counterparts\cite{Dou2013}.
-A poly-3-hexylthiophene (P3HT):NFA blend was shown to have 11\% PCE, compared to the state-of-the-art 6.4\% in P3HT:PCBM\cite{Baran2017}.
+A P3HT:NFA blend was shown to have 11\% PCE, compared to the state-of-the-art 6.4\% in P3HT:PCBM\cite{Baran2017}.
 Not only are NFAs found to be more efficient, but they also show to be more stabile in air than polymer:fullerene blends (retaining 70--80\% of the PCE after 1,200 h exposed to air while the fullerene device was no longer operational after 800 h)\cite{Baran2017}.
 Coarse grain models do not yet exist for many of these NFAs, and with so many varieties an adaptable pipeline makes more sense than a single model.
 It is necessary to develop a simple, useable, and flexible pipeline to adapt to the constantly changing chemistries of current OPV technologies.
