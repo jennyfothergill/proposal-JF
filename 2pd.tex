@@ -5,10 +5,10 @@ Consumption of fossil fuels for energy and transportation is the primary contrib
 Changes in the climate influenced by atmospheric $CO_{2}$ are long-lasting, devasting, and inequitable, often impacting the poorest nations the hardest.
 Global energy consumption is predicted to increase from 19 TW in 2020 to 27 TW in 2040\cite{Mazzio2015, ieo2020}.
 Solar power represents one way to sustainably meet our energy demands and there is opportunity to increase the contribution of solar energy generation to green energy.
-Despite improvements in solar power generation over the last 40 years, the cost of photovoltaics (PVs) has prevented solar power from being a large part of the energy generation portfolio.
+Despite improvements over the last 40 years, the cost of photovoltaic (PV) devices has prevented solar power from being a large part of the energy generation portfolio.
 In order for solar power to be a viable option, large scale PV technology needs to be more economical and efficient\cite{Mazzio2015,Espinosa2012}.
 
-Organic photovoltaics (OPVs, see~\autoref{opv}) are a focus of this research because they represent the best opportunity for cost effective solar power.
+Organic photovoltaics (OPVs, see~\autoref{opv}) are a focus of this research because they represent the best opportunity for cost-effective solar power.
 The theoretical efficiency limit (Shockley-Queisser limit) for a p-n single junction solar cell is about 30\%\cite{Shockley1961}.
 Multijuction cells may achieve efficiencies that surpass this limit, but they often do not have lower energy payback times as their production is more costly.
 \autoref{nrel} shows the efficiency gains made by single junction silicon and organic photovoltaic devices over the last 30 years.
@@ -24,7 +24,9 @@ Many of the latest advancements in OPV technology have been through specialized 
 One new chemical moiety which has recieved attention is the ladder backbone structure seen in many non-fullerene acceptors (NFAs), see \autoref{chemistries}.
 In 2018, a single junction cell using an NFA achieved a record-breaking 13.25\% efficiency\cite{raynergy}.
 And in 2019, a cell using an NFA functionalized with chlorine groups was found to achieve 16.5\% efficiency\cite{Cui2019}. 
-Ultimately, the efficiency of a solar cell depends on the self-assembly of its active layer.
+Not only are NFAs found to be more efficient, but they also show to be more stabile in air than polymer:fullerene blends (retaining 70--80\% of the PCE after 1,200 h exposed to air while the fullerene device was no longer operational after 800 h)\cite{Baran2017}.
+(but how these molecules interact with donor polymers is not yet known and there's >1000 of them and there have been some metrics devised to figure out how to narrow them down like flory-huggins interaction parameter, but it's still really hard.) \cite{Gao2020} %% transition attempt
+Ultimately, the efficiency of a solar cell depends on the self-assembly of its active layer. 
 
 \begin{figure}[h!]
     \centering
@@ -33,24 +35,24 @@ Ultimately, the efficiency of a solar cell depends on the self-assembly of its a
 \end{figure}
 
 In order to make the most efficient OPVs we need to find the blend of compounds and processing conditions that result in the best structure for those compounds.
-The active layer of an OPV is mixture of electron-donor and acceptor compounds: 
-With minor modifications, the number of compounds and the processing conditions can become infinite which makes this an intractable problem for experiment (see~\autoref{chemistries}).
-This wide range of compounds provides the freedom to tune our OPVs, but it also increases the scope of the problem.
-Imagine, you are a chemist preparing and testing new OPV morphologies: you are specifically looking at a mixture of a non-fullerene acceptor, ITIC, and a polymer donor, PTB7. 
+The active layer of an OPV is a mixture of electron-donor and acceptor compounds: 
 
 \begin{wrapfigure}{l}{0.5\linewidth}
     \centering
     \includegraphics[width=\linewidth]{images/chem_structures.pdf}
     \caption{Chemical structures of polymer donors (P3HT and PTB7) and acceptors --- fullerene (PC$_{61}$BM) and non-fullerene (ITIC).}\label{chemistries}
 \end{wrapfigure}
-\noindent Each compound costs \$500 for 100 mg\cite{sigmaaldrich}.
+\noindent With minor modifications, the number of compounds and the processing conditions can become an intractable problem for experiment (see~\autoref{chemistries}).
+The number of possibilities compounds provides an opportunity for better OPVs, but it also increases the scope of the problem.
+Imagine, you are a chemist preparing and testing new OPV morphologies: you are specifically looking at a mixture of a non-fullerene acceptor, ITIC, and a polymer donor, PTB7. 
+Each compound costs \$500 for 100 mg\cite{sigmaaldrich}.
 The solvent you use and the concentrations of your active compounds changes the device performance\cite{Hoppe2004a}.
 The amount of time the solvent is allowed to evaporate changes the device performance\cite{Li2007}.
 The time and temperature of the thermal annealing changes the device performance\cite{Ma2005}.
 The regioregularity of your polymer affects the device performance\cite{Kim2006}.
 The distribution of polymer lengths affects the device performance\cite{Zhao2013b}.
-Changing the functional groups on ITIC changes how it packs in a crystal, its electron affinity, and thus its performance in a device\cite{Swick2019a}.
-All this would be to determine the performance of just one donor/acceptor combination in one category of potential compounds\cite{Dou2013}.
+Seemingly minor changes to the functional groups on either species affects the device performance\cite{Swick2019a}.
+All these parameter require consideration just to determine the performance of one donor/acceptor combination in one category of potential compounds\cite{Dou2013}.
 This is where molecular simulation can help.
 By using a simulation pipeline, we can help to streamline the process of determining which OPV materials will form the morphology with the best charge transport, and in turn, help to solve the energy crisis.
 
@@ -61,8 +63,8 @@ By breaking our simulation apart into separate steps and equilibrating different
 Another complication of this research is its computational scope.
 If this project is going to have the desired impact (i.e., using molecular simulation to identify novel OPVs), every step of the process and the resulting data must be reproducible and validated.
 The nature of a multiscale simulation requires translation between formats and units and accurate handling of large data, and thus requires infrastructure to reduce error.
-By adhering to recent guidelines in the computational sciences community, we can strive to make tools which make science more transferrable, reproducibile, usable, and extensible (TRUE)\cite{Thompson2020}.
-Although the molecular and computational scope of this project is broad, by using and building upon existing architectures we can manage the multiscale nature of this project and contribute reproducible science. %% omg help words are hard.
+By adhering to recent guidelines in the computational sciences community, we can strive to design tools which are transferrable, reproducibile, usable, and extensible (TRUE)\cite{Thompson2020}.
+Although the molecular and computational scope of this project is broad, by using and building upon existing architectures we can manage the multiscale nature of this project and contribute to reproducible science. %% omg help words are hard.
 
 For this research we propose to develop a flexible method for specifying coarse-grained models to obtain OPV polymer morphologies equilibrated on length scales relevant to charge transport.
 We also propose to develop a backmapping method, which works on the same simple mapping operator, to restore the atomic positions in preparation for techniques which require atomic level resolution, e.g., charge transport calculations.
@@ -70,8 +72,6 @@ This two step process is necessary because starting with the fully atomistic str
 This efficiency is important because the scope of potential OPV compounds is vast and the energy crisis necessitates expediency.
 The number of OPV compounds to test quickly becomes intractable when we consider that the power conversion efficiency is strongly linked to minor chemical modifications or functionalization, device processing, and the interplay between donor and acceptor\cite{Mazzio2015,Swick2019a}.
 There are countless variations of electron donor polymers, fullerene acceptors, and more recently small molecule, non-fullerene acceptors (NFAs) have been recieving attention for their potential to achieve higher efficiencies than their fullerene counterparts\cite{Dou2013}.
-A P3HT:NFA blend was shown to have 11\% PCE, compared to the state-of-the-art 6.4\% in P3HT:PCBM\cite{Baran2017}.
-Not only are NFAs found to be more efficient, but they also show to be more stabile in air than polymer:fullerene blends (retaining 70--80\% of the PCE after 1,200 h exposed to air while the fullerene device was no longer operational after 800 h)\cite{Baran2017}.
 Coarse grain models do not yet exist for many of these NFAs, and with so many varieties an adaptable pipeline makes more sense than a single model.
 It is necessary to develop a simple, useable, and flexible pipeline to adapt to the constantly changing chemistries of current OPV technologies.
 
@@ -110,21 +110,23 @@ Ultimately a goal of this research is that it is used by others: as an example t
 %Renewable energy accounted for 11\% of the U.S. energy consumption in 2019 and of that 9\% was from solar (approximately 1\% of the total energy)\cite{USEIA2020}.
 %However, our energy infrastructure has room for improvement: consider Germany which in 2019 got 43\% of its energy from renewables and 8.2\% of its total energy from solar\cite{Wirth2017}.
 
-The performance of an OPV device can be quantified by many metrics.
-The power conversion efficiency (PCE or sometimes $\eta_{e}$) is the ratio of electrical power produced by the device to the power of incedent photons.
+%%<is there a citation for why charge transport is a good proxy for PCE?>
+
+Traditionally, photovoltaic (PV) devices, which can convert incedent light into electric current, were made of inorganic materials like silicon.
+But in the late 1970's organic photovaltaics (OPVs) were discovered as a potential alternative\cite{Tang1986b}.
+Compared to inorganic PV devices, OPVs are lightweight, low cost, easier to produce, and flexible. 
+OPVs can be manufactured large scale in a roll to roll printing process, similar to newspaper, as shown in~\autoref{opv} a\cite{Dou2013}.
+Inorganic PV devices came first and are still the most efficient, but they are more costly to produce, use rare elements, and their production causes other environmental issues, so they aren't the best solution for solar energy harvesting. 
+
+A common metric to quantify the performance of a PV is the power conversion efficiency (PCE or sometimes $\eta_{e}$).
+The PCE is the ratio of electrical power produced by the device to the power of incedent photons.
 Higher PCE means the device is more efficient.  
 The material properties which determine the PCE of a device are those which affect the number of photons absorbed, excitons dissociated, and free charges that reach the electrode.
 The absorption efficiency depends on the absorption spectrum, absorption coefficient, and layer thickness.
 The fraction of excitons which dissociate depends on the exciton dissociation length and the charge separation probability at the interface.
 Finally, the the number of charges which reach the electrode depends on the driving force or gradient resulting from the potentials of the electrons and holes\cite{Hoppe2004}.
-%%<is there a citation for why charge transport is a good proxy for PCE?>
 
-Traditionally, photovoltaic (PV) devices, which can convert incedent light into electric current, were made of inorganic materials like silicon.
-But in the late 1970's organic photovaltaics (OPVs) were discovered as a potential alternative\cite{Tang1986b}.
-The advantage of OPVs over inorganic PV devices is that OPVs are lightweight, low cost, easier to produce, and flexible. 
-OPVs can be manufactured large scale in a roll to roll printing process, similar to newspaper, as shown in~\autoref{opv} a\cite{Dou2013}.
-Inorganic PV devices came first and are still the most efficient, but they are more costly to produce, use rare elements, and their production causes other environmental issues, so they aren't the best solution for solar energy harvesting. 
-The first OPV was created by Tang in 1986 and used a bilyaer structure containing copper phthalocyanine and a perylene derivitive\cite{Tang1986b}. 
+The first OPV was created by Tang in 1986 and used a bilayer structure containing copper phthalocyanine and a perylene derivitive\cite{Tang1986b}. 
 This early device had a PCE of 0.95\%.
 In 1992, Sariciftci and Heeger were the first to report using a fullerene as an electron acceptor in a fullerene:polymer mixture\cite{Sariciftci1992}.
 And in 1995, Yu described the first bulk heterojunction (BHJ), as an interpenetrating network of donor and acceptor that maximizes the interfacial area, which is still the state of the art morphology to this day\cite{Yu1995}.
@@ -136,11 +138,11 @@ Most recently, non-fullerene acceptors (NFAs), like ITIC, are contributing to th
     \caption{ITIC chemical structure with \textcolor{red}{electron accepting regions in red} and \textcolor{blue}{electron donating regions in blue}}\label{itic}
 \end{wrapfigure}
 
-The planar acceptor-donor-acceptor moeity seen in many NFA backbones (see \autoref{itic}) may have more efficient exciton splitting, as compared to a fullerene acceptor, at the heterojunction due to strong electronic coupling between the conjugated backbones of the NFA and the polymer\cite{Yi2018a}.
+\noindent The planar acceptor-donor-acceptor moeity seen in many NFA backbones (see \autoref{itic}) may have more efficient exciton splitting, as compared to a fullerene acceptor, at the heterojunction due to strong electronic coupling between the conjugated backbones of the NFA and the polymer\cite{Yi2018a}.
 
 The compounds which compose an OPV are synthesizable molecules (often polymers) composed of abundant elements (carbon, hydrogen, nitrogen, sulfur, oxygen).
 Due to the conjugated pi-orbitals in these molecules the absorption of sunlight can excite an electron into a frontier orbital and generate an exciton, a couloubicly bound electron-hole pair.
-OPVs are made as a mixture of electron-donor and electron-acceptor compounds in a structure called a bulk-heterojunction.
+OPVs are made as a mixture of electron-donor and electron-acceptor compounds in a structure called a bulk heterojunction.
 Depending on the bulk morphology of these compounds, the exciton can travel to an acceptor-donor interface and dissociate into free electron and hole then these free charges generate current if they can subsequently make their way to an electrode.
 
 The morphology of the device can be affected by the processing conditions: temperature, solvents, and concentrations/ratios of the active compounds\cite{Ma2005,Hoppe2004a,Li2007}.
@@ -244,7 +246,6 @@ This can allow us the calculate properties such as charge transport, which depen
 %%<what stands in our way?>
 %%<coarse-grain models are specific>
 %% EJ: Discuss in-person?
-
 %% HELP is the following paragraph/section too big? 
 %% EJ: It's a little rambly, but definitely not bad. One check we can do in the background is check for each paragraph or subsection, have we clearly identified outstanding problems or gaps in knowledge, and check whether mention them in the motivation? I expect this kind of check will help "tidy up" this paragraph.
 Part of coarse-graining process that is not yet automated is choosing a mapping scheme or a mapping operator.
@@ -255,14 +256,16 @@ In this scheme, four atoms (except rings, which are treated differently) are gro
 When parameterizing a new molecule for the MARTINI method, a user must pick a mapping and then compare the chemical structure of the resulting sites to those which have already been parameterized; a process which is time consuming and error prone\cite{martini-tutorial}.
 The published tutorial recommends searching through existing MARTINI topologies to find similar structures and then manually editing them to fit the new molecule.
 Whether the structure is similar then is based on the user's chemical knowledge, judgement, and intuition.
-Many other mapping schemes also rely on the user's chemical intuition (e.g., what parts of the molecule shouldn't be allowed to bend? What groups have the most dominant interactions in this structure)\cite{Huang2010, Knotts2007}.
-As the number of atoms in the fine grain structure increases, the number of possible mappings increase drastically.
+Many other mapping schemes also rely on the user's chemical intuition (e.g., grouping the atoms in ring structures which move less or grouping structures based on the dominant interactions, like the base pairs in DNA)\cite{Huang2010, Knotts2007}.
+As the number of atoms in the fine grain structure increases, the number of possible mappings increase drastically and manually deciding a mapping operator becomes more difficult.
+
 There have been efforts to create algorithms for automating the process of deciding which atoms are grouped in a ``super atom''.
 One study reduced the number of allowed mappings by only allowing those which do not change the symmetry group, then iterated over a graph of all possible mappings to find the ``best'' mapping by comparing the difference between the mapped RDF and velocity autocorrelation function\cite{Chakraborty2018b}.
 Another uses principle component analysis to choose a mapping scheme for biomolecules that best represents th essential dynamics\cite{Zhang2008}.
 Mapping operators can be automated using machine learning: clustering methods combined with graph analysis were shown to predict the ``expert'' mapping chosen using chemical intuition reliably\cite{Li2020}. 
 A mapping operator based on the centers of charge was shown to accurately model electrostatic properties\cite{Cao2015a}.
-Deciding on a mapping operator is one part of creating a coarse-grained model, the second step is to create an effective potential for the site.
+However, there is still no best method for choosing the mapping operator.
+Deciding on a mapping operator is just the first step of creating a coarse-grained model, next is to create an effective potential for the site.
 
 \subsection*{Multi-State Iterative Boltzmann Inversion}
 
@@ -310,8 +313,6 @@ For example, separate potentials are required to capture solid and fluid structu
 There are many attempts to create transferrable CG potentials, for example:
 The TraPPE force-field fits CG potentials using vapor-liquid equilibria to improve transferrability across thermodynamic states\cite{Maerzke2011}.
 But optimization to the liquid-vapor equilibrium, although useful for prediction of thermodynamic properties, may not be ideal for prediction of structure which will strongly influence charge transport.
-%%<so we probably want to create our own potentials>
-%%<IBI potentials are sometimes transferrable and it is not clear why sometimes they are and sometimes they aren't.>~\cite{Moore2014}
 
 \begin{wrapfigure}{l}{0.5\linewidth}
     \centering
@@ -348,6 +349,7 @@ But just because something is availiable doesn't mean it is accessible: often ju
 These existing codebases can appear to a new user as monolithic and indecipherable because their design has been to solve a problem, which they do, instead of design with a focus on how people learn.
 These codebases also rely on users piecing together multiple, often incompatible, bits of software, using manually created xml files, or deciding how to classify an atom grouping based on the user's chemical intuition.
 All of these factors contribute to a reproducibility crisis in the computational sciences\cite{Baker2016}.
+
 By keeping best practices for software development and teaching in mind, we can strive to make tools which make science more transferrable, reproducibile, usable, and extensible (TRUE)\cite{Thompson2020}.
 Best software development practices include using version control software, such as git, to facilitate the process of tracking and merging changes to a code repository, especially important when working collaboratively.
 Also among these best practices are using unit tests and continuous integration to ensure that errors are quickly and automatically caught\cite{Wilson2014}.
@@ -356,6 +358,8 @@ Following these guidelines not only makes our code easier to develop and debug b
 Providing good documentation and tutorials is also imperative for onboarding new users.
 Jupyter Notebooks, which are a combination of interactive code and formatted text and images, can be used like a lab notebook for computational scientists in order to demonstrate the process, rationale, and the story of each experiment and the exact steps to get the results shown\cite{jupyter, Rule2019a}.
 When writing these tutorials, it is wise to remember that the data never speaks for itself: although including input and output files of a calculation is a good first step, they must be accompanied by the story of what the data means and how a user can know that meaning for themselves\cite{SWC, Wilson2016}.
+By keeping these ideas in mind throughout development, we can develop more efficiently and create tools which are easier to use and produce reproducible results.
+
 \section*{Preliminary Work}
 
 %% HELP this section is rough... not sure what to do.
@@ -486,7 +490,6 @@ I have developed a minimum working example of this backmapping process\cite{grit
 however, the specification of how the backmapped atomistic structures are bonded is still not intuitive for the user to specify and I have yet to implement automated tracking of the conds during the coarse graining.
 
 \textbf{Completion Critera:} The ability to perform charge-transport calculations of 5 polymer, 5 fullerene-derivative, and 5 ITIC-derived OPV morphologies that have been back-mapped from coarse-grained representations.
-%%\ej{Here's candidate text with being able to USE the back-mapped morphologies, but maybe we want something easier here?} - i'm ok with this goal.
 
 \subsection*{Objective 3: Predict nanostructures of novel OPV chemistries}
 
