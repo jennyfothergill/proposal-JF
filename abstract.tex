@@ -1,0 +1,32 @@
+\documentclass{article}
+\begin{document}
+\begin{center}
+    \large{\textbf{Simple, flexible generation of coarse grain models for novel organic photovoltaics}}
+\end{center}
+\begin{center}
+    Jenny W. Fothergill
+\end{center}
+\begin{center}
+    \textbf{Project Summary}
+\end{center}
+
+Consumption of fossil fuels for energy is the main contributor to rising atmospheric $CO_{2}$. 
+Solar power provides a renewable, non-polluting, sustainable option.
+Organic photovoltaic (OPV) devices, which can convert incedent sunlight to electricity, are the focus of this research because they represent the best opportunity for cost-effective solar power.
+The active layer of an OPV consists of an interpenetrating network of electron donor and acceptor compounds.
+The efficiency of the device depends on the morphology of the active layer.
+In this research we will use molecular simulation to predict the active layer morphology and, in turn, the device efficiency.
+
+Molecular dynamics (MD), a simulation technique where atoms are represented by classical forces and their interactions are specified by attractive/repulsive potentials, can be used to probe the thermodynamics of OPV self assembly.
+The charge mobility through these morphologies can be calculated using kinetic monte carlo (KMC) in concert with quantum chemical calculations (QCCs).
+By understanding how charges move through these systems, one can predict which OPVs will be most efficient.
+However, this simulation workflow suffers from a problem of length scales:
+Probing charge transport properties with QCCs requires the calculation of electron densities around each atom, which requires knowing the positions of each atom.
+But equilibrating this morphology at volumes which exceed the exciton dissociation length (~5-10 nm) is prohibitive if every individual atom is considered.
+
+Coarse grain (CG) models, which group multiple atoms together into ``super atoms'' with the net force on these atoms represented an effective potential, can be used to access length and time scales more relevant to the bulk polymer morphology.
+After a bulk morphology is obtained, we can use backmapping, a process in which the atomistic detail can be reintegrated into a coarse grain model, to restore atomistic detail for use in simulations like KMC/QCC.
+This multiscale simulation workflow allows for OPV morphologies to be equilibrated at length scales relevant to the bulk polymer and to regain the atomistic detail more efficiently using a better starting structure.
+PI Fothergill will design a simple, chemically sensible coarse graining and backmapping package based on the SMILES chemical input language with a focus on OPVs.
+This will allow for easier setup and execution of multiscale simulation, which can be part of the process to finding the next great OPV technology.
+\end{document}
