@@ -8,6 +8,9 @@
 one: 
 	pdflatex 0master.tex
 
+abs: 
+	pdflatex abstract.tex
+
 clean: 
 	rm -f *.aux
 	rm -f *.out
