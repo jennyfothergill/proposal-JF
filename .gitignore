@@ -4,6 +4,7 @@ library-link.bib
 
 # Don't add the pdf
 0master.pdf
+abstract.pdf
 
 # random other files in images
 *.svg
