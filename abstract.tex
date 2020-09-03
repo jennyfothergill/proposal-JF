@@ -12,13 +12,11 @@ Solar power provides a non-polluting, sustainable option.
 Organic photovoltaic (OPV) devices, which can convert incedent sunlight to electricity, are the focus of this research because they represent the best opportunity for cost-effective solar power.
 The active layer of an OPV consists of an interpenetrating network of electron donor and acceptor compounds.
 The efficiency of the device depends on the morphology of the active layer.
-In this research we will use molecular simulation to predict the active layer morphology and, in turn, the device efficiency.
 
-However, this simulation workflow suffers from a problem of length scales:
-Probing charge transport properties with QCCs requires the calculation of electron densities around each atom, which requires knowing the positions of each atom.
-But equilibrating this morphology at volumes which exceed the exciton dissociation length (~5-10 nm) is prohibitive if every individual atom is considered.
-This multiscale simulation workflow allows for OPV morphologies to be equilibrated at length scales relevant to the bulk polymer and to regain the atomistic detail more efficiently using a better starting structure.
-PI Fothergill will design a simple, chemically sensible coarse graining and backmapping package based on the SMILES chemical input language with a focus on OPVs.
-This will allow for easier setup and execution of multiscale simulation, which can be part of the process to finding the next great OPV technology.
+In this research we will use molecular simulation to predict the active layer morphology and, in turn, the device efficiency.
+A key challenge herein is spanning the length and time scales relevant to active layer morphology kinetics and charge transport processes, demanding use of tools including density functional theory all the way up to coarse-grained models.
+We propose developing new simulation tools that solve longstanding problems with simulation management, transferability, reproducibility, usability, and extensibility
+Specifically, we develop tools in the Molecular Simulation Design Framework (MoSDeF) for automating the coarse-graining of organic photovoltaic chemistries, and predicting and analyzing equilibrated OPV morphologies.
+
 
 \end{document}
