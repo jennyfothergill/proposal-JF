@@ -4,12 +4,15 @@
 	bibtex 0master
 	pdflatex 0master.tex
 	pdflatex 0master.tex
+	open 0master.pdf
 
 one: 
 	pdflatex 0master.tex
+	open 0master.pdf
 
 abs: 
 	pdflatex abstract.tex
+	open abstract.pdf
 
 clean: 
 	rm -f *.aux
