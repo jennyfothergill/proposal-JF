@@ -321,11 +321,15 @@ But optimization to the liquid-vapor equilibrium, although useful for prediction
 \end{wrapfigure}
 
 Multistate iterative Boltzmann inversion (MS IBI) includes data from multiple targets to yield a less state dependent potential\cite{Moore2014}.
-The MS IBI potential is an average of the single state potentials with a weighting function to prioritize a state of interest.
-This method has been shown to accurately reproduce the true potential in monoatomic LJ fluid.
+The MS IBI potential is an average of the single state potentials with a weighting function to prioritize a state of interest, as shown in the following equation:
+\[
+    V_{s,i+1}(r) = V_{s,i}(r) - \frac{1}{N}\sum_{s}\alpha_{s}(r)k_{B}T_{s} \ln\bigg(\frac{g_{s}^{i}(r)}{g_{s}(r)}\bigg)
+\]
+where the subscript $s$ represents the property at that state, $N$ is the total number of states, and $\alpha_{s}(r)$ is a weighting factor allowing for more or less emphasis on each state.
+This method has been shown to accurately reproduce the true potential in monoatomic LJ fluid\cite{Moore2014}.
 When using the MS IBI method, it is important to choose dissimilar states to minimize the potential overlap region.
 If this overlap region is large, there are many potentials which will provide matching RDFs (see \autoref{moore}).
-For some systems there may not be a potential that represents all states; this is not unique to coarse potentials, atomistic potentials also have this limitation. \ej{the second half of this sentence is a big idea that we might consider unpacking more, or maybe omitting?}
+For some systems there may not be a potential that represents all states.
 
 %% HELP transition
 %%<need some tie in back to why we would want to go from CG--->atomistic>
