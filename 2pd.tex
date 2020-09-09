@@ -367,27 +367,31 @@ By keeping these ideas in mind throughout development, we can develop more effic
 \section*{Preliminary Work}
 
 %% HELP this section is rough... not sure what to do.
-My prior work has involved probing the intermolecular interactions which govern dimer and crystal formation.
-An investigation of the excitonic splitting observed in cyanine dye dimers was done using density functional theory (DFT)\cite{Fothergill2018}.
+My prior work has focused on developing and using computational tools to predict and understand self assembly of electronically active molecules.
+The resulting three manuscripts and one poster span all scales from first-principles calculation of electronically active dimers to new tools for analyzing the long-range periodicities of large scale atomistic and coarse-grain simulations.
+In my first publication on dimer formation, an investigation of the excitonic splitting observed in cyanine dye dimers was done using density functional theory (DFT)\cite{Fothergill2018}.
 By comparing calculated with experimental absorption spectra it was found that the solvent may play a large role in the dimer formation and peak shifting.
-An investigation of the supramolecular interactions which guide crystal self-assembly in diphenylurea transition metal complexes was done using density functional theory\cite{Millard2019a}. 
+In my second publication, an investigation of the supramolecular interactions which guide crystal self-assembly in diphenylurea transition metal complexes was done using density functional theory\cite{Millard2019a}. 
 My contributions to our perspective paper were mostly about my experience joining the lab and trying to reproduce an existing model; a task which should be very straightforward in a computational field but which any computational scientist can attest is far from simple\cite{Jankowski2019}. 
-I also presented a tool I've developed, called GIXStapose, at the Scientific Python conference (SciPy2020)\cite{gixstapose, scipy2020}
-GIXStapose is an interactive structure viewer alongside its simulated diffraction pattern.
-This work had two goals: helping users to see the connections between a structure and it's diffraction pattern and making reproducible figure generation easier.
-The first goal is achieved through a graphical user interface (GUI) which allows users to interact with the structure using the mouse and the diffraction pattern is updated automatically.
-The second goal is accomplished by allowing all steps of the figure generation process (e.g., positioning the camera, setting the colors and lighting, etc) to be scripted and never \textit{requiring} use of the GUI\@.
-These prior works, although not directly related to OPVS or coarse-grained models, have helped me think about how atomic interactions can shape a structure, the struggles that face a new computational scientist, and how I can help.
+In my first poster contribution to the SciPy conference, I presented a tool called GIXStapose, an interactive structure viewer alongside its simulated diffraction pattern\cite{gixstapose, scipy2020}.
+In sum, working at all scales important to OPV morphology has crystallized the need for pipelines emphasizing transferrability, reproducibility, useability, and extensibility.
 
+To improve the useability and extensibility of molecular simulation tools, I have been intentional about incorporating Software Carpentry priniciples into my work.
+Background for thinking about users
+pedagogy for thinking about how users take in new information
+useability
+I have completed Software Carpentry training which has taught me how to break down complex ideas and give learners a chance to use their knowledge.
+With these principles in mind, I have created tutorial examples to help current and future students understand scientific concepts and how to use computational tools\cite{notebooktutorials}
+
+In my scientific software development with the Molecular Simulation and Design Framework (MoSDeF) team
 I have contributed to development of open-source packages including mbuild, foyer, signac, and fresnel\cite{mbuild, foyer, signac, fresnel}.
 These contributions have given me ample opportunity to excercise best software development practices like writing good documentation, using version control, writing unit tests, employing CI, using a fork \& pull workflow, etc.
 This experience will help me to be more efficient in my future work.
 I've also gained valuable experience as working as part of a team.
 As I plan to integrate my future work with existing projects, good collaborative skills will be necessary.
+growth -- nervousness to participate or submit prs empower and shape the way i think about my thesis
 
-I have completed Software Carpentry training which has taught me how to break down complex ideas and give learners a chance to use their knowledge.
-With these principles in mind, I have created tutorial examples to help current and future students understand scientific concepts and how to use computational tools\cite{notebooktutorials}
-
+A specific example of what we mean by improving the transferrability, reproducibility, useability, and extensibility is the coarse-graining tools that I have developed on route to fufilling Objective 1 of this proposal.
 As for work towards my proposed plan, I have created a minimum working example of a coarse-graining and backmapping package which uses SMARTS strings to specify the site chemistries\cite{grits}.
 This package will need further testing as it is tested on different compounds, but the proof of concept exists.
 
@@ -482,7 +486,7 @@ For this, we will make use of and build upon the simulation setup capabilities o
 
 \textbf{Completion Critera:} Force fields and initial configurations usable with HOOMD-Blue that enable the equilibration of: 5 polymers, 5 fullerene derivatives, and 5 ITIC derivatives. 
 
-\subsection*{Objective 2: Develop a general tool to calculate atomistic positions from a coarse-grained morphology}
+\subsection*{Objective 2: Develop a general tool to calculate atomistic positions from coarse-grained morphologies}
 
 In order to calculate the charge transport of a coarse-grained representation of a morphology, we need to be able to estimate the atomic positions.
 Given an equilibrated coarse-grained trajectory, we can reintroduce the atomistic degrees of freedom by using the same SMARTS mappings used for coarse-graining.
@@ -508,11 +512,29 @@ This will help easily and efficiently test out different mappings and ``processi
 Validation using diffraction or RDF of simulated morphologies composed of 5 polymers, 5 fullerene derivatives, and 5 ITIC derivatives. 
 %%\ej{Some number of predicted morphologies and/or some number of morphologies validated against experiments. }
 
-\subsection*{Objective 4: Identify chemical features correlated with robust self-assembly and good charge transport}
+\subsection*{Objective 4: Identify chemical features correlated with robust self-assembly}
+
+- perform lots of simulations, get lots of morphologies, observe state-dependence of self-assembly
+- replicate trials 5 of each thermodynamic state, molecules, concentrations temperature, density
+- how many out of 5 get to the same morphology? (same morphology could be measured by RDF GIXS)
+- machine learning?
+- quantify robustness of assembly relaxation time to equilibrium and proportion of simulations that reach the same equilibrated structure
+- once robustness metric is defined correlate to identify robust self assembly
+- part of this objective will be investigating techniques to probe this correlation including machine learning
+
+\textbf{Completion Critera:} identify measure of robustness to segment our statepoints into 5ths of top 5ths of best assemblers what's similar between them -- top three chemical features
+
+\subsection*{Objective 5: Identify chemical features correlated with good charge transport}
+
+- similar to objective 4 use correlation to determine except replace robustness metric with hole mobility 
+- for all of the morphologies that come out weve got a network that comes out we can easily chop the network to see what matters
+- network analysis of charge transport network to identify morhological features that result in good charge transport see which matters most
+
+\textbf{Completion Critera:} we dont need to make an objective function, chemical and morphological features that result in high hole mobility
 
 Our lab has shown that we have the capability to compare our simulation results to experiment using hole mobilities from charge transport calculations\cite{Jones2017,Miller2018a} and grazing incedent X-ray scattering (GIXS) patterns\cite{Miller2018}.
 GIXS calculations on our backmapped trajectories can be used to validate that our simulations result in the same morphology as experiment.
-While charge transport calculations can be used to rate the efficacy of the active layer morphology.
+While charge transport calculations can be used to measure the efficacy of the active layer morphology.
 Using our lab's charge transport package (MorphCT) on new chemistries, however, will require some work.
 Many of the parameters and the definition of the chromophore are hard-coded for poly-3-hexylthiophene (P3HT).
 Moving this package away from a command line interface will also be a goal of this work.
@@ -520,13 +542,19 @@ Moving this package away from a command line interface will also be a goal of th
 %%<adding in calculation of reorganization energy??> 
 %%<or just ripping out the KMC bit and making it modular>
 
-\textbf{Completion Critera:} \ej{todo}
 
 \section*{Predicted Outcomes}
 
 \ej{One thing this section is missing right now are tangible things that we specified in our Research Objectives. These include: XX new models of OPV chemistries; XX new tutorial notebooks for doing YY\@; XX predictions of OPV morphologies; Implementations of best practices others can copy or extend; }
 As a result of this work, we expect the following outcomes:
 
+- Deeper understanding of using thermodynamics to self-assemble advanced electronic materials
+- Chemical features which correlate with robust self assembly
+- Chemical and morphological features correlated with good charge transport
+- A library of equilibrated OPV morphologies hosted publically through scholarworks freely available
+- An updated understanding of best practices for coarse-graining organic photovoltaics Coarse-grain models
+- new coarse grain models designed for transferrability and usebility - design for mosdef tools
+- Our repository of coarse-graining tool including tutorials designed for onboarding new users
 \begin{enumerate}
     \item {\textbf{Gain insight into the limits of coarse-graining}}
         This work will probe the limits of coarse-graining to understand the minimal model necessary to represent different OPV chemistries.
@@ -546,14 +574,9 @@ As a result of this work, we expect the following outcomes:
 
 \section*{Contingency Analysis}
 
-Although minimum working examples have been developed for both the coarse-graining and backmapping packages, I still expect to struggle when mapping new compounds.
-Sometimes the SMARTS/SMILES mapping won't work without careful choice of sites.
-This can be a little frustrating but is still preferrable to having to manually specify the mapping of each atom.
-At least the reasons that a SMARTS mapping fails are usually understandable (e.g., the order of the sites matters) or chemically sensible (e.g., one SMILES string may contain another --- just as one chemical moeity may be composed of more submoeities). %%<this is a word?>)
-
-It may also be difficult to find a good coarse-graining scheme for the NFA compounds. 
-These compounds are often composed of large planar backbones with floppy side chains.
-Finding a suitable mapping to represent both aspects may be difficult.
+- obj 4 and 5 maybe there aren't descriptors that classify good CT or assemblers? our past work with artificial net has done a better than expected job with p3ht and ct is confidence inspiring but if we dont find the top three-- at least we'll have a dataset that is a stepping stone toward solving but we should be able to generate features of NFAs and polymers
+- obj 3 needs models and  access to computational resources. some of the coarse graining and pipelining work might be limited if objective 1 doesn't go to plan but we can still use naiive models like UA bsu, xsede, inl, and local HPC resources inspire confidence that wwe will have adequate resources 
+- obj 1 and 2 no specific this stand in the way, stitching together existing software and trying out new approaches. thing that inspires confidence around getting these done is active participation in mosdef, software development enroute to this.
 
 \section*{Timeline for Implementation and Evaluation}
 \begin{table}[h]
