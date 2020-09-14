@@ -380,7 +380,7 @@ My contribution to the lab's perspective paper were mostly about my on-boarding 
 In my first poster contribution to the SciPy conference, I presented a tool called GIXStapose, an interactive structure viewer alongside its simulated diffraction pattern\cite{gixstapose, scipy2020}.
 In sum, working at all scales important to OPV morphology has crystallized the need for pipelines emphasizing transferrability, reproducibility, useability, and extensibility.
 
-To improve the useability and extensibility of molecular simulation tools, I have been intentional about incorporating Software Carpentry priniciples into my work\cite{swc}.
+To improve the useability and extensibility of molecular simulation tools, I have been intentional about incorporating Software Carpentry priniciples into my work\cite{swc-main}.
 My experience as a Software Carpentry instructor has given me the pedagocial foundation to think about how users take in new information.
 With these principles in mind, I have created tutorial examples to help current and future students understand scientific concepts and how to use computational tools\cite{notebooktutorials}
 
@@ -565,59 +565,28 @@ However, perhaps this assumption is wrong and there simply aren't good descripto
 Our past work with artificial neural nets has done a better than expected job predicting charge transport in p3ht, which should inspire some confidence.
 Even if we don't find the top three features that correlate with charge transport or self assembly, at least we'll have a dataset that is a stepping stone toward answering these questions.
 
+\pagebreak
 \section*{Timeline for Implementation and Evaluation}
-
-\begin{table}[h]
-    \resizebox{\columnwidth}{!}{\renewcommand{\arraystretch}{1.1}
-    \begin{tabular}{|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|}
-        \hline
-        \multirow{2}{*}{PROJECT TASK}
-            &\multicolumn{3}{c}{YEAR 1}
-            &\multicolumn{3}{|c}{YEAR 2} 
-            &\multicolumn{3}{|c}{YEAR 3} 
-            &\multicolumn{3}{|c|}{YEAR 4} 
-            &\multicolumn{3}{c|}{YEAR 5}
-            &\multicolumn{3}{c|}{YEAR 6} \\ 
-        \hhline{~--------------------}
-        & 1 & 2 & 3 & 1 & 2 & 3 & 1 & 2 & 3 & 1 & 2 & 3 & 1 & 2 & 3 & 1 & 2 & 3\\
-        \hline
-        Complete Coursework 
-            &\multicolumn{7}{|c|}{{\cellcolor{lgray}}} & & & & & & & & & & &\\
-        \hline
-        Present at a Conference  
-            & & & & & & & x & & & & & & & & & & &\\
-        \hline
-        Publish a First Author Paper
-            & & & & x & & & & & & & & & & & & & &\\
-        \hline
-        Proposal and Comprehensive Exam
-            & & & & & & & & * & & & & & & & & & &\\
-        \hline
-        Expand Functionality of Open Source Packages 
-            & & & & & \multicolumn{12}{|c|}{{\cellcolor{lgray}}} & &\\
-        \hline
-        Develop Coarse-Graining Package              
-            & & & & & & & \multicolumn{8}{|c|}{{\cellcolor{lgray}}} & & & &\\
-        \hline
-        Develop Automated MS IBI Code                
-            & & & & & & & \multicolumn{8}{|c|}{{\cellcolor{lgray}}} & & & &\\
-        \hline
-        Develop Backmapping Package                  
-            & & & & & & & & & & \multicolumn{6}{|c|}{{\cellcolor{lgray}}}& & &\\
-        \hline
-        Generate Coarse-Grain Morphologies           
-            & & & & & & & & & & & \multicolumn{6}{|c|}{{\cellcolor{lgray}}}& &\\
-        \hline
-        Evaluate OPV Device Performance 
-            & & & & & & & & & & & & \multicolumn{6}{|c|}{{\cellcolor{lgray}}} &\\
-        \hline
-        Write Dissertation 
-            & & & & & & & & & & & & & &\multicolumn{5}{|c|}{{\cellcolor{lgray}}}\\
-        \hline
-        Present Dissertation Defense  
-            & & & & & & & & & & & & & & & & & &{\cellcolor{lgray}}\\
-        \hline
-    \end{tabular}}\caption{Anticipated timeline. * indicates right now, x indicates already accomplished.}
+\begin{table}[h!]
+\centering
+    \resizebox{\textwidth}{!}{%
+\begin{tabular}{|l|l|l|l|l|l|l|l|l|l|l|l|l|l|l|l|l|l|l|}
+\hline
+\multicolumn{1}{|c|}{} & \multicolumn{3}{l|}{YEAR 1} & \multicolumn{3}{l|}{YEAR 2} & \multicolumn{3}{l|}{YEAR 3} & \multicolumn{3}{l|}{YEAR 4} & \multicolumn{3}{l|}{YEAR 5} & \multicolumn{3}{l|}{YEAR 6} \\ \cline{2-19} 
+\multicolumn{1}{|c|}{\multirow{-2}{*}{PROJECT TASK}} & 1 & 2 & 3 & 1 & 2 & 3 & 1 & 2 & 3 & 1 & 2 & 3 & 1 & 2 & 3 & 1 & 2 & 3 \\ \hline
+Complete Coursework & \multicolumn{7}{l|}{\cellcolor[HTML]{C0C0C0}} &  &  &  &  &  &  &  &  &  &  &  \\ \hline
+Present at a Conference &  &  &  &  &  &  &  & x &  &  &  &  &  &  &  &  &  &  \\ \hline
+Publish a First Author Paper &  &  &  & x &  &  &  &  &  &  &  &  &  &  &  &  &  &  \\ \hline
+Proposal and Comprehensive Exam &  &  &  &  &  &  &  &  & * &  &  &  &  &  &  &  &  &  \\ \hline
+Expand Functionality of Open Source Packages &  &  &  &  & \multicolumn{12}{l|}{\cellcolor[HTML]{C0C0C0}} &  &  \\ \hline
+Develop Coarse-Graining Package &  &  &  &  &  &  & \multicolumn{8}{l|}{\cellcolor[HTML]{C0C0C0}} &  &  &  &  \\ \hline
+Implement Automated MS IBI Package &  &  &  &  &  &  &  &  &  & \multicolumn{5}{l|}{\cellcolor[HTML]{C0C0C0}} &  &  &  &  \\ \hline
+Develop Backmapping Package &  &  &  &  &  &  &  & \multicolumn{7}{l|}{\cellcolor[HTML]{C0C0C0}} &  &  &  &  \\ \hline
+Generate Coarse-Grain Morphologies &  &  &  &  &  &  &  &  &  &  &  & \multicolumn{5}{l|}{\cellcolor[HTML]{C0C0C0}} &  &  \\ \hline
+Evaluate OPV Performance Metrics &  &  &  &  &  &  &  &  &  &  &  &  & \multicolumn{5}{l|}{\cellcolor[HTML]{C0C0C0}} &  \\ \hline
+Write Dissertation &  &  &  &  &  &  &  &  &  &  &  &  &  & \multicolumn{5}{l|}{\cellcolor[HTML]{C0C0C0}} \\ \hline
+Present Dissertation Defense &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  & \cellcolor[HTML]{C0C0C0} \\ \hline
+\end{tabular}%
+}
+\caption{Anticipated timeline. * indicates right now, x indicates already accomplished.}
 \end{table}
-
-
